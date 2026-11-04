@@ -3198,6 +3198,7 @@ body {
     opacity: 0;
     transform: translateY(1.2cqw) scale(0.985);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -3269,15 +3270,238 @@ body {
   min-height: 0;
 }
 
+/* Technical Pillar Header Carousel Navigation Controls */
+.skillset-cards-carousel-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75cqw;
+  padding: 0.38cqw 0.8cqw;
+  border-radius: 999px;
+  background-color: rgba(7, 32, 58, 0.68);
+  border: 0.12cqw solid rgba(130, 209, 255, 0.45);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0.3cqw 1cqw rgba(5, 22, 42, 0.3);
+}
+
+.skillset-carousel-counter {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 0.74cqw;
+  color: #82D1FF;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-right: 0.25cqw;
+  white-space: nowrap;
+}
+
+.skillset-carousel-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38cqw;
+}
+
+.skillset-carousel-dot {
+  width: 0.58cqw;
+  height: 0.58cqw;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(254, 255, 241, 0.32);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skillset-carousel-dot:hover {
+  background-color: rgba(124, 232, 255, 0.85);
+  transform: scale(1.25);
+}
+
+.skillset-carousel-dot.active {
+  width: 1.35cqw;
+  border-radius: 999px;
+  background-color: #7CE8FF;
+  box-shadow: 0 0 0.65cqw rgba(124, 232, 255, 0.7);
+}
+
+.skillset-carousel-arrow-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32cqw;
+  margin-left: 0.2cqw;
+}
+
+.skillset-carousel-arrow-btn {
+  width: 1.85cqw;
+  height: 1.85cqw;
+  border-radius: 50%;
+  border: 0.11cqw solid rgba(254, 255, 241, 0.55);
+  background-color: rgba(11, 56, 97, 0.68);
+  color: var(--bg-cream);
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 1.05cqw;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skillset-carousel-arrow-btn:hover:not(:disabled) {
+  background-color: #7CE8FF;
+  color: #0B3861;
+  border-color: #7CE8FF;
+  transform: scale(1.12);
+  box-shadow: 0 0 0.85cqw rgba(124, 232, 255, 0.5);
+}
+
+.skillset-carousel-arrow-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: rgba(254, 255, 241, 0.22);
+}
+
+/* Swipeable & Scrollable Carousel for Technical Pillar (Retains Luxurious 2-Col Card Width) */
+.skillset-stage-carousel {
+  flex: 1;
+  display: flex;
+  gap: 1.5cqw;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.35cqw 0.25cqw 0.7cqw;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(130, 209, 255, 0.5) rgba(8, 38, 66, 0.3);
+}
+
+.skillset-stage-carousel::-webkit-scrollbar {
+  height: 0.38cqw;
+}
+
+.skillset-stage-carousel::-webkit-scrollbar-track {
+  background: rgba(8, 38, 66, 0.35);
+  border-radius: 999px;
+  margin: 0 1cqw;
+}
+
+.skillset-stage-carousel::-webkit-scrollbar-thumb {
+  background: rgba(130, 209, 255, 0.5);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.skillset-stage-carousel::-webkit-scrollbar-thumb:hover {
+  background: #7CE8FF;
+}
+
+.skillset-stage-carousel.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.skillset-stage-carousel .skillset-specialty-card {
+  /* Exactly matches the width of .skillset-stage-two-cols cards so it has the same breathable, luxurious size */
+  flex: 0 0 calc((100% - 1.5cqw) / 2);
+  min-width: calc((100% - 1.5cqw) / 2);
+  max-width: calc((100% - 1.5cqw) / 2);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 1.45cqw 1.8cqw;
+  animation: cardLevitate 5.2s ease-in-out infinite alternate;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.skillset-stage-carousel .skillset-specialty-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.skillset-stage-carousel .skillset-specialty-card:nth-child(2) {
+  animation-delay: 1.4s;
+}
+
+.skillset-stage-carousel .skillset-specialty-card:nth-child(3) {
+  animation-delay: 2.8s;
+}
+
+.skillset-stage-carousel .skillset-specialty-card:hover {
+  animation-play-state: paused;
+  transform: translateY(-0.6cqw) scale(1.02);
+  border-color: #7CE8FF;
+  background-color: rgba(14, 66, 112, 0.88);
+  box-shadow: 0 1.2cqw 2.8cqw rgba(5, 22, 42, 0.45), 0 0 1.4cqw rgba(124, 232, 255, 0.28);
+  z-index: 4;
+}
+
+/* 3 Dynamic Interactive Moving Cards for Technical Pillar (Fallback) */
+.skillset-stage-three-cols {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1cqw;
+  min-height: 0;
+  perspective: 1200px;
+}
+
+.skillset-stage-three-cols .skillset-specialty-card {
+  padding: 1.25cqw 1.35cqw;
+  animation: cardLevitate 5.2s ease-in-out infinite alternate;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.skillset-stage-three-cols .skillset-specialty-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.skillset-stage-three-cols .skillset-specialty-card:nth-child(2) {
+  animation-delay: 1.4s;
+}
+
+.skillset-stage-three-cols .skillset-specialty-card:nth-child(3) {
+  animation-delay: 2.8s;
+}
+
+@keyframes cardLevitate {
+  0% {
+    transform: translateY(0px) rotateZ(0deg);
+  }
+
+  50% {
+    transform: translateY(-0.45cqw) rotateZ(0.25deg);
+  }
+
+  100% {
+    transform: translateY(0.25cqw) rotateZ(-0.25deg);
+  }
+}
+
+.skillset-stage-three-cols .skillset-specialty-card:hover {
+  animation-play-state: paused;
+  transform: translateY(-0.6cqw) scale(1.025);
+  border-color: #7CE8FF;
+  background-color: rgba(14, 66, 112, 0.88);
+  box-shadow: 0 1.2cqw 2.8cqw rgba(5, 22, 42, 0.45), 0 0 1.4cqw rgba(124, 232, 255, 0.28);
+  z-index: 4;
+}
+
 .skillset-specialty-card {
   background-color: rgba(11, 56, 97, 0.56);
   border: 0.12cqw solid rgba(130, 209, 255, 0.48);
   border-radius: 1.5cqw;
-  padding: 1.35cqw 1.65cqw;
+  padding: 1.45cqw 1.8cqw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 0.95cqw;
+  justify-content: flex-start;
+  gap: 1.15cqw;
   transition: transform 0.28s ease, border-color 0.28s ease, background-color 0.28s ease;
 }
 
@@ -3290,42 +3514,36 @@ body {
 .skillset-card-main {
   display: flex;
   flex-direction: column;
-  gap: 0.72cqw;
+  gap: 1.05cqw;
 }
 
 .skillset-specialty-title {
   font-family: var(--font-poppins);
   font-weight: 800;
-  font-size: 1.24cqw;
+  font-size: 1.22cqw;
   color: #FFFFFF;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   margin: 0;
+  line-height: 1.2;
 }
 
 .skillset-specialty-desc {
-  font-family: var(--font-poppins);
-  font-weight: 400;
-  font-size: 0.92cqw;
-  line-height: 1.44;
-  color: rgba(254, 255, 241, 0.94);
-  text-align: justify;
-  margin: 0;
+  display: none;
 }
 
 /* Specific Skills Pills Group Inside Each Card */
 .skillset-specific-pills-wrap {
   display: flex;
   flex-direction: column;
-  gap: 0.42cqw;
-  margin-top: 0.15cqw;
+  gap: 0.45cqw;
 }
 
 .skillset-pills-label {
   font-family: var(--font-poppins);
   font-weight: 700;
-  font-size: 0.74cqw;
-  letter-spacing: 0.1em;
+  font-size: 0.72cqw;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #82D1FF;
 }
@@ -3334,39 +3552,37 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.55cqw;
+  margin-top: 0.2cqw;
 }
 
-/* Highlighted Tools & Languages Tray inside Specialty Card */
+/* Highlighted Tools & Languages Tray inside Specialty Card (Clean, Transparent, No Background Box) */
 .skillset-tools-block--highlighted {
-  background: linear-gradient(135deg, #FEFFF1 0%, #EEF7FF 100%);
-  border: 0.14cqw solid #82D1FF;
-  border-radius: 1.15cqw;
-  padding: 0.82cqw 1.15cqw 0.92cqw;
-  box-shadow: 0 0.5cqw 1.35cqw rgba(5, 22, 42, 0.24);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .skillset-tools-heading {
   font-family: var(--font-poppins);
-  font-weight: 800;
-  font-size: 0.82cqw;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.72cqw;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FFFFFF;
-}
-
-.skillset-tools-block--highlighted .skillset-tools-heading {
-  color: #0B3861;
+  color: #82D1FF;
   display: inline-flex;
   align-items: center;
   gap: 0.42cqw;
 }
 
+.skillset-tools-heading::before,
 .skillset-tools-block--highlighted .skillset-tools-heading::before {
   content: "";
-  width: 0.48cqw;
-  height: 0.48cqw;
+  width: 0.44cqw;
+  height: 0.44cqw;
   border-radius: 50%;
-  background-color: #1967A7;
+  background-color: #7CE8FF;
 }
 
 .skillset-badges-row {
@@ -3380,26 +3596,30 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.78cqw 1.0cqw;
+  gap: 0.85cqw 1.2cqw;
+  padding: 0.1cqw 0;
 }
 
 .skillset-interactive-pill {
   font-family: var(--font-poppins);
-  font-weight: 600;
-  font-size: 0.75cqw;
-  padding: 0.26cqw 0.78cqw;
+  font-weight: 500;
+  font-size: 0.76cqw;
+  padding: 0.3cqw 0.82cqw;
   border-radius: 999px;
-  background-color: rgba(254, 255, 241, 0.14);
-  border: 0.1cqw solid rgba(254, 255, 241, 0.58);
+  background-color: rgba(254, 255, 241, 0.12);
+  border: 0.1cqw solid rgba(254, 255, 241, 0.52);
   color: var(--bg-cream);
   cursor: pointer;
-  transition: transform 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+  transition: transform 0.22s ease, background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
-.skillset-interactive-pill:hover {
+.skillset-interactive-pill:hover,
+.skillset-interactive-pill:focus-visible {
   background-color: var(--bg-cream);
   color: #0B3861;
-  transform: translateY(-0.15cqw);
+  border-color: #FFFFFF;
+  transform: translateY(-0.16cqw);
+  box-shadow: 0 0.3cqw 0.8cqw rgba(5, 22, 42, 0.28);
 }
 
 .tech-badge-icon {
@@ -3408,12 +3628,14 @@ body {
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
-  filter: drop-shadow(0 0.2cqw 0.45cqw rgba(11, 56, 97, 0.2));
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0.18cqw 0.4cqw rgba(0, 0, 0, 0.26));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
 }
 
-.tech-badge-icon:hover {
-  transform: translateY(-0.22cqw) scale(1.12);
+.tech-badge-icon:hover,
+.tech-badge-icon:focus-visible {
+  transform: translateY(-0.25cqw) scale(1.15);
+  filter: drop-shadow(0 0.35cqw 0.7cqw rgba(124, 232, 255, 0.5));
 }
 
 .tech-badge-icon svg,
@@ -3444,9 +3666,26 @@ body {
   height: 2.85cqw;
 }
 
+.tech-badge-icon--mysql img {
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.65));
+}
+
 .tech-badge-icon--lucid {
   width: 6.8cqw;
   height: 2.1cqw;
+}
+
+.tech-badge-icon--lucid img {
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.75));
+}
+
+.tech-badge-icon--railway {
+  width: 2.55cqw;
+  height: 2.55cqw;
+}
+
+.tech-badge-icon--railway img {
+  filter: brightness(0) invert(1);
 }
 
 .tech-badge-icon--vercel {
@@ -3454,26 +3693,82 @@ body {
   height: 2.35cqw;
 }
 
+.tech-badge-icon--stitch {
+  width: 7.2cqw;
+  height: 2.2cqw;
+}
+
+.tech-badge-icon--lovable {
+  width: 5.6cqw;
+  height: 2.05cqw;
+}
+
+.tech-badge-icon--storybook {
+  width: 5.8cqw;
+  height: 2.05cqw;
+}
+
+.tech-badge-icon--miro {
+  width: 2.55cqw;
+  height: 2.55cqw;
+}
+
+.tech-badge-icon--canva-img {
+  width: 2.6cqw;
+  height: 2.6cqw;
+}
+
+.tech-badge-icon--sql {
+  width: 5.1cqw;
+  height: 2.15cqw;
+}
+
+.tech-badge-icon--drawdb {
+  width: 5.4cqw;
+  height: 2.15cqw;
+}
+
 /* Interactive Live Tool Spotlight Bar at Bottom of Stage */
 .skillset-spotlight-bar {
   display: flex;
   align-items: center;
-  gap: 0.65cqw;
-  padding: 0.55cqw 1.2cqw;
+  gap: 0.75cqw;
+  padding: 0.62cqw 1.35cqw;
   border-radius: 999px;
-  background-color: rgba(7, 32, 58, 0.58);
-  border: 0.1cqw solid rgba(130, 209, 255, 0.35);
+  background-color: rgba(7, 32, 58, 0.75);
+  border: 0.12cqw solid rgba(130, 209, 255, 0.45);
   font-family: var(--font-poppins);
   font-weight: 500;
-  font-size: 0.8cqw;
+  font-size: 0.82cqw;
   color: var(--bg-cream);
+  min-height: 2.5cqw;
+  box-shadow: 0 0.4cqw 1.2cqw rgba(3, 16, 30, 0.35);
+  backdrop-filter: blur(8px);
+  margin-top: auto;
+  z-index: 5;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
 .skillset-spotlight-dot {
-  width: 0.55cqw;
-  height: 0.55cqw;
+  width: 0.58cqw;
+  height: 0.58cqw;
   border-radius: 50%;
   background-color: #7CE8FF;
-  box-shadow: 0 0 0.6cqw rgba(124, 232, 255, 0.9);
+  box-shadow: 0 0 0.65cqw rgba(124, 232, 255, 0.95);
   flex-shrink: 0;
+  animation: spotlightPulse 2s ease-in-out infinite;
+}
+
+@keyframes spotlightPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0.45cqw rgba(124, 232, 255, 0.8);
+  }
+
+  50% {
+    transform: scale(1.28);
+    box-shadow: 0 0 0.85cqw rgba(124, 232, 255, 1);
+  }
 }

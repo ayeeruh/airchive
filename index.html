@@ -551,8 +551,8 @@
                     <div class="intro-connect-actions">
                         <div class="intro-social-links" role="group" aria-label="Social and Contact Links">
                             <!-- Instagram -->
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                                class="intro-social-btn" aria-label="Instagram" title="Instagram">
+                            <a href="https://www.instagram.com/rara.iea/" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="Instagram" title="Instagram (@rara.iea)">
                                 <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor"
@@ -563,8 +563,8 @@
                             </a>
 
                             <!-- Facebook -->
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
-                                class="intro-social-btn" aria-label="Facebook" title="Facebook">
+                            <a href="https://www.facebook.com/aeraee.ordaniel/" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="Facebook" title="Facebook (Aira Bianca Ordaniel)">
                                 <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path
@@ -574,8 +574,8 @@
                             </a>
 
                             <!-- Email -->
-                            <a href="mailto:airabiancaordaniel@gmail.com" class="intro-social-btn" aria-label="Email"
-                                title="Send an Email">
+                            <a href="mailto:airabiancaordaniel616@gmail.com" class="intro-social-btn" aria-label="Email"
+                                title="Send an Email (airabiancaordaniel616@gmail.com)">
                                 <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <rect x="2.5" y="4.5" width="19" height="15" rx="3" stroke="currentColor"
@@ -586,8 +586,8 @@
                             </a>
 
                             <!-- LinkedIn -->
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-                                class="intro-social-btn" aria-label="LinkedIn" title="LinkedIn">
+                            <a href="https://www.linkedin.com/in/aira-ordaniel/" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="LinkedIn" title="LinkedIn (Aira Bianca Ordaniel)">
                                 <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path
@@ -601,8 +601,8 @@
                             </a>
 
                             <!-- GitHub -->
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                                class="intro-social-btn" aria-label="GitHub" title="GitHub">
+                            <a href="https://github.com/ayeeruh" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="GitHub" title="GitHub (@ayeeruh)">
                                 <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1367,6 +1367,21 @@
                                 <span class="skillset-stage-badge">01 / 04 • CORE SKILL SET</span>
                                 <h3 class="skillset-stage-heading">Technical</h3>
                             </div>
+
+                            <!-- Carousel Swipe & Dot Navigation for the 3 Technical Cards -->
+                            <div class="skillset-cards-carousel-nav" aria-label="Technical skill cards carousel navigation">
+                                <span class="skillset-carousel-counter" id="techCarouselCounter">Cards 1–2 of 3</span>
+                                <div class="skillset-carousel-dots" id="techCarouselDots">
+                                    <button type="button" class="skillset-carousel-dot active" data-slide-index="0" title="Slide to Card 1: Front-End Programming" aria-label="Card 1: Front-End Programming"></button>
+                                    <button type="button" class="skillset-carousel-dot" data-slide-index="1" title="Slide to Card 2: UI/UX Designing" aria-label="Card 2: UI/UX Designing"></button>
+                                    <button type="button" class="skillset-carousel-dot" data-slide-index="2" title="Slide to Card 3: UML Modeling" aria-label="Card 3: UML Modeling"></button>
+                                </div>
+                                <div class="skillset-carousel-arrow-group">
+                                    <button type="button" class="skillset-carousel-arrow-btn" id="techCarouselPrev" title="Slide Left / Previous Card" aria-label="Previous specialty card" disabled>‹</button>
+                                    <button type="button" class="skillset-carousel-arrow-btn" id="techCarouselNext" title="Slide Right / Next Card" aria-label="Next specialty card">›</button>
+                                </div>
+                            </div>
+
                             <div class="skillset-stage-controls">
                                 <button type="button" class="skillset-cycle-btn" data-cycle-dir="-1"
                                     title="Previous Skill Set" aria-label="Previous Skill Set">←</button>
@@ -1375,16 +1390,11 @@
                             </div>
                         </div>
 
-                        <div class="skillset-stage-two-cols">
+                        <div class="skillset-stage-carousel" id="techCardsCarousel" tabindex="0" aria-label="Technical skill cards carousel (swipeable)">
                             <!-- Left Specialty Card: FRONT-END PROGRAMMING -->
-                            <div class="skillset-specialty-card">
+                            <div class="skillset-specialty-card" data-card-index="0">
                                 <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">Front-End Programming</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Building responsive web interfaces with HTML, CSS, and JavaScript, and planning
-                                        the data behind them through database design diagrams (ERDs) that map out how a
-                                        system’s information connects.
-                                    </p>
 
                                     <div class="skillset-specific-pills-wrap">
                                         <span class="skillset-pills-label">Specific Skills</span>
@@ -1408,206 +1418,311 @@
                                                 HTML5</span>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- Highlighted Tools & Languages Showcase Tray -->
-                                <div class="skillset-tools-block skillset-tools-block--highlighted">
-                                    <span class="skillset-tools-heading">Tools &amp; Languages</span>
-                                    <div class="skillset-logos-grid">
-                                        <!-- 1. HTML5 -->
-                                        <div class="tech-badge-icon tech-badge-icon--shield"
-                                            data-tool-note="HTML5 — Semantic markup & accessible page architecture"
-                                            title="HTML5">
-                                            <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#E44D26" />
-                                                <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#F16529" />
-                                                <path
-                                                    d="M16.5 18H47.5L46.8 25.2H24.2L24.8 32.2H46.1L44.4 50.2L32 53.8L19.6 50.2L18.7 40.5H26L26.5 45.2L32 46.8L37.5 45.2L38.2 38.8H18.1L16.5 18Z"
-                                                    fill="#FFFFFF" />
-                                            </svg>
-                                        </div>
+                                    <!-- Clean Tools & Languages Tray (No White Box) -->
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Tools &amp; Languages</span>
+                                        <div class="skillset-logos-grid">
+                                            <!-- 1. HTML5 -->
+                                            <div class="tech-badge-icon tech-badge-icon--shield"
+                                                data-tool-note="HTML5 — Semantic markup & accessible page architecture"
+                                                title="HTML5">
+                                                <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#E44D26" />
+                                                    <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#F16529" />
+                                                    <path
+                                                        d="M16.5 18H47.5L46.8 25.2H24.2L24.8 32.2H46.1L44.4 50.2L32 53.8L19.6 50.2L18.7 40.5H26L26.5 45.2L32 46.8L37.5 45.2L38.2 38.8H18.1L16.5 18Z"
+                                                        fill="#FFFFFF" />
+                                                </svg>
+                                            </div>
 
-                                        <!-- 2. CSS3 -->
-                                        <div class="tech-badge-icon tech-badge-icon--shield"
-                                            data-tool-note="CSS3 — Responsive layouts, custom animations & design systems"
-                                            title="CSS3">
-                                            <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#264DE4" />
-                                                <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#2965F1" />
-                                                <path
-                                                    d="M16.8 18H47.2L46.4 25.2H32L18.8 32.2H45.6L43.8 50.2L32 53.8L20.2 50.2L19.3 40.5H26.6L27.1 45.2L32 46.8L37.2 45.2L37.9 38.5H18.2L18.8 32L35.5 25.2H17.5L16.8 18Z"
-                                                    fill="#EBEBEB" />
-                                            </svg>
-                                        </div>
+                                            <!-- 2. CSS3 -->
+                                            <div class="tech-badge-icon tech-badge-icon--shield"
+                                                data-tool-note="CSS3 — Responsive layouts, custom animations & design systems"
+                                                title="CSS3">
+                                                <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#264DE4" />
+                                                    <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#2965F1" />
+                                                    <path
+                                                        d="M16.8 18H47.2L46.4 25.2H32L18.8 32.2H45.6L43.8 50.2L32 53.8L20.2 50.2L19.3 40.5H26.6L27.1 45.2L32 46.8L37.2 45.2L37.9 38.5H18.2L18.8 32L35.5 25.2H17.5L16.8 18Z"
+                                                        fill="#EBEBEB" />
+                                                </svg>
+                                            </div>
 
-                                        <!-- 3. PHP -->
-                                        <div class="tech-badge-icon tech-badge-icon--php"
-                                            data-tool-note="PHP — Dynamic server-side logic & database integration"
-                                            title="PHP">
-                                            <svg viewBox="0 0 110 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <ellipse cx="55" cy="29" rx="52" ry="26" fill="#777BB3"
-                                                    stroke="rgba(11,56,97,0.22)" stroke-width="2" />
-                                                <text x="55" y="37" text-anchor="middle" fill="#000000" stroke="#FFFFFF"
-                                                    stroke-width="1.4" paint-order="stroke fill"
-                                                    font-family="Arial, sans-serif" font-weight="900"
-                                                    font-style="italic" font-size="27">php</text>
-                                            </svg>
-                                        </div>
+                                            <!-- 3. PHP -->
+                                            <div class="tech-badge-icon tech-badge-icon--php"
+                                                data-tool-note="PHP — Dynamic server-side logic & database integration"
+                                                title="PHP">
+                                                <svg viewBox="0 0 110 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <ellipse cx="55" cy="29" rx="52" ry="26" fill="#777BB3"
+                                                        stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+                                                    <text x="55" y="38" text-anchor="middle" fill="#FFFFFF"
+                                                        font-family="Arial, sans-serif" font-weight="900"
+                                                        font-style="italic" font-size="28">php</text>
+                                                </svg>
+                                            </div>
 
-                                        <!-- 4. JavaScript -->
-                                        <div class="tech-badge-icon tech-badge-icon--shield"
-                                            data-tool-note="JavaScript — Interactive UI states, DOM logic & dynamic web apps"
-                                            title="JavaScript">
-                                            <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#E5A228" />
-                                                <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#F1BF26" />
-                                                <path
-                                                    d="M17.5 18H46.5L45.8 25.2H24.6L25.2 32.2H45.1L43.5 50.2L32 53.8L20.5 50.2L19.6 40.5H26.8L27.3 45.2L32 46.8L36.8 45.2L37.5 38.8H18.6L17.5 18Z"
-                                                    fill="#FFFFFF" />
-                                            </svg>
-                                        </div>
+                                            <!-- 4. JavaScript -->
+                                            <div class="tech-badge-icon tech-badge-icon--shield"
+                                                data-tool-note="JavaScript — Interactive UI states, DOM logic & dynamic web apps"
+                                                title="JavaScript">
+                                                <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#E5A228" />
+                                                    <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#F1BF26" />
+                                                    <path
+                                                        d="M17.5 18H46.5L45.8 25.2H24.6L25.2 32.2H45.1L43.5 50.2L32 53.8L20.5 50.2L19.6 40.5H26.8L27.3 45.2L32 46.8L36.8 45.2L37.5 38.8H18.6L17.5 18Z"
+                                                        fill="#FFFFFF" />
+                                                </svg>
+                                            </div>
 
-                                        <!-- 5. GitHub -->
-                                        <div class="tech-badge-icon tech-badge-icon--square"
-                                            data-tool-note="GitHub — Version control, repository hosting & collaborative development"
-                                            title="GitHub">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M12 1.8C6.36 1.8 1.8 6.36 1.8 12C1.8 16.51 4.72 20.33 8.78 21.68C9.29 21.77 9.48 21.46 9.48 21.19C9.48 20.95 9.47 20.14 9.46 19.29C6.62 19.91 6.02 18.09 6.02 18.09C5.56 16.91 4.89 16.6 4.89 16.6C3.96 15.97 4.96 15.98 4.96 15.98C5.98 16.05 6.52 17.03 6.52 17.03C7.43 18.59 8.9 18.14 9.49 17.88C9.58 17.22 9.85 16.77 10.14 16.51C7.87 16.25 5.49 15.38 5.49 11.46C5.49 10.34 5.89 9.43 6.54 8.72C6.43 8.46 6.08 7.42 6.64 6.02C6.64 6.02 7.5 5.74 9.45 7.06C10.27 6.83 11.14 6.72 12 6.71C12.86 6.72 13.73 6.83 14.55 7.06C16.5 5.74 17.36 6.02 17.36 6.02C17.92 7.42 17.57 8.46 17.46 8.72C18.11 9.43 18.51 10.34 18.51 11.46C18.51 15.39 16.12 16.25 13.85 16.5C14.22 16.82 14.54 17.44 14.54 18.41C14.54 19.79 14.53 20.89 14.53 21.19C14.53 21.46 14.71 21.78 15.23 21.68C19.28 20.33 22.2 16.51 22.2 12C22.2 6.36 17.64 1.8 12 1.8Z"
-                                                    fill="#181717" />
-                                            </svg>
-                                        </div>
+                                            <!-- 5. GitHub -->
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="GitHub — Version control, repository hosting & collaborative development"
+                                                title="GitHub">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M12 1.8C6.36 1.8 1.8 6.36 1.8 12C1.8 16.51 4.72 20.33 8.78 21.68C9.29 21.77 9.48 21.46 9.48 21.19C9.48 20.95 9.47 20.14 9.46 19.29C6.62 19.91 6.02 18.09 6.02 18.09C5.56 16.91 4.89 16.6 4.89 16.6C3.96 15.97 4.96 15.98 4.96 15.98C5.98 16.05 6.52 17.03 6.52 17.03C7.43 18.59 8.9 18.14 9.49 17.88C9.58 17.22 9.85 16.77 10.14 16.51C7.87 16.25 5.49 15.38 5.49 11.46C5.49 10.34 5.89 9.43 6.54 8.72C6.43 8.46 6.08 7.42 6.64 6.02C6.64 6.02 7.5 5.74 9.45 7.06C10.27 6.83 11.14 6.72 12 6.71C12.86 6.72 13.73 6.83 14.55 7.06C16.5 5.74 17.36 6.02 17.36 6.02C17.92 7.42 17.57 8.46 17.46 8.72C18.11 9.43 18.51 10.34 18.51 11.46C18.51 15.39 16.12 16.25 13.85 16.5C14.22 16.82 14.54 17.44 14.54 18.41C14.54 19.79 14.53 20.89 14.53 21.19C14.53 21.46 14.71 21.78 15.23 21.68C19.28 20.33 22.2 16.51 22.2 12C22.2 6.36 17.64 1.8 12 1.8Z"
+                                                        fill="#FFFFFF" />
+                                                </svg>
+                                            </div>
 
-                                        <!-- 6. VS Code -->
-                                        <div class="tech-badge-icon tech-badge-icon--square"
-                                            data-tool-note="VS Code — Primary code editor for front-end, PHP & debugging workflows"
-                                            title="VS Code">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M17.58 2.24L9.28 9.83L4.4 6.18C3.95 5.84 3.32 5.89 2.93 6.3L1.75 7.56C1.35 7.98 1.35 8.65 1.76 9.06L5.58 12L1.76 14.94C1.35 15.35 1.35 16.02 1.75 16.44L2.93 17.7C3.32 18.11 3.95 18.16 4.4 17.82L9.28 14.17L17.58 21.76C18.23 22.35 19.27 22.05 19.53 21.2L22.14 19.93C22.52 19.74 22.75 19.35 22.75 18.92V5.08C22.75 4.65 22.52 4.26 22.14 4.07L19.53 2.8C19.27 1.95 18.23 1.65 17.58 2.24ZM17.5 16.42L12.16 12L17.5 7.58V16.42Z"
-                                                    fill="#007ACC" />
-                                            </svg>
-                                        </div>
+                                            <!-- 6. VS Code -->
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="VS Code — Primary code editor for front-end, PHP & debugging workflows"
+                                                title="VS Code">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M17.58 2.24L9.28 9.83L4.4 6.18C3.95 5.84 3.32 5.89 2.93 6.3L1.75 7.56C1.35 7.98 1.35 8.65 1.76 9.06L5.58 12L1.76 14.94C1.35 15.35 1.35 16.02 1.75 16.44L2.93 17.7C3.32 18.11 3.95 18.16 4.4 17.82L9.28 14.17L17.58 21.76C18.23 22.35 19.27 22.05 19.53 21.2L22.14 19.93C22.52 19.74 22.75 19.35 22.75 18.92V5.08C22.75 4.65 22.52 4.26 22.14 4.07L19.53 2.8C19.27 1.95 18.23 1.65 17.58 2.24ZM17.5 16.42L12.16 12L17.5 7.58V16.42Z"
+                                                        fill="#38BDF8" />
+                                                </svg>
+                                            </div>
 
-                                        <!-- 7. LucidChart (Provided Logo) -->
-                                        <div class="tech-badge-icon tech-badge-icon--lucid"
-                                            data-tool-note="LucidChart — Database design diagrams (ERDs), system architecture & flowcharts"
-                                            title="LucidChart">
-                                            <img src="assets/logo-lucidchart.webp" alt="LucidChart" />
-                                        </div>
+                                            <!-- 7. LucidChart (Provided Logo) -->
+                                            <div class="tech-badge-icon tech-badge-icon--lucid"
+                                                data-tool-note="LucidChart — Database design diagrams (ERDs), system architecture & flowcharts"
+                                                title="LucidChart">
+                                                <img src="assets/logo-lucidchart.webp" alt="LucidChart" />
+                                            </div>
 
-                                        <!-- 8. MySQL (Provided Logo) -->
-                                        <div class="tech-badge-icon tech-badge-icon--mysql"
-                                            data-tool-note="MySQL — Relational database management, schema queries & data modeling"
-                                            title="MySQL">
-                                            <img src="assets/logo-mysql.png" alt="MySQL" />
-                                        </div>
+                                            <!-- 8. MySQL (Provided Logo) -->
+                                            <div class="tech-badge-icon tech-badge-icon--mysql"
+                                                data-tool-note="MySQL — Relational database management, schema queries & data modeling"
+                                                title="MySQL">
+                                                <img src="assets/logo-mysql.png" alt="MySQL" />
+                                            </div>
 
-                                        <!-- 9. Railway (Provided Logo) -->
-                                        <div class="tech-badge-icon tech-badge-icon--square"
-                                            data-tool-note="Railway — Cloud infrastructure deployment & database hosting"
-                                            title="Railway">
-                                            <img src="assets/logo-railway.png" alt="Railway" />
-                                        </div>
+                                            <!-- 9. Railway (Provided Logo) -->
+                                            <div class="tech-badge-icon tech-badge-icon--railway"
+                                                data-tool-note="Railway — Cloud infrastructure deployment & database hosting"
+                                                title="Railway">
+                                                <img src="assets/logo-railway.png" alt="Railway" />
+                                            </div>
 
-                                        <!-- 10. Vercel -->
-                                        <div class="tech-badge-icon tech-badge-icon--vercel"
-                                            data-tool-note="Vercel — Instant front-end web deployment & preview environments"
-                                            title="Vercel">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 3L22.5 21H1.5L12 3Z" fill="#000000" />
-                                            </svg>
+                                            <!-- 10. Vercel -->
+                                            <div class="tech-badge-icon tech-badge-icon--vercel"
+                                                data-tool-note="Vercel — Instant front-end web deployment & preview environments"
+                                                title="Vercel">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 3L22.5 21H1.5L12 3Z" fill="#FFFFFF" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Right Specialty Card: UI/UX DESIGNING -->
-                            <div class="skillset-specialty-card">
+                            <div class="skillset-specialty-card" data-card-index="1">
                                 <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">UI/UX Designing</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Designing user-centered screens and flows in Figma. My process starts with
-                                        understanding user needs, then mapping user flows, sketching wireframes, and
-                                        building high-fidelity, clickable prototypes.
-                                    </p>
 
                                     <div class="skillset-specific-pills-wrap">
                                         <span class="skillset-pills-label">Specific Skills</span>
                                         <div class="skillset-badges-row">
                                             <span class="skillset-interactive-pill"
-                                                data-tool-note="User Flow Mapping — Structuring intuitive end-to-end screen journeys">User
+                                                data-tool-note="Usability Evaluation — Assessing user friction, accessibility standards & heuristic benchmarks">Usability
+                                                Evaluation</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="User Research — Conducting stakeholder interviews, user personas & qualitative analysis">User
+                                                Research</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="UX Mapping — Diagramming end-to-end customer journeys and interaction touchpoints">UX
+                                                Mapping</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Wireframing — Low-to-high fidelity screen blueprints, layout structure & content zoning">Wireframing</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Prototyping — Interactive clickable flows, micro-interactions & user testing simulations">Prototyping</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="User Flow Mapping — Defining intuitive navigation logic, decision trees & edge-case routing">User
                                                 Flow Mapping</span>
                                             <span class="skillset-interactive-pill"
-                                                data-tool-note="Wireframing — Low-to-high fidelity screen blueprints and layouts">Wireframing</span>
+                                                data-tool-note="Design Adaptability — Translating interfaces across responsive screen breakpoints & system constraints">Design
+                                                Adaptability</span>
                                             <span class="skillset-interactive-pill"
-                                                data-tool-note="Clickable Prototyping — Interactive Figma prototypes for user testing">Clickable
-                                                Prototyping</span>
-                                            <span class="skillset-interactive-pill"
-                                                data-tool-note="Information Architecture — Organizing complex system data into scannable views">Information
-                                                Architecture</span>
-                                            <span class="skillset-interactive-pill"
-                                                data-tool-note="Design Systems — Reusable UI components, tokens, and style guides">Design
-                                                Systems</span>
-                                            <span class="skillset-interactive-pill"
-                                                data-tool-note="Human-Centered UX — Empathy-driven interface decisions">Human-Centered
-                                                UX</span>
+                                                data-tool-note="Color Theory — Applying intentional contrast ratios, semantic palettes & visual hierarchy">Color
+                                                Theory</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Clean Tools & Design Stack Showcase Tray (No White Box) -->
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Design &amp; Prototyping Tools</span>
+                                        <div class="skillset-logos-grid">
+                                            <!-- 1. Figma -->
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="Figma — Wireframing, interactive user flows, design systems & high-fidelity prototypes"
+                                                title="Figma">
+                                                <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z"
+                                                        fill="#1ABCFE" />
+                                                    <path
+                                                        d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z"
+                                                        fill="#0ACF83" />
+                                                    <path
+                                                        d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z"
+                                                        fill="#FF7262" />
+                                                    <path
+                                                        d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z"
+                                                        fill="#F24E1E" />
+                                                    <path
+                                                        d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z"
+                                                        fill="#A259FF" />
+                                                </svg>
+                                            </div>
+
+                                            <!-- 2. Canva -->
+                                            <div class="tech-badge-icon tech-badge-icon--canva-img"
+                                                data-tool-note="Canva — Visual moodboards, presentation decks & rapid brand asset exports"
+                                                title="Canva">
+                                                <img src="assets/logo-canva.png" alt="Canva" />
+                                            </div>
+
+                                            <!-- 3. Google Stitch -->
+                                            <div class="tech-badge-icon tech-badge-icon--stitch"
+                                                data-tool-note="Google Stitch — AI-native UI design workspace from Google Labs for prompt-to-prototype generation"
+                                                title="Google Stitch">
+                                                <svg viewBox="0 0 132 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="2" y="3" width="28" height="28" rx="7" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                                                    <path d="M10 11C10 8.79 11.79 7 14 7H16V17H10V11Z" fill="#4285F4" />
+                                                    <path d="M16 7H18C20.21 7 22 8.79 22 11V17H16V7Z" fill="#EA4335" />
+                                                    <path d="M16 17H22V23C22 25.21 20.21 27 18 27H16V17Z" fill="#34A853" />
+                                                    <path d="M10 17H16V27H14C11.79 27 10 25.21 10 23V17Z" fill="#FBBC05" />
+                                                    <circle cx="16" cy="17" r="2.8" fill="#FFFFFF" />
+                                                    <text x="36" y="22" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="700" font-size="13" letter-spacing="-0.01em">Google Stitch</text>
+                                                </svg>
+                                            </div>
+
+                                            <!-- 4. Lovable AI -->
+                                            <div class="tech-badge-icon tech-badge-icon--lovable"
+                                                data-tool-note="Lovable AI — Rapid full-stack and UI prototyping powered by generative AI workflows"
+                                                title="Lovable AI">
+                                                <img src="assets/logo-lovable.png" alt="Lovable AI" />
+                                            </div>
+
+                                            <!-- 5. Storybook -->
+                                            <div class="tech-badge-icon tech-badge-icon--storybook"
+                                                data-tool-note="Storybook — Isolated UI component development, design system documentation & state testing"
+                                                title="Storybook">
+                                                <img src="assets/logo-storybook.png" alt="Storybook" />
+                                            </div>
+
+                                            <!-- 6. Miro -->
+                                            <div class="tech-badge-icon tech-badge-icon--miro"
+                                                data-tool-note="Miro — Collaborative UX whiteboarding, mind mapping, user journey mapping & brainstorm sprints"
+                                                title="Miro">
+                                                <img src="assets/logo-miro.png" alt="Miro" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Highlighted Tools & Design Stack Showcase Tray -->
-                                <div class="skillset-tools-block skillset-tools-block--highlighted">
-                                    <span class="skillset-tools-heading">Design &amp; Diagramming Tools</span>
-                                    <div class="skillset-logos-grid">
-                                        <!-- Figma Logo -->
-                                        <div class="tech-badge-icon tech-badge-icon--square"
-                                            data-tool-note="Figma — Wireframing, interactive user flows & high-fidelity prototypes"
-                                            title="Figma">
-                                            <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z"
-                                                    fill="#1ABCFE" />
-                                                <path
-                                                    d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z"
-                                                    fill="#0ACF83" />
-                                                <path
-                                                    d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z"
-                                                    fill="#FF7262" />
-                                                <path
-                                                    d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z"
-                                                    fill="#F24E1E" />
-                                                <path
-                                                    d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z"
-                                                    fill="#A259FF" />
-                                            </svg>
+                            <!-- 3rd Specialty Card: UML MODELING -->
+                            <div class="skillset-specialty-card" data-card-index="2">
+                                <div class="skillset-card-main">
+                                    <h4 class="skillset-specialty-title">UML Modeling</h4>
+
+                                    <div class="skillset-specific-pills-wrap">
+                                        <span class="skillset-pills-label">Specific Skills</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Use Case Diagram (UCD) — Mapping actor roles, system boundaries & user interaction scenarios">Use
+                                                Case Diagram (UCD)</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Sequence Diagram — Modeling temporal message flows, object lifelines & asynchronous calls">Sequence
+                                                Diagram</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Data Modeling & Architecture (ERD) — Designing entity relationships, foreign key constraints & schemas">Data
+                                                Modeling &amp; ERD</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Control Flow Logic — Diagramming decision branches, state transitions & algorithm routing">Control
+                                                Flow Logic</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Activity Diagrams & Swimlanes — Visualizing multi-department workflows, parallel processes & swimlanes">Activity
+                                                &amp; Swimlanes</span>
                                         </div>
+                                    </div>
 
-                                        <!-- LucidChart Logo -->
-                                        <div class="tech-badge-icon tech-badge-icon--lucid"
-                                            data-tool-note="LucidChart — User flow mapping, system diagrams & wireframes"
-                                            title="LucidChart">
-                                            <img src="assets/logo-lucidchart.webp" alt="LucidChart" />
-                                        </div>
+                                    <!-- Clean Tools & Modeling Stack Showcase Tray -->
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Modeling &amp; Database Tools</span>
+                                        <div class="skillset-logos-grid">
+                                            <!-- 1. Draw.io -->
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="Draw.io — Open-source diagramming for software architecture, UML specifications & flowcharts"
+                                                title="Draw.io">
+                                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="40" height="40" rx="9" fill="#F08705" />
+                                                    <circle cx="12" cy="28" r="4.5" fill="#FFFFFF" />
+                                                    <circle cx="28" cy="12" r="4.5" fill="#FFFFFF" />
+                                                    <path d="M12 28V12H28" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </div>
 
-                                        <!-- Canva Logo -->
-                                        <div class="tech-badge-icon tech-badge-icon--square"
-                                            data-tool-note="Canva — Visual moodboards, presentation decks & asset preparation"
-                                            title="Canva">
-                                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="18" cy="18" r="16.5" fill="url(#canvaGradTech)" />
-                                                <text x="18" y="22.5" text-anchor="middle" fill="#FFFFFF"
-                                                    font-family="Georgia, serif" font-weight="700" font-style="italic"
-                                                    font-size="13">Canva</text>
-                                                <defs>
-                                                    <linearGradient id="canvaGradTech" x1="2" y1="2" x2="34" y2="34"
-                                                        gradientUnits="userSpaceOnUse">
-                                                        <stop stop-color="#00C4CC" />
-                                                        <stop offset="0.5" stop-color="#4858D6" />
-                                                        <stop offset="1" stop-color="#7D2AE8" />
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
+                                            <!-- 2. Lucidchart -->
+                                            <div class="tech-badge-icon tech-badge-icon--lucid"
+                                                data-tool-note="Lucidchart — Enterprise system modeling, collaborative ERD schemas & sequence diagrams"
+                                                title="Lucidchart">
+                                                <img src="assets/logo-lucidchart.webp" alt="Lucidchart" />
+                                            </div>
+
+                                            <!-- 3. MS Access -->
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="MS Access — Relational database modeling, query design & table relationship architecture"
+                                                title="MS Access">
+                                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="40" height="40" rx="9" fill="#A4373A" />
+                                                    <ellipse cx="25" cy="14" rx="7" ry="2.5" fill="#FFFFFF" opacity="0.85" />
+                                                    <path d="M18 14V22C18 23.38 21.13 24.5 25 24.5C28.87 24.5 32 23.38 32 22V14" stroke="#FFFFFF" stroke-width="1.8" opacity="0.85" fill="none" />
+                                                    <text x="14" y="27" fill="#FFFFFF" font-family="'Poppins', Arial, sans-serif" font-weight="900" font-size="20">A</text>
+                                                </svg>
+                                            </div>
+
+                                            <!-- 4. SQL DDL -->
+                                            <div class="tech-badge-icon tech-badge-icon--sql"
+                                                data-tool-note="SQL DDL — Structuring database schemas with CREATE TABLE, ALTER, primary/foreign keys & indexes"
+                                                title="SQL DDL">
+                                                <svg viewBox="0 0 76 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="1" y="2" width="74" height="28" rx="6" fill="rgba(56, 189, 248, 0.15)" stroke="#38BDF8" stroke-width="1.2" />
+                                                    <path d="M11 11C11 9.89 13.24 9 16 9C18.76 9 21 9.89 21 11V21C21 22.11 18.76 23 16 23C13.24 23 11 22.11 11 21V11Z" fill="none" stroke="#38BDF8" stroke-width="1.4" />
+                                                    <ellipse cx="16" cy="11" rx="5" ry="2" fill="#38BDF8" />
+                                                    <path d="M11 15C11 16.1 13.24 17 16 17C18.76 17 21 16.1 21 15" stroke="#38BDF8" stroke-width="1.4" fill="none" />
+                                                    <text x="26" y="20.5" fill="#FFFFFF" font-family="'Poppins', monospace" font-weight="800" font-size="11.5" letter-spacing="0.04em">SQL DDL</text>
+                                                </svg>
+                                            </div>
+
+                                            <!-- 5. DrawDB -->
+                                            <div class="tech-badge-icon tech-badge-icon--drawdb"
+                                                data-tool-note="DrawDB — Modern interactive browser-based database schema designer and SQL exporter"
+                                                title="DrawDB">
+                                                <svg viewBox="0 0 82 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="1" y="2" width="80" height="28" rx="6" fill="rgba(14, 165, 233, 0.18)" stroke="#0284C7" stroke-width="1.2" />
+                                                    <rect x="8" y="8" width="16" height="16" rx="3.5" fill="#0284C7" />
+                                                    <path d="M8 13H24M14 13V24" stroke="#FFFFFF" stroke-width="1.2" />
+                                                    <text x="30" y="20.5" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="800" font-size="11.5" letter-spacing="0.02em">DrawDB</text>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1634,52 +1749,113 @@
 
                         <div class="skillset-stage-two-cols">
                             <div class="skillset-specialty-card">
-                                <div>
+                                <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">BRAND IDENTITY &amp; VISUAL SYSTEMS</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Establishing cohesive brand identities, color systems, typography directions,
-                                        and
-                                        moodboards for student councils, scholar organizations, and digital products.
-                                    </p>
-                                </div>
 
-                                <div class="skillset-tools-block">
-                                    <span class="skillset-tools-heading">Branding Deliverables</span>
-                                    <div class="skillset-badges-row">
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Brand Guidelines — Cohesive logo, color & typography rules for organizations">Brand
-                                            Kits</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Moodboard Direction — Setting the visual tone & aesthetic direction">Moodboards</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Concept Design — Translating event themes into memorable visual concepts">Concept
-                                            Design</span>
+                                    <div class="skillset-specific-pills-wrap">
+                                        <span class="skillset-pills-label">Specific Skills</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Brand Guidelines — Cohesive logo, color & typography rules for organizations">Brand
+                                                Kits</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Moodboard Direction — Setting the visual tone & aesthetic direction">Moodboards</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Concept Design — Translating event themes into memorable visual concepts">Concept
+                                                Design</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Visual Systems — Scalable typography, icon sets & grid systems">Visual
+                                                Systems</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Color Psychology — Selecting intentional color palettes for impact">Color
+                                                Harmony</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Design Tools</span>
+                                        <div class="skillset-logos-grid">
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="Figma — Vector brand assets, style guides & design libraries"
+                                                title="Figma">
+                                                <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE" />
+                                                    <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83" />
+                                                    <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262" />
+                                                    <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E" />
+                                                    <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF" />
+                                                </svg>
+                                            </div>
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="Canva Pro — Brand kit management, team templates & rapid exports"
+                                                title="Canva Pro">
+                                                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="18" cy="18" r="16.5" fill="url(#canvaGradTech)" />
+                                                    <text x="18" y="22.5" text-anchor="middle" fill="#FFFFFF"
+                                                        font-family="Georgia, serif" font-weight="700" font-style="italic"
+                                                        font-size="13">Canva</text>
+                                                </svg>
+                                            </div>
+                                            <div class="tech-badge-icon tech-badge-icon--lucid"
+                                                data-tool-note="LucidChart — Creative concept mapping, flow diagrams & boards"
+                                                title="LucidChart">
+                                                <img src="assets/logo-lucidchart.webp" alt="LucidChart" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="skillset-specialty-card">
-                                <div>
+                                <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">PUBLICATION &amp; CREATIVE DIRECTION</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Producing engaging publication materials, social media campaigns, storyboards,
-                                        and
-                                        video edits that turn organizational announcements into clear, scroll-stopping
-                                        visuals.
-                                    </p>
-                                </div>
 
-                                <div class="skillset-tools-block">
-                                    <span class="skillset-tools-heading">Creative Suite &amp; Platforms</span>
-                                    <div class="skillset-badges-row">
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Canva Pro — Rapid publication materials, decks & campaign templates">Canva
-                                            Pro</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Figma — Vector layouts, UI components & collaborative design boards">Figma</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Video Editing & Storyboarding — Directing film projects & reels">Video
-                                            &amp; Storyboarding</span>
+                                    <div class="skillset-specific-pills-wrap">
+                                        <span class="skillset-pills-label">Specific Skills</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Pubmats & Campaigns — High-converting social media materials & announcement posters">Pubmats
+                                                &amp; Campaigns</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Video Editing & Storyboarding — Directing film projects & reels">Video
+                                                Editing &amp; Storyboarding</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Theatre & Film Directing — Directing theatre plays and student film projects">Theatre
+                                                &amp; Film Directing</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Visual Storytelling — Narrative pacing, mood curation & cinematography">Visual
+                                                Storytelling</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Motion & Video — Dynamic reel editing, pacing and sound design">Motion
+                                                &amp; Video</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Creative Suite</span>
+                                        <div class="skillset-logos-grid">
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="Canva Pro — Social campaign graphics, presentations & print layouts"
+                                                title="Canva Pro">
+                                                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="18" cy="18" r="16.5" fill="url(#canvaGradTech)" />
+                                                    <text x="18" y="22.5" text-anchor="middle" fill="#FFFFFF"
+                                                        font-family="Georgia, serif" font-weight="700" font-style="italic"
+                                                        font-size="13">Canva</text>
+                                                </svg>
+                                            </div>
+                                            <div class="tech-badge-icon tech-badge-icon--square"
+                                                data-tool-note="Figma — Storyboard panels, vector graphics & visual layout sheets"
+                                                title="Figma">
+                                                <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE" />
+                                                    <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83" />
+                                                    <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262" />
+                                                    <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E" />
+                                                    <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF" />
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1705,52 +1881,80 @@
 
                         <div class="skillset-stage-two-cols">
                             <div class="skillset-specialty-card">
-                                <div>
+                                <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">PROJECT &amp; ORGANIZATIONAL MANAGEMENT</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Writing clear technical user stories, aligning cross-functional developer and
-                                        creative teams, and managing end-to-end organizational execution across
-                                        university
-                                        councils.
-                                    </p>
-                                </div>
 
-                                <div class="skillset-tools-block">
-                                    <span class="skillset-tools-heading">Management &amp; Planning</span>
-                                    <div class="skillset-badges-row">
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="User Stories — Bridging user requirements and developer tasks">User
-                                            Stories</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Notion — Workspace hubs, task tracking & team documentation">Notion</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Team Leadership — Leading SSITE, BPSU-DOS & block operations">Team
-                                            Leadership</span>
+                                    <div class="skillset-specific-pills-wrap">
+                                        <span class="skillset-pills-label">Specific Skills</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="User Stories — Bridging user requirements and developer tasks">User
+                                                Stories</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Cross-Functional Alignment — Uniting development, design & leadership teams">Cross-Functional
+                                                Alignment</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Team Leadership — Leading SSITE, BPSU-DOS & block operations">Team
+                                                Leadership</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Task Prioritization — Sprint planning and milestone delivery">Task
+                                                Prioritization</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Event Management — Logistics & operational flow for campus summits">Event
+                                                Logistics</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Management &amp; Planning Stack</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Notion — Workspace hubs, task tracking & team documentation">Notion</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="GitHub Projects — Issue tracking, backlog grooming & PR reviews">GitHub
+                                                Projects</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Google Workspace — Docs, Sheets, Drive & Forms for student government operations">Google
+                                                Workspace</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="skillset-specialty-card">
-                                <div>
+                                <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">RESEARCH &amp; ACADEME CONSULTATION</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Conducting structured system analysis, technical documentation, manuscript
-                                        editing, and research consultations for academic and capstone projects.
-                                    </p>
-                                </div>
 
-                                <div class="skillset-tools-block">
-                                    <span class="skillset-tools-heading">Documentation &amp; Analysis</span>
-                                    <div class="skillset-badges-row">
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="System Analysis — Structuring capstone chapters, workflows & diagrams">System
-                                            Analysis</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Google Workspace — Collaborative sheets, docs & operational trackers">Google
-                                            Workspace</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Research Consultation — Guiding academic manuscripts & technical writing">Academic
-                                            Research</span>
+                                    <div class="skillset-specific-pills-wrap">
+                                        <span class="skillset-pills-label">Specific Skills</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="System Analysis — Structuring capstone chapters, workflows & diagrams">System
+                                                Analysis</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Manuscript Editing — Technical writing, citation integrity & proofreading">Manuscript
+                                                Editing</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Academic Research — Guiding academic manuscripts, capstone methodology & statistical analysis">Academic
+                                                Research</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Technical Documentation — API documentation, schema dictionaries & operational SOPs">Technical
+                                                Documentation</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Documentation &amp; Analysis Tools</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Google Docs & Sheets — Collaborative writing, data tallying & manuscript reviews">Docs
+                                                &amp; Sheets</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="LucidChart — Architectural diagrams, state charts & process models">LucidChart</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Mendeley & Zotero — Citation management & academic literature cataloging">Citation
+                                                Tools</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1776,51 +1980,78 @@
 
                         <div class="skillset-stage-two-cols">
                             <div class="skillset-specialty-card">
-                                <div>
+                                <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">AI WORKFLOW AUTOMATION</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Designing AI-assisted workflows that eliminate repetitive operational tasks,
-                                        accelerate research synthesis, and streamline documentation for teams and
-                                        organizations.
-                                    </p>
-                                </div>
 
-                                <div class="skillset-tools-block">
-                                    <span class="skillset-tools-heading">Workflow Optimization</span>
-                                    <div class="skillset-badges-row">
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="AI Process Automation — Turning repetitive admin tasks into 1-click flows">Process
-                                            Automation</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Research Synthesis — Summarizing & structuring complex data with AI">Research
-                                            Synthesis</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Smart Templates — Reusable prompt & document systems for orgs">Smart
-                                            Systems</span>
+                                    <div class="skillset-specific-pills-wrap">
+                                        <span class="skillset-pills-label">Specific Skills</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="AI Process Automation — Turning repetitive admin tasks into 1-click flows">Process
+                                                Automation</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Research Synthesis — Summarizing & structuring complex data with AI">Research
+                                                Synthesis</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Smart Systems — Reusable prompt & document systems for orgs">Smart
+                                                Templates</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Workflow Optimization — Eliminating bottlenecks through intelligent automations">Workflow
+                                                Optimization</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">Optimization &amp; Integrations</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Google Gemini — Multimodal research, context analysis & Workspace acceleration">Google
+                                                Gemini</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Zapier & Make — Connecting webhooks, forms and database pipelines">Zapier
+                                                / Webhooks</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Python Automation Scripts — Data scraping, text formatting & file conversions">Python
+                                                Scripts</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="skillset-specialty-card">
-                                <div>
+                                <div class="skillset-card-main">
                                     <h4 class="skillset-specialty-title">PROMPT ENGINEERING &amp; RAPID BUILDING</h4>
-                                    <p class="skillset-specialty-desc">
-                                        Leveraging generative AI models as force multipliers for front-end prototyping,
-                                        code debugging, structured content drafting, and data organization.
-                                    </p>
-                                </div>
 
-                                <div class="skillset-tools-block">
-                                    <span class="skillset-tools-heading">AI Ecosystem</span>
-                                    <div class="skillset-badges-row">
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="ChatGPT / OpenAI — Ideation, workflow scripting & content structuring">ChatGPT</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Claude AI — Deep technical writing, code architecture & UI iteration">Claude
-                                            AI</span>
-                                        <span class="skillset-interactive-pill"
-                                            data-tool-note="Google Gemini — Multimodal research & Workspace productivity">Google
-                                            Gemini</span>
+                                    <div class="skillset-specific-pills-wrap">
+                                        <span class="skillset-pills-label">Specific Skills</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Structured Prompting — System prompt design, few-shot conditioning & XML structuring">Structured
+                                                Prompting</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Code Prototyping — Rapid front-end iterations and debugging with LLM pairing">Code
+                                                Prototyping</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Context Framing — Effective grounding, persona injection & constraints">Context
+                                                Framing</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Iterative Refinement — Evaluating outputs and eliminating hallucinations">Iterative
+                                                Refinement</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skillset-tools-block">
+                                        <span class="skillset-tools-heading">AI Models &amp; Platforms</span>
+                                        <div class="skillset-badges-row">
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="ChatGPT / OpenAI — Ideation, workflow scripting & structured formatting">ChatGPT</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Claude AI — Deep technical writing, code architecture & UI iteration">Claude
+                                                AI</span>
+                                            <span class="skillset-interactive-pill"
+                                                data-tool-note="Google Gemini — Multimodal research & Workspace productivity">Google
+                                                Gemini</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2316,6 +2547,173 @@
                 el.addEventListener('mouseleave', resetNote);
                 el.addEventListener('blur', resetNote);
             });
+
+            // Interactive 3D Dynamic Tilt on Specialty Cards ("Moving Cards" Effect)
+            const specialtyCards = document.querySelectorAll('.skillset-specialty-card');
+            specialtyCards.forEach((card) => {
+                let rect;
+                card.addEventListener('mouseenter', () => {
+                    rect = card.getBoundingClientRect();
+                });
+                card.addEventListener('mousemove', (e) => {
+                    if (card.closest('.is-dragging')) return;
+                    if (!rect) rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xRatio = (x / rect.width) - 0.5;
+                    const yRatio = (y / rect.height) - 0.5;
+                    card.style.transform = `translateY(-0.65cqw) scale(1.025) rotateX(${ -yRatio * 9 }deg) rotateY(${ xRatio * 9 }deg)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                    rect = null;
+                });
+            });
+
+            // Swipeable / Scrollable Carousel for Technical Pillar Specialty Cards
+            const techCarousel = document.getElementById('techCardsCarousel');
+            const techCarouselDots = document.querySelectorAll('#techCarouselDots .skillset-carousel-dot');
+            const techCarouselPrev = document.getElementById('techCarouselPrev');
+            const techCarouselNext = document.getElementById('techCarouselNext');
+            const techCarouselCounter = document.getElementById('techCarouselCounter');
+
+            if (techCarousel) {
+                const getCards = () => techCarousel.querySelectorAll('.skillset-specialty-card');
+
+                const updateCarouselUI = () => {
+                    const scrollLeft = techCarousel.scrollLeft;
+                    const maxScroll = Math.max(0, techCarousel.scrollWidth - techCarousel.clientWidth);
+
+                    if (techCarouselPrev) techCarouselPrev.disabled = scrollLeft <= 8;
+                    if (techCarouselNext) techCarouselNext.disabled = scrollLeft >= maxScroll - 8;
+
+                    // Determine active card/range
+                    let activeIndex = 0;
+                    if (maxScroll > 0) {
+                        const ratio = scrollLeft / maxScroll;
+                        if (ratio < 0.3) {
+                            activeIndex = 0;
+                        } else if (ratio < 0.75) {
+                            activeIndex = 1;
+                        } else {
+                            activeIndex = 2;
+                        }
+                    }
+
+                    techCarouselDots.forEach((dot, idx) => {
+                        dot.classList.toggle('active', idx === activeIndex);
+                    });
+
+                    if (techCarouselCounter) {
+                        if (activeIndex === 0) {
+                            techCarouselCounter.textContent = 'Cards 1–2 of 3';
+                        } else if (activeIndex === 1) {
+                            techCarouselCounter.textContent = 'Cards 2–3 of 3';
+                        } else {
+                            techCarouselCounter.textContent = 'Card 3 of 3';
+                        }
+                    }
+                };
+
+                // Scroll to specific card
+                const scrollToCard = (index) => {
+                    const cards = getCards();
+                    if (!cards[index]) return;
+                    let targetLeft = 0;
+                    if (index === 0) {
+                        targetLeft = 0;
+                    } else if (index === cards.length - 1) {
+                        targetLeft = techCarousel.scrollWidth - techCarousel.clientWidth;
+                    } else {
+                        targetLeft = cards[index].offsetLeft - techCarousel.offsetLeft;
+                    }
+                    techCarousel.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                };
+
+                // Dots click
+                techCarouselDots.forEach((dot) => {
+                    dot.addEventListener('click', () => {
+                        const idx = parseInt(dot.dataset.slideIndex, 10);
+                        scrollToCard(idx);
+                    });
+                });
+
+                // Prev / Next arrow buttons click
+                if (techCarouselPrev) {
+                    techCarouselPrev.addEventListener('click', () => {
+                        const cards = getCards();
+                        const step = cards[0] ? cards[0].offsetWidth * 0.95 : 320;
+                        techCarousel.scrollBy({ left: -step, behavior: 'smooth' });
+                    });
+                }
+                if (techCarouselNext) {
+                    techCarouselNext.addEventListener('click', () => {
+                        const cards = getCards();
+                        const step = cards[0] ? cards[0].offsetWidth * 0.95 : 320;
+                        techCarousel.scrollBy({ left: step, behavior: 'smooth' });
+                    });
+                }
+
+                // Scroll event
+                techCarousel.addEventListener('scroll', updateCarouselUI, { passive: true });
+
+                // Mouse Drag to Swipe
+                let isDraggingTech = false;
+                let startX = 0;
+                let scrollLeftStart = 0;
+                let dragMoved = false;
+
+                techCarousel.addEventListener('mousedown', (e) => {
+                    if (e.target.closest('button, a, input, [data-tool-note]')) return;
+                    isDraggingTech = true;
+                    dragMoved = false;
+                    startX = e.pageX - techCarousel.offsetLeft;
+                    scrollLeftStart = techCarousel.scrollLeft;
+                    techCarousel.classList.add('is-dragging');
+                });
+
+                window.addEventListener('mouseup', () => {
+                    if (!isDraggingTech) return;
+                    isDraggingTech = false;
+                    techCarousel.classList.remove('is-dragging');
+                });
+
+                techCarousel.addEventListener('mousemove', (e) => {
+                    if (!isDraggingTech) return;
+                    const x = e.pageX - techCarousel.offsetLeft;
+                    const walk = (x - startX);
+                    if (Math.abs(walk) > 4) {
+                        dragMoved = true;
+                    }
+                    techCarousel.scrollLeft = scrollLeftStart - walk;
+                });
+
+                // Convert vertical mouse wheel into horizontal scroll on carousel
+                techCarousel.addEventListener('wheel', (e) => {
+                    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                        e.preventDefault();
+                        techCarousel.scrollBy({
+                            left: e.deltaY * 1.3,
+                            behavior: 'auto'
+                        });
+                    }
+                }, { passive: false });
+
+                // Keyboard arrow navigation
+                techCarousel.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        if (techCarouselNext) techCarouselNext.click();
+                    } else if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        if (techCarouselPrev) techCarouselPrev.click();
+                    }
+                });
+
+                // Update on load and resize
+                window.addEventListener('resize', updateCarouselUI);
+                setTimeout(updateCarouselUI, 120);
+            }
 
             if (btnBackToSkillsFolder) {
                 btnBackToSkillsFolder.addEventListener('click', (e) => {
