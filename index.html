@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIRCHIVE — Archives of Aira | Aira Bianca Ordaniel</title>
+    <!-- Browser Tab Icon (Favicon) — Adapts to Light & Dark Mode -->
+    <link rel="icon" type="image/png" href="assets/logo-light.png" id="siteFavicon" />
+    <link rel="apple-touch-icon" href="assets/logo-light.png" />
+    <!-- External shared stylesheet (adoptable across all portfolio pages) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ========================================================================
+       TOP FIXED HEADER BAR (Logo + Name/Subtitle + Capsule Navigation)
+       ======================================================================== -->
+    <header class="site-header" aria-label="Main Portfolio Header">
+        <!-- Left Brand: Custom A-Pen Logo (Light & Dark Variants) + Aira Bianca / Information Technology -->
+        <a href="#page-cover" class="header-brand" data-nav-target="page-cover">
+            <div class="header-logo-box" title="AIRCHIVE — Aira Bianca Logo">
+                <img src="assets/logo-light.png" alt="Aira Bianca Logo"
+                    class="header-logo-img header-logo-img--light" />
+                <img src="assets/logo-dark.png" alt="Aira Bianca Logo" class="header-logo-img header-logo-img--dark" />
+            </div>
+            <div class="header-brand-text">
+                <span class="header-brand-name">Aira Bianca</span>
+                <span class="header-brand-sub">Information Technology</span>
+            </div>
+        </a>
+
+        <!-- Center Capsule Navigation Bar -->
+        <nav class="header-nav-capsule" aria-label="Primary Portfolio Sections">
+            <a href="#page-cover" class="header-nav-link active" data-nav-target="page-cover">Home</a>
+            <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
+                data-folder-mode="intro">Profile</a>
+            <a href="#page-education" class="header-nav-link" data-nav-target="page-education">Education</a>
+            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="3">Projects</a>
+            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="4">Experiences</a>
+            <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
+                data-folder-mode="skills">Skills</a>
+            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="5">
+                Achievements</a>
+            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="5">Certifications </a>
+            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="1">Voluntary
+                Involvements</a>
+        </nav>
+
+        <!-- Right Controls: Live Date-Time Picker + Light/Dark Theme Toggle -->
+        <div class="header-controls">
+            <!-- Live Date & Time Picker -->
+            <label class="header-datetime-wrap"
+                title="Click to open Date &amp; Time Picker (Double-click to reset to live clock)">
+                <svg class="header-datetime-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <rect x="3" y="4.5" width="18" height="16.5" rx="3" stroke="currentColor" stroke-width="1.8" />
+                    <path d="M8 2.5V6M16 2.5V6M3 9.5H21" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" />
+                    <circle cx="12" cy="15" r="2.2" fill="currentColor" />
+                </svg>
+                <span class="header-datetime-display" id="datetimeDisplay">Loading...</span>
+                <input type="datetime-local" class="header-datetime-input" id="datetimePicker"
+                    aria-label="Select Date and Time" />
+            </label>
+
+            <!-- Light / Dark Mode Toggle Button -->
+            <button type="button" class="theme-toggle-btn" id="themeToggleBtn"
+                title="Switch between Light and Dark Mode" aria-label="Toggle Light or Dark Mode">
+                <svg class="theme-toggle-icon" id="themeToggleIcon" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span id="themeToggleLabel">Dark</span>
+            </button>
+        </div>
+
+        <!-- Top Header Scroll Progress Indicator Bar -->
+        <div class="header-scroll-track" aria-hidden="true">
+            <div class="header-scroll-bar" id="headerScrollBar"></div>
+        </div>
+    </header>
+
+    <!-- ========================================================================
+       PAGE 1: PORTFOLIO COVER PAGE (AIRCHIVE)
+       ======================================================================== -->
+    <main class="portfolio-viewport" id="page-cover">
+        <!-- 16:9 Proportional Canvas (Matches Canva 1024x576 Layout Exactly) -->
+        <section class="portfolio-canvas" id="portfolioCanvas" aria-label="AIRCHIVE Cover Page">
+
+            <!-- Giant Display Header (Nexa) with Interactive Letters ("AIR" highlighted in blue) -->
+            <h1 class="hero-title" id="heroTitle" aria-label="AIRCHIVE">
+                <span class="hero-letter-air">A</span><span class="hero-letter-air">I</span><span
+                    class="hero-letter-air">R</span><span>C</span><span>H</span><span>I</span><span>V</span><span>E</span>
+            </h1>
+
+            <!-- Creative Subtitle Badge ("Archives of Aira") -->
+            <p class="hero-subtitle" id="heroSubtitle">Archives of Aira</p>
+
+            <!-- Left Author Name & Subtitle (Poppins) -->
+            <div class="author-info" id="authorInfo">
+                <h2 class="author-name">Aira Bianca<br />Ordaniel</h2>
+                <p class="author-role">Web Designer &amp; AI<br />Workflow Automation</p>
+            </div>
+
+            <!-- Center Folder Illustration (Click to open Table of Contents!) -->
+            <div class="folder-wrapper" id="folderWrapper"
+                title="Click to open the folder &amp; jump to Table of Contents">
+                <svg class="folder-svg" viewBox="247 199 531 377" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Back Folder Tab & Body -->
+                    <path d="M 280 221
+               A 22 22 0 0 1 302 199
+               H 448
+               A 22 22 0 0 1 470 221
+               V 234
+               H 722
+               A 22 22 0 0 1 744 256
+               V 330
+               H 280
+               Z" fill="#1D71B9" />
+                    <!-- Animated Inner Document Paper Group -->
+                    <g class="folder-paper-group">
+                        <!-- Inner Document Paper (Cream Top Layer) -->
+                        <rect x="302" y="250" width="420" height="40" rx="3" fill="#FEFFF1" />
+                        <!-- Hidden Peek Label Revealed on Folder Hover -->
+                        <text x="512" y="266" text-anchor="middle" class="paper-peek-text">
+                            CLICK TO OPEN TABLE OF CONTENTS ↓
+                        </text>
+                        <!-- Inner Document Paper (Shaded Lower Strip) -->
+                        <rect x="302" y="280" width="420" height="24" fill="#E3E4D4" />
+                    </g>
+                    <!-- Front Light-Blue Folder Flap (Slightly Tapered Sides with Rounded Top Corners) -->
+                    <path class="folder-front-flap" d="M 264 576
+               L 247.5 320
+               A 23 23 0 0 1 270.5 296
+               H 754.5
+               A 23 23 0 0 1 777.5 320
+               L 761 576
+               Z" fill="#3AA7E2" />
+                </svg>
+            </div>
+
+            <!-- Folder Tagline (Nexa Bold/Heavy) -->
+            <p class="folder-tagline">TECH IN MIND. DESIGN FOCUSED. STRATEGY IN ACTION.</p>
+
+            <!-- Dark Navy Skills Card inside Folder -->
+            <div class="skills-card" id="skillsCard">
+                <!-- Row 1: Analytics & Generative AI -->
+                <div class="skill-row" tabindex="0" data-toc-filter="ai"
+                    data-detail="Turning data insights &amp; LLM workflows into smart, automated web solutions. (Click to view in TOC ↓)">
+                    <span class="skill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.5 4.8L22.6 15.2C23.5 15.8 23.2 17.2 22.1 17.4L15.4 18.6L11.2 24.1C10.5 25.0 9.1 24.6 9.0 23.5L7.0 6.0C6.9 4.9 8.0 4.2 7.5 4.8Z"
+                                fill="#FEFFF1" stroke="#FEFFF1" stroke-width="1.2" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <span class="skill-label">Analytics &amp; Generative AI</span>
+                </div>
+
+                <!-- Row 2: UI/UX Design -->
+                <div class="skill-row" tabindex="0" data-toc-filter="design"
+                    data-detail="Crafting clean, intuitive interfaces and human-centered digital experiences. (Click to view in TOC ↓)">
+                    <span class="skill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="6" y1="6.5" x2="22" y2="6.5" stroke="#FEFFF1" stroke-width="1.2" />
+                            <circle cx="5.2" cy="6.5" r="1.4" fill="#FEFFF1" />
+                            <circle cx="22.8" cy="6.5" r="1.4" fill="#FEFFF1" />
+                            <rect x="12.4" y="4.9" width="3.2" height="3.2" fill="#0B3861" stroke="#FEFFF1"
+                                stroke-width="1.2" />
+                            <path d="M5.5 14.5C5.5 9.5 9.2 6.8 14 6.8C18.8 6.8 22.5 9.5 22.5 14.5" stroke="#FEFFF1"
+                                stroke-width="1.2" fill="none" />
+                            <path d="M14 9.5L18.2 16.8L16.5 20.5H11.5L9.8 16.8L14 9.5Z" fill="#FEFFF1" />
+                            <line x1="14" y1="9.5" x2="14" y2="15.5" stroke="#0B3861" stroke-width="1.2" />
+                            <circle cx="14" cy="15.8" r="1.3" fill="#0B3861" />
+                            <rect x="11.2" y="21.5" width="5.6" height="2.4" rx="0.6" stroke="#FEFFF1"
+                                stroke-width="1.2" fill="none" />
+                        </svg>
+                    </span>
+                    <span class="skill-label">UI/UX Design</span>
+                </div>
+
+                <!-- Row 3: Operational Management -->
+                <div class="skill-row" tabindex="0" data-toc-filter="ops"
+                    data-detail="Streamlining processes, project execution, and cross-functional workflows. (Click to view in TOC ↓)">
+                    <span class="skill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="10.2" y1="3.2" x2="10.8" y2="5.6" stroke="#FEFFF1" stroke-width="1.3"
+                                stroke-linecap="round" />
+                            <line x1="5.2" y1="5.0" x2="7.2" y2="6.6" stroke="#FEFFF1" stroke-width="1.3"
+                                stroke-linecap="round" />
+                            <line x1="3.8" y1="9.6" x2="6.3" y2="9.6" stroke="#FEFFF1" stroke-width="1.3"
+                                stroke-linecap="round" />
+                            <line x1="5.8" y1="13.8" x2="7.6" y2="12.2" stroke="#FEFFF1" stroke-width="1.3"
+                                stroke-linecap="round" />
+                            <line x1="14.8" y1="4.8" x2="13.2" y2="6.6" stroke="#FEFFF1" stroke-width="1.3"
+                                stroke-linecap="round" />
+                            <path
+                                d="M11.2 8.2C10.3 8.5 9.9 9.5 10.3 10.5L12.6 16.5L10.3 15.8C9.3 15.5 8.3 16.0 8.1 16.9C7.9 17.5 8.2 18.2 8.8 18.6L14.6 22.8C15.9 23.7 17.6 23.9 19.2 23.3L21.5 22.4C23.4 21.7 24.3 19.6 23.6 17.7L21.5 12.2C21.1 11.2 20.1 10.7 19.2 11.1C18.9 11.2 18.6 11.5 18.5 11.8C18.1 10.9 17.1 10.5 16.2 10.9C15.8 11.0 15.5 11.3 15.4 11.7C14.9 10.9 14.0 10.6 13.2 11.0L12.5 9.1C12.2 8.2 11.3 7.9 11.2 8.2Z"
+                                stroke="#FEFFF1" stroke-width="1.3" stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </span>
+                    <span class="skill-label">Operational Management</span>
+                </div>
+            </div>
+
+            <!-- Interactive Skill Detail Pill below Card -->
+            <div class="skill-detail-toast" id="skillDetailToast" role="status" aria-live="polite"></div>
+
+            <!-- Interactive AI Reply Bubble above the 2026 Edition Prompt Box -->
+            <div class="ai-reply-bubble" id="aiReplyBubble" role="status" aria-live="polite"></div>
+
+            <!-- Tilted "2026 Edition" Interactive Prompt Box Badge (Bottom Left) -->
+            <div class="edition-badge" id="editionBadge">
+                <div class="edition-badge-top">
+                    <input type="text" class="edition-prompt-input" id="promptInput"
+                        value="Get to know me and my works!" placeholder="Ask or jump to section..."
+                        aria-label="Interactive Portfolio Prompt" />
+                </div>
+                <div class="edition-badge-bottom">
+                    <div class="edition-badge-left-icons">
+                        <!-- @ Symbol Button -->
+                        <button type="button" class="badge-icon-btn" id="btnMention" title="Mention @Aira"
+                            aria-label="Show Aira's profile tag">
+                            <svg class="icon-at" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.2 10C13.2 11.77 11.77 13.2 10 13.2C8.23 13.2 6.8 11.77 6.8 10C6.8 8.23 8.23 6.8 10 6.8C11.77 6.8 13.2 8.23 13.2 10ZM13.2 10V11.2C13.2 12.3 14.1 13.2 15.2 13.2C16.3 13.2 17.2 12.3 17.2 11.2V10C17.2 6.02 13.98 2.8 10 2.8C6.02 2.8 2.8 6.02 2.8 10C2.8 13.98 6.02 17.2 10 17.2C11.6 17.2 13.08 16.68 14.28 15.8"
+                                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                            </svg>
+                        </button>
+                        <!-- Image Add Button -->
+                        <button type="button" class="badge-icon-btn" id="btnGallery" title="Open Table of Contents"
+                            aria-label="Open Table of Contents">
+                            <svg class="icon-image-plus" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2.8" y="3.2" width="12.5" height="12.5" rx="2.2" stroke="currentColor"
+                                    stroke-width="1.3" />
+                                <circle cx="6.5" cy="7" r="1.2" fill="currentColor" />
+                                <path d="M3.5 13.5L7.2 9.8L10.2 12.8L12.5 10.5L14.8 12.8" stroke="currentColor"
+                                    stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="15.5" cy="15.5" r="3.2" fill="#093862" />
+                                <path d="M15.5 13.5V17.5M13.5 15.5H17.5" stroke="currentColor" stroke-width="1.3"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Send Paper Plane Circle Button -->
+                    <button type="button" class="edition-badge-send" id="btnSendPrompt" title="Send prompt"
+                        aria-label="Send prompt">
+                        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="8.5" fill="#FEFFF1" />
+                            <path d="M6.2 9.8L13.6 6.4L11.2 14.2L9.4 11.0L6.2 9.8Z" fill="#093862" stroke="#093862"
+                                stroke-width="0.6" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Transparent Portrait of Aira -->
+            <div class="portrait-container" id="portraitContainer">
+                <img src="assets/aira.png" alt="Aira Bianca Ordaniel" class="portrait-img" />
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ========================================================================
+       PAGE 2: TABLE OF CONTENTS
+       ======================================================================== -->
+    <section class="portfolio-viewport" id="page-toc">
+        <div class="portfolio-canvas" id="tocCanvas" aria-label="Table of Contents Page">
+
+            <!-- Left Blue Gradient Panel -->
+            <div class="toc-left-panel" aria-hidden="true"></div>
+
+            <!-- Top Banner ("✦ ORDANIEL | WHAT LIES AHEAD?") -->
+            <header class="toc-top-banner">
+                <div class="toc-banner-brand">
+                    <!-- 4-Point Sparkle Star Icon -->
+                    <svg class="toc-banner-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                            fill="currentColor" />
+                    </svg>
+                    <span>ORDANIEL</span>
+                </div>
+                <span class="toc-banner-headline">WHAT LIES AHEAD?</span>
+            </header>
+
+            <!-- Left Portrait Overlapping the Banner (Matches Canva Page 2) -->
+            <div class="toc-portrait-container" id="tocPortrait">
+                <img src="assets/aira.png" alt="Aira Bianca Ordaniel" class="toc-portrait-img" />
+            </div>
+
+            <!-- Main Heading: TABLE OF CONTENTS + Top-Right Arrow -->
+            <div class="toc-heading-group">
+                <h2 class="toc-heading">TABLE OF<br />CONTENTS</h2>
+                <!-- Top-Right Diagonal Arrow Icon (Click to scroll back to Cover) -->
+                <a href="#page-cover" class="toc-heading-arrow" title="Back to Portfolio Cover"
+                    aria-label="Back to Portfolio Cover">
+                    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 22L22 6M22 6H8.5M22 6V19.5" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Horizontal Divider Line -->
+            <div class="toc-divider" aria-hidden="true"></div>
+
+            <!-- 2x3 Grid of Interactive TOC Pill Buttons -->
+            <nav class="toc-pills-grid" aria-label="Portfolio Sections">
+                <!-- Row 1, Col 1: Introduction (Solid Blue -> Opens Page 3!) -->
+                <a href="#page-intro" class="toc-pill toc-pill--filled" data-target="page-intro"
+                    data-folder-mode="intro" data-section="01 • INTRODUCTION" data-category="ai design ops"
+                    data-summary="Click to open the Introduction folder tab — About Aira, her background, and credentials.">
+                    <span>Introduction</span>
+                    <span class="toc-pill-star" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Row 1, Col 2: Education Background (Outlined Cream -> Opens Page 4!) -->
+                <a href="#page-education" class="toc-pill toc-pill--outlined" data-target="page-education"
+                    data-section="02 • EDUCATION" data-category="ops"
+                    data-summary="Click to view Educational Background — Bataan Peninsula State University, BSIT (2023–2027), scholarships, and leadership timeline.">
+                    <span>Education Background</span>
+                    <span class="toc-pill-star" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Row 2, Col 1: Skill & Expertise (Outlined Cream -> Opens My Skills Folder!) -->
+                <a href="#page-intro" class="toc-pill toc-pill--outlined" data-target="page-intro"
+                    data-folder-mode="skills" data-section="03 • SKILL &amp; EXPERTISE" data-category="ai design ops"
+                    data-summary="Click to open the My Skills folder tab — What I Do across Technical Projects, Design Workload, and Strategic Planning.">
+                    <span>Skill &amp; Expertise</span>
+                    <span class="toc-pill-star" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Row 2, Col 2: Previous Projects (Solid Blue) -->
+                <a href="#section-projects" class="toc-pill toc-pill--filled" data-section="04 • PREVIOUS PROJECTS"
+                    data-category="ai design"
+                    data-summary="Featured web applications, UI/UX prototypes, and AI-powered builds with live case studies.">
+                    <span>Previous Projects</span>
+                    <span class="toc-pill-star" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Row 3, Col 1: Working Experience (Solid Blue) -->
+                <a href="#section-experience" class="toc-pill toc-pill--filled" data-section="05 • WORKING EXPERIENCE"
+                    data-category="ops design"
+                    data-summary="Hands-on professional roles, operational management impact, and real-world project delivery.">
+                    <span>Working Experience</span>
+                    <span class="toc-pill-star" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Row 3, Col 2: Certifications & Awards (Outlined Cream) -->
+                <a href="#section-certifications" class="toc-pill toc-pill--outlined"
+                    data-section="06 • CERTIFICATIONS &amp; AWARDS" data-category="ai"
+                    data-summary="Verified credentials, AI &amp; tech certifications, and recognitions earned along the journey.">
+                    <span>Certifications &amp; Awards</span>
+                    <span class="toc-pill-star" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                </a>
+            </nav>
+
+            <!-- Interactive Section Preview Bar (Updates when hovering/clicking any TOC pill) -->
+            <div class="toc-preview-bar" id="tocPreviewBar" role="status" aria-live="polite">
+                <div class="toc-preview-content">
+                    <span class="toc-preview-badge" id="tocPreviewBadge">01 • INTRODUCTION</span>
+                    <span class="toc-preview-text" id="tocPreviewText">Hover or click any chapter pill above to preview
+                        what lies ahead.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================
+       PAGE 3: INTRODUCTION ("ABOUT ME") — LAYERED FOLDER CONCEPT
+       ======================================================================== -->
+    <section class="portfolio-viewport" id="page-intro">
+        <div class="portfolio-canvas intro-canvas" id="introCanvas" aria-label="Introduction — About Me Page">
+
+            <!-- 3-Layer Stacked Folder SVG Background (Exact Canva Geometry) -->
+            <svg class="intro-folders-svg" viewBox="0 0 1024 576" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <!-- Back Layer: MY PROJECTS Folder Tab & Strip (#388CD2) -->
+                <g class="intro-folder-layer intro-folder-layer--back" id="svgTabProjects">
+                    <path d="M 0 100
+               H 370
+               V 66
+               A 26 26 0 0 1 396 40
+               H 614
+               A 28 28 0 0 1 636 51
+               L 684 100
+               H 1024
+               V 220
+               H 0
+               Z" fill="#388CD2" />
+                </g>
+
+                <!-- Middle Layer: MY SKILLS Folder Tab & Strip (#1E70C4) -->
+                <g class="intro-folder-layer intro-folder-layer--mid" id="svgTabSkills">
+                    <path d="M 0 121
+               H 118
+               V 86
+               A 26 26 0 0 1 144 60
+               H 364
+               A 28 28 0 0 1 386 71
+               L 432 121
+               H 1024
+               V 240
+               H 0
+               Z" fill="#1E70C4" />
+                </g>
+
+                <!-- Front Active Layer: INTRODUCTION Folder Tab & Full Body (#1967A7) -->
+                <g class="intro-folder-layer intro-folder-layer--front" id="svgTabIntro">
+                    <path d="M 0 180
+               H 22
+               V 146
+               A 26 26 0 0 1 48 120
+               H 266
+               A 28 28 0 0 1 288 131
+               L 335 180
+               H 1024
+               V 576
+               H 0
+               Z" fill="#1967A7" />
+                </g>
+            </svg>
+
+            <!-- Interactive Folder Tab Buttons Overlaid on the 3 Folder Tabs -->
+            <button type="button" class="intro-tab-btn intro-tab-btn--projects" data-tab="projects"
+                title="Preview My Projects tab">
+                <span>MY PROJECTS</span>
+                <span class="intro-tab-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="7" x2="43" y2="7" stroke="currentColor" stroke-width="1.2" />
+                        <path d="M38 2.5L43.5 7L38 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+
+            <button type="button" class="intro-tab-btn intro-tab-btn--skills" data-tab="skills"
+                title="Preview My Skills tab">
+                <span>MY SKILLS</span>
+                <span class="intro-tab-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="7" x2="43" y2="7" stroke="currentColor" stroke-width="1.2" />
+                        <path d="M38 2.5L43.5 7L38 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+
+            <button type="button" class="intro-tab-btn intro-tab-btn--intro" data-tab="intro"
+                title="Active Tab: Introduction (Click to view Introduction)">
+                <span>INTRODUCTION</span>
+                <span class="intro-tab-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="7" x2="43" y2="7" stroke="currentColor" stroke-width="1.2" />
+                        <path d="M38 2.5L43.5 7L38 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+
+            <!-- Quick Return Pill When Viewing MY SKILLS Folder Tab -->
+            <button type="button" class="folder-prev-tab-pill" id="btnBackToIntroTab"
+                title="Return to Introduction Folder Tab">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>INTRODUCTION</span>
+            </button>
+
+            <!-- Main Folder Foreground Content Wrapper (INTRODUCTION TAB) -->
+            <div class="intro-content-fade" id="introFolderContent">
+                <!-- Left Polaroid Card with Provided Picture & "Balanga City, Bataan" Caption -->
+                <div class="intro-polaroid">
+                    <div class="intro-polaroid-photo-wrap">
+                        <img src="assets/aira-id.jpg" alt="Aira Bianca Ordaniel — Portrait"
+                            class="intro-polaroid-img" />
+                    </div>
+                    <div class="intro-polaroid-caption">
+                        Balanga City, Bataan
+                    </div>
+                </div>
+
+                <!-- "Hello! I'm Aira" Cream Speech Bubble -->
+                <div class="intro-speech-bubble" id="introSpeechBubble" title="Click to wave!">
+                    <span class="intro-speech-text" id="introSpeechText">Hello! I’m Aira</span>
+                </div>
+
+                <!-- Top-Right "About Me" Display Heading -->
+                <h2 class="intro-about-heading">About Me</h2>
+
+                <!-- Bio Paragraph (With Interactive Highlightable Spans Matched to All 6 Bottom Pills) -->
+                <p class="intro-bio-text">
+                    I'm a <span class="intro-bio-highlight" data-badge="it">4th-year IT student, developer,</span> and
+                    <span class="intro-bio-highlight" data-badge="dost">creative leader</span> working where <span
+                        class="intro-bio-highlight" data-badge="it">technology,</span> <span class="intro-bio-highlight"
+                        data-badge="uiux">UI/UX design,</span> and <span class="intro-bio-highlight"
+                        data-badge="workflow">execution</span> meet. I <span class="intro-bio-highlight"
+                        data-badge="it">build web apps,</span> <span class="intro-bio-highlight"
+                        data-badge="writer">write technical user stories,</span> <span class="intro-bio-highlight"
+                        data-badge="graphic">design brand systems,</span> and <span class="intro-bio-highlight"
+                        data-badge="dost">lead creative teams,</span> so <span class="intro-bio-highlight"
+                        data-badge="writer">ideas get easier to understand,</span> <span class="intro-bio-highlight"
+                        data-badge="uiux">build, and use.</span> Lately, I’ve been <span class="intro-bio-highlight"
+                        data-badge="workflow">using AI to automate the repetitive work in between</span> and eager to
+                    learn more of it.
+                </p>
+
+                <!-- Connect With Me Bar (Instagram, Facebook, Email, LinkedIn, GitHub + CV/Resume Pill) -->
+                <div class="intro-connect-row">
+                    <span class="intro-connect-label">Connect with me</span>
+
+                    <div class="intro-connect-actions">
+                        <div class="intro-social-links" role="group" aria-label="Social and Contact Links">
+                            <!-- Instagram -->
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="Instagram" title="Instagram">
+                                <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor"
+                                        stroke-width="2" />
+                                    <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" />
+                                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
+                                </svg>
+                            </a>
+
+                            <!-- Facebook -->
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="Facebook" title="Facebook">
+                                <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M15.5 4H13.2C11.1 4 9.8 5.4 9.8 7.6V9.8H7.5V13H9.8V20H13.2V13H15.6L16.1 9.8H13.2V7.9C13.2 7.1 13.5 6.8 14.5 6.8H15.5V4Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+
+                            <!-- Email -->
+                            <a href="mailto:airabiancaordaniel@gmail.com" class="intro-social-btn" aria-label="Email"
+                                title="Send an Email">
+                                <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="2.5" y="4.5" width="19" height="15" rx="3" stroke="currentColor"
+                                        stroke-width="2" />
+                                    <path d="M3.5 6.5L12 12.8L20.5 6.5" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="LinkedIn" title="LinkedIn">
+                                <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M6.8 8.2C7.8 8.2 8.6 7.4 8.6 6.4C8.6 5.4 7.8 4.6 6.8 4.6C5.8 4.6 5 5.4 5 6.4C5 7.4 5.8 8.2 6.8 8.2Z"
+                                        fill="currentColor" />
+                                    <path d="M5.3 10H8.3V19H5.3V10Z" fill="currentColor" />
+                                    <path
+                                        d="M10.3 10H13.2V11.3C13.7 10.4 14.8 9.8 16.2 9.8C18.8 9.8 19.5 11.4 19.5 13.8V19H16.5V14.4C16.5 13.2 16.2 12.4 15.1 12.4C13.9 12.4 13.3 13.2 13.3 14.4V19H10.3V10Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+
+                            <!-- GitHub -->
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                class="intro-social-btn" aria-label="GitHub" title="GitHub">
+                                <svg class="intro-social-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 2.5C6.75 2.5 2.5 6.75 2.5 12C2.5 16.2 5.22 19.75 9 21.02C9.47 21.1 9.65 20.82 9.65 20.57C9.65 20.34 9.64 19.58 9.64 18.78C6.99 19.35 6.43 17.65 6.43 17.65C6 16.55 5.37 16.26 5.37 16.26C4.51 15.67 5.44 15.68 5.44 15.68C6.39 15.75 6.9 16.66 6.9 16.66C7.75 18.11 9.13 17.69 9.67 17.45C9.75 16.84 10 16.42 10.28 16.18C8.17 15.94 5.95 15.12 5.95 11.48C5.95 10.44 6.32 9.59 6.93 8.93C6.83 8.69 6.5 7.72 7.02 6.41C7.02 6.41 7.82 6.15 9.63 7.38C10.39 7.17 11.2 7.06 12 7.06C12.8 7.06 13.61 7.17 14.37 7.38C16.18 6.15 16.98 6.41 16.98 6.41C17.5 7.72 17.17 8.69 17.07 8.93C17.68 9.59 18.05 10.44 18.05 11.48C18.05 15.13 15.83 15.94 13.71 16.17C14.05 16.47 14.35 17.05 14.35 17.95C14.35 19.23 14.34 20.26 14.34 20.57C14.34 20.82 14.52 21.11 15 21.02C18.78 19.75 21.5 16.2 21.5 12C21.5 6.75 17.25 2.5 12 2.5Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- CV / Resume Pill -->
+                        <a href="#cv-resume" class="intro-cv-pill" title="View or Download CV / Resume">
+                            <svg class="intro-cv-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M14 2.5H7C5.6 2.5 4.5 3.6 4.5 5V19C4.5 20.4 5.6 21.5 7 21.5H17C18.4 21.5 19.5 20.4 19.5 19V8L14 2.5Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                                <path d="M14 2.5V8H19.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linejoin="round" />
+                                <path d="M8.5 13H15.5M8.5 16.5H13.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            <span>CV / Resume</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slightly Bigger CTA Pill Below the 6 Credential Pills -->
+                <div class="intro-know-more-wrap">
+                    <button type="button" class="intro-know-more-btn" id="btnKnowMore">
+                        <span>Click to Know More About Me</span>
+                        <svg class="intro-know-more-icon" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ==============================================================
+                 MY SKILLS FOLDER FOREGROUND CONTENT ("WHAT I DO" CREATIVE BOARD)
+                 ============================================================== -->
+            <div class="skills-folder-content" id="skillsFolderContent" aria-hidden="true">
+
+                <div class="skills-overview-stage" id="skillsOverviewStage">
+                    <!-- Decorative SVG Connector Lines Behind Cards -->
+                    <svg class="skills-flow-svg" viewBox="0 0 1024 576" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <!-- Dashed flow paths connecting "What I Do" center hub to the 3 cards -->
+                        <path d="M 390 162 C 345 162, 345 205, 315 205" stroke="rgba(130, 209, 255, 0.45)"
+                            stroke-width="1.8" stroke-dasharray="5 5" />
+                        <path d="M 512 192 L 512 222" stroke="rgba(130, 209, 255, 0.45)" stroke-width="1.8"
+                            stroke-dasharray="5 5" />
+                        <path d="M 634 162 C 672 162, 672 222, 696 222" stroke="rgba(130, 209, 255, 0.45)"
+                            stroke-width="1.8" stroke-dasharray="5 5" />
+                        <circle cx="390" cy="162" r="4" fill="#82D1FF" />
+                        <circle cx="512" cy="192" r="4" fill="#82D1FF" />
+                        <circle cx="634" cy="162" r="4" fill="#82D1FF" />
+                    </svg>
+
+                    <!-- Center Kicker + "What I Do" Heading -->
+                    <div class="skills-what-header">
+                        <span class="skills-what-kicker">✦ CORE WORKLOAD &amp; CAPABILITIES</span>
+                        <h2 class="skills-what-heading">What I Do</h2>
+                    </div>
+
+                    <!-- Left Card: Technical Projects -->
+                    <article class="skills-grey-card skills-grey-card--tech" data-skill-jump="technical" role="button"
+                        tabindex="0" title="Click to inspect Technical skill set">
+                        <div class="skills-grey-card-head">
+                            <div class="skills-grey-title-wrap">
+                                <span class="skills-grey-index">01 / TECH</span>
+                                <h3 class="skills-grey-title">Technical Projects</h3>
+                            </div>
+                            <span class="skills-card-icon-badge" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 9L4 12L8 15M16 9L20 12L16 15M13.5 6.5L10.5 17.5" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="skills-grey-divider"></div>
+                        <ul class="skills-grey-list">
+                            <li>Front-end Programming for System Development</li>
+                            <li>UI/UX Designing for Prototypes and Wireframes</li>
+                        </ul>
+                        <div class="skills-grey-chips">
+                            <span>Web Apps</span>
+                            <span>Wireframes</span>
+                            <span>ERDs</span>
+                        </div>
+                    </article>
+
+                    <!-- Middle-Bottom Card: Design Workload -->
+                    <article class="skills-grey-card skills-grey-card--design" data-skill-jump="design" role="button"
+                        tabindex="0" title="Click to inspect Design skill set">
+                        <div class="skills-grey-card-head">
+                            <div class="skills-grey-title-wrap">
+                                <span class="skills-grey-index">02 / DESIGN</span>
+                                <h3 class="skills-grey-title">Design Workload</h3>
+                            </div>
+                            <span class="skills-card-icon-badge" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 3L19 10L8 21H3V16L12 3Z" stroke="currentColor" stroke-width="2"
+                                        stroke-linejoin="round" />
+                                    <circle cx="13.5" cy="10.5" r="1.5" fill="currentColor" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="skills-grey-divider"></div>
+                        <ul class="skills-grey-list">
+                            <li>Produce engaging visuals and publication materials</li>
+                            <li>Established brandings for organizations.</li>
+                        </ul>
+                        <div class="skills-grey-chips">
+                            <span>Pubmats</span>
+                            <span>Brand Identity</span>
+                            <span>Visuals</span>
+                        </div>
+                    </article>
+
+                    <!-- Right Card: Strategic Planning/Assistance -->
+                    <article class="skills-grey-card skills-grey-card--strategy" data-skill-jump="operations"
+                        role="button" tabindex="0" title="Click to inspect Operations &amp; AI Fluency skill sets">
+                        <div class="skills-grey-card-head">
+                            <div class="skills-grey-title-wrap">
+                                <span class="skills-grey-index">03 / STRATEGY &amp; AI</span>
+                                <h3 class="skills-grey-title">Strategic Planning/Assistance</h3>
+                            </div>
+                            <span class="skills-card-icon-badge" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L14.3 9.7L22 12L14.3 14.3L12 22L9.7 14.3L2 12L9.7 9.7L12 2Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="skills-grey-divider"></div>
+                        <ul class="skills-grey-list">
+                            <li>Research consultations and Academe-based commissions</li>
+                            <li>Optimize AI for operational workflows of organizations</li>
+                        </ul>
+                        <div class="skills-grey-chips">
+                            <span>Research</span>
+                            <span>AI Workflows</span>
+                            <span>Operations</span>
+                        </div>
+                    </article>
+
+                    <!-- Bottom-Left Domain Strip Filling Negative Space Below Card 1 -->
+                    <div class="skills-domain-strip">
+                        <span class="skills-domain-label">4 SKILL SETS</span>
+                        <div class="skills-domain-pills">
+                            <button type="button" class="skills-domain-mini" data-skill-jump="technical">Technical</button>
+                            <button type="button" class="skills-domain-mini" data-skill-jump="design">Design</button>
+                            <button type="button" class="skills-domain-mini" data-skill-jump="operations">Operations</button>
+                            <button type="button" class="skills-domain-mini" data-skill-jump="ai">AI Fluency</button>
+                        </div>
+                    </div>
+
+                    <!-- Bottom-Right CTA Button Redirecting to Dedicated 4-Card Skills Page (#page-skills) -->
+                    <button type="button" class="skills-view-set-btn" id="btnViewSpecificSkills">
+                        <span>View Specific Skills Set</span>
+                        <svg class="skills-view-set-icon" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- ==============================================================
+                 EXPANDED SCROLLABLE FOLDER VIEW ("KNOW MORE ABOUT ME" DOSSIER)
+                 ============================================================== -->
+            <div class="intro-expanded-folder" id="introExpandedFolder" aria-hidden="true">
+                <!-- Sticky Folder Header -->
+                <div class="expanded-folder-topbar">
+                    <div class="expanded-folder-tab-title">
+                        <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path
+                                d="M3 6.5C3 5.4 3.9 4.5 5 4.5H9.6C10.2 4.5 10.8 4.8 11.2 5.3L12.6 7H19C20.1 7 21 7.9 21 9V17.5C21 18.6 20.1 19.5 19 19.5H5C3.9 19.5 3 18.6 3 17.5V6.5Z"
+                                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                        <span>AIRCHIVE OWNER'S FULL PROFILE</span>
+                    </div>
+                    <button type="button" class="expanded-folder-close-btn" id="btnCloseExpandedFolder"
+                        aria-label="Close Full Profile" title="Close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Scrollable Content Inside Expanded Folder -->
+                <div class="expanded-folder-scroll">
+                    <!-- 1. Full Name Strip -->
+                    <div class="dossier-hero-card">
+                        <div class="dossier-identity">
+                            <img src="assets/aira-id.jpg" alt="AIRA BIANCA F. Ordaniel" class="dossier-avatar" />
+                            <div class="dossier-name-group">
+                                <span class="dossier-kicker">Full Name • Archive Owner</span>
+                                <h3 class="dossier-fullname">AIRA BIANCA F. Ordaniel</h3>
+                                <span class="dossier-location-sub">
+                                    <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path
+                                            d="M12 21C16 16.8 18.5 13.4 18.5 9.8C18.5 6.2 15.6 3.3 12 3.3C8.4 3.3 5.5 6.2 5.5 9.8C5.5 13.4 8 16.8 12 21Z"
+                                            stroke="currentColor" stroke-width="1.8" />
+                                        <circle cx="12" cy="9.8" r="2.3" stroke="currentColor" stroke-width="1.8" />
+                                    </svg>
+                                    <span>Balanga City, Bataan • Web Designer &amp; AI Workflow Automation</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1.5. Core Passions & Advocacies (Before Three Main Skill Pillars) -->
+                    <div>
+                        <h4 class="dossier-section-title">
+                            <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"
+                                    fill="#82D1FF" />
+                            </svg>
+                            <span>Core Passions &amp; Advocacies</span>
+                        </h4>
+                        <div class="dossier-passions-grid">
+                            <!-- Passion 1: Organizational Leadership -->
+                            <div class="dossier-passion-card">
+                                <div class="dossier-passion-icon-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true">
+                                        <circle cx="9" cy="7.5" r="3" stroke="currentColor" stroke-width="1.8" />
+                                        <path d="M3.5 19C3.5 15.8 6 13.5 9 13.5C12 13.5 14.5 15.8 14.5 19"
+                                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                        <circle cx="16.8" cy="8.8" r="2.3" stroke="currentColor" stroke-width="1.8" />
+                                        <path d="M15.2 14C17.8 14.2 20.2 16 20.5 19" stroke="currentColor"
+                                            stroke-width="1.8" stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                                <div class="dossier-passion-text">
+                                    <strong class="dossier-passion-title">Organizational Leadership</strong>
+                                    <span class="dossier-passion-sub">Leading student councils, scholar organizations,
+                                        and creative teams</span>
+                                </div>
+                            </div>
+
+                            <!-- Passion 2: Journalism -->
+                            <div class="dossier-passion-card">
+                                <div class="dossier-passion-icon-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true">
+                                        <path d="M17.5 3.5L20.5 6.5L8.5 18.5L4 19.8L5.3 15.3L17.5 3.5Z"
+                                            stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                        <path d="M15 6L18 9" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" />
+                                        <path d="M4 21H20" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                                <div class="dossier-passion-text">
+                                    <strong class="dossier-passion-title">Journalism</strong>
+                                    <span class="dossier-passion-sub">Article writing for literary and campus
+                                        publications</span>
+                                </div>
+                            </div>
+
+                            <!-- Passion 3: Film-Making -->
+                            <div class="dossier-passion-card">
+                                <div class="dossier-passion-icon-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true">
+                                        <rect x="3" y="8.5" width="18" height="12" rx="2" stroke="currentColor"
+                                            stroke-width="1.8" />
+                                        <path d="M3.5 8.5L19.5 4L20.8 7.5L3 8.5Z" stroke="currentColor"
+                                            stroke-width="1.8" stroke-linejoin="round" />
+                                        <path d="M8.5 8.5L10.5 5M14.5 7.8L16.2 4.5" stroke="currentColor"
+                                            stroke-width="1.8" stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                                <div class="dossier-passion-text">
+                                    <strong class="dossier-passion-title">Film-Making</strong>
+                                    <span class="dossier-passion-sub">Directing theatre plays and film projects</span>
+                                </div>
+                            </div>
+
+                            <!-- Passion 4: Animal Welfare Advocacy -->
+                            <div class="dossier-passion-card">
+                                <div class="dossier-passion-icon-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M12 20.2C12 20.2 4.2 15.2 4.2 9.4C4.2 6.8 6.2 4.8 8.7 4.8C10.2 4.8 11.4 5.5 12 6.6C12.6 5.5 13.8 4.8 15.3 4.8C17.8 4.8 19.8 6.8 19.8 9.4C19.8 15.2 12 20.2 12 20.2Z"
+                                            stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="dossier-passion-text">
+                                    <strong class="dossier-passion-title">Animal Welfare Advocacy</strong>
+                                    <span class="dossier-passion-sub">Strong love and dedicated voice for animals</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Three Main Skills: Tech, Design, Strategy (Matching Page 1 SVG Icons) -->
+                    <div>
+                        <h4 class="dossier-section-title">
+                            <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"
+                                    fill="#82D1FF" />
+                            </svg>
+                            <span>Three Main Skill Pillars</span>
+                        </h4>
+                        <div class="dossier-pillars-grid">
+                            <div class="dossier-pillar-card">
+                                <div class="dossier-pillar-top">
+                                    <span class="dossier-pillar-num">Pillar 01</span>
+                                    <!-- Same Cursor Arrow SVG from Page 1 -->
+                                    <svg class="dossier-pillar-icon" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path
+                                            d="M7.5 4.8L22.6 15.2C23.5 15.8 23.2 17.2 22.1 17.4L15.4 18.6L11.2 24.1C10.5 25.0 9.1 24.6 9.0 23.5L7.0 6.0C6.9 4.9 8.0 4.2 7.5 4.8Z"
+                                            fill="currentColor" stroke="currentColor" stroke-width="1.2"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <h5 class="dossier-pillar-name">Tech</h5>
+                                <p class="dossier-pillar-desc">
+                                    Building modern, responsive web applications and leveraging AI &amp; automation
+                                    workflows to eliminate repetitive tasks.
+                                </p>
+                            </div>
+                            <div class="dossier-pillar-card">
+                                <div class="dossier-pillar-top">
+                                    <span class="dossier-pillar-num">Pillar 02</span>
+                                    <!-- Same Bezier Pen Nib SVG from Page 1 -->
+                                    <svg class="dossier-pillar-icon" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <line x1="6" y1="6.5" x2="22" y2="6.5" stroke="currentColor"
+                                            stroke-width="1.2" />
+                                        <circle cx="5.2" cy="6.5" r="1.4" fill="currentColor" />
+                                        <circle cx="22.8" cy="6.5" r="1.4" fill="currentColor" />
+                                        <rect x="12.4" y="4.9" width="3.2" height="3.2" fill="#0B3861"
+                                            stroke="currentColor" stroke-width="1.2" />
+                                        <path d="M5.5 14.5C5.5 9.5 9.2 6.8 14 6.8C18.8 6.8 22.5 9.5 22.5 14.5"
+                                            stroke="currentColor" stroke-width="1.2" fill="none" />
+                                        <path d="M14 9.5L18.2 16.8L16.5 20.5H11.5L9.8 16.8L14 9.5Z"
+                                            fill="currentColor" />
+                                        <line x1="14" y1="9.5" x2="14" y2="15.5" stroke="#0B3861" stroke-width="1.2" />
+                                        <circle cx="14" cy="15.8" r="1.3" fill="#0B3861" />
+                                        <rect x="11.2" y="21.5" width="5.6" height="2.4" rx="0.6" stroke="currentColor"
+                                            stroke-width="1.2" fill="none" />
+                                    </svg>
+                                </div>
+                                <h5 class="dossier-pillar-name">Design</h5>
+                                <p class="dossier-pillar-desc">
+                                    Crafting human-centered UI/UX interfaces, visual brand systems, concept designs, and
+                                    cohesive moodboard directions.
+                                </p>
+                            </div>
+                            <div class="dossier-pillar-card">
+                                <div class="dossier-pillar-top">
+                                    <span class="dossier-pillar-num">Pillar 03</span>
+                                    <!-- Same Clicking Hand SVG from Page 1 -->
+                                    <svg class="dossier-pillar-icon" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <line x1="10.2" y1="3.2" x2="10.8" y2="5.6" stroke="currentColor"
+                                            stroke-width="1.3" stroke-linecap="round" />
+                                        <line x1="5.2" y1="5.0" x2="7.2" y2="6.6" stroke="currentColor"
+                                            stroke-width="1.3" stroke-linecap="round" />
+                                        <line x1="3.8" y1="9.6" x2="6.3" y2="9.6" stroke="currentColor"
+                                            stroke-width="1.3" stroke-linecap="round" />
+                                        <line x1="5.8" y1="13.8" x2="7.6" y2="12.2" stroke="currentColor"
+                                            stroke-width="1.3" stroke-linecap="round" />
+                                        <line x1="14.8" y1="4.8" x2="13.2" y2="6.6" stroke="currentColor"
+                                            stroke-width="1.3" stroke-linecap="round" />
+                                        <path
+                                            d="M11.2 8.2C10.3 8.5 9.9 9.5 10.3 10.5L12.6 16.5L10.3 15.8C9.3 15.5 8.3 16.0 8.1 16.9C7.9 17.5 8.2 18.2 8.8 18.6L14.6 22.8C15.9 23.7 17.6 23.9 19.2 23.3L21.5 22.4C23.4 21.7 24.3 19.6 23.6 17.7L21.5 12.2C21.1 11.2 20.1 10.7 19.2 11.1C18.9 11.2 18.6 11.5 18.5 11.8C18.1 10.9 17.1 10.5 16.2 10.9C15.8 11.0 15.5 11.3 15.4 11.7C14.9 10.9 14.0 10.6 13.2 11.0L12.5 9.1C12.2 8.2 11.3 7.9 11.2 8.2Z"
+                                            stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"
+                                            fill="none" />
+                                    </svg>
+                                </div>
+                                <h5 class="dossier-pillar-name">Strategy</h5>
+                                <p class="dossier-pillar-desc">
+                                    Writing clear technical user stories, managing operational workflows, and leading
+                                    creative teams from concept to execution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Hobbies & Creative Interests (Clean Line-Art SVGs + 4-Point Sparkle Style) -->
+                    <div>
+                        <h4 class="dossier-section-title">
+                            <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"
+                                    fill="#82D1FF" />
+                            </svg>
+                            <span>Hobbies &amp; Creative Interests</span>
+                        </h4>
+                        <div class="dossier-hobbies-wrap">
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <path d="M3.5 11.2L20.5 4.2L13.5 21.2L11 13.7L3.5 11.2Z" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                                <span>Travelling</span>
+                            </span>
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <path d="M10 9.5L15 12L10 14.5V9.5Z" fill="currentColor" />
+                                </svg>
+                                <span>Watching Films</span>
+                            </span>
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <path d="M9 18V6L20 4V16" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.8" />
+                                    <circle cx="17.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.8" />
+                                </svg>
+                                <span>Curating mood playlists</span>
+                            </span>
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <rect x="2.5" y="6" width="13.5" height="12" rx="2.2" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <path d="M16 10.2L21.5 7.2V16.8L16 13.8V10.2Z" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                                <span>Video Editing</span>
+                            </span>
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <path d="M12 3L19 14.5L16.5 20.5H7.5L5 14.5L12 3Z" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linejoin="round" />
+                                    <circle cx="12" cy="13.5" r="1.8" fill="currentColor" />
+                                </svg>
+                                <span>Concept Designing</span>
+                            </span>
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <rect x="3.5" y="3.5" width="7.2" height="7.2" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <rect x="13.3" y="3.5" width="7.2" height="7.2" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <rect x="3.5" y="13.3" width="7.2" height="7.2" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <rect x="13.3" y="13.3" width="7.2" height="7.2" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                </svg>
+                                <span>Moodboard Direction</span>
+                            </span>
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <rect x="3" y="4.5" width="18" height="15" rx="2.2" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <path d="M3 10.5H21M10.5 10.5V19.5" stroke="currentColor" stroke-width="1.8" />
+                                </svg>
+                                <span>Storyboarding</span>
+                            </span>
+                            <span class="dossier-hobby-pill">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <path d="M5 8H16V14.5C16 17.5 13.5 20 10.5 20C7.5 20 5 17.5 5 14.5V8Z"
+                                        stroke="currentColor" stroke-width="1.8" />
+                                    <path d="M16 9.5H18C19.4 9.5 20.5 10.6 20.5 12C20.5 13.4 19.4 14.5 18 14.5H16"
+                                        stroke="currentColor" stroke-width="1.8" />
+                                </svg>
+                                <span>Cafe Hopping</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================
+       PAGE 4: EDUCATIONAL BACKGROUND
+       ======================================================================== -->
+    <section class="portfolio-viewport" id="page-education" aria-label="Educational Background Page">
+        <div class="portfolio-canvas edu-canvas" id="eduCanvas">
+
+            <!-- Top Banner + Main Title Row -->
+            <div class="edu-header-row">
+                <h2 class="edu-main-title">Educational <span>Background</span></h2>
+
+                <!-- Canva-Style Rectangular Gradient Banner ("✦ ORDANIEL | ACADEMIC RECORD & UNIVERSITY-BASED LEADERSHIP") -->
+                <div class="edu-top-banner">
+                    <div class="edu-banner-brand">
+                        <svg class="edu-banner-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>ORDANIEL</span>
+                    </div>
+                    <span class="edu-banner-headline">ACADEMIC RECORD &amp; UNIVERSITY-BASED LEADERSHIP</span>
+                </div>
+            </div>
+
+            <!-- Main University Banner Card -->
+            <div class="edu-main-card">
+                <div class="edu-card-top">
+                    <div class="edu-badge-wrap">
+                        <div class="edu-cap-icon-box">
+                            <img src="assets/bpsu-logo.png" alt="Bataan Peninsula State University Logo"
+                                class="edu-bpsu-logo" />
+                        </div>
+                        <div class="edu-university-info">
+                            <span class="edu-level-tag">TERTIARY EDUCATION • STATE UNIVERSITY</span>
+                            <h3 class="edu-university-name">Bataan Peninsula State University - Main Campus</h3>
+                            <div class="edu-university-loc">
+                                <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M12 21C16 16.8 18.5 13.4 18.5 9.8C18.5 6.2 15.6 3.3 12 3.3C8.4 3.3 5.5 6.2 5.5 9.8C5.5 13.4 8 16.8 12 21Z"
+                                        stroke="currentColor" stroke-width="1.8" />
+                                    <circle cx="12" cy="9.8" r="2.3" stroke="currentColor" stroke-width="1.8" />
+                                </svg>
+                                <span>Balanga City, Bataan • BS Information Technology (2023–2027)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prominent Highlighted GWA Feature Card -->
+                    <div class="edu-gwa-highlight-card">
+                        <div class="edu-gwa-number-row">
+                            <svg class="edu-gwa-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+                                <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <span class="edu-gwa-big-num">1.39 GWA</span>
+                        </div>
+                        <span class="edu-gwa-sub-badge">Consistent President's Lister</span>
+                    </div>
+                </div>
+
+                <!-- Row 1: Scholarship Grants (2 Side-by-Side Cards) -->
+                <div class="edu-section-block">
+                    <h4 class="edu-col-title">
+                        <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="#82D1FF" />
+                        </svg>
+                        <span>Scholarship Grants</span>
+                    </h4>
+
+                    <div class="edu-scholar-row">
+                        <!-- Grant 1: DOST -->
+                        <div class="edu-item-card edu-scholar-card">
+                            <div class="edu-item-head">
+                                <span class="edu-item-role-tag">NATIONAL S&amp;T SCHOLAR</span>
+                                <span class="edu-item-year">2023 – 2027</span>
+                            </div>
+                            <strong class="edu-item-title">DOST Undergraduate Scholarship</strong>
+                            <span class="edu-item-sub">Department of Science and Technology</span>
+                        </div>
+
+                        <!-- Grant 2: Iskolar ng Bataan -->
+                        <div class="edu-item-card edu-scholar-card">
+                            <div class="edu-item-head">
+                                <span class="edu-item-role-tag">LGU-BASED SCHOLARSHIP</span>
+                                <span class="edu-item-year">2023 – 2027</span>
+                            </div>
+                            <strong class="edu-item-title">Iskolar ng Bataan</strong>
+                            <span class="edu-item-sub">Provincial Government of Bataan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: University Affiliations & Leadership (Interactive Timeline) -->
+                <div class="edu-section-block">
+                    <h4 class="edu-col-title">
+                        <svg class="dossier-inline-icon" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="#82D1FF" />
+                        </svg>
+                        <span>University Affiliations &amp; Leadership Timeline</span>
+                    </h4>
+
+                    <div class="edu-timeline" role="list" aria-label="University Affiliations Timeline">
+                        <!-- Step 1: 2023 - 2024 -->
+                        <div class="edu-timeline-step" role="listitem">
+                            <div class="edu-timeline-track-row">
+                                <span class="edu-timeline-node" aria-hidden="true"></span>
+                                <span class="edu-timeline-year">2023 – 2024</span>
+                            </div>
+                            <div class="edu-timeline-card">
+                                <span class="edu-item-role-tag">JUNIOR OFFICER</span>
+                                <strong class="edu-item-title">CSG Main Office</strong>
+                                <span class="edu-item-sub">Campus Student Government - Main Office</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: 2024 - 2025 -->
+                        <div class="edu-timeline-step" role="listitem">
+                            <div class="edu-timeline-track-row">
+                                <span class="edu-timeline-node" aria-hidden="true"></span>
+                                <span class="edu-timeline-year">2024 – 2025</span>
+                            </div>
+                            <div class="edu-timeline-card">
+                                <span class="edu-item-role-tag">PRESIDENT</span>
+                                <strong class="edu-item-title">BPSU-SSITE</strong>
+                                <span class="edu-item-sub">Student Society on Information Technology
+                                    Education</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: 2025 - 2026 -->
+                        <div class="edu-timeline-step" role="listitem">
+                            <div class="edu-timeline-track-row">
+                                <span class="edu-timeline-node" aria-hidden="true"></span>
+                                <span class="edu-timeline-year">2025 – 2026</span>
+                            </div>
+                            <div class="edu-timeline-card">
+                                <span class="edu-item-role-tag">VP FOR INTERNAL AFFAIRS</span>
+                                <strong class="edu-item-title">BPSU-DOS</strong>
+                                <span class="edu-item-sub">BPSU DOST Organization of Scholars</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: 2023 - 2026 -->
+                        <div class="edu-timeline-step" role="listitem">
+                            <div class="edu-timeline-track-row">
+                                <span class="edu-timeline-node" aria-hidden="true"></span>
+                                <span class="edu-timeline-year">2023 – 2026</span>
+                            </div>
+                            <div class="edu-timeline-card">
+                                <span class="edu-item-role-tag">BLOCK LEADERSHIP</span>
+                                <strong class="edu-item-title">CLASS MAYOR</strong>
+                                <span class="edu-item-sub">Consistent Block Mayor since First Year, First
+                                    Semester</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================
+       PAGE 5: SPECIFIC SKILL SETS (4 CORE SKILL SET CARDS: TECHNICAL, DESIGN, OPERATIONS, AI FLUENCY)
+       ======================================================================== -->
+    <section class="portfolio-viewport" id="page-skills" aria-label="Specific Skill Sets Page">
+        <div class="portfolio-canvas skillset-canvas" id="skillsetCanvas">
+
+            <!-- Top Header Row: Title + Canva-Style Rectangular Gradient Banner -->
+            <div class="edu-header-row skillset-header-row">
+                <h2 class="edu-main-title">Specific <span>Skills Set</span></h2>
+
+                <div class="edu-top-banner">
+                    <div class="edu-banner-brand">
+                        <svg class="edu-banner-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>ORDANIEL</span>
+                    </div>
+                    <span class="edu-banner-headline">TECHNICAL • DESIGN • OPERATIONS • AI FLUENCY</span>
+                </div>
+            </div>
+
+            <!-- Interactive Filter & Navigation Bar -->
+            <div class="skillset-toolbar">
+                <div class="skillset-filter-group" role="tablist" aria-label="Filter Skill Sets">
+                    <button type="button" class="skillset-filter-btn active" data-skill-filter="all">All 4 Skill
+                        Sets</button>
+                    <button type="button" class="skillset-filter-btn" data-skill-filter="technical">01 •
+                        Technical</button>
+                    <button type="button" class="skillset-filter-btn" data-skill-filter="design">02 • Design</button>
+                    <button type="button" class="skillset-filter-btn" data-skill-filter="operations">03 •
+                        Operations</button>
+                    <button type="button" class="skillset-filter-btn" data-skill-filter="ai">04 • AI Fluency</button>
+                </div>
+
+                <a href="#page-intro" class="skillset-back-folder-link" id="btnBackToSkillsFolder">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>Back to My Skills Folder</span>
+                </a>
+            </div>
+
+            <!-- 2x2 Grid of 4 Core Skill Set Cards -->
+            <div class="skillset-cards-grid" id="skillsetCardsGrid">
+
+                <!-- ============================================================
+                     CARD 01: TECHNICAL
+                     ============================================================ -->
+                <article class="skillset-card" data-skill-category="technical">
+                    <div class="skillset-card-header">
+                        <div class="skillset-card-title-group">
+                            <span class="skillset-card-kicker">01 • CORE SKILL SET</span>
+                            <h3 class="skillset-card-title">Technical</h3>
+                        </div>
+                        <div class="skillset-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M8 9L4 12L8 15M16 9L20 12L16 15M13.5 6.5L10.5 17.5" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="skillset-subblocks">
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">FRONT-END DEVELOPMENT</h4>
+                            <p class="skillset-subdesc">
+                                Building responsive web interfaces with HTML, CSS, and JavaScript, and planning the data
+                                behind them through database design diagrams (ERDs) that map out how a system’s
+                                information connects.
+                            </p>
+                        </div>
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">UI/UX DESIGNING</h4>
+                            <p class="skillset-subdesc">
+                                Designing user-centered screens and flows in Figma—understanding user needs, mapping
+                                user flows, sketching wireframes, and building high-fidelity clickable prototypes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="skillset-tools-footer">
+                        <span class="skillset-tools-label">Tools &amp; Languages</span>
+                        <div class="skillset-badges-wrap">
+                            <!-- HTML5 Shield -->
+                            <div class="tech-badge-icon tech-badge-icon--shield" title="HTML5">
+                                <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#E44D26" />
+                                    <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#F16529" />
+                                    <path
+                                        d="M16.5 18H47.5L46.8 25.2H24.2L24.8 32.2H46.1L44.4 50.2L32 53.8L19.6 50.2L18.7 40.5H26L26.5 45.2L32 46.8L37.5 45.2L38.2 38.8H18.1L16.5 18Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </div>
+                            <!-- PHP Oval -->
+                            <div class="tech-badge-icon tech-badge-icon--php" title="PHP">
+                                <svg viewBox="0 0 110 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="55" cy="29" rx="52" ry="26" fill="#777BB3"
+                                        stroke="rgba(255,255,255,0.45)" stroke-width="2" />
+                                    <text x="55" y="37" text-anchor="middle" fill="#000000" stroke="#FFFFFF"
+                                        stroke-width="1.4" paint-order="stroke fill" font-family="Arial, sans-serif"
+                                        font-weight="900" font-style="italic" font-size="27">php</text>
+                                </svg>
+                            </div>
+                            <!-- CSS3 Shield -->
+                            <div class="tech-badge-icon tech-badge-icon--shield" title="CSS3">
+                                <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#264DE4" />
+                                    <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#2965F1" />
+                                    <path
+                                        d="M16.8 18H47.2L46.4 25.2H32L18.8 32.2H45.6L43.8 50.2L32 53.8L20.2 50.2L19.3 40.5H26.6L27.1 45.2L32 46.8L37.2 45.2L37.9 38.5H18.2L18.8 32L35.5 25.2H17.5L16.8 18Z"
+                                        fill="#EBEBEB" />
+                                </svg>
+                            </div>
+                            <!-- JS Shield -->
+                            <div class="tech-badge-icon tech-badge-icon--shield" title="JavaScript">
+                                <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#E5A228" />
+                                    <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#F1BF26" />
+                                    <path
+                                        d="M17.5 18H46.5L45.8 25.2H24.6L25.2 32.2H45.1L43.5 50.2L32 53.8L20.5 50.2L19.6 40.5H26.8L27.3 45.2L32 46.8L36.8 45.2L37.5 38.8H18.6L17.5 18Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </div>
+                            <span class="skillset-tool-pill">Figma</span>
+                            <span class="skillset-tool-pill">SQL / ERD</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ============================================================
+                     CARD 02: DESIGN
+                     ============================================================ -->
+                <article class="skillset-card" data-skill-category="design">
+                    <div class="skillset-card-header">
+                        <div class="skillset-card-title-group">
+                            <span class="skillset-card-kicker">02 • CORE SKILL SET</span>
+                            <h3 class="skillset-card-title">Design</h3>
+                        </div>
+                        <div class="skillset-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 3L19 10L8 21H3V16L12 3Z" stroke="currentColor" stroke-width="2"
+                                    stroke-linejoin="round" />
+                                <circle cx="13.5" cy="10.5" r="1.5" fill="currentColor" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="skillset-subblocks">
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">BRAND IDENTITY &amp; VISUAL SYSTEMS</h4>
+                            <p class="skillset-subdesc">
+                                Establishing cohesive brand identities, color systems, typography directions, and
+                                moodboards for student councils, scholar organizations, and digital products.
+                            </p>
+                        </div>
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">PUBLICATION &amp; CREATIVE DIRECTION</h4>
+                            <p class="skillset-subdesc">
+                                Producing engaging publication materials, social media campaigns, storyboards, and video
+                                edits that translate complex announcements into clear, scroll-stopping visuals.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="skillset-tools-footer">
+                        <span class="skillset-tools-label">Creative Suite &amp; Platforms</span>
+                        <div class="skillset-badges-wrap">
+                            <span class="skillset-tool-pill">Figma</span>
+                            <span class="skillset-tool-pill">Canva Pro</span>
+                            <span class="skillset-tool-pill">Adobe Photoshop</span>
+                            <span class="skillset-tool-pill">CapCut / Video</span>
+                            <span class="skillset-tool-pill">Brand Systems</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ============================================================
+                     CARD 03: OPERATIONS
+                     ============================================================ -->
+                <article class="skillset-card" data-skill-category="operations">
+                    <div class="skillset-card-header">
+                        <div class="skillset-card-title-group">
+                            <span class="skillset-card-kicker">03 • CORE SKILL SET</span>
+                            <h3 class="skillset-card-title">Operations</h3>
+                        </div>
+                        <div class="skillset-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M8 9.5H16M8 13H13.5M8 16.5H11" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="skillset-subblocks">
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">PROJECT &amp; ORGANIZATIONAL MANAGEMENT</h4>
+                            <p class="skillset-subdesc">
+                                Writing clear technical user stories, aligning cross-functional developer and creative
+                                teams, and managing end-to-end organizational execution across university councils.
+                            </p>
+                        </div>
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">RESEARCH &amp; ACADEME CONSULTATION</h4>
+                            <p class="skillset-subdesc">
+                                Conducting structured system analysis, technical documentation, manuscript editing, and
+                                research consultations for academic and capstone projects.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="skillset-tools-footer">
+                        <span class="skillset-tools-label">Workflow &amp; Documentation</span>
+                        <div class="skillset-badges-wrap">
+                            <span class="skillset-tool-pill">Notion</span>
+                            <span class="skillset-tool-pill">Google Workspace</span>
+                            <span class="skillset-tool-pill">User Stories</span>
+                            <span class="skillset-tool-pill">System Analysis</span>
+                            <span class="skillset-tool-pill">Team Leadership</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ============================================================
+                     CARD 04: AI FLUENCY
+                     ============================================================ -->
+                <article class="skillset-card" data-skill-category="ai">
+                    <div class="skillset-card-header">
+                        <div class="skillset-card-title-group">
+                            <span class="skillset-card-kicker">04 • CORE SKILL SET</span>
+                            <h3 class="skillset-card-title">AI Fluency</h3>
+                        </div>
+                        <div class="skillset-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="skillset-subblocks">
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">AI WORKFLOW AUTOMATION</h4>
+                            <p class="skillset-subdesc">
+                                Designing AI-assisted workflows that eliminate repetitive operational tasks, accelerate
+                                research synthesis, and streamline documentation for teams and organizations.
+                            </p>
+                        </div>
+                        <div class="skillset-subitem">
+                            <h4 class="skillset-subtitle">PROMPT ENGINEERING &amp; RAPID BUILDING</h4>
+                            <p class="skillset-subdesc">
+                                Leveraging generative AI models as force multipliers for front-end prototyping, code
+                                debugging, structured content drafting, and data organization.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="skillset-tools-footer">
+                        <span class="skillset-tools-label">AI Ecosystem &amp; Automation</span>
+                        <div class="skillset-badges-wrap">
+                            <span class="skillset-tool-pill">ChatGPT / OpenAI</span>
+                            <span class="skillset-tool-pill">Claude AI</span>
+                            <span class="skillset-tool-pill">Google Gemini</span>
+                            <span class="skillset-tool-pill">Prompt Engineering</span>
+                            <span class="skillset-tool-pill">AI Workflows</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        (() => {
+            const pageCover = document.getElementById('page-cover');
+            const pageToc = document.getElementById('page-toc');
+            const pageIntro = document.getElementById('page-intro');
+            const pageEducation = document.getElementById('page-education');
+            const pageSkills = document.getElementById('page-skills');
+            const headerScrollBar = document.getElementById('headerScrollBar');
+
+            const canvas = document.getElementById('portfolioCanvas');
+            const heroTitle = document.getElementById('heroTitle');
+            const folderWrapper = document.getElementById('folderWrapper');
+            const portraitContainer = document.getElementById('portraitContainer');
+            const skillRows = document.querySelectorAll('.skill-row');
+            const skillDetailToast = document.getElementById('skillDetailToast');
+            const promptInput = document.getElementById('promptInput');
+            const btnSendPrompt = document.getElementById('btnSendPrompt');
+            const btnMention = document.getElementById('btnMention');
+            const btnGallery = document.getElementById('btnGallery');
+            const aiReplyBubble = document.getElementById('aiReplyBubble');
+
+            const tocCanvas = document.getElementById('tocCanvas');
+            const tocPortrait = document.getElementById('tocPortrait');
+            const tocPills = document.querySelectorAll('.toc-pill');
+            const tocPreviewBar = document.getElementById('tocPreviewBar');
+            const tocPreviewBadge = document.getElementById('tocPreviewBadge');
+            const tocPreviewText = document.getElementById('tocPreviewText');
+
+            const introCanvas = document.getElementById('introCanvas');
+            const svgTabProjects = document.getElementById('svgTabProjects');
+            const svgTabSkills = document.getElementById('svgTabSkills');
+            const svgTabIntro = document.getElementById('svgTabIntro');
+            const introTabBtns = document.querySelectorAll('.intro-tab-btn');
+            const credentialPills = document.querySelectorAll('.intro-credential-pill');
+            const bioHighlights = document.querySelectorAll('.intro-bio-highlight');
+            const introSpeechBubble = document.getElementById('introSpeechBubble');
+            const introSpeechText = document.getElementById('introSpeechText');
+            const skillsFolderContent = document.getElementById('skillsFolderContent');
+            const btnBackToIntroTab = document.getElementById('btnBackToIntroTab');
+            const btnViewSpecificSkills = document.getElementById('btnViewSpecificSkills');
+            const skillJumpEls = document.querySelectorAll('[data-skill-jump]');
+            const skillsetFilterBtns = document.querySelectorAll('.skillset-filter-btn');
+            const skillsetCards = document.querySelectorAll('.skillset-card');
+            const btnBackToSkillsFolder = document.getElementById('btnBackToSkillsFolder');
+
+            let replyTimeout;
+
+            // Helper: Trigger the Folder-Unfolding Animation on Page 3
+            const triggerIntroFolderAnimation = () => {
+                introCanvas.classList.remove('folder-opening');
+                void introCanvas.offsetWidth; // Reflow to restart animation cleanly
+                introCanvas.classList.add('folder-opening');
+            };
+
+            // Helper: Switch Existing Stacked Folder Between INTRODUCTION and MY SKILLS Tabs
+            const switchFolderTab = (mode) => {
+                // Close expanded profile dossier if open
+                introCanvas.classList.remove('is-expanded');
+                const expandedEl = document.getElementById('introExpandedFolder');
+                if (expandedEl) expandedEl.setAttribute('aria-hidden', 'true');
+
+                // Clear any existing SVG hover transforms
+                [svgTabProjects, svgTabSkills, svgTabIntro].forEach((g) => {
+                    if (g) {
+                        g.style.transform = '';
+                        g.style.filter = '';
+                    }
+                });
+
+                // Restart folder-next transition pulse and clear initial folder-opening fill mode
+                introCanvas.classList.remove('folder-opening', 'folder-next-anim');
+                void introCanvas.offsetWidth;
+                introCanvas.classList.add('folder-next-anim');
+
+                if (mode === 'skills') {
+                    introCanvas.classList.add('is-skills-tab');
+                    if (skillsFolderContent) skillsFolderContent.setAttribute('aria-hidden', 'false');
+                } else {
+                    introCanvas.classList.remove('is-skills-tab');
+                    if (skillsFolderContent) skillsFolderContent.setAttribute('aria-hidden', 'true');
+                }
+
+                // Sync active state on top header capsule nav
+                const headerLinks = document.querySelectorAll('.header-nav-link');
+                headerLinks.forEach((l) => {
+                    if (l.dataset.navTarget === 'page-intro') {
+                        l.classList.toggle('active', (l.dataset.folderMode || 'intro') === mode);
+                    } else {
+                        l.classList.remove('active');
+                    }
+                });
+            };
+
+            // Helper: Filter / Spotlight the 4 Skill Set Cards on Page 5 (#page-skills)
+            const setSkillSetFilter = (category = 'all') => {
+                skillsetFilterBtns.forEach((btn) => {
+                    btn.classList.toggle('active', btn.dataset.skillFilter === category);
+                });
+
+                skillsetCards.forEach((card) => {
+                    const match = category === 'all' || card.dataset.skillCategory === category;
+                    card.classList.toggle('is-dimmed', !match);
+                    card.classList.toggle('is-spotlighted', category !== 'all' && match);
+                });
+            };
+
+            // 1. Top Header Capsule Links & Scroll Observer
+            const headerNavLinks = document.querySelectorAll('.header-nav-link');
+            const headerBrandLink = document.querySelector('.header-brand');
+
+            headerNavLinks.forEach((link) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    headerNavLinks.forEach((l) => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    const targetId = link.dataset.navTarget;
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        if (targetId === 'page-intro') {
+                            const folderMode = link.dataset.folderMode || 'intro';
+                            switchFolderTab(folderMode);
+                        }
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    // If link points to a TOC chapter not yet on its own page, highlight that TOC pill!
+                    if (link.dataset.tocIdx !== undefined) {
+                        const idx = parseInt(link.dataset.tocIdx, 10);
+                        const matchingPill = tocPills[idx];
+                        if (matchingPill) {
+                            tocPills.forEach((p) => p.classList.remove('is-active'));
+                            matchingPill.classList.add('is-active');
+                            tocPreviewBadge.textContent = matchingPill.dataset.section;
+                            tocPreviewText.textContent = matchingPill.dataset.summary;
+                            tocPreviewBar.classList.add('visible');
+                        }
+                    }
+                });
+            });
+
+            if (headerBrandLink) {
+                headerBrandLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    pageCover.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Update top header scroll progress bar on scroll
+            const updateHeaderScrollProgress = () => {
+                if (!headerScrollBar) return;
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+                const pct = Math.min(100, Math.max(0, (scrollTop / maxScroll) * 100));
+                headerScrollBar.style.width = `${pct}%`;
+            };
+            window.addEventListener('scroll', updateHeaderScrollProgress, { passive: true });
+            updateHeaderScrollProgress();
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            if (entry.target.id === 'page-cover' || entry.target.id === 'page-toc') {
+                                headerNavLinks.forEach((l) =>
+                                    l.classList.toggle('active', l.dataset.navTarget === 'page-cover')
+                                );
+                            } else if (entry.target.id === 'page-intro') {
+                                const activeMode = introCanvas.classList.contains('is-skills-tab') ? 'skills' : 'intro';
+                                headerNavLinks.forEach((l) =>
+                                    l.classList.toggle(
+                                        'active',
+                                        l.dataset.navTarget === 'page-intro' && (l.dataset.folderMode || 'intro') === activeMode
+                                    )
+                                );
+                                triggerIntroFolderAnimation();
+                            } else if (entry.target.id === 'page-education') {
+                                headerNavLinks.forEach((l) =>
+                                    l.classList.toggle('active', l.dataset.navTarget === 'page-education')
+                                );
+                            } else if (entry.target.id === 'page-skills') {
+                                headerNavLinks.forEach((l) =>
+                                    l.classList.toggle(
+                                        'active',
+                                        l.dataset.navTarget === 'page-intro' && l.dataset.folderMode === 'skills'
+                                    )
+                                );
+                            }
+                        }
+                    });
+                },
+                { threshold: 0.55 }
+            );
+
+            observer.observe(pageCover);
+            observer.observe(pageToc);
+            observer.observe(pageIntro);
+            if (pageEducation) observer.observe(pageEducation);
+            if (pageSkills) observer.observe(pageSkills);
+
+            // 2. Page 1: Subtle 3D Mouse Parallax
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const normX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+                const normY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+
+                heroTitle.style.transform = `translate(${normX * -6}px, ${normY * -4}px)`;
+                portraitContainer.style.transform = `translate(${normX * 10}px, ${normY * 6}px)`;
+                folderWrapper.style.transform = `translate(${normX * 4}px, ${normY * 3}px)`;
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                heroTitle.style.transform = '';
+                portraitContainer.style.transform = '';
+                folderWrapper.style.transform = '';
+            });
+
+            // 3. Page 1 -> Page 2 Connection: Clicking Folder Opens Table of Contents
+            folderWrapper.addEventListener('click', () => {
+                folderWrapper.classList.add('is-open');
+                pageToc.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // 4. Page 1 Skills -> Connected to Page 2 TOC Pills
+            skillRows.forEach((row) => {
+                const showSkillDetail = () => {
+                    skillRows.forEach((r) => r.classList.remove('active'));
+                    row.classList.add('active');
+                    skillDetailToast.textContent = row.dataset.detail;
+                    skillDetailToast.classList.add('visible');
+                    folderWrapper.classList.add('is-open');
+                };
+
+                const hideSkillDetail = () => {
+                    row.classList.remove('active');
+                    skillDetailToast.classList.remove('visible');
+                    folderWrapper.classList.remove('is-open');
+                };
+
+                row.addEventListener('mouseenter', showSkillDetail);
+                row.addEventListener('focus', showSkillDetail);
+                row.addEventListener('mouseleave', hideSkillDetail);
+                row.addEventListener('blur', hideSkillDetail);
+
+                row.addEventListener('click', () => {
+                    const filter = row.dataset.tocFilter;
+                    pageToc.scrollIntoView({ behavior: 'smooth' });
+                    tocPills.forEach((pill) => {
+                        const categories = (pill.dataset.category || '').split(' ');
+                        pill.classList.toggle('is-active', categories.includes(filter));
+                    });
+                    const firstMatch = Array.from(tocPills).find((p) =>
+                        (p.dataset.category || '').split(' ').includes(filter)
+                    );
+                    if (firstMatch) {
+                        tocPreviewBadge.textContent = firstMatch.dataset.section;
+                        tocPreviewText.textContent = firstMatch.dataset.summary;
+                        tocPreviewBar.classList.add('visible');
+                    }
+                });
+            });
+
+            // 5. Page 1 "2026 Edition" AI Prompt Box
+            const showAiReply = (message) => {
+                clearTimeout(replyTimeout);
+                aiReplyBubble.textContent = message;
+                aiReplyBubble.classList.add('visible');
+                replyTimeout = setTimeout(() => {
+                    aiReplyBubble.classList.remove('visible');
+                }, 4200);
+            };
+
+            const handlePromptSend = () => {
+                const val = promptInput.value.trim().toLowerCase();
+                if (!val || val === '2026 edition') {
+                    showAiReply('✨ Opening Table of Contents! Let’s see what lies ahead...');
+                    setTimeout(() => pageToc.scrollIntoView({ behavior: 'smooth' }), 650);
+                } else if (val.includes('intro') || val.includes('about') || val.includes('who')) {
+                    showAiReply('📂 Unfolding Aira’s Introduction folder...');
+                    setTimeout(() => {
+                        triggerIntroFolderAnimation();
+                        pageIntro.scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                } else if (val.includes('toc') || val.includes('content') || val.includes('next')) {
+                    showAiReply('📂 Jumping straight to the Table of Contents!');
+                    setTimeout(() => pageToc.scrollIntoView({ behavior: 'smooth' }), 500);
+                } else if (val.includes('ai') || val.includes('analytics')) {
+                    showAiReply('🤖 Aira builds AI-assisted workflows & data-driven web experiences.');
+                } else if (val.includes('design') || val.includes('ui') || val.includes('ux')) {
+                    showAiReply('🎨 Design-focused: clean interfaces from Canva & Figma to responsive code.');
+                } else {
+                    showAiReply(`💡 "${promptInput.value.trim()}" — Exploring Tech, Design & Strategy in Action!`);
+                }
+            };
+
+            btnSendPrompt.addEventListener('click', handlePromptSend);
+            promptInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handlePromptSend();
+                }
+            });
+
+            btnMention.addEventListener('click', () => {
+                promptInput.value = '@AiraBianca';
+                showAiReply('👋 Hi! I’m Aira Bianca Ordaniel — Web Developer & AI Fluency Learner.');
+            });
+
+            btnGallery.addEventListener('click', () => {
+                folderWrapper.classList.add('is-open');
+                pageToc.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // 6. Page 2: Interactive TOC Pills -> Clicking "Introduction" Opens Page 3 with Folder Transition!
+            tocPills.forEach((pill) => {
+                const previewSection = () => {
+                    tocPills.forEach((p) => p.classList.remove('is-active'));
+                    pill.classList.add('is-active');
+                    tocPreviewBadge.textContent = pill.dataset.section;
+                    tocPreviewText.textContent = pill.dataset.summary;
+                    tocPreviewBar.classList.add('visible');
+                };
+
+                pill.addEventListener('mouseenter', previewSection);
+                pill.addEventListener('focus', previewSection);
+                pill.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    previewSection();
+                    const targetId = pill.dataset.target;
+                    if (targetId) {
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) {
+                            if (targetId === 'page-intro') {
+                                const folderMode = pill.dataset.folderMode || 'intro';
+                                switchFolderTab(folderMode);
+                            }
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            tocCanvas.addEventListener('mousemove', (e) => {
+                const rect = tocCanvas.getBoundingClientRect();
+                const normX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+                const normY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+                tocPortrait.style.transform = `translate(${normX * 7}px, ${normY * 5}px)`;
+            });
+
+            tocCanvas.addEventListener('mouseleave', () => {
+                tocPortrait.style.transform = '';
+            });
+
+            // 7. Page 3: Interactive Folder Tabs & MY SKILLS Sub-Stages
+            introTabBtns.forEach((btn) => {
+                const tabType = btn.dataset.tab;
+
+                btn.addEventListener('mouseenter', () => {
+                    const isSkillsMode = introCanvas.classList.contains('is-skills-tab');
+                    // Map hovered button to the corresponding visible SVG folder layer
+                    const targetSvg = isSkillsMode
+                        ? tabType === 'projects'
+                            ? svgTabSkills
+                            : svgTabIntro
+                        : tabType === 'projects'
+                            ? svgTabProjects
+                            : tabType === 'skills'
+                                ? svgTabSkills
+                                : svgTabIntro;
+
+                    if (targetSvg) {
+                        targetSvg.style.transform = 'translateY(-6px)';
+                        targetSvg.style.filter = 'brightness(1.06)';
+                    }
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    [svgTabProjects, svgTabSkills, svgTabIntro].forEach((g) => {
+                        if (g) {
+                            g.style.transform = '';
+                            g.style.filter = '';
+                        }
+                    });
+                });
+
+                btn.addEventListener('click', () => {
+                    if (tabType === 'skills') {
+                        if (!introCanvas.classList.contains('is-skills-tab')) {
+                            // Animate folder from INTRODUCTION -> MY SKILLS ("What I Do")
+                            switchFolderTab('skills');
+                        } else if (pageSkills) {
+                            // If already in MY SKILLS, clicking MY SKILLS -> scrolls to Specific Skills Set page
+                            setSkillSetFilter('all');
+                            pageSkills.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    } else if (tabType === 'intro') {
+                        if (introCanvas.classList.contains('is-skills-tab')) {
+                            switchFolderTab('intro');
+                        } else {
+                            triggerIntroFolderAnimation();
+                        }
+                    } else {
+                        triggerIntroFolderAnimation();
+                    }
+                });
+            });
+
+            if (btnBackToIntroTab) {
+                btnBackToIntroTab.addEventListener('click', () => {
+                    switchFolderTab('intro');
+                });
+            }
+
+            if (btnViewSpecificSkills) {
+                btnViewSpecificSkills.addEventListener('click', () => {
+                    setSkillSetFilter('all');
+                    if (pageSkills) pageSkills.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            skillJumpEls.forEach((el) => {
+                const jumpCategory = el.dataset.skillJump || 'all';
+                el.addEventListener('click', () => {
+                    setSkillSetFilter(jumpCategory);
+                    if (pageSkills) pageSkills.scrollIntoView({ behavior: 'smooth' });
+                });
+                el.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setSkillSetFilter(jumpCategory);
+                        if (pageSkills) pageSkills.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            skillsetFilterBtns.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    setSkillSetFilter(btn.dataset.skillFilter || 'all');
+                });
+            });
+
+            if (btnBackToSkillsFolder) {
+                btnBackToSkillsFolder.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchFolderTab('skills');
+                    pageIntro.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Hovering/Clicking the 3 Bottom Credential Pills Highlights Matching Phrases in Bio!
+            credentialPills.forEach((pill) => {
+                const key = pill.dataset.badgeTrigger;
+                const activateHighlight = () => {
+                    credentialPills.forEach((p) => p.classList.toggle('is-active', p === pill));
+                    bioHighlights.forEach((span) => {
+                        span.classList.toggle('is-highlighted', span.dataset.badge === key);
+                    });
+                };
+
+                const clearHighlight = () => {
+                    pill.classList.remove('is-active');
+                    bioHighlights.forEach((span) => span.classList.remove('is-highlighted'));
+                };
+
+                pill.addEventListener('mouseenter', activateHighlight);
+                pill.addEventListener('focus', activateHighlight);
+                pill.addEventListener('mouseleave', clearHighlight);
+                pill.addEventListener('blur', clearHighlight);
+            });
+
+            // Clicking "Hello! I'm Aira" speech bubble cycles through warm greetings
+            const greetings = [
+                'Hello! I’m Aira',
+                'Mabuhay! I’m Aira 👋',
+                'Let’s Build Together ✨'
+            ];
+            let greetingIdx = 0;
+            introSpeechBubble.addEventListener('click', () => {
+                greetingIdx = (greetingIdx + 1) % greetings.length;
+                introSpeechText.textContent = greetings[greetingIdx];
+            });
+
+            // 7b. "Click to Know More About Me" — Expands Folder into Scrollable Full Profile View
+            const btnKnowMore = document.getElementById('btnKnowMore');
+            const btnCloseExpandedFolder = document.getElementById('btnCloseExpandedFolder');
+            const introExpandedFolder = document.getElementById('introExpandedFolder');
+
+            const openExpandedFolder = () => {
+                introCanvas.classList.add('is-expanded');
+                introExpandedFolder.setAttribute('aria-hidden', 'false');
+            };
+
+            const closeExpandedFolder = () => {
+                introCanvas.classList.remove('is-expanded');
+                introExpandedFolder.setAttribute('aria-hidden', 'true');
+            };
+
+            if (btnKnowMore) {
+                btnKnowMore.addEventListener('click', openExpandedFolder);
+            }
+
+            if (btnCloseExpandedFolder) {
+                btnCloseExpandedFolder.addEventListener('click', closeExpandedFolder);
+            }
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && introCanvas.classList.contains('is-expanded')) {
+                    closeExpandedFolder();
+                }
+            });
+
+            // 8. Live Date-Time Picker (Adapts to Current Date & Time + Allows Custom Picking)
+            const datetimeDisplay = document.getElementById('datetimeDisplay');
+            const datetimePicker = document.getElementById('datetimePicker');
+            let isCustomDateTime = false;
+
+            const toLocalISOString = (date) => {
+                const pad = (n) => String(n).padStart(2, '0');
+                return (
+                    date.getFullYear() +
+                    '-' +
+                    pad(date.getMonth() + 1) +
+                    '-' +
+                    pad(date.getDate()) +
+                    'T' +
+                    pad(date.getHours()) +
+                    ':' +
+                    pad(date.getMinutes())
+                );
+            };
+
+            const formatHeaderDateTime = (date) => {
+                return date.toLocaleString('en-US', {
+                    month: 'short',
+                    day: '2-digit',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    second: isCustomDateTime ? undefined : '2-digit',
+                    hour12: true
+                });
+            };
+
+            const syncLiveClock = () => {
+                if (isCustomDateTime) return;
+                const now = new Date();
+                datetimeDisplay.textContent = formatHeaderDateTime(now);
+                if (document.activeElement !== datetimePicker) {
+                    datetimePicker.value = toLocalISOString(now);
+                }
+            };
+
+            syncLiveClock();
+            setInterval(syncLiveClock, 1000);
+
+            datetimePicker.addEventListener('click', () => {
+                if (typeof datetimePicker.showPicker === 'function') {
+                    try {
+                        datetimePicker.showPicker();
+                    } catch (_) { }
+                }
+            });
+
+            datetimePicker.addEventListener('change', () => {
+                if (datetimePicker.value) {
+                    isCustomDateTime = true;
+                    const chosen = new Date(datetimePicker.value);
+                    datetimeDisplay.textContent = formatHeaderDateTime(chosen);
+                } else {
+                    isCustomDateTime = false;
+                    syncLiveClock();
+                }
+            });
+
+            datetimePicker.addEventListener('dblclick', () => {
+                isCustomDateTime = false;
+                syncLiveClock();
+            });
+
+            // 9. Light / Dark Mode Theme Toggle (Persisted in localStorage + Updates Tab Favicon)
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            const themeToggleIcon = document.getElementById('themeToggleIcon');
+            const themeToggleLabel = document.getElementById('themeToggleLabel');
+            const siteFavicon = document.getElementById('siteFavicon');
+
+            const sunSvgPath =
+                '<circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><path d="M12 2V4.5M12 19.5V22M4.93 4.93L6.7 6.7M17.3 17.3L19.07 19.07M2 12H4.5M19.5 12H22M4.93 19.07L6.7 17.3M17.3 6.7L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
+            const moonSvgPath =
+                '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    themeToggleIcon.innerHTML = sunSvgPath;
+                    themeToggleLabel.textContent = 'Light';
+                    if (siteFavicon) siteFavicon.href = 'assets/logo-dark.png';
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                    themeToggleIcon.innerHTML = moonSvgPath;
+                    themeToggleLabel.textContent = 'Dark';
+                    if (siteFavicon) siteFavicon.href = 'assets/logo-light.png';
+                }
+                localStorage.setItem('airchive-theme', theme);
+            };
+
+            const savedTheme = localStorage.getItem('airchive-theme') || 'light';
+            applyTheme(savedTheme);
+
+            themeToggleBtn.addEventListener('click', () => {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                applyTheme(isDark ? 'light' : 'dark');
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
