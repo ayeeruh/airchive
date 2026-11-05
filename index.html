@@ -1376,17 +1376,6 @@
                                     <button type="button" class="skillset-carousel-dot" data-slide-index="1" title="Slide to Card 2: UI/UX Designing" aria-label="Card 2: UI/UX Designing"></button>
                                     <button type="button" class="skillset-carousel-dot" data-slide-index="2" title="Slide to Card 3: UML Modeling" aria-label="Card 3: UML Modeling"></button>
                                 </div>
-                                <div class="skillset-carousel-arrow-group">
-                                    <button type="button" class="skillset-carousel-arrow-btn" id="techCarouselPrev" title="Slide Left / Previous Card" aria-label="Previous specialty card" disabled>‹</button>
-                                    <button type="button" class="skillset-carousel-arrow-btn" id="techCarouselNext" title="Slide Right / Next Card" aria-label="Next specialty card">›</button>
-                                </div>
-                            </div>
-
-                            <div class="skillset-stage-controls">
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="-1"
-                                    title="Previous Skill Set" aria-label="Previous Skill Set">←</button>
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="1"
-                                    title="Next Skill Set" aria-label="Next Skill Set">→</button>
                             </div>
                         </div>
 
@@ -1739,12 +1728,6 @@
                                 <span class="skillset-stage-badge">02 / 04 • CORE SKILL SET</span>
                                 <h3 class="skillset-stage-heading">Design</h3>
                             </div>
-                            <div class="skillset-stage-controls">
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="-1"
-                                    title="Previous Skill Set" aria-label="Previous Skill Set">←</button>
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="1"
-                                    title="Next Skill Set" aria-label="Next Skill Set">→</button>
-                            </div>
                         </div>
 
                         <div class="skillset-stage-two-cols">
@@ -1871,12 +1854,6 @@
                                 <span class="skillset-stage-badge">03 / 04 • CORE SKILL SET</span>
                                 <h3 class="skillset-stage-heading">Operations</h3>
                             </div>
-                            <div class="skillset-stage-controls">
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="-1"
-                                    title="Previous Skill Set" aria-label="Previous Skill Set">←</button>
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="1"
-                                    title="Next Skill Set" aria-label="Next Skill Set">→</button>
-                            </div>
                         </div>
 
                         <div class="skillset-stage-two-cols">
@@ -1970,12 +1947,6 @@
                                 <span class="skillset-stage-badge">04 / 04 • CORE SKILL SET</span>
                                 <h3 class="skillset-stage-heading">AI Fluency</h3>
                             </div>
-                            <div class="skillset-stage-controls">
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="-1"
-                                    title="Previous Skill Set" aria-label="Previous Skill Set">←</button>
-                                <button type="button" class="skillset-cycle-btn" data-cycle-dir="1"
-                                    title="Next Skill Set" aria-label="Next Skill Set">→</button>
-                            </div>
                         </div>
 
                         <div class="skillset-stage-two-cols">
@@ -2062,7 +2033,7 @@
                     <div class="skillset-spotlight-bar" id="skillsetSpotlightBar" aria-live="polite">
                         <span class="skillset-spotlight-dot" aria-hidden="true"></span>
                         <span id="skillsetSpotlightText">Hover or click any tool badge above to see how I use it in
-                            action, or use ← → to cycle through all 4 skill sets.</span>
+                            action, or swipe to explore specific skill sets.</span>
                     </div>
 
                 </div>
@@ -2529,7 +2500,7 @@
             });
 
             const defaultSpotlightMsg =
-                'Hover or click any tool badge above to see how I use it in action, or use ← → to cycle through all 4 skill sets.';
+                'Hover or click any tool badge above to see how I use it in action, or swipe to explore specific skill sets.';
             toolNoteEls.forEach((el) => {
                 const showNote = () => {
                     if (skillsetSpotlightText) {

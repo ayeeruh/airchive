@@ -3270,17 +3270,17 @@ body {
   min-height: 0;
 }
 
-/* Technical Pillar Header Carousel Navigation Controls */
+/* Technical Pillar Header Carousel Navigation Controls (Minimalist Dots & Counter) */
 .skillset-cards-carousel-nav {
   display: inline-flex;
   align-items: center;
-  gap: 0.75cqw;
-  padding: 0.38cqw 0.8cqw;
+  gap: 0.85cqw;
+  padding: 0.42cqw 1.05cqw;
   border-radius: 999px;
-  background-color: rgba(7, 32, 58, 0.68);
+  background-color: rgba(7, 32, 58, 0.72);
   border: 0.12cqw solid rgba(130, 209, 255, 0.45);
   backdrop-filter: blur(8px);
-  box-shadow: 0 0.3cqw 1cqw rgba(5, 22, 42, 0.3);
+  box-shadow: 0 0.3cqw 1cqw rgba(5, 22, 42, 0.32);
 }
 
 .skillset-carousel-counter {
@@ -3290,37 +3290,37 @@ body {
   color: #82D1FF;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding-right: 0.25cqw;
+  padding-right: 0.2cqw;
   white-space: nowrap;
 }
 
 .skillset-carousel-dots {
   display: inline-flex;
   align-items: center;
-  gap: 0.38cqw;
+  gap: 0.42cqw;
 }
 
 .skillset-carousel-dot {
-  width: 0.58cqw;
-  height: 0.58cqw;
+  width: 0.65cqw;
+  height: 0.65cqw;
   border-radius: 50%;
   border: none;
-  background-color: rgba(254, 255, 241, 0.32);
+  background-color: rgba(254, 255, 241, 0.35);
   cursor: pointer;
   padding: 0;
   transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .skillset-carousel-dot:hover {
-  background-color: rgba(124, 232, 255, 0.85);
-  transform: scale(1.25);
+  background-color: rgba(124, 232, 255, 0.88);
+  transform: scale(1.28);
 }
 
 .skillset-carousel-dot.active {
-  width: 1.35cqw;
+  width: 1.5cqw;
   border-radius: 999px;
   background-color: #7CE8FF;
-  box-shadow: 0 0 0.65cqw rgba(124, 232, 255, 0.7);
+  box-shadow: 0 0 0.7cqw rgba(124, 232, 255, 0.75);
 }
 
 .skillset-carousel-arrow-group {
