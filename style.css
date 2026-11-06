@@ -6256,3 +6256,91 @@ html.is-theme-switching *::after {
 .cert-paper--image img {
   object-position: center top;
 }
+
+/* ---------- EXPERIENCES FOLDER: Ongoing highlight ---------- */
+.exp-topbar-side {
+  display: flex;
+  align-items: center;
+  gap: 1.4cqw;
+}
+
+.exp-ongoing {
+  display: flex;
+  align-items: center;
+  gap: 0.9cqw;
+  padding: 0.45cqw 1.2cqw 0.45cqw 0.5cqw;
+  border-radius: 999px;
+  border: 0.1cqw solid rgba(130, 209, 255, 0.45);
+  background: rgba(7, 25, 43, 0.35);
+  color: var(--bg-cream);
+  font-family: var(--font-poppins);
+  box-shadow: 0 0.5cqw 1.4cqw rgba(7, 28, 52, 0.25);
+  animation: riseIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s backwards;
+}
+
+.exp-ongoing-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45cqw;
+  padding: 0.3cqw 0.8cqw;
+  border-radius: 999px;
+  background: #FEFFF1;
+  color: #0B3861;
+  font-size: 0.72cqw;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.exp-ongoing-dot {
+  position: relative;
+  width: 0.6cqw;
+  height: 0.6cqw;
+  border-radius: 50%;
+  background: #22C55E;
+}
+
+.exp-ongoing-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: expOngoingPulse 1.6s ease-out infinite;
+}
+
+@keyframes expOngoingPulse {
+  from { transform: scale(1); opacity: 0.7; }
+  to { transform: scale(2.8); opacity: 0; }
+}
+
+.exp-ongoing.is-done .exp-ongoing-dot {
+  background: #3AA7E2;
+}
+
+.exp-ongoing.is-done .exp-ongoing-dot::after {
+  animation: none;
+}
+
+.exp-ongoing-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.exp-ongoing-text strong {
+  font-size: 0.95cqw;
+  font-weight: 700;
+}
+
+.exp-ongoing-text span {
+  font-size: 0.75cqw;
+  color: rgba(254, 255, 241, 0.78);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exp-ongoing,
+  .exp-ongoing-dot::after {
+    animation: none;
+  }
+}
