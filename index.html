@@ -47,7 +47,7 @@
             <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
                 data-folder-mode="certificates">Certifications</a>
             <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
-                data-folder-mode="experiences">Voluntary
+                data-folder-mode="volunteerings">Voluntary
                 Involvements</a>
         </nav>
 
@@ -469,32 +469,36 @@
             <!-- 3-Layer Stacked Folder SVG Background (Exact Canva Geometry) -->
             <svg class="intro-folders-svg" viewBox="0 0 1024 576" fill="none" xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true">
-                <!-- 5 stacked folder shapes = 5 tab SLOTS (back-most first). JS moves the tab labels
+                <!-- 6 stacked folder shapes = 6 tab SLOTS (back-most first). JS moves the tab labels
                      between slots, so the active folder always sits in the front slot. -->
+                <g class="intro-folder-layer intro-folder-layer--s5" id="svgFolderSlot5">
+                    <path d="M 0 80 H 837 V 42 A 22 22 0 0 1 859 20 H 965 A 24 24 0 0 1 984 29 L 1021 80 H 1024 V 200 H 0 Z"
+                        fill="#5AA4DE" />
+                </g>
                 <g class="intro-folder-layer intro-folder-layer--s4" id="svgFolderSlot4">
-                    <path d="M 0 80 H 806 V 46 A 26 26 0 0 1 832 20 H 956 A 28 28 0 0 1 978 31 L 1021 80 H 1024 V 200 H 0 Z"
+                    <path d="M 0 100 H 674 V 62 A 22 22 0 0 1 696 40 H 802 A 24 24 0 0 1 821 49 L 858 100 H 1024 V 220 H 0 Z"
                         fill="#4A98D8" />
                 </g>
                 <g class="intro-folder-layer intro-folder-layer--s3" id="svgFolderSlot3">
-                    <path d="M 0 105 H 610 V 71 A 26 26 0 0 1 636 45 H 760 A 28 28 0 0 1 782 56 L 825 105 H 1024 V 225 H 0 Z"
+                    <path d="M 0 120 H 511 V 82 A 22 22 0 0 1 533 60 H 639 A 24 24 0 0 1 658 69 L 695 120 H 1024 V 240 H 0 Z"
                         fill="#388CD2" />
                 </g>
                 <g class="intro-folder-layer intro-folder-layer--s2" id="svgFolderSlot2">
-                    <path d="M 0 130 H 414 V 96 A 26 26 0 0 1 440 70 H 564 A 28 28 0 0 1 586 81 L 629 130 H 1024 V 250 H 0 Z"
+                    <path d="M 0 140 H 348 V 102 A 22 22 0 0 1 370 80 H 476 A 24 24 0 0 1 495 89 L 532 140 H 1024 V 260 H 0 Z"
                         fill="#2B7FCC" />
                 </g>
                 <g class="intro-folder-layer intro-folder-layer--s1" id="svgFolderSlot1">
-                    <path d="M 0 155 H 218 V 121 A 26 26 0 0 1 244 95 H 368 A 28 28 0 0 1 390 106 L 433 155 H 1024 V 275 H 0 Z"
+                    <path d="M 0 160 H 185 V 122 A 22 22 0 0 1 207 100 H 313 A 24 24 0 0 1 332 109 L 369 160 H 1024 V 280 H 0 Z"
                         fill="#1E70C4" />
                 </g>
                 <g class="intro-folder-layer intro-folder-layer--s0" id="svgFolderSlot0">
-                    <path d="M 0 180 H 22 V 146 A 26 26 0 0 1 48 120 H 172 A 28 28 0 0 1 194 131 L 237 180 H 1024 V 576 H 0 Z"
+                    <path d="M 0 180 H 22 V 142 A 22 22 0 0 1 44 120 H 150 A 24 24 0 0 1 169 129 L 206 180 H 1024 V 576 H 0 Z"
                         fill="#1967A7" />
                 </g>
             </svg>
 
             <!-- Interactive Folder Tab Buttons Overlaid on the 3 Folder Tabs -->
-            <button type="button" class="intro-tab-btn intro-tab-btn--projects slot-4" data-tab="projects"
+            <button type="button" class="intro-tab-btn intro-tab-btn--projects slot-5" data-tab="projects"
                 title="Open My Projects folder">
                 <span>MY PROJECTS</span>
                 <span class="intro-tab-arrow" aria-hidden="true">
@@ -506,9 +510,21 @@
                 </span>
             </button>
 
-            <button type="button" class="intro-tab-btn intro-tab-btn--certs slot-3" data-tab="certificates"
+            <button type="button" class="intro-tab-btn intro-tab-btn--certs slot-4" data-tab="certificates"
                 title="Open Certificates folder">
                 <span>CERTIFICATES</span>
+                <span class="intro-tab-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="7" x2="43" y2="7" stroke="currentColor" stroke-width="1.2" />
+                        <path d="M38 2.5L43.5 7L38 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+
+            <button type="button" class="intro-tab-btn intro-tab-btn--volunteerings slot-3" data-tab="volunteerings"
+                title="Open Volunteerings folder">
+                <span>VOLUNTEERINGS</span>
                 <span class="intro-tab-arrow" aria-hidden="true">
                     <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line x1="1" y1="7" x2="43" y2="7" stroke="currentColor" stroke-width="1.2" />
@@ -902,6 +918,32 @@
 
                     <!-- Three Expanding Panels (filled from EXPERIENCES data) -->
                     <div class="exp-panels" id="expPanels"></div>
+                </div>
+            </div>
+
+            <!-- ==============================================================
+                 VOLUNTEERINGS FOLDER FOREGROUND (Volunteer Passport: 3 stamps + ticket page)
+                 ============================================================== -->
+            <div class="folder-tab-content volunteerings-folder-content" id="volunteeringsFolderContent"
+                data-folder-panel="volunteerings" aria-hidden="true">
+                <div class="folder-stage">
+                    <div class="skills-stage-topbar">
+                        <div class="skills-what-title-group">
+                            <h2 class="skills-what-heading">Volunteer Passport</h2>
+                            <span class="skills-what-kicker">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span id="volKicker">3 STAMPS</span>
+                            </span>
+                        </div>
+                        <p class="exp-hint">Pick a stamp to turn the page</p>
+                    </div>
+
+                    <!-- Stamps + passport page (filled from VOLUNTEER_SECTIONS data) -->
+                    <div class="vol-passport" id="volPassport"></div>
                 </div>
             </div>
 
@@ -2424,10 +2466,10 @@
             const folderPanels = document.querySelectorAll('[data-folder-panel]');
             const folderPrevTabLabel = document.getElementById('folderPrevTabLabel');
 
-            // Folder tab order on Page 3 (front -> back). Slot layers are the 5 stacked SVG folder shapes.
-            const FOLDER_TABS = ['intro', 'skills', 'experiences', 'certificates', 'projects'];
-            const FOLDER_TAB_LABELS = ['INTRODUCTION', 'MY SKILLS', 'EXPERIENCES', 'CERTIFICATES', 'MY PROJECTS'];
-            const folderSlotLayers = [0, 1, 2, 3, 4].map((i) => document.getElementById(`svgFolderSlot${i}`));
+            // Folder tab order on Page 3 (front -> back). Slot layers are the 6 stacked SVG folder shapes.
+            const FOLDER_TABS = ['intro', 'skills', 'experiences', 'volunteerings', 'certificates', 'projects'];
+            const FOLDER_TAB_LABELS = ['INTRODUCTION', 'MY SKILLS', 'EXPERIENCES', 'VOLUNTEERINGS', 'CERTIFICATES', 'MY PROJECTS'];
+            const folderSlotLayers = FOLDER_TABS.map((_, i) => i).map((i) => document.getElementById(`svgFolderSlot${i}`));
             let currentFolderMode = 'intro';
             const credentialPills = document.querySelectorAll('.intro-credential-pill');
             const bioHighlights = document.querySelectorAll('.intro-bio-highlight');
@@ -2484,6 +2526,7 @@
                 introCanvas.classList.toggle('is-certs-tab', currentFolderMode === 'certificates');
                 introCanvas.classList.toggle('is-projects-tab', currentFolderMode === 'projects');
                 introCanvas.classList.toggle('is-experiences-tab', currentFolderMode === 'experiences');
+                introCanvas.classList.toggle('is-volunteerings-tab', currentFolderMode === 'volunteerings');
                 introCanvas.classList.toggle('is-alt-tab', nextIdx > 0);
                 if (skillsFolderContent) {
                     skillsFolderContent.setAttribute('aria-hidden', currentFolderMode === 'skills' ? 'false' : 'true');
@@ -2517,6 +2560,7 @@
 
                 if (currentFolderMode === 'projects') projectsFolder.replay();
                 if (currentFolderMode === 'experiences') experiencesPreview.replay();
+                if (currentFolderMode === 'volunteerings') volunteerPreview.replay();
                 if (currentFolderMode === 'certificates') certsPreview.replay();
 
                 // Sync active state on top header capsule nav
@@ -2949,6 +2993,8 @@
                         openProjectsPage('all');
                     } else if (tabType === 'experiences') {
                         experiencesPreview.replay();
+                    } else if (tabType === 'volunteerings') {
+                        volunteerPreview.replay();
                     } else {
                         triggerIntroFolderAnimation();
                     }
@@ -2999,6 +3045,26 @@
             };
 
             const CERTIFICATES = [
+                {
+                    type: 'completion',
+                    title: 'AI Fundamentals Certification',
+                    issuer: 'DataCamp',
+                    date: 'November 2026',
+                    note: 'Certified in AI Fundamentals by DataCamp on November 2, 2026.',
+                    credentialId: 'AIF0027129561407',
+                    url: '',
+                    image: 'assets/ai%20fundamentals%20completion.jpeg'
+                },
+                {
+                    type: 'completion',
+                    title: 'Fundamentals of Graphic Design (Color, Typography, Layout)',
+                    issuer: 'DTI – National Capital Regional Office',
+                    date: 'May 2026',
+                    note: 'Certificate of Attendance for a 4-hour online training (via Zoom, May 12, 2026), part of the Capacity Building Intervention Program for the Shared Service Facilities.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/graphics-workshop-completion.jpeg'
+                },
                 {
                     type: 'completion',
                     title: 'Scholars Technopreneurship Training Program (STTP) – Region 3',
@@ -3078,6 +3144,46 @@
                     credentialId: '',
                     url: '',
                     image: 'assets/Genzync-Certificate.jpg'
+                },
+                {
+                    type: 'award',
+                    title: 'Top 30 Scholar – Mariveles, Iskolar ng Bataan',
+                    issuer: 'Provincial Government of Bataan – Iskolar ng Bataan',
+                    date: 'December 2025',
+                    note: 'Certificate of Appreciation for ranking Top 30 in the Municipality of Mariveles for the 1st Semester, S.Y. 2024–2025, in the Iskolar ng Bataan program. Given December 15, 2025 at the Provincial Capitol of Bataan.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Top-30-Mariveles-Scholar.JPG'
+                },
+                {
+                    type: 'award',
+                    title: 'Dean’s Lister – Second Semester, A.Y. 2024–2025',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'December 2025',
+                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.283 for the Second Semester, A.Y. 2024–2025. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Dean-Lister-02.jpg'
+                },
+                {
+                    type: 'award',
+                    title: 'Dean’s Lister – First Semester, A.Y. 2024–2025',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'December 2025',
+                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.135 for the First Semester, A.Y. 2024–2025. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Dean-Lister-03.JPG'
+                },
+                {
+                    type: 'award',
+                    title: 'Dean’s Lister – Second Semester, A.Y. 2023–2024',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'December 2025',
+                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.308 for the Second Semester, A.Y. 2023–2024. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Dean-Lister-01.jpg'
                 }
             ];
 
@@ -3443,6 +3549,157 @@
                     ]
                 }
             ];
+
+            // ---------- VOLUNTEERINGS FOLDER (Volunteer Passport) ----------
+            // ✏️ Replace the `sample: true` entries with your real volunteer work.
+            //    month: 3-letter month shown on the ticket stub, place / hours are optional.
+            const VOLUNTEER_SECTIONS = [
+                {
+                    key: 'campus',
+                    label: 'Campus-Based Volunteering',
+                    short: 'Campus',
+                    stamp: 'Campus',
+                    desc: 'University events, student organizations and on-campus service.',
+                    accent: '#1D71B9',
+                    icon: '<path d="M3 9.5L12 5L21 9.5L12 14L3 9.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 11.6V16C7 16 9 18.5 12 18.5C15 18.5 17 16 17 16V11.6M21 9.5V14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+                    items: [
+                        { sample: true, role: 'Volunteer Role', org: 'Campus Organization / Event', month: 'MON', year: '2026', place: 'BPSU Main Campus', hours: '— hrs', summary: 'Placeholder — what the activity was and how you helped.' },
+                        { sample: true, role: 'Volunteer Role', org: 'Campus Organization / Event', month: 'MON', year: '2025', place: 'BPSU Main Campus', hours: '— hrs', summary: 'Placeholder — describe your contribution.' },
+                        { sample: true, role: 'Volunteer Role', org: 'Campus Organization / Event', month: 'MON', year: '2024', place: 'BPSU Main Campus', hours: '— hrs', summary: 'Placeholder — describe your contribution.' }
+                    ]
+                },
+                {
+                    key: 'dost',
+                    label: 'DOST-Based Events Attended',
+                    short: 'DOST',
+                    stamp: 'DOST',
+                    desc: 'Summits, trainings and programs attended as a DOST scholar.',
+                    accent: '#0E7C8C',
+                    icon: '<circle cx="12" cy="12" r="2" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.6" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.8"/>',
+                    items: [
+                        { sample: true, role: 'Participant', org: 'DOST Event / Program', month: 'MON', year: '2026', place: 'Venue', hours: '— hrs', summary: 'Placeholder — the event, what you learned and took part in.' },
+                        { sample: true, role: 'Participant', org: 'DOST Event / Program', month: 'MON', year: '2025', place: 'Venue', hours: '— hrs', summary: 'Placeholder — describe the event.' },
+                        { sample: true, role: 'Delegate', org: 'DOST Event / Program', month: 'MON', year: '2025', place: 'Venue', hours: '— hrs', summary: 'Placeholder — describe the event.' }
+                    ]
+                },
+                {
+                    key: 'community',
+                    label: 'Community Involvement',
+                    short: 'Community',
+                    stamp: 'Community',
+                    desc: 'Outreach, civic and community-driven initiatives.',
+                    accent: '#C8691E',
+                    icon: '<circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9.5" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M3.5 19C3.5 15.9 6 13.5 9 13.5C12 13.5 14.5 15.9 14.5 19M15 13.8C17.6 13.6 20.5 15.4 20.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+                    items: [
+                        { sample: true, role: 'Volunteer', org: 'Community Initiative', month: 'MON', year: '2026', place: 'Barangay / City', hours: '— hrs', summary: 'Placeholder — the cause, the people served and your part in it.' },
+                        { sample: true, role: 'Volunteer', org: 'Community Initiative', month: 'MON', year: '2025', place: 'Barangay / City', hours: '— hrs', summary: 'Placeholder — describe the initiative.' },
+                        { sample: true, role: 'Volunteer', org: 'Community Initiative', month: 'MON', year: '2024', place: 'Barangay / City', hours: '— hrs', summary: 'Placeholder — describe the initiative.' }
+                    ]
+                }
+            ];
+
+            const volunteerPreview = (() => {
+                const root = document.getElementById('volPassport');
+                const kicker = document.getElementById('volKicker');
+                if (!root) return { replay() { } };
+
+                const total = VOLUNTEER_SECTIONS.reduce((n, sec) => n + sec.items.length, 0);
+                if (kicker) kicker.textContent = `${VOLUNTEER_SECTIONS.length} STAMPS • ${total} ENTRIES`;
+
+                root.innerHTML = `
+                    <div class="vol-stamps" role="tablist" aria-label="Volunteering sections" aria-orientation="vertical">
+                        ${VOLUNTEER_SECTIONS.map((sec, i) => `
+                        <button type="button" class="vol-stamp vol-stamp--${sec.key}" role="tab" data-vol-idx="${i}"
+                            style="--accent:${sec.accent}; --d:${i}" aria-controls="volPage">
+                            <span class="vol-stamp-face">
+                                <span class="vol-stamp-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${sec.icon}</svg></span>
+                                <span class="vol-stamp-text">
+                                    <span class="vol-stamp-no">No. ${pad2(i + 1)}</span>
+                                    <strong class="vol-stamp-label">${escapeHtml(sec.short)}</strong>
+                                    <span class="vol-stamp-count">${sec.items.length} ${sec.items.length === 1 ? 'entry' : 'entries'}</span>
+                                </span>
+                                <span class="vol-stamp-postmark" aria-hidden="true"></span>
+                            </span>
+                        </button>`).join('')}
+                    </div>
+                    <div class="vol-page" id="volPage" role="tabpanel"></div>`;
+
+                const stampsWrap = root.querySelector('.vol-stamps');
+                const stamps = [...root.querySelectorAll('.vol-stamp')];
+                const page = root.querySelector('.vol-page');
+                let current = 0;
+
+                const ticketHtml = (it, j, sec) => `
+                    <article class="vol-ticket" style="--j:${j}">
+                        <div class="vol-ticket-stub">
+                            <span class="vol-ticket-month">${escapeHtml(it.month || '')}</span>
+                            <span class="vol-ticket-year">${escapeHtml(it.year || '')}</span>
+                            <span class="vol-ticket-barcode" aria-hidden="true"></span>
+                        </div>
+                        <div class="vol-ticket-main">
+                            <span class="vol-ticket-no">${escapeHtml(sec.short)} • Entry ${pad2(j + 1)} ${sampleChip(it)}</span>
+                            <strong class="vol-ticket-role">${escapeHtml(it.role)}</strong>
+                            <span class="vol-ticket-org">${escapeHtml(it.org)}</span>
+                            ${it.summary ? `<p class="vol-ticket-summary">${escapeHtml(it.summary)}</p>` : ''}
+                            <span class="vol-ticket-foot">
+                                ${it.place ? `<em>${escapeHtml(it.place)}</em>` : ''}
+                                ${it.hours ? `<em>${escapeHtml(it.hours)}</em>` : ''}
+                            </span>
+                        </div>
+                    </article>`;
+
+                const render = (i) => {
+                    current = i;
+                    const sec = VOLUNTEER_SECTIONS[i];
+                    stamps.forEach((st, k) => {
+                        const on = k === i;
+                        st.classList.toggle('is-active', on);
+                        st.setAttribute('aria-selected', on ? 'true' : 'false');
+                        st.tabIndex = on ? 0 : -1;
+                    });
+                    page.style.setProperty('--accent', sec.accent);
+                    page.setAttribute('aria-label', sec.label);
+                    page.innerHTML = `
+                        <header class="vol-page-head">
+                            <span class="vol-page-index">${pad2(i + 1)}</span>
+                            <div class="vol-page-titles">
+                                <h3 class="vol-page-title">${escapeHtml(sec.label)}</h3>
+                                <p class="vol-page-desc">${escapeHtml(sec.desc)}</p>
+                            </div>
+                            <span class="vol-rubber" aria-hidden="true">
+                                <small>Volunteer</small>${escapeHtml(sec.stamp)}<small>${sec.items.length} logged</small>
+                            </span>
+                        </header>
+                        <div class="vol-tickets">
+                            ${sec.items.length
+                                ? sec.items.map((it, j) => ticketHtml(it, j, sec)).join('')
+                                : '<p class="vol-empty">No entries yet — this page is waiting for its first stamp.</p>'}
+                        </div>`;
+                    page.querySelectorAll('.vol-ticket').forEach((t) => attachTilt(t, 6));
+                    replayClass(page, 'is-entering');
+                    replayClass(page.querySelector('.vol-tickets'), 'is-entering');
+                };
+
+                stamps.forEach((st, i) => {
+                    st.addEventListener('click', () => render(i));
+                    st.addEventListener('keydown', (e) => {
+                        const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+                        if (!step) return;
+                        e.preventDefault();
+                        const next = (current + step + stamps.length) % stamps.length;
+                        render(next);
+                        stamps[next].focus();
+                    });
+                });
+
+                render(0);
+                return {
+                    replay: () => {
+                        replayClass(stampsWrap, 'is-entering');
+                        render(current);
+                    }
+                };
+            })();
 
             // ✏️ Ongoing / upcoming highlight shown at the top of the Experiences folder.
             //    The status flips to "Completed" automatically after the end date.

@@ -1513,6 +1513,10 @@ body {
 }
 
 /* Folder Opening Transition State (Triggered when clicking "Introduction" in TOC) */
+.intro-canvas.folder-opening .intro-folder-layer--s5:not(.is-tucked) {
+  animation: folderTabSlideUp 0.46s cubic-bezier(0.22, 1, 0.36, 1) 0s both;
+}
+
 .intro-canvas.folder-opening .intro-folder-layer--s4:not(.is-tucked) {
   animation: folderTabSlideUp 0.48s cubic-bezier(0.22, 1, 0.36, 1) 0s both;
 }
@@ -1617,7 +1621,8 @@ body {
 
 .intro-canvas.folder-next-anim .intro-folder-layer--s1:not(.is-tucked),
 .intro-canvas.folder-next-anim .intro-folder-layer--s2:not(.is-tucked),
-.intro-canvas.folder-next-anim .intro-folder-layer--s3:not(.is-tucked) {
+.intro-canvas.folder-next-anim .intro-folder-layer--s3:not(.is-tucked),
+.intro-canvas.folder-next-anim .intro-folder-layer--s4:not(.is-tucked) {
   animation: folderStepForwardMid 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -1655,7 +1660,8 @@ body {
 .intro-canvas.folder-back-anim .intro-folder-layer--s1:not(.is-tucked),
 .intro-canvas.folder-back-anim .intro-folder-layer--s2:not(.is-tucked),
 .intro-canvas.folder-back-anim .intro-folder-layer--s3:not(.is-tucked),
-.intro-canvas.folder-back-anim .intro-folder-layer--s4:not(.is-tucked) {
+.intro-canvas.folder-back-anim .intro-folder-layer--s4:not(.is-tucked),
+.intro-canvas.folder-back-anim .intro-folder-layer--s5:not(.is-tucked) {
   animation: folderStepBackMid 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -1677,13 +1683,13 @@ body {
   color: var(--bg-cream);
   font-family: var(--font-poppins);
   font-weight: 400;
-  font-size: 1.36cqw;
+  font-size: 1.2cqw;
   letter-spacing: 0.01em;
   white-space: nowrap;
-  gap: 0.8cqw;
+  gap: 0.6cqw;
   cursor: pointer;
   z-index: 4;
-  padding: 0.4cqw 0.8cqw;
+  padding: 0.4cqw 0.6cqw;
   transition:
     top 0.52s cubic-bezier(0.22, 1, 0.36, 1),
     left 0.52s cubic-bezier(0.22, 1, 0.36, 1),
@@ -1700,7 +1706,7 @@ body {
 
 .intro-tab-arrow {
   flex-shrink: 0;
-  width: 2.6cqw;
+  width: 2.2cqw;
   height: 1cqw;
   display: flex;
   align-items: center;
@@ -1718,46 +1724,52 @@ body {
 }
 
 /* ==========================================================================
-   Folder Tab Slots (JS assigns slot-0..4 per tab based on the active folder):
+   Folder Tab Slots (JS assigns slot-0..5 per tab based on the active folder):
    - slot-0: front-left tab (active folder)
-   - slot-1..4: each step further back, up and to the right
+   - slot-1..5: each step further back, up and to the right
    - slot-out: tabs before the active one flip out
-   Order: INTRODUCTION → MY SKILLS → EXPERIENCES → CERTIFICATES → MY PROJECTS
+   Order: INTRODUCTION → MY SKILLS → EXPERIENCES → VOLUNTEERINGS → CERTIFICATES → MY PROJECTS
    ========================================================================== */
 .intro-tab-btn.slot-0 {
   top: 13.35cqw;
-  left: 3.9cqw;
-  width: 16.8cqw;
+  left: 3.65cqw;
+  width: 14.4cqw;
 }
 
 .intro-tab-btn.slot-1 {
-  top: 10.9cqw;
-  left: 23.05cqw;
-  width: 16.8cqw;
+  top: 11.4cqw;
+  left: 19.57cqw;
+  width: 14.4cqw;
 }
 
 .intro-tab-btn.slot-2 {
-  top: 8.47cqw;
-  left: 42.19cqw;
-  width: 16.8cqw;
+  top: 9.44cqw;
+  left: 35.49cqw;
+  width: 14.4cqw;
 }
 
 .intro-tab-btn.slot-3 {
-  top: 6.02cqw;
-  left: 61.33cqw;
-  width: 16.8cqw;
+  top: 7.49cqw;
+  left: 51.4cqw;
+  width: 14.4cqw;
 }
 
 .intro-tab-btn.slot-4 {
+  top: 5.54cqw;
+  left: 67.32cqw;
+  width: 14.4cqw;
+}
+
+.intro-tab-btn.slot-5 {
   top: 3.58cqw;
-  left: 80.47cqw;
-  width: 16.8cqw;
+  left: 83.24cqw;
+  width: 14.4cqw;
 }
 
 .intro-tab-btn.slot-out {
   top: 13.35cqw;
-  left: 3.9cqw;
-  width: 16.8cqw;
+  left: 3.65cqw;
+  width: 14.4cqw;
   opacity: 0;
   pointer-events: none;
   transform: translate(-3.2cqw, 2.8cqw) scale(0.9);
@@ -6341,6 +6353,424 @@ html.is-theme-switching *::after {
 @media (prefers-reduced-motion: reduce) {
   .exp-ongoing,
   .exp-ongoing-dot::after {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   VOLUNTEERINGS FOLDER: Volunteer Passport (3 postage stamps + ticket page)
+   ========================================================================== */
+.vol-passport {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 17cqw minmax(0, 1fr);
+  gap: 1.8cqw;
+}
+
+.vol-stamps {
+  display: flex;
+  flex-direction: column;
+  gap: 1cqw;
+  padding-top: 0.2cqw;
+}
+
+/* Postage stamp: scalloped cream edge from a tiled radial "hole" pattern */
+.vol-stamp {
+  position: relative;
+  height: 8cqw;
+  padding: 0.55cqw;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-poppins);
+  background:
+    radial-gradient(circle, transparent 0.27cqw, #FEFFF1 0.3cqw) -0.5cqw -0.5cqw / 1cqw 1cqw;
+  filter: drop-shadow(0 0.5cqw 0.9cqw rgba(4, 18, 34, 0.32));
+  rotate: calc((var(--d, 0) - 1) * 1.2deg);
+  transition:
+    translate 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    rotate 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    scale 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.3s ease;
+}
+
+.vol-stamp:hover {
+  translate: 0.4cqw 0;
+}
+
+.vol-stamp.is-active {
+  translate: 1.1cqw 0;
+  rotate: -2.5deg;
+  scale: 1.03;
+  filter: drop-shadow(0 0.9cqw 1.4cqw rgba(4, 18, 34, 0.45));
+}
+
+.vol-stamp:focus-visible {
+  outline: 0.18cqw solid #82D1FF;
+  outline-offset: 0.3cqw;
+}
+
+.vol-stamps.is-entering .vol-stamp {
+  animation: volStampDrop 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--d, 0) * 0.09s);
+}
+
+@keyframes volStampDrop {
+  from {
+    opacity: 0;
+    translate: -3cqw 0;
+    scale: 1.15;
+  }
+}
+
+.vol-stamp-face {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1cqw;
+  padding: 0 1.1cqw;
+  overflow: hidden;
+  color: #FEFFF1;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 0.25cqw, transparent 0.25cqw 0.7cqw),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 82%, white), color-mix(in srgb, var(--accent) 70%, black));
+  filter: saturate(0.45) brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.vol-stamp:hover .vol-stamp-face,
+.vol-stamp.is-active .vol-stamp-face {
+  filter: none;
+}
+
+.vol-stamp-icon {
+  display: grid;
+  place-items: center;
+  width: 3.6cqw;
+  height: 3.6cqw;
+  border-radius: 50%;
+  border: 0.14cqw dashed rgba(254, 255, 241, 0.6);
+  background: rgba(254, 255, 241, 0.14);
+}
+
+.vol-stamp-icon svg {
+  width: 1.9cqw;
+  height: 1.9cqw;
+}
+
+.vol-stamp-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  min-width: 0;
+}
+
+.vol-stamp-no {
+  font-size: 0.62cqw;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.vol-stamp-label {
+  font-family: var(--font-nexa);
+  font-weight: 900;
+  font-size: 1.45cqw;
+}
+
+.vol-stamp-count {
+  font-size: 0.72cqw;
+  opacity: 0.85;
+}
+
+/* Wavy cancellation postmark that appears on the chosen stamp */
+.vol-stamp-postmark {
+  position: absolute;
+  right: -1.2cqw;
+  top: 50%;
+  width: 6cqw;
+  height: 6cqw;
+  translate: 0 -50%;
+  border-radius: 50%;
+  border: 0.16cqw solid rgba(254, 255, 241, 0.55);
+  box-shadow: inset 0 0 0 0.5cqw transparent, inset 0 0 0 0.62cqw rgba(254, 255, 241, 0.3);
+  opacity: 0;
+  scale: 1.6;
+  rotate: 20deg;
+  transition: opacity 0.35s ease, scale 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vol-stamp.is-active .vol-stamp-postmark {
+  opacity: 1;
+  scale: 1;
+}
+
+/* ---------- The passport page ---------- */
+.vol-page {
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1cqw;
+  padding: 1.3cqw 1.8cqw 1.5cqw 2.6cqw;
+  border-radius: 1.4cqw;
+  overflow: hidden;
+  color: #0B3861;
+  font-family: var(--font-poppins);
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(29, 113, 185, 0.05) 0 1px, transparent 1px 1.5cqw),
+    #FEFFF1;
+  box-shadow: 0 1cqw 2.6cqw rgba(4, 18, 34, 0.32);
+  transition: background 0.4s ease;
+}
+
+/* Stitched binding down the left edge */
+.vol-page::before {
+  content: "";
+  position: absolute;
+  left: 1.1cqw;
+  top: 1.2cqw;
+  bottom: 1.2cqw;
+  border-left: 0.14cqw dashed color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.vol-page-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2cqw;
+  padding-right: 10cqw;
+}
+
+.vol-page-index {
+  font-family: var(--font-nexa);
+  font-weight: 900;
+  font-size: 3.2cqw;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 0.1cqw var(--accent);
+}
+
+.vol-page-title {
+  margin: 0;
+  font-family: var(--font-nexa);
+  font-weight: 900;
+  font-size: 1.85cqw;
+  line-height: 1.1;
+  color: #0B3861;
+}
+
+.vol-page-desc {
+  margin: 0.2cqw 0 0;
+  font-size: 0.85cqw;
+  opacity: 0.75;
+}
+
+/* Rubber stamp that "thumps" onto the page on every switch */
+.vol-rubber {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4cqw 1.1cqw;
+  border: 0.22cqw double var(--accent);
+  border-radius: 0.6cqw;
+  color: var(--accent);
+  font-family: var(--font-nexa);
+  font-weight: 900;
+  font-size: 1.3cqw;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  translate: 0 -50%;
+  rotate: -9deg;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+}
+
+.vol-rubber small {
+  font-family: var(--font-poppins);
+  font-size: 0.55cqw;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.vol-page.is-entering .vol-rubber {
+  animation: volRubberThump 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) 0.28s backwards;
+}
+
+@keyframes volRubberThump {
+  from {
+    opacity: 0;
+    scale: 2.1;
+    rotate: -24deg;
+  }
+}
+
+.vol-page.is-entering .vol-page-index,
+.vol-page.is-entering .vol-page-titles {
+  animation: riseIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.vol-page.is-entering .vol-page-titles {
+  animation-delay: 0.06s;
+}
+
+/* ---------- Ticket entries ---------- */
+.vol-tickets {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2cqw;
+}
+
+.vol-ticket {
+  --notch: 0.75cqw;
+  --stub: 4.4cqw;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--stub) minmax(0, 1fr);
+  min-height: 0;
+  border-radius: 0.9cqw;
+  background: #FFFFFF;
+  box-shadow: 0 0.5cqw 1.3cqw rgba(11, 56, 97, 0.16);
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at var(--stub) 0, transparent 97%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at var(--stub) 100%, transparent 97%, #000) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at var(--stub) 0, transparent 97%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at var(--stub) 100%, transparent 97%, #000) bottom / 100% 51% no-repeat;
+  transform: perspective(60cqw) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+.vol-ticket:hover {
+  translate: 0 -0.5cqw;
+  box-shadow: 0 1.1cqw 2cqw rgba(11, 56, 97, 0.24);
+}
+
+.vol-tickets.is-entering .vol-ticket {
+  animation: cardDealIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(0.12s + var(--j, 0) * 0.08s);
+}
+
+.vol-ticket-stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2cqw;
+  color: #FEFFF1;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 88%, white), color-mix(in srgb, var(--accent) 75%, black));
+}
+
+.vol-ticket-month {
+  font-size: 0.75cqw;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.vol-ticket-year {
+  font-family: var(--font-nexa);
+  font-weight: 900;
+  font-size: 1.35cqw;
+  line-height: 1;
+}
+
+.vol-ticket-barcode {
+  width: 2.6cqw;
+  height: 1.6cqw;
+  margin-top: 0.6cqw;
+  opacity: 0.6;
+  background: repeating-linear-gradient(90deg, #FEFFF1 0 0.12cqw, transparent 0.12cqw 0.24cqw, #FEFFF1 0.24cqw 0.3cqw, transparent 0.3cqw 0.5cqw);
+}
+
+.vol-ticket-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3cqw;
+  min-width: 0;
+  padding: 1cqw 1.1cqw 1cqw 1.2cqw;
+  border-left: 0.14cqw dashed rgba(11, 56, 97, 0.22);
+}
+
+.vol-ticket-no {
+  font-size: 0.6cqw;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.vol-ticket-role {
+  font-family: var(--font-nexa);
+  font-weight: 900;
+  font-size: 1.15cqw;
+  line-height: 1.15;
+  color: #0B3861;
+}
+
+.vol-ticket-org {
+  font-size: 0.82cqw;
+  font-weight: 600;
+  color: #1D64A4;
+}
+
+.vol-ticket-summary {
+  margin: 0.2cqw 0 0;
+  font-size: 0.76cqw;
+  line-height: 1.45;
+  color: #2A3B4C;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.vol-ticket-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35cqw;
+  margin-top: auto;
+}
+
+.vol-ticket-foot em {
+  font-style: normal;
+  font-size: 0.66cqw;
+  font-weight: 600;
+  padding: 0.15cqw 0.6cqw;
+  border-radius: 999px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.vol-empty {
+  grid-column: 1 / -1;
+  align-self: center;
+  justify-self: center;
+  font-size: 0.95cqw;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vol-stamps.is-entering .vol-stamp,
+  .vol-page.is-entering .vol-rubber,
+  .vol-page.is-entering .vol-page-index,
+  .vol-page.is-entering .vol-page-titles,
+  .vol-tickets.is-entering .vol-ticket {
     animation: none;
   }
 }
