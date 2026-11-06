@@ -37,13 +37,17 @@
             <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
                 data-folder-mode="intro">Profile</a>
             <a href="#page-education" class="header-nav-link" data-nav-target="page-education">Education</a>
-            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="3">Projects</a>
-            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="4">Experiences</a>
+            <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
+                data-folder-mode="projects">Projects</a>
+            <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
+                data-folder-mode="experiences">Experiences</a>
             <a href="#page-skills" class="header-nav-link" data-nav-target="page-skills">Skills</a>
             <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="5">
                 Achievements</a>
-            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="5">Certifications </a>
-            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="1">Voluntary
+            <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
+                data-folder-mode="certificates">Certifications</a>
+            <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
+                data-folder-mode="experiences">Voluntary
                 Involvements</a>
         </nav>
 
@@ -344,7 +348,7 @@
 
             <!-- Left Portrait Overlapping the Banner (Matches Canva Page 2) -->
             <div class="toc-portrait-container" id="tocPortrait">
-                <img src="assets/aira.png" alt="Aira Bianca Ordaniel" class="toc-portrait-img" />
+                <img src="assets/flipped-aira.png" alt="Aira Bianca Ordaniel" class="toc-portrait-img" />
             </div>
 
             <!-- Main Heading: TABLE OF CONTENTS + Top-Right Arrow -->
@@ -405,7 +409,7 @@
                 </a>
 
                 <!-- Row 2, Col 2: Previous Projects (Solid Blue) -->
-                <a href="#section-projects" class="toc-pill toc-pill--filled" data-section="04 • PREVIOUS PROJECTS"
+                <a href="#page-intro" class="toc-pill toc-pill--filled" data-target="page-intro" data-folder-mode="projects" data-section="04 • PREVIOUS PROJECTS"
                     data-category="ai design"
                     data-summary="Featured web applications, UI/UX prototypes, and AI-powered builds with live case studies.">
                     <span>Previous Projects</span>
@@ -418,7 +422,7 @@
                 </a>
 
                 <!-- Row 3, Col 1: Working Experience (Solid Blue) -->
-                <a href="#section-experience" class="toc-pill toc-pill--filled" data-section="05 • WORKING EXPERIENCE"
+                <a href="#page-intro" class="toc-pill toc-pill--filled" data-target="page-intro" data-folder-mode="experiences" data-section="05 • WORKING EXPERIENCE"
                     data-category="ops design"
                     data-summary="Hands-on professional roles, operational management impact, and real-world project delivery.">
                     <span>Working Experience</span>
@@ -431,7 +435,7 @@
                 </a>
 
                 <!-- Row 3, Col 2: Certifications & Awards (Outlined Cream) -->
-                <a href="#section-certifications" class="toc-pill toc-pill--outlined"
+                <a href="#page-intro" class="toc-pill toc-pill--outlined" data-target="page-intro" data-folder-mode="certificates"
                     data-section="06 • CERTIFICATIONS &amp; AWARDS" data-category="ai"
                     data-summary="Verified credentials, AI &amp; tech certifications, and recognitions earned along the journey.">
                     <span>Certifications &amp; Awards</span>
@@ -465,55 +469,33 @@
             <!-- 3-Layer Stacked Folder SVG Background (Exact Canva Geometry) -->
             <svg class="intro-folders-svg" viewBox="0 0 1024 576" fill="none" xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true">
-                <!-- Back Layer: MY PROJECTS Folder Tab & Strip (#388CD2) -->
-                <g class="intro-folder-layer intro-folder-layer--back" id="svgTabProjects">
-                    <path d="M 0 100
-               H 370
-               V 66
-               A 26 26 0 0 1 396 40
-               H 614
-               A 28 28 0 0 1 636 51
-               L 684 100
-               H 1024
-               V 220
-               H 0
-               Z" fill="#388CD2" />
+                <!-- 5 stacked folder shapes = 5 tab SLOTS (back-most first). JS moves the tab labels
+                     between slots, so the active folder always sits in the front slot. -->
+                <g class="intro-folder-layer intro-folder-layer--s4" id="svgFolderSlot4">
+                    <path d="M 0 80 H 806 V 46 A 26 26 0 0 1 832 20 H 956 A 28 28 0 0 1 978 31 L 1021 80 H 1024 V 200 H 0 Z"
+                        fill="#4A98D8" />
                 </g>
-
-                <!-- Middle Layer: MY SKILLS Folder Tab & Strip (#1E70C4) -->
-                <g class="intro-folder-layer intro-folder-layer--mid" id="svgTabSkills">
-                    <path d="M 0 121
-               H 118
-               V 86
-               A 26 26 0 0 1 144 60
-               H 364
-               A 28 28 0 0 1 386 71
-               L 432 121
-               H 1024
-               V 240
-               H 0
-               Z" fill="#1E70C4" />
+                <g class="intro-folder-layer intro-folder-layer--s3" id="svgFolderSlot3">
+                    <path d="M 0 105 H 610 V 71 A 26 26 0 0 1 636 45 H 760 A 28 28 0 0 1 782 56 L 825 105 H 1024 V 225 H 0 Z"
+                        fill="#388CD2" />
                 </g>
-
-                <!-- Front Active Layer: INTRODUCTION Folder Tab & Full Body (#1967A7) -->
-                <g class="intro-folder-layer intro-folder-layer--front" id="svgTabIntro">
-                    <path d="M 0 180
-               H 22
-               V 146
-               A 26 26 0 0 1 48 120
-               H 266
-               A 28 28 0 0 1 288 131
-               L 335 180
-               H 1024
-               V 576
-               H 0
-               Z" fill="#1967A7" />
+                <g class="intro-folder-layer intro-folder-layer--s2" id="svgFolderSlot2">
+                    <path d="M 0 130 H 414 V 96 A 26 26 0 0 1 440 70 H 564 A 28 28 0 0 1 586 81 L 629 130 H 1024 V 250 H 0 Z"
+                        fill="#2B7FCC" />
+                </g>
+                <g class="intro-folder-layer intro-folder-layer--s1" id="svgFolderSlot1">
+                    <path d="M 0 155 H 218 V 121 A 26 26 0 0 1 244 95 H 368 A 28 28 0 0 1 390 106 L 433 155 H 1024 V 275 H 0 Z"
+                        fill="#1E70C4" />
+                </g>
+                <g class="intro-folder-layer intro-folder-layer--s0" id="svgFolderSlot0">
+                    <path d="M 0 180 H 22 V 146 A 26 26 0 0 1 48 120 H 172 A 28 28 0 0 1 194 131 L 237 180 H 1024 V 576 H 0 Z"
+                        fill="#1967A7" />
                 </g>
             </svg>
 
             <!-- Interactive Folder Tab Buttons Overlaid on the 3 Folder Tabs -->
-            <button type="button" class="intro-tab-btn intro-tab-btn--projects" data-tab="projects"
-                title="Preview My Projects tab">
+            <button type="button" class="intro-tab-btn intro-tab-btn--projects slot-4" data-tab="projects"
+                title="Open My Projects folder">
                 <span>MY PROJECTS</span>
                 <span class="intro-tab-arrow" aria-hidden="true">
                     <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -524,7 +506,31 @@
                 </span>
             </button>
 
-            <button type="button" class="intro-tab-btn intro-tab-btn--skills" data-tab="skills"
+            <button type="button" class="intro-tab-btn intro-tab-btn--certs slot-3" data-tab="certificates"
+                title="Open Certificates folder">
+                <span>CERTIFICATES</span>
+                <span class="intro-tab-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="7" x2="43" y2="7" stroke="currentColor" stroke-width="1.2" />
+                        <path d="M38 2.5L43.5 7L38 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+
+            <button type="button" class="intro-tab-btn intro-tab-btn--experiences slot-2" data-tab="experiences"
+                title="Open Experiences folder">
+                <span>EXPERIENCES</span>
+                <span class="intro-tab-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 46 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="7" x2="43" y2="7" stroke="currentColor" stroke-width="1.2" />
+                        <path d="M38 2.5L43.5 7L38 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+
+            <button type="button" class="intro-tab-btn intro-tab-btn--skills slot-1" data-tab="skills"
                 title="Preview My Skills tab">
                 <span>MY SKILLS</span>
                 <span class="intro-tab-arrow" aria-hidden="true">
@@ -536,7 +542,7 @@
                 </span>
             </button>
 
-            <button type="button" class="intro-tab-btn intro-tab-btn--intro" data-tab="intro"
+            <button type="button" class="intro-tab-btn intro-tab-btn--intro slot-0" data-tab="intro"
                 title="Active Tab: Introduction (Click to view Introduction)">
                 <span>INTRODUCTION</span>
                 <span class="intro-tab-arrow" aria-hidden="true">
@@ -556,7 +562,7 @@
                     <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2.2"
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>INTRODUCTION</span>
+                <span id="folderPrevTabLabel">INTRODUCTION</span>
             </button>
 
             <!-- Main Folder Foreground Content Wrapper (INTRODUCTION TAB) -->
@@ -668,7 +674,8 @@
                         </div>
 
                         <!-- CV / Resume Pill -->
-                        <a href="#cv-resume" class="intro-cv-pill" title="View or Download CV / Resume">
+                        <a href="assets/Ordaniel_Resume.pdf" class="intro-cv-pill" download="Ordaniel_Resume.pdf"
+                            title="Download CV / Resume (PDF)">
                             <svg class="intro-cv-icon" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path
@@ -833,6 +840,98 @@
                     </div>
                 </div>
 
+            </div>
+
+            <!-- ==============================================================
+                 CERTIFICATES FOLDER FOREGROUND (Completion + Licenses Preview)
+                 ============================================================== -->
+            <div class="folder-tab-content certs-folder-content" id="certsFolderContent" data-folder-panel="certificates"
+                aria-hidden="true">
+                <div class="folder-stage">
+                    <div class="skills-stage-topbar">
+                        <div class="skills-what-title-group">
+                            <h2 class="skills-what-heading">Credential Vault</h2>
+                            <span class="skills-what-kicker">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span id="certsVaultKicker">2 COLLECTIONS</span>
+                            </span>
+                        </div>
+                        <button type="button" class="skills-view-set-btn" data-open-certs="all">
+                            <span>View All Certifications</span>
+                            <svg class="skills-view-set-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Three Interactive Drawers: Completion, Licenses & Awards (filled from CERTIFICATES data) -->
+                    <div class="cert-drawers" id="certDrawers"></div>
+                </div>
+            </div>
+
+            <!-- ==============================================================
+                 EXPERIENCES FOLDER FOREGROUND (Working / Volunteering / Freelancing)
+                 ============================================================== -->
+            <div class="folder-tab-content experiences-folder-content" id="experiencesFolderContent"
+                data-folder-panel="experiences" aria-hidden="true">
+                <div class="folder-stage">
+                    <div class="skills-stage-topbar">
+                        <div class="skills-what-title-group">
+                            <h2 class="skills-what-heading">Experience Log</h2>
+                            <span class="skills-what-kicker">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span id="experiencesKicker">3 TRACKS</span>
+                            </span>
+                        </div>
+                        <p class="exp-hint">Hover or click a track to expand it</p>
+                    </div>
+
+                    <!-- Three Expanding Panels (filled from EXPERIENCES data) -->
+                    <div class="exp-panels" id="expPanels"></div>
+                </div>
+            </div>
+
+            <!-- ==============================================================
+                 MY PROJECTS FOLDER FOREGROUND (3 Collection Cards + View Full Projects)
+                 ============================================================== -->
+            <div class="folder-tab-content projects-folder-content" id="projectsFolderContent"
+                data-folder-panel="projects" aria-hidden="true">
+                <div class="folder-stage">
+                    <div class="skills-stage-topbar">
+                        <div class="skills-what-title-group">
+                            <h2 class="skills-what-heading">Project Archive</h2>
+                            <span class="skills-what-kicker">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                        fill="currentColor" />
+                                </svg>
+                                <span id="projectsKicker">3 COLLECTIONS</span>
+                            </span>
+                        </div>
+                        <button type="button" class="skills-view-set-btn" data-open-projects="all">
+                            <span>View Full Projects</span>
+                            <svg class="skills-view-set-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Three Collection Cards: Tech Systems / Designs / Events Lead -->
+                    <div class="proj-collections" id="projCollections"></div>
+                </div>
             </div>
 
             <!-- ==============================================================
@@ -2152,6 +2251,140 @@
         </div>
     </section>
 
+    <!-- ========================================================================
+       PAGE: PROJECT SHOWCASE (All projects — click one to open project.html)
+       ======================================================================== -->
+    <section class="portfolio-viewport" id="page-projects" aria-label="Project Showcase Page">
+        <div class="portfolio-canvas skillset-canvas showcase-canvas" id="showcaseCanvas">
+
+            <div class="edu-header-row">
+                <h2 class="edu-main-title">Project <span>Showcase</span></h2>
+                <div class="edu-top-banner">
+                    <div class="edu-banner-brand">
+                        <svg class="edu-banner-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>ORDANIEL</span>
+                    </div>
+                    <span class="edu-banner-headline">TECH SYSTEMS • DESIGNS • EVENTS LEAD</span>
+                </div>
+            </div>
+
+            <!-- Control Bar: Sliding Filter + Search + Back Link -->
+            <div class="showcase-controls">
+                <div class="showcase-filter" id="showcaseFilter" role="tablist" aria-label="Project collections">
+                    <span class="showcase-filter-indicator" id="showcaseFilterIndicator" aria-hidden="true"></span>
+                </div>
+                <label class="certs-search showcase-search">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" />
+                        <path d="M16 16L20.5 20.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <input type="search" id="showcaseSearch" placeholder="Search projects, roles, tools…"
+                        aria-label="Search projects" />
+                </label>
+                <a href="#page-intro" class="skillset-back-folder-link" id="btnBackToProjectsFolder">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>Back to Projects Folder</span>
+                </a>
+            </div>
+
+            <div class="showcase-layout">
+                <!-- Left: Live Spotlight (follows the hovered project) -->
+                <article class="showcase-spotlight" id="showcaseSpotlight" aria-live="polite"></article>
+
+                <!-- Right: Project Index Grid -->
+                <div class="showcase-grid-wrap">
+                    <div class="showcase-grid" id="showcaseGrid"></div>
+                    <p class="certs-empty" id="showcaseEmpty" hidden>No projects match your search.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+       PAGE: CERTIFICATIONS VIEW (Completion Certificates + Licenses)
+       ======================================================================== -->
+    <section class="portfolio-viewport" id="page-certifications" aria-label="Certifications Page">
+        <div class="portfolio-canvas skillset-canvas certs-page-canvas" id="certsPageCanvas">
+
+            <div class="edu-header-row">
+                <h2 class="edu-main-title">Certifications <span>&amp; Licenses</span></h2>
+                <div class="edu-top-banner">
+                    <div class="edu-banner-brand">
+                        <svg class="edu-banner-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>ORDANIEL</span>
+                    </div>
+                    <span class="edu-banner-headline">COMPLETION • LICENSES • AWARDS</span>
+                </div>
+            </div>
+
+            <div class="certs-page-layout">
+                <!-- Left: Filters, Search, Stats -->
+                <aside class="certs-sidebar">
+                    <div class="certs-filter" id="certsFilter" role="tablist" aria-label="Certificate type">
+                        <span class="certs-filter-indicator" id="certsFilterIndicator" aria-hidden="true"></span>
+                        <button type="button" class="certs-filter-btn is-active" data-cert-filter="all" role="tab"
+                            aria-selected="true">All <b data-count="all">0</b></button>
+                        <button type="button" class="certs-filter-btn" data-cert-filter="completion" role="tab"
+                            aria-selected="false">Completion <b data-count="completion">0</b></button>
+                        <button type="button" class="certs-filter-btn" data-cert-filter="license" role="tab"
+                            aria-selected="false">Licenses <b data-count="license">0</b></button>
+                        <button type="button" class="certs-filter-btn" data-cert-filter="award" role="tab"
+                            aria-selected="false">Awards <b data-count="award">0</b></button>
+                    </div>
+
+                    <label class="certs-search">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" />
+                            <path d="M16 16L20.5 20.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <input type="search" id="certsSearch" placeholder="Search title or issuer…"
+                            aria-label="Search certifications" />
+                    </label>
+
+                    <div class="certs-stat-card">
+                        <span class="certs-stat-kicker">Now viewing</span>
+                        <strong class="certs-stat-title" id="certsStatTitle">All Credentials</strong>
+                        <p class="certs-stat-desc" id="certsStatDesc"></p>
+                    </div>
+
+                    <a href="#page-intro" class="skillset-back-folder-link" id="btnBackToCertsFolder">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Back to Certificates Folder</span>
+                    </a>
+                </aside>
+
+                <!-- Right: Certificate Grid -->
+                <div class="certs-grid-wrap">
+                    <div class="certs-grid" id="certsGrid"></div>
+                    <p class="certs-empty" id="certsEmpty" hidden>No certificates match your search.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Lightbox -->
+        <div class="cert-lightbox" id="certLightbox" aria-hidden="true" role="dialog" aria-label="Certificate preview">
+            <div class="cert-lightbox-backdrop" data-close-lightbox></div>
+            <div class="cert-lightbox-panel" id="certLightboxPanel"></div>
+        </div>
+    </section>
+
+    <script src="projects-data.js"></script>
     <script>
         (() => {
             const pageCover = document.getElementById('page-cover');
@@ -2181,10 +2414,17 @@
             const tocPreviewText = document.getElementById('tocPreviewText');
 
             const introCanvas = document.getElementById('introCanvas');
-            const svgTabProjects = document.getElementById('svgTabProjects');
-            const svgTabSkills = document.getElementById('svgTabSkills');
-            const svgTabIntro = document.getElementById('svgTabIntro');
             const introTabBtns = document.querySelectorAll('.intro-tab-btn');
+            const pageCertifications = document.getElementById('page-certifications');
+            const pageProjects = document.getElementById('page-projects');
+            const folderPanels = document.querySelectorAll('[data-folder-panel]');
+            const folderPrevTabLabel = document.getElementById('folderPrevTabLabel');
+
+            // Folder tab order on Page 3 (front -> back). Slot layers are the 5 stacked SVG folder shapes.
+            const FOLDER_TABS = ['intro', 'skills', 'experiences', 'certificates', 'projects'];
+            const FOLDER_TAB_LABELS = ['INTRODUCTION', 'MY SKILLS', 'EXPERIENCES', 'CERTIFICATES', 'MY PROJECTS'];
+            const folderSlotLayers = [0, 1, 2, 3, 4].map((i) => document.getElementById(`svgFolderSlot${i}`));
+            let currentFolderMode = 'intro';
             const credentialPills = document.querySelectorAll('.intro-credential-pill');
             const bioHighlights = document.querySelectorAll('.intro-bio-highlight');
             const introSpeechBubble = document.getElementById('introSpeechBubble');
@@ -2218,25 +2458,62 @@
                 if (expandedEl) expandedEl.setAttribute('aria-hidden', 'true');
 
                 // Clear any existing SVG hover transforms
-                [svgTabProjects, svgTabSkills, svgTabIntro].forEach((g) => {
+                folderSlotLayers.forEach((g) => {
                     if (g) {
                         g.style.transform = '';
                         g.style.filter = '';
                     }
                 });
 
-                // Restart folder-next transition pulse and clear initial folder-opening fill mode
-                introCanvas.classList.remove('folder-opening', 'folder-next-anim');
-                void introCanvas.offsetWidth;
-                introCanvas.classList.add('folder-next-anim');
+                const nextIdx = Math.max(0, FOLDER_TABS.indexOf(mode));
+                const prevIdx = FOLDER_TABS.indexOf(currentFolderMode);
+                currentFolderMode = FOLDER_TABS[nextIdx];
 
-                if (mode === 'skills') {
-                    introCanvas.classList.add('is-skills-tab');
-                    if (skillsFolderContent) skillsFolderContent.setAttribute('aria-hidden', 'false');
-                } else {
-                    introCanvas.classList.remove('is-skills-tab');
-                    if (skillsFolderContent) skillsFolderContent.setAttribute('aria-hidden', 'true');
+                // Restart folder-next transition pulse (direction-aware) and clear initial folder-opening fill mode
+                introCanvas.classList.remove('folder-opening', 'folder-next-anim', 'folder-back-anim');
+                void introCanvas.offsetWidth;
+                if (nextIdx !== prevIdx) {
+                    introCanvas.classList.add(nextIdx > prevIdx ? 'folder-next-anim' : 'folder-back-anim');
                 }
+
+                introCanvas.classList.toggle('is-skills-tab', currentFolderMode === 'skills');
+                introCanvas.classList.toggle('is-certs-tab', currentFolderMode === 'certificates');
+                introCanvas.classList.toggle('is-projects-tab', currentFolderMode === 'projects');
+                introCanvas.classList.toggle('is-experiences-tab', currentFolderMode === 'experiences');
+                introCanvas.classList.toggle('is-alt-tab', nextIdx > 0);
+                if (skillsFolderContent) {
+                    skillsFolderContent.setAttribute('aria-hidden', currentFolderMode === 'skills' ? 'false' : 'true');
+                }
+
+                // Move each tab label into its slot (active tab -> front slot, earlier tabs fly out)
+                introTabBtns.forEach((btn) => {
+                    const slot = FOLDER_TABS.indexOf(btn.dataset.tab) - nextIdx;
+                    btn.classList.remove('slot-out', ...FOLDER_TABS.map((_, i) => `slot-${i}`));
+                    btn.classList.add(slot < 0 ? 'slot-out' : `slot-${slot}`);
+                    btn.tabIndex = slot < 0 ? -1 : 0;
+                });
+
+                // Tuck away the folder layers that no longer have a tab to show
+                folderSlotLayers.forEach((g, slot) => {
+                    if (g) g.classList.toggle('is-tucked', slot > FOLDER_TABS.length - 1 - nextIdx);
+                });
+
+                // New folder panels slide in from the side they come from
+                folderPanels.forEach((panel) => {
+                    const panelIdx = FOLDER_TABS.indexOf(panel.dataset.folderPanel);
+                    panel.classList.toggle('is-active', panelIdx === nextIdx);
+                    panel.classList.toggle('is-before', panelIdx < nextIdx);
+                    panel.setAttribute('aria-hidden', panelIdx === nextIdx ? 'false' : 'true');
+                });
+
+                // Back pill returns to the previous tab
+                if (folderPrevTabLabel && nextIdx > 0) {
+                    folderPrevTabLabel.textContent = FOLDER_TAB_LABELS[nextIdx - 1];
+                }
+
+                if (currentFolderMode === 'projects') projectsFolder.replay();
+                if (currentFolderMode === 'experiences') experiencesPreview.replay();
+                if (currentFolderMode === 'certificates') certsPreview.replay();
 
                 // Sync active state on top header capsule nav
                 const headerLinks = document.querySelectorAll('.header-nav-link');
@@ -2327,7 +2604,7 @@
                                     l.classList.toggle('active', l.dataset.navTarget === 'page-cover')
                                 );
                             } else if (entry.target.id === 'page-intro') {
-                                const activeMode = introCanvas.classList.contains('is-skills-tab') ? 'skills' : 'intro';
+                                const activeMode = currentFolderMode;
                                 headerNavLinks.forEach((l) =>
                                     l.classList.toggle(
                                         'active',
@@ -2343,6 +2620,14 @@
                                 headerNavLinks.forEach((l) =>
                                     l.classList.toggle('active', l.dataset.navTarget === 'page-skills')
                                 );
+                            } else if (entry.target.id === 'page-projects') {
+                                headerNavLinks.forEach((l) =>
+                                    l.classList.toggle('active', l.dataset.folderMode === 'projects')
+                                );
+                            } else if (entry.target.id === 'page-certifications') {
+                                headerNavLinks.forEach((l) =>
+                                    l.classList.toggle('active', l.dataset.folderMode === 'certificates')
+                                );
                             }
                         }
                     });
@@ -2355,6 +2640,8 @@
             observer.observe(pageIntro);
             if (pageEducation) observer.observe(pageEducation);
             if (pageSkills) observer.observe(pageSkills);
+            if (pageProjects) observer.observe(pageProjects);
+            if (pageCertifications) observer.observe(pageCertifications);
 
             // 2. Page 1: Subtle 3D Mouse Parallax
             canvas.addEventListener('mousemove', (e) => {
@@ -2622,17 +2909,9 @@
                 const tabType = btn.dataset.tab;
 
                 btn.addEventListener('mouseenter', () => {
-                    const isSkillsMode = introCanvas.classList.contains('is-skills-tab');
-                    // Map hovered button to the corresponding visible SVG folder layer
-                    const targetSvg = isSkillsMode
-                        ? tabType === 'projects'
-                            ? svgTabSkills
-                            : svgTabIntro
-                        : tabType === 'projects'
-                            ? svgTabProjects
-                            : tabType === 'skills'
-                                ? svgTabSkills
-                                : svgTabIntro;
+                    // Map hovered button to the SVG folder layer in the slot it currently occupies
+                    const slot = FOLDER_TABS.indexOf(tabType) - FOLDER_TABS.indexOf(currentFolderMode);
+                    const targetSvg = slot >= 0 ? folderSlotLayers[slot] : null;
 
                     if (targetSvg) {
                         targetSvg.style.transform = 'translateY(-6px)';
@@ -2641,7 +2920,7 @@
                 });
 
                 btn.addEventListener('mouseleave', () => {
-                    [svgTabProjects, svgTabSkills, svgTabIntro].forEach((g) => {
+                    folderSlotLayers.forEach((g) => {
                         if (g) {
                             g.style.transform = '';
                             g.style.filter = '';
@@ -2650,21 +2929,22 @@
                 });
 
                 btn.addEventListener('click', () => {
-                    if (tabType === 'skills') {
-                        if (!introCanvas.classList.contains('is-skills-tab')) {
-                            // Animate folder from INTRODUCTION -> MY SKILLS ("What I Do")
-                            switchFolderTab('skills');
-                        } else if (pageSkills) {
-                            // If already in MY SKILLS, clicking MY SKILLS -> scrolls to Specific Skills Set page
-                            setSkillSetFilter('all');
-                            pageSkills.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    } else if (tabType === 'intro') {
-                        if (introCanvas.classList.contains('is-skills-tab')) {
-                            switchFolderTab('intro');
-                        } else {
-                            triggerIntroFolderAnimation();
-                        }
+                    // Any non-active tab steps its folder forward
+                    if (tabType !== currentFolderMode) {
+                        switchFolderTab(tabType);
+                        return;
+                    }
+
+                    // Clicking the already-active tab goes one level deeper
+                    if (tabType === 'skills' && pageSkills) {
+                        setSkillSetFilter('all');
+                        pageSkills.scrollIntoView({ behavior: 'smooth' });
+                    } else if (tabType === 'certificates') {
+                        openCertificationsPage('all');
+                    } else if (tabType === 'projects') {
+                        openProjectsPage('all');
+                    } else if (tabType === 'experiences') {
+                        experiencesPreview.replay();
                     } else {
                         triggerIntroFolderAnimation();
                     }
@@ -2673,7 +2953,8 @@
 
             if (btnBackToIntroTab) {
                 btnBackToIntroTab.addEventListener('click', () => {
-                    switchFolderTab('intro');
+                    const idx = FOLDER_TABS.indexOf(currentFolderMode);
+                    switchFolderTab(FOLDER_TABS[Math.max(0, idx - 1)]);
                 });
             }
 
@@ -2683,6 +2964,722 @@
                     if (pageSkills) pageSkills.scrollIntoView({ behavior: 'smooth' });
                 });
             }
+
+            // ==================================================================
+            // 7b. CERTIFICATES + MY PROJECTS FOLDERS & CERTIFICATIONS PAGE
+            // ------------------------------------------------------------------
+            // ✏️ EDIT YOUR CONTENT HERE (projects live in projects-data.js).
+            //    Entries marked `sample: true` are placeholders — replace them with your real certificates/experiences
+            //    and delete the `sample` flag. `image` is optional (e.g.
+            //    'assets/projects/my-app.png'); without one, a styled cover is drawn.
+            // ==================================================================
+            const CERT_TYPES = {
+                completion: {
+                    label: 'Completion Certificates',
+                    short: 'Completion',
+                    heading: 'Certificate of Completion',
+                    desc: 'Courses, trainings, bootcamps and programs completed.'
+                },
+                license: {
+                    label: 'Licenses & Certifications',
+                    short: 'Licenses',
+                    heading: 'Professional Certification',
+                    desc: 'Professional licenses and verified, exam-based certifications.'
+                },
+                award: {
+                    label: 'Awards & Recognition',
+                    short: 'Awards',
+                    heading: 'Certificate of Recognition',
+                    desc: 'Honors and awards received for research, projects and leadership.'
+                }
+            };
+
+            const CERTIFICATES = [
+                {
+                    type: 'completion',
+                    title: 'Scholars Technopreneurship Training Program (STTP) – Region 3',
+                    issuer: 'DOST – Science Education Institute × PhilDev Foundation',
+                    date: 'November 2025',
+                    note: 'Completed the 6-month DOST Scholars Technopreneurship Training Program bootcamp (June – November 2025), awarded at the Quest Plus Conference Center, Clark, Pampanga.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/DOST-STTP.jpg'
+                },
+                {
+                    type: 'license',
+                    title: 'Introduction to Cybersecurity',
+                    issuer: 'Cisco Networking Academy',
+                    date: 'November 2025',
+                    note: 'Completed 03 Nov 2025 through the Cisco Networking Academy program.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/intro-cybersec-cert-exam.PNG'
+                },
+                {
+                    type: 'license',
+                    title: 'PMI Project Management Ready®',
+                    issuer: 'Project Management Institute (PMI)',
+                    date: 'October 2025',
+                    note: 'Formally evaluated at the foundational levels in project management fundamentals, traditional plan-based and agile methodologies, and business analysis. Valid for 5 years.',
+                    credentialId: 'wMzVX-Fahz',
+                    url: 'https://verify.certiport.com',
+                    image: 'assets/pmi-cert-exam.png'
+                },
+                {
+                    type: 'license',
+                    title: 'IT Specialist – Networking',
+                    issuer: 'Certiport (Pearson VUE) × CertNexus',
+                    date: 'October 2025',
+                    note: 'Information Technology Specialist certification in Networking, awarded October 18, 2025. Valid for 5 years.',
+                    credentialId: 'JoGv-4wUY',
+                    url: 'https://verify.certiport.com',
+                    image: 'assets/networking-cert-exam.png'
+                },
+                {
+                    type: 'license',
+                    title: 'Cyber Threat Management',
+                    issuer: 'Cisco Networking Academy',
+                    date: 'September 2025',
+                    note: 'Completed 09 Sep 2025 through the Cisco Networking Academy program.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/cyber-threat-cert-exam.png'
+                },
+                {
+                    type: 'license',
+                    title: 'IT Specialist – JavaScript',
+                    issuer: 'Certiport (Pearson VUE) × CertNexus',
+                    date: 'May 2025',
+                    note: 'Information Technology Specialist certification in JavaScript, awarded May 3, 2025.',
+                    credentialId: 'wLWxw-H94X',
+                    url: 'https://verify.certiport.com',
+                    image: 'assets/javascript-cert-exam.png'
+                },
+                {
+                    type: 'license',
+                    title: 'IC3 Digital Literacy – GS6 Level 1',
+                    issuer: 'Certiport (Pearson VUE)',
+                    date: '',
+                    note: 'Demonstrated knowledge of Technology Basics, Digital Citizenship, Information Management, Content Creation, Communication, Collaboration, and Safety and Security through the IC3 Digital Literacy exam.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/IC3-cert-exam.png'
+                },
+                {
+                    type: 'award',
+                    title: 'Best in Thesis Paper – IT Category',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'October 2026',
+                    note: 'Recognized at the 16th CCST Student In-House Review and Research Exhibit for GEN-ZYNC: A Smart Web-Based Collaboration and Program Development System for BYDO with AI and SMS Notification.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Genzync-Certificate.jpg'
+                }
+            ];
+
+            const escapeHtml = (value = '') =>
+                String(value).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+            const pad2 = (n) => String(n).padStart(2, '0');
+            const sampleChip = (item) => (item.sample ? '<span class="sample-chip">Sample</span>' : '');
+            const arrowIcon =
+                '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            const closeIcon =
+                '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+            const sealIcon =
+                '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="9.5" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 14.5L7 21L12 18.5L17 21L15.5 14.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.6 9.6L11.3 11.2L14.5 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+            // Restart a CSS entrance animation by toggling a class
+            const replayClass = (el, cls) => {
+                if (!el) return;
+                el.classList.remove(cls);
+                void el.offsetWidth;
+                el.classList.add(cls);
+            };
+
+            // Subtle 3D tilt + glare that follows the pointer
+            const attachTilt = (el, strength = 8) => {
+                el.addEventListener('pointermove', (e) => {
+                    const r = el.getBoundingClientRect();
+                    const px = (e.clientX - r.left) / r.width;
+                    const py = (e.clientY - r.top) / r.height;
+                    el.style.setProperty('--rx', `${((0.5 - py) * strength).toFixed(2)}deg`);
+                    el.style.setProperty('--ry', `${((px - 0.5) * strength).toFixed(2)}deg`);
+                    el.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
+                    el.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
+                });
+                el.addEventListener('pointerleave', () => {
+                    el.style.setProperty('--rx', '0deg');
+                    el.style.setProperty('--ry', '0deg');
+                });
+            };
+
+            // Styled stand-in "certificate paper" used when no image is supplied
+            const certPaperHtml = (cert, size = '') => {
+                if (cert.image) {
+                    return `<div class="cert-paper cert-paper--image ${size}"><img src="${escapeHtml(cert.image)}" alt="${escapeHtml(cert.title)}" loading="lazy" /></div>`;
+                }
+                const meta = CERT_TYPES[cert.type] || CERT_TYPES.completion;
+                return `
+                    <div class="cert-paper cert-paper--${cert.type} ${size}">
+                        <span class="cert-paper-kicker">${escapeHtml(meta.heading)}</span>
+                        <strong class="cert-paper-title">${escapeHtml(cert.title)}</strong>
+                        <span class="cert-paper-name">Aira Bianca F. Ordaniel</span>
+                        <span class="cert-paper-line"></span>
+                        <span class="cert-paper-issuer">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</span>
+                        <span class="cert-paper-seal">${sealIcon}</span>
+                    </div>`;
+            };
+
+            // ---------- PROJECT DATA (shared with project.html — edit projects-data.js) ----------
+            const PROJECT_DATA = window.AIRCHIVE_PROJECTS || { groups: [], projects: [] };
+            const PROJECT_GROUPS = PROJECT_DATA.groups;
+            const ALL_PROJECTS = PROJECT_DATA.projects;
+            const groupByKey = Object.fromEntries(PROJECT_GROUPS.map((g) => [g.key, g]));
+            const projectsIn = (key) => ALL_PROJECTS.filter((p) => key === 'all' || p.group === key);
+            const projectUrl = (p) => `project.html?id=${encodeURIComponent(p.id)}`;
+            const projectCoverInner = (p) =>
+                p.cover
+                    ? `<img src="${escapeHtml(p.cover)}" alt="" loading="lazy" />`
+                    : `<span class="proj-cover-num">${pad2(projectsIn(p.group).indexOf(p) + 1)}</span><svg class="proj-cover-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">${groupByKey[p.group]?.icon || ''}</svg>`;
+
+            // Expanding "portal" from the clicked card, then go to the project's own page
+            const navigateToProject = (project, fromEl) => {
+                const url = projectUrl(project);
+                if (!fromEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    window.location.href = url;
+                    return;
+                }
+                const r = fromEl.getBoundingClientRect();
+                const portal = document.createElement('div');
+                portal.className = `project-portal proj-card--${project.group}`;
+                portal.style.clipPath = `inset(${r.top}px ${innerWidth - r.right}px ${innerHeight - r.bottom}px ${r.left}px round 16px)`;
+                portal.innerHTML = `<span class="project-portal-title">${escapeHtml(project.title)}</span>`;
+                document.body.appendChild(portal);
+                void portal.offsetWidth;
+                portal.classList.add('is-expanding');
+                portal.style.clipPath = 'inset(0px 0px 0px 0px round 0px)';
+                setTimeout(() => (window.location.href = url), 650);
+            };
+
+            // Coming back with the browser's Back button restores the page from cache — clear the portal
+            window.addEventListener('pageshow', (e) => {
+                if (e.persisted) document.querySelectorAll('.project-portal').forEach((p) => p.remove());
+            });
+
+            const isModifiedClick = (e) => e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;
+
+            // ---------- MY PROJECTS FOLDER (3 collection cards) ----------
+            const projectsFolder = (() => {
+                const wrap = document.getElementById('projCollections');
+                const kicker = document.getElementById('projectsKicker');
+                if (!wrap) return { replay() { } };
+
+                if (kicker) kicker.textContent = `${PROJECT_GROUPS.length} COLLECTIONS • ${ALL_PROJECTS.length} PROJECTS`;
+
+                wrap.innerHTML = PROJECT_GROUPS.map((g, i) => {
+                    const items = projectsIn(g.key);
+                    return `
+                    <button type="button" class="proj-collection proj-card--${g.key}" data-open-projects="${g.key}" style="--d:${i}">
+                        <span class="proj-collection-cover">
+                            <span class="proj-collection-index">${pad2(i + 1)}</span>
+                            <svg class="proj-collection-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">${g.icon}</svg>
+                            <span class="proj-collection-stack" style="--n:${Math.min(3, items.length)}">
+                                ${items.slice(0, 3).map((p, j) => `<span class="proj-collection-sheet" style="--j:${j}">${escapeHtml(p.title)}</span>`).join('')}
+                            </span>
+                            <span class="proj-card-glare"></span>
+                        </span>
+                        <span class="proj-collection-body">
+                            <span class="proj-collection-kicker">${escapeHtml(g.kicker)}</span>
+                            <strong class="proj-collection-title">${escapeHtml(g.label)}</strong>
+                            <span class="proj-collection-desc">${escapeHtml(g.desc)}</span>
+                            <span class="proj-collection-foot">
+                                <span class="proj-collection-count"><b>${items.length}</b> ${items.length === 1 ? 'project' : 'projects'}</span>
+                                <span class="proj-card-cta">Explore ${arrowIcon}</span>
+                            </span>
+                        </span>
+                    </button>`;
+                }).join('');
+
+                wrap.querySelectorAll('.proj-collection').forEach((c) => attachTilt(c, 7));
+                return { replay: () => replayClass(wrap, 'is-entering') };
+            })();
+
+            // ---------- PROJECT SHOWCASE PAGE ----------
+            const showcase = (() => {
+                const filterEl = document.getElementById('showcaseFilter');
+                const indicator = document.getElementById('showcaseFilterIndicator');
+                const grid = document.getElementById('showcaseGrid');
+                const empty = document.getElementById('showcaseEmpty');
+                const search = document.getElementById('showcaseSearch');
+                const spotlight = document.getElementById('showcaseSpotlight');
+                const backBtn = document.getElementById('btnBackToProjectsFolder');
+                let filter = 'all';
+                let spotId = null;
+
+                if (!grid || !filterEl) return { setFilter() { }, refresh() { } };
+
+                const filters = [
+                    {
+                        key: 'all',
+                        label: 'All Projects',
+                        icon: '<path d="M4 4.5H10.5V11H4V4.5ZM13.5 4.5H20V11H13.5V4.5ZM4 13H10.5V19.5H4V13ZM13.5 13H20V19.5H13.5V13Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'
+                    },
+                    ...PROJECT_GROUPS
+                ];
+
+                const filterBtns = filters.map((f) => {
+                    const b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'showcase-filter-btn';
+                    b.dataset.filter = f.key;
+                    b.setAttribute('role', 'tab');
+                    b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${f.icon}</svg><span>${escapeHtml(f.label)}</span><b>${projectsIn(f.key).length}</b>`;
+                    b.addEventListener('click', () => setFilter(f.key));
+                    filterEl.appendChild(b);
+                    return b;
+                });
+
+                const moveIndicator = () => {
+                    const active = filterBtns.find((b) => b.dataset.filter === filter);
+                    if (!active || !indicator) return;
+                    indicator.style.width = `${active.offsetWidth}px`;
+                    indicator.style.transform = `translateX(${active.offsetLeft}px)`;
+                };
+
+                const renderSpotlight = (p) => {
+                    if (!p) {
+                        spotlight.innerHTML = '';
+                        spotId = null;
+                        return;
+                    }
+                    if (spotId === p.id) return;
+                    spotId = p.id;
+                    const g = groupByKey[p.group];
+                    spotlight.className = `showcase-spotlight proj-card--${p.group}`;
+                    spotlight.innerHTML = `
+                        <div class="spot-cover">${projectCoverInner(p)}<span class="proj-card-glare"></span></div>
+                        <div class="spot-body">
+                            <span class="spot-kicker">${escapeHtml(g ? g.label : '')} • ${escapeHtml(p.year)} ${sampleChip(p)}</span>
+                            <h3 class="spot-title">${escapeHtml(p.title)}</h3>
+                            <p class="spot-tagline">${escapeHtml(p.tagline || p.summary)}</p>
+                            <dl class="spot-meta">
+                                <div><dt>Role</dt><dd>${escapeHtml(p.role)}</dd></div>
+                                <div><dt>Timeline</dt><dd>${escapeHtml(p.duration || p.year)}</dd></div>
+                                <div><dt>Status</dt><dd>${escapeHtml(p.status || '—')}</dd></div>
+                            </dl>
+                            <div class="proj-card-tools">${(p.tools || []).map((t) => `<em>${escapeHtml(t)}</em>`).join('')}</div>
+                            <a class="proj-detail-link spot-open" href="${projectUrl(p)}">Open project page ${arrowIcon}</a>
+                        </div>`;
+                    replayClass(spotlight, 'is-swapping');
+                    attachTilt(spotlight.querySelector('.spot-cover'), 6);
+                    spotlight.querySelector('.spot-open').addEventListener('click', (e) => {
+                        if (isModifiedClick(e)) return;
+                        e.preventDefault();
+                        navigateToProject(p, spotlight.querySelector('.spot-cover'));
+                    });
+                };
+
+                const markActive = (card) =>
+                    grid.querySelectorAll('.showcase-card').forEach((c) => c.classList.toggle('is-spot', c === card));
+
+                const render = () => {
+                    const q = (search.value || '').trim().toLowerCase();
+                    const visible = projectsIn(filter).filter(
+                        (p) =>
+                            !q ||
+                            [p.title, p.role, p.summary, p.tagline, (p.tools || []).join(' '), groupByKey[p.group]?.label]
+                                .join(' ')
+                                .toLowerCase()
+                                .includes(q)
+                    );
+
+                    grid.innerHTML = visible
+                        .map(
+                            (p, i) => `
+                            <a class="showcase-card proj-card--${p.group}" href="${projectUrl(p)}" data-id="${escapeHtml(p.id)}" style="--i:${i}">
+                                <span class="showcase-card-cover">${projectCoverInner(p)}<span class="proj-card-glare"></span></span>
+                                <span class="showcase-card-body">
+                                    <span class="proj-card-meta">${escapeHtml(groupByKey[p.group]?.label || '')} • ${escapeHtml(p.year)} ${sampleChip(p)}</span>
+                                    <strong class="proj-card-title">${escapeHtml(p.title)}</strong>
+                                    <span class="showcase-card-role">${escapeHtml(p.role)}</span>
+                                </span>
+                                <span class="showcase-card-go" aria-hidden="true">${arrowIcon}</span>
+                            </a>`
+                        )
+                        .join('');
+                    empty.hidden = visible.length > 0;
+
+                    grid.querySelectorAll('.showcase-card').forEach((card) => {
+                        const p = ALL_PROJECTS.find((x) => x.id === card.dataset.id);
+                        attachTilt(card, 6);
+                        const preview = () => {
+                            renderSpotlight(p);
+                            markActive(card);
+                        };
+                        card.addEventListener('mouseenter', preview);
+                        card.addEventListener('focus', preview);
+                        card.addEventListener('click', (e) => {
+                            if (isModifiedClick(e)) return;
+                            e.preventDefault();
+                            navigateToProject(p, card);
+                        });
+                    });
+
+                    replayClass(grid, 'is-entering');
+                    spotId = null;
+                    renderSpotlight(visible[0]);
+                    markActive(grid.querySelector('.showcase-card'));
+                };
+
+                const setFilter = (next = 'all') => {
+                    filter = next === 'all' || groupByKey[next] ? next : 'all';
+                    filterBtns.forEach((b) => {
+                        const on = b.dataset.filter === filter;
+                        b.classList.toggle('is-active', on);
+                        b.setAttribute('aria-selected', on ? 'true' : 'false');
+                    });
+                    moveIndicator();
+                    render();
+                };
+
+                search.addEventListener('input', render);
+                window.addEventListener('resize', moveIndicator);
+
+                if (backBtn) {
+                    backBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        switchFolderTab('projects');
+                        pageIntro.scrollIntoView({ behavior: 'smooth' });
+                    });
+                }
+
+                setFilter('all');
+                return { setFilter, refresh: moveIndicator };
+            })();
+
+            const openProjectsPage = (key = 'all') => {
+                showcase.setFilter(key);
+                if (pageProjects) pageProjects.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => showcase.refresh(), 60);
+            };
+
+            document.querySelectorAll('[data-open-projects]').forEach((el) =>
+                el.addEventListener('click', () => openProjectsPage(el.dataset.openProjects))
+            );
+
+            // ---------- EXPERIENCES FOLDER ----------
+            // ✏️ Replace the `sample: true` entries with your real experiences.
+            const EXPERIENCE_TRACKS = [
+                {
+                    key: 'working',
+                    label: 'Working Experience',
+                    desc: 'Jobs, internships and on-the-job training.',
+                    icon: '<rect x="3" y="7" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4H14A1.5 1.5 0 0 1 15.5 5.5V7M3 12.5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+                    items: [
+                        { sample: true, role: 'Role / Position', org: 'Company or Organization', period: 'Month 2025 – Present', summary: 'Placeholder — what you were responsible for and the impact you made.', tags: ['Skill', 'Skill'] },
+                        { sample: true, role: 'Role / Position', org: 'Company or Organization', period: 'Month 2024 – Month 2025', summary: 'Placeholder — key tasks and results.', tags: ['Skill'] }
+                    ]
+                },
+                {
+                    key: 'volunteering',
+                    label: 'Volunteering Experience',
+                    desc: 'Student councils, organisations and community work.',
+                    icon: '<path d="M12 20.5S3.5 15.6 3.5 9.6A4.6 4.6 0 0 1 12 7.2A4.6 4.6 0 0 1 20.5 9.6C20.5 15.6 12 20.5 12 20.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+                    items: [
+                        { sample: true, role: 'Volunteer Role', org: 'Organization or Cause', period: 'Month 2025 – Present', summary: 'Placeholder — the cause, your role, and what you helped achieve.', tags: ['Leadership'] },
+                        { sample: true, role: 'Volunteer Role', org: 'Organization or Cause', period: 'Month 2024', summary: 'Placeholder — describe the initiative.', tags: ['Community'] },
+                        { sample: true, role: 'Volunteer Role', org: 'Organization or Cause', period: 'Month 2023', summary: 'Placeholder — describe the initiative.', tags: ['Events'] }
+                    ]
+                },
+                {
+                    key: 'freelancing',
+                    label: 'Freelancing Experience',
+                    desc: 'Client work in design, development and automation.',
+                    icon: '<rect x="3" y="4.5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 20H16M12 16.5V20M9.5 9L7.5 10.75L9.5 12.5M14.5 9L16.5 10.75L14.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+                    items: [
+                        { sample: true, role: 'Freelance Service', org: 'Client Name', period: 'Month 2025', summary: 'Placeholder — the brief, what you delivered, and the result for the client.', tags: ['Design'] },
+                        { sample: true, role: 'Freelance Service', org: 'Client Name', period: 'Month 2024', summary: 'Placeholder — describe the project.', tags: ['Web'] }
+                    ]
+                }
+            ];
+
+            const experiencesPreview = (() => {
+                const wrap = document.getElementById('expPanels');
+                const kicker = document.getElementById('experiencesKicker');
+                if (!wrap) return { replay() { } };
+
+                const total = EXPERIENCE_TRACKS.reduce((n, t) => n + t.items.length, 0);
+                if (kicker) kicker.textContent = `${EXPERIENCE_TRACKS.length} TRACKS • ${total} ENTRIES`;
+
+                wrap.innerHTML = EXPERIENCE_TRACKS.map((t, i) => {
+                    const n = t.items.length;
+                    return `
+                    <article class="exp-panel exp-panel--${t.key}${i === 0 ? ' is-open' : ''}" data-track="${t.key}" style="--d:${i}"
+                        tabindex="0" role="button" aria-expanded="${i === 0}">
+                        <div class="exp-panel-summary" aria-hidden="true">
+                            <span class="exp-panel-index">${pad2(i + 1)}</span>
+                            <span class="exp-panel-icon"><svg viewBox="0 0 24 24" fill="none">${t.icon}</svg></span>
+                            <strong class="exp-panel-title">${escapeHtml(t.label)}</strong>
+                            <span class="exp-panel-desc">${escapeHtml(t.desc)}</span>
+                            <span class="exp-panel-foot"><b>${n}</b> ${n === 1 ? 'entry' : 'entries'} <span class="exp-panel-expand">${arrowIcon}</span></span>
+                        </div>
+                        <div class="exp-panel-content">
+                            <header class="exp-panel-head">
+                                <span class="exp-panel-icon exp-panel-icon--solid"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${t.icon}</svg></span>
+                                <div class="exp-panel-head-text">
+                                    <h3 class="exp-panel-heading">${escapeHtml(t.label)}</h3>
+                                    <p class="exp-panel-desc">${escapeHtml(t.desc)}</p>
+                                </div>
+                                <span class="cert-drawer-count"><b>${n}</b>${n === 1 ? 'entry' : 'entries'}</span>
+                            </header>
+                            <ol class="exp-timeline">
+                                ${t.items.map((it, j) => `
+                                <li class="exp-entry" style="--j:${j}">
+                                    <span class="exp-entry-dot" aria-hidden="true"></span>
+                                    <div class="exp-entry-main">
+                                        <span class="exp-entry-period">${escapeHtml(it.period)} ${sampleChip(it)}</span>
+                                        <strong class="exp-entry-role">${escapeHtml(it.role)}</strong>
+                                        <span class="exp-entry-org">${escapeHtml(it.org)}</span>
+                                        <p class="exp-entry-summary">${escapeHtml(it.summary)}</p>
+                                        <span class="exp-entry-tags">${(it.tags || []).map((tag) => `<em>${escapeHtml(tag)}</em>`).join('')}</span>
+                                    </div>
+                                </li>`).join('')}
+                            </ol>
+                        </div>
+                    </article>`;
+                }).join('');
+
+                const panels = [...wrap.querySelectorAll('.exp-panel')];
+                let hoverTimer;
+                const open = (panel) => {
+                    if (panel.classList.contains('is-open')) return;
+                    panels.forEach((p) => {
+                        const on = p === panel;
+                        p.classList.toggle('is-open', on);
+                        p.setAttribute('aria-expanded', on ? 'true' : 'false');
+                    });
+                    replayClass(panel.querySelector('.exp-timeline'), 'is-entering');
+                };
+
+                panels.forEach((p) => {
+                    // Small hover-intent delay so sweeping the mouse across doesn't flicker panels open
+                    p.addEventListener('mouseenter', () => {
+                        clearTimeout(hoverTimer);
+                        hoverTimer = setTimeout(() => open(p), 140);
+                    });
+                    p.addEventListener('mouseleave', () => clearTimeout(hoverTimer));
+                    p.addEventListener('click', () => open(p));
+                    p.addEventListener('focus', () => open(p));
+                    p.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            open(p);
+                        }
+                    });
+                });
+
+                return {
+                    replay() {
+                        replayClass(wrap, 'is-entering');
+                        const openPanel = wrap.querySelector('.exp-panel.is-open .exp-timeline');
+                        replayClass(openPanel, 'is-entering');
+                    }
+                };
+            })();
+
+            // ---------- CERTIFICATIONS PAGE ----------
+            const certsPage = (() => {
+                const grid = document.getElementById('certsGrid');
+                const empty = document.getElementById('certsEmpty');
+                const filterBtns = document.querySelectorAll('.certs-filter-btn');
+                const filterIndicator = document.getElementById('certsFilterIndicator');
+                const search = document.getElementById('certsSearch');
+                const statTitle = document.getElementById('certsStatTitle');
+                const statDesc = document.getElementById('certsStatDesc');
+                const lightbox = document.getElementById('certLightbox');
+                const lightboxPanel = document.getElementById('certLightboxPanel');
+                const backBtn = document.getElementById('btnBackToCertsFolder');
+                let filter = 'all';
+                let visible = [];
+                let lightboxIdx = -1;
+
+                if (!grid) return { setFilter() { } };
+
+                document.querySelectorAll('[data-count]').forEach((el) => {
+                    const key = el.dataset.count;
+                    el.textContent = key === 'all' ? CERTIFICATES.length : CERTIFICATES.filter((c) => c.type === key).length;
+                });
+
+                const moveIndicator = () => {
+                    const active = [...filterBtns].find((b) => b.dataset.certFilter === filter);
+                    if (!active || !filterIndicator) return;
+                    filterIndicator.style.width = `${active.offsetWidth}px`;
+                    filterIndicator.style.height = `${active.offsetHeight}px`;
+                    filterIndicator.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
+                };
+
+                const render = () => {
+                    const q = (search.value || '').trim().toLowerCase();
+                    visible = CERTIFICATES.filter(
+                        (c) =>
+                            (filter === 'all' || c.type === filter) &&
+                            (!q || `${c.title} ${c.issuer} ${c.note || ''}`.toLowerCase().includes(q))
+                    );
+
+                    grid.innerHTML = visible
+                        .map(
+                            (cert, i) => `
+                            <button type="button" class="cert-tile" style="--i:${i}" data-cert-idx="${i}" aria-label="Preview ${escapeHtml(cert.title)}">
+                                <span class="cert-tile-visual">${certPaperHtml(cert, 'cert-paper--sm')}<span class="proj-card-glare"></span></span>
+                                <span class="cert-tile-body">
+                                    <span class="cert-tile-type cert-tile-type--${cert.type}">${escapeHtml(CERT_TYPES[cert.type]?.short || '')} ${sampleChip(cert)}</span>
+                                    <strong class="cert-tile-title">${escapeHtml(cert.title)}</strong>
+                                    <span class="cert-tile-issuer">${escapeHtml(cert.issuer)}</span>
+                                    ${cert.date ? `<span class="cert-tile-date">${escapeHtml(cert.date)}</span>` : ''}
+                                </span>
+                            </button>`
+                        )
+                        .join('');
+                    grid.querySelectorAll('.cert-tile').forEach((tile) => {
+                        attachTilt(tile, 6);
+                        tile.addEventListener('click', () => openLightbox(parseInt(tile.dataset.certIdx, 10)));
+                    });
+                    empty.hidden = visible.length > 0;
+                    replayClass(grid, 'is-entering');
+
+                    const meta = CERT_TYPES[filter];
+                    statTitle.textContent = meta ? meta.label : 'All Credentials';
+                    statDesc.textContent = `${visible.length} ${visible.length === 1 ? 'credential' : 'credentials'} shown. ${meta ? meta.desc : 'Every certificate, license and award in one place.'}`;
+                };
+
+                const setFilter = (next = 'all') => {
+                    filter = next in CERT_TYPES ? next : 'all';
+                    filterBtns.forEach((b) => {
+                        const on = b.dataset.certFilter === filter;
+                        b.classList.toggle('is-active', on);
+                        b.setAttribute('aria-selected', on ? 'true' : 'false');
+                    });
+                    moveIndicator();
+                    render();
+                };
+
+                const openLightbox = (i) => {
+                    const cert = visible[i];
+                    if (!cert) return;
+                    lightboxIdx = i;
+                    const meta = CERT_TYPES[cert.type] || CERT_TYPES.completion;
+                    const rows = [
+                        ['Issued by', cert.issuer],
+                        cert.date ? ['Issue date', cert.date] : null,
+                        cert.credentialId ? ['Credential ID', cert.credentialId] : null
+                    ].filter(Boolean);
+                    lightboxPanel.innerHTML = `
+                        <button type="button" class="cert-lightbox-close" data-close-lightbox aria-label="Close preview">${closeIcon}</button>
+                        <div class="cert-lightbox-visual">${certPaperHtml(cert, 'cert-paper--lg')}</div>
+                        <div class="cert-lightbox-info">
+                            <span class="cert-tile-type cert-tile-type--${cert.type}">${escapeHtml(meta.label)} ${sampleChip(cert)}</span>
+                            <h3 class="cert-lightbox-title">${escapeHtml(cert.title)}</h3>
+                            ${cert.note ? `<p class="cert-lightbox-note">${escapeHtml(cert.note)}</p>` : ''}
+                            <dl class="cert-lightbox-meta">${rows.map(([k, v]) => `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join('')}</dl>
+                            <div class="cert-lightbox-actions">
+                                ${cert.url ? `<a class="proj-detail-link" href="${escapeHtml(cert.url)}" target="_blank" rel="noopener noreferrer">Verify credential ${arrowIcon}</a>` : ''}
+                                <button type="button" class="proj-detail-step" data-lb-step="-1" aria-label="Previous certificate" ${i === 0 ? 'disabled' : ''}>
+                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
+                                <span class="cert-lightbox-count">${pad2(i + 1)} / ${pad2(visible.length)}</span>
+                                <button type="button" class="proj-detail-step" data-lb-step="1" aria-label="Next certificate" ${i === visible.length - 1 ? 'disabled' : ''}>
+                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
+                            </div>
+                        </div>`;
+                    lightboxPanel.querySelectorAll('[data-lb-step]').forEach((b) =>
+                        b.addEventListener('click', () => openLightbox(lightboxIdx + parseInt(b.dataset.lbStep, 10)))
+                    );
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    replayClass(lightboxPanel, 'is-entering');
+                };
+
+                const closeLightbox = () => {
+                    lightboxIdx = -1;
+                    lightbox.classList.remove('is-open');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                };
+
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target.closest('[data-close-lightbox]')) closeLightbox();
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (lightboxIdx < 0) return;
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowRight' && lightboxIdx < visible.length - 1) openLightbox(lightboxIdx + 1);
+                    if (e.key === 'ArrowLeft' && lightboxIdx > 0) openLightbox(lightboxIdx - 1);
+                });
+
+                filterBtns.forEach((b) => b.addEventListener('click', () => setFilter(b.dataset.certFilter)));
+                search.addEventListener('input', render);
+                window.addEventListener('resize', moveIndicator);
+
+                if (backBtn) {
+                    backBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closeLightbox();
+                        switchFolderTab('certificates');
+                        pageIntro.scrollIntoView({ behavior: 'smooth' });
+                    });
+                }
+
+                setFilter('all');
+                return { setFilter, refreshIndicator: moveIndicator };
+            })();
+
+            const openCertificationsPage = (type = 'all') => {
+                certsPage.setFilter(type);
+                if (pageCertifications) pageCertifications.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => certsPage.refreshIndicator && certsPage.refreshIndicator(), 60);
+            };
+
+            // ---------- CERTIFICATES FOLDER ----------
+            const certsPreview = (() => {
+                const drawers = document.getElementById('certDrawers');
+                const kicker = document.getElementById('certsVaultKicker');
+                if (!drawers) return { replay() { } };
+
+                if (kicker) kicker.textContent = `${Object.keys(CERT_TYPES).length} COLLECTIONS • ${CERTIFICATES.length} CREDENTIALS`;
+
+                drawers.innerHTML = Object.entries(CERT_TYPES)
+                    .map(([type, meta], i) => {
+                        const items = CERTIFICATES.filter((c) => c.type === type);
+                        const stack = items.slice(0, 3);
+                        return `
+                        <button type="button" class="cert-drawer cert-drawer--${type}" data-open-certs="${type}" style="--d:${i}">
+                            <span class="cert-drawer-head">
+                                <span class="cert-drawer-index">${pad2(i + 1)}</span>
+                                <span class="cert-drawer-titles">
+                                    <strong class="cert-drawer-title">${escapeHtml(meta.label)}</strong>
+                                    <span class="cert-drawer-desc">${escapeHtml(meta.desc)}</span>
+                                </span>
+                                <span class="cert-drawer-count"><b>${items.length}</b>${items.length === 1 ? 'item' : 'items'}</span>
+                            </span>
+                            <span class="cert-fan" style="--n:${stack.length}">
+                                ${stack.map((c, j) => `<span class="cert-fan-card" style="--j:${j}">${certPaperHtml(c, 'cert-paper--sm')}</span>`).join('')}
+                                ${stack.length === 0 ? '<span class="cert-fan-empty">Nothing here yet</span>' : ''}
+                            </span>
+                            <span class="cert-drawer-cta">Open ${escapeHtml(meta.short)} ${arrowIcon}</span>
+                        </button>`;
+                    })
+                    .join('');
+
+                drawers.querySelectorAll('.cert-drawer').forEach((d) => attachTilt(d, 5));
+
+                // Every [data-open-certs] trigger (drawers + "View All") opens the Certifications page
+                document.querySelectorAll('[data-open-certs]').forEach((el) =>
+                    el.addEventListener('click', () => openCertificationsPage(el.dataset.openCerts))
+                );
+
+                return { replay: () => replayClass(drawers, 'is-entering') };
+            })();
 
             skillJumpEls.forEach((el) => {
                 const jumpCategory = el.dataset.skillJump || 'technical';
