@@ -86,6 +86,17 @@
        PAGE 1: PORTFOLIO COVER PAGE (AIRCHIVE)
        ======================================================================== -->
     <main class="portfolio-viewport" id="page-cover">
+        <!-- Animated Blue Gradient Background (Theme-Adaptive, Mouse-Reactive) -->
+        <div class="hero-gradient-bg" id="heroGradientBg" aria-hidden="true">
+            <div class="hero-gradient-blobs" id="heroGradientBlobs">
+                <span class="hero-blob hero-blob--1"></span>
+                <span class="hero-blob hero-blob--2"></span>
+                <span class="hero-blob hero-blob--3"></span>
+                <span class="hero-blob hero-blob--4"></span>
+            </div>
+            <div class="hero-spotlight" id="heroSpotlight"></div>
+            <div class="hero-grain"></div>
+        </div>
         <!-- 16:9 Proportional Canvas (Matches Canva 1024x576 Layout Exactly) -->
         <section class="portfolio-canvas" id="portfolioCanvas" aria-label="AIRCHIVE Cover Page">
 
@@ -2362,6 +2373,70 @@
                 folderWrapper.style.transform = '';
             });
 
+            // 2b. Page 1: Animated Gradient Background — Smooth Cursor Spotlight, Blob Parallax & Click Ripples
+            (() => {
+                const heroBg = document.getElementById('heroGradientBg');
+                const heroBlobs = document.getElementById('heroGradientBlobs');
+                if (!heroBg || !heroBlobs) return;
+
+                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const target = { x: 0.5, y: 0.4 };
+                const current = { x: 0.5, y: 0.4 };
+                let rafId = null;
+                let heroVisible = true;
+
+                const tick = () => {
+                    // Lerp toward the cursor for a soft, trailing motion
+                    current.x += (target.x - current.x) * 0.08;
+                    current.y += (target.y - current.y) * 0.08;
+
+                    heroBg.style.setProperty('--spot-x', `${(current.x * 100).toFixed(2)}%`);
+                    heroBg.style.setProperty('--spot-y', `${(current.y * 100).toFixed(2)}%`);
+                    heroBlobs.style.transform =
+                        `translate3d(${((current.x - 0.5) * -40).toFixed(2)}px, ${((current.y - 0.5) * -30).toFixed(2)}px, 0)`;
+
+                    const settled = Math.abs(target.x - current.x) < 0.0005 && Math.abs(target.y - current.y) < 0.0005;
+                    rafId = settled ? null : requestAnimationFrame(tick);
+                };
+
+                const kick = () => {
+                    if (!rafId && heroVisible) rafId = requestAnimationFrame(tick);
+                };
+
+                pageCover.addEventListener('pointermove', (e) => {
+                    const rect = pageCover.getBoundingClientRect();
+                    target.x = (e.clientX - rect.left) / rect.width;
+                    target.y = (e.clientY - rect.top) / rect.height;
+                    heroBg.classList.add('is-spot-active');
+                    if (!reduceMotion) kick();
+                });
+
+                pageCover.addEventListener('pointerleave', () => {
+                    target.x = 0.5;
+                    target.y = 0.4;
+                    heroBg.classList.remove('is-spot-active');
+                    if (!reduceMotion) kick();
+                });
+
+                // Expanding ripple wherever the visitor clicks on the cover
+                pageCover.addEventListener('pointerdown', (e) => {
+                    if (reduceMotion) return;
+                    const rect = pageCover.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'hero-ripple';
+                    ripple.style.left = `${e.clientX - rect.left}px`;
+                    ripple.style.top = `${e.clientY - rect.top}px`;
+                    heroBg.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+                });
+
+                // Pause the looping gradient animations while the cover is off-screen
+                new IntersectionObserver(([entry]) => {
+                    heroVisible = entry.isIntersecting;
+                    heroBg.classList.toggle('is-paused', !heroVisible);
+                }, { threshold: 0 }).observe(pageCover);
+            })();
+
             // 3. Page 1 -> Page 2 Connection: Clicking Folder Opens Table of Contents
             folderWrapper.addEventListener('click', () => {
                 folderWrapper.classList.add('is-open');
@@ -2633,8 +2708,8 @@
             skillsetCycleBtns.forEach((btn) => {
                 btn.addEventListener('click', () => {
                     const dir = parseInt(btn.dataset.cycleDir || '1', 10);
-                    const activePanel = document.querySelector('.skillset-stage-panel.ative');
-                   onst currCt = activePanel ? activePanel.dataset.skillCategory : 'technical';
+                    const activePanel = document.querySelector('.skillset-stage-panel.active');
+                    const currCat = activePanel ? activePanel.dataset.skillCategory : 'technical';
                     const currIdx = Math.max(0, skillOrder.indexOf(currCat));
                     const nextIdx = (currIdx + dir + skillOrder.length) % skillOrder.length;
                     setSkillSetFilter(skillOrder[nextIdx]);
@@ -2958,8 +3033,8 @@
                 } else {
                     isCustomDateTime = false;
                     syncLiveClock();
-             
-     });
+                }
+            });
 
             datetimePicker.addEventListener('dblclick', () => {
                 isCustomDateTime = false;
@@ -2995,9 +3070,34 @@
             const savedTheme = localStorage.getItem('airchive-theme') || 'light';
             applyTheme(savedTheme);
 
-            themeToggleBtn.addEventListener('click', () => {
+            themeToggleBtn.addEventListener('click', (e) => {
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                applyTheme(isDark ? 'light' : 'dark');
+                const nextTheme = isDark ? 'light' : 'dark';
+                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                // Smooth circular reveal from the toggle button (View Transitions API), with fallback
+                if (!document.startViewTransition || reduceMotion) {
+                    applyTheme(nextTheme);
+                    return;
+                }
+
+                const rect = themeToggleBtn.getBoundingClientRect();
+                const x = e.clientX || rect.left + rect.width / 2;
+                const y = e.clientY || rect.top + rect.height / 2;
+                const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+                const root = document.documentElement;
+                root.classList.add('is-theme-switching');
+                const transition = document.startViewTransition(() => applyTheme(nextTheme));
+
+                transition.ready.then(() => {
+                    root.animate(
+                        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`] },
+                        { duration: 650, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', pseudoElement: '::view-transition-new(root)' }
+                    );
+                }).catch(() => {});
+
+                transition.finished.finally(() => root.classList.remove('is-theme-switching'));
             });
         })();
     </script>
