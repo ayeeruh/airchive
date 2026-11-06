@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volunteering — AIRCHIVE | Aira Bianca Ordaniel</title>
+    <link rel="icon" type="image/png" href="assets/logo-light.png" id="siteFavicon" />
+    <link rel="apple-touch-icon" href="assets/logo-light.png" />
+    <!-- Apply the saved theme before first paint so the page never flashes the wrong colors -->
+    <script>
+        try {
+            if (localStorage.getItem('airchive-theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        } catch (_) { }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="volunteer.css" />
+</head>
+
+<body class="project-page volunteer-page">
+
+    <!-- Entrance curtain: continues the "portal" from the Volunteer Passport, then lifts away -->
+    <div class="pp-curtain" id="ppCurtain" aria-hidden="true">
+        <span class="pp-curtain-title" id="ppCurtainTitle"></span>
+    </div>
+
+    <header class="site-header pp-header" aria-label="Volunteering Page Header">
+        <a href="index.html#page-cover" class="header-brand">
+            <div class="header-logo-box" title="AIRCHIVE — Aira Bianca Logo">
+                <img src="assets/logo-light.png" alt="Aira Bianca Logo"
+                    class="header-logo-img header-logo-img--light" />
+                <img src="assets/logo-dark.png" alt="Aira Bianca Logo" class="header-logo-img header-logo-img--dark" />
+            </div>
+            <div class="header-brand-text">
+                <span class="header-brand-name">Aira Bianca</span>
+                <span class="header-brand-sub">Information Technology</span>
+            </div>
+        </a>
+
+        <!-- In-page section navigation (filled by project.js) -->
+        <nav class="header-nav-capsule pp-section-nav" id="ppSectionNav" aria-label="Volunteering sections"></nav>
+
+        <div class="header-controls">
+            <a href="index.html#volunteerings" class="pp-back-btn" id="ppBackBtn">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Volunteer Passport</span>
+            </a>
+            <button type="button" class="theme-toggle-btn" id="themeToggleBtn"
+                title="Switch between Light and Dark Mode" aria-label="Toggle Light or Dark Mode">
+                <svg class="theme-toggle-icon" id="themeToggleIcon" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+                <span id="themeToggleLabel">Dark</span>
+            </button>
+        </div>
+
+        <div class="header-scroll-track" aria-hidden="true">
+            <div class="header-scroll-bar" id="headerScrollBar"></div>
+        </div>
+    </header>
+
+    <!-- Filled by volunteer.js from volunteers-data.js -->
+    <main class="pp-main" id="ppMain"></main>
+
+    <!-- Photo / certificate lightbox -->
+    <div class="pp-lightbox" id="ppLightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+        <button type="button" class="pp-lightbox-close" id="ppLightboxClose" aria-label="Close preview">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+        </button>
+        <figure class="pp-lightbox-figure">
+            <img id="ppLightboxImg" alt="" />
+            <figcaption id="ppLightboxCaption"></figcaption>
+        </figure>
+    </div>
+
+    <script src="volunteers-data.js"></script>
+    <script src="volunteer.js"></script>
+</body>
+
+</html>

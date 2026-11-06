@@ -13,6 +13,10 @@
      Without it, a styled gradient cover is drawn.
    - `gallery` (optional): [{ src: 'assets/projects/shot-1.png', caption: '...' }]
    - `links` (optional): live / repo / caseStudy URLs; empty ones are hidden.
+   - `category` (design projects only): 'merch' | 'publication' | 'poster' | 'presentation'
+     — sorts them into the Design sub-filters on the Project Showcase.
+   - `coverPosition` (optional): which part of the cover to show, e.g. 'center top'
+     for tall posters.
    ========================================================================== */
 window.AIRCHIVE_PROJECTS = {
     groups: [
@@ -26,8 +30,14 @@ window.AIRCHIVE_PROJECTS = {
         {
             key: 'design',
             label: 'Designs',
-            kicker: 'Brand • Pubmats • Motion',
-            desc: 'Brand identities, publication materials and visual campaigns that give ideas a recognisable look.',
+            kicker: 'Merch • Pubmats • Posters • Decks',
+            desc: 'Merchandise, publication materials, posters and presentation decks that give ideas a recognisable look.',
+            categories: [
+                { key: 'merch', label: 'Merchandise Design', short: 'Merch' },
+                { key: 'publication', label: 'Publication Materials', short: 'Pubmats' },
+                { key: 'poster', label: 'Posters', short: 'Posters' },
+                { key: 'presentation', label: 'PowerPoint Presentations', short: 'Decks' }
+            ],
             icon: '<path d="M12 3C7 3 3 6.8 3 11.5C3 15.6 6.2 18 9 18C10.3 18 10.8 17.2 10.8 16.4C10.8 15.3 10 15 10 14C10 13.1 10.7 12.5 11.6 12.5H14C17.9 12.5 21 10.9 21 8C21 5 17 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.5" cy="10.5" r="1.3" fill="currentColor"/><circle cx="11" cy="7" r="1.3" fill="currentColor"/><circle cx="15.5" cy="7.5" r="1.3" fill="currentColor"/>'
         },
         {
@@ -154,77 +164,102 @@ window.AIRCHIVE_PROJECTS = {
 
         /* ---------------- DESIGNS ---------------- */
         {
-            id: 'design-01',
+            id: 'design-dos-membership-card-2026',
             group: 'design',
-            sample: true,
-            title: 'Design Project 01',
-            tagline: 'Placeholder tagline — the idea behind the brand.',
-            role: 'Brand Designer',
-            year: '2025',
-            duration: '4 weeks',
-            team: 'Solo',
-            status: 'Delivered',
-            summary: 'Placeholder — describe the brand identity and the concept behind it.',
-            overview: 'Placeholder overview of the client or organisation and the brief.',
-            challenge: 'Placeholder challenge.',
-            approach: [
-                { title: 'Moodboard & Concept', text: 'Placeholder step.' },
-                { title: 'Logo & System', text: 'Placeholder step.' },
-                { title: 'Applications', text: 'Placeholder step.' }
+            category: 'merch',
+            title: 'BPSU-DOS Membership Card 2026',
+            tagline: 'A liquid-chrome 3D "DS" emblem that turns a membership card into a keepsake.',
+            role: 'Graphic Designer',
+            year: '2026',
+            duration: '',
+            team: 'BPSU-DOST Organization of Scholars',
+            status: '',
+            summary: 'Membership card design for the Bataan Peninsula State University – DOST Organization of Scholars (BPSU-DOS), built around a glossy, liquid-chrome 3D "DS" cube monogram on a flowing blue backdrop.',
+            overview: 'The 2026 membership card gives every BPSU-DOS scholar a tangible piece of the organization’s identity. The front centers a three-dimensional "DS" cube rendered in a glassy, chrome finish, with the BPSU and DOS wordmarks curving around it and a clear MEMBER designation in the corner.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                '3D liquid-chrome "DS" cube monogram as the hero element',
+                'Curved BPSU and DOS wordmarks orbiting the emblem',
+                'Blue light-streak backdrop matching the organization’s colors',
+                'Clean typographic header and MEMBER tag for instant recognition'
             ],
-            outcomes: [{ value: '00', label: 'Placeholder assets' }],
-            highlights: ['Placeholder highlight'],
-            tools: ['Canva', 'Branding'],
+            tools: ['Merchandise Design', 'Branding', '3D Typography'],
             links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
+            cover: 'assets/DOS-Membership-Card-2026.png',
+            gallery: [{ src: 'assets/DOS-Membership-Card-2026.png', caption: 'Membership card — front design' }]
         },
         {
-            id: 'design-02',
+            id: 'design-sentro-r3-world-cafe-poster',
             group: 'design',
+            category: 'poster',
+            title: 'SENTRO for Brilliance — Region III World Café Poster',
+            tagline: 'An infographic poster telling DOST-SENTRO’s story, from its 2022 beginnings to its 2025 milestones.',
+            role: 'Graphic Designer',
+            year: '2025',
+            duration: '',
+            team: 'DOST-SENTRO (Region III)',
+            status: '',
+            summary: 'A large-format infographic poster for the DOST Scholars Empowered Nationalistic and Tactical Regional Organization (SENTRO), made for the Region III World Café. It maps the organization’s backbone programs across member chapters, its yearly milestones, and the problems and solutions it proposes for scholars in Central Luzon.',
+            overview: 'The poster introduces DOST-SENTRO as the official regional organization of DOST-SEI scholars in Central Luzon, then walks viewers through its "Backbones" (flagship programs of each member chapter), a 2022–2025 milestone timeline, its core values, and a Problems & Solutions panel, closing with a QR code and contact links.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Halftone scholar portrait as the centerpiece, framed by chapter badges',
+                'Milestone fan for 2022 → 2025: Prime Flame, Bounded Orbit, Rising Pillars, New Horizon',
+                '"Backbones" section featuring programs from each member chapter',
+                'Problems & Solutions panels, core-value steps, and a QR code for follow-up'
+            ],
+            tools: ['Poster Design', 'Infographics', 'Layout'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/R3_Poster_WorldCafe.png',
+            coverPosition: 'center top',
+            gallery: [{ src: 'assets/R3_Poster_WorldCafe.png', caption: 'Full poster — SENTRO for Brilliance' }]
+        },
+        {
+            id: 'design-publication-01',
+            group: 'design',
+            category: 'publication',
             sample: true,
-            title: 'Design Project 02',
+            title: 'Publication Materials Project',
             tagline: 'Placeholder tagline.',
             role: 'Pubmat Designer',
             year: '2025',
-            duration: 'Ongoing',
+            duration: '',
             team: 'Creatives Team',
             status: 'Published',
             summary: 'Placeholder — describe the campaign and its publication materials.',
             overview: 'Placeholder overview.',
-            challenge: 'Placeholder challenge.',
-            approach: [
-                { title: 'Campaign Direction', text: 'Placeholder step.' },
-                { title: 'Layouts', text: 'Placeholder step.' }
-            ],
-            outcomes: [{ value: '00K', label: 'Placeholder reach' }],
+            challenge: '',
+            approach: [],
+            outcomes: [],
             highlights: ['Placeholder highlight'],
-            tools: ['Canva', 'Layout'],
+            tools: ['Publication Design', 'Layout'],
             links: { live: '', repo: '', caseStudy: '' },
             cover: '',
             gallery: []
         },
         {
-            id: 'design-03',
+            id: 'design-presentation-01',
             group: 'design',
+            category: 'presentation',
             sample: true,
-            title: 'Design Project 03',
+            title: 'PowerPoint Presentation Project',
             tagline: 'Placeholder tagline.',
-            role: 'Video Editor',
-            year: '2024',
-            duration: '2 weeks',
-            team: 'Film Team',
-            status: 'Released',
-            summary: 'Placeholder — describe the reel or film and your role in it.',
+            role: 'Presentation Designer',
+            year: '2025',
+            duration: '',
+            team: 'Solo',
+            status: 'Presented',
+            summary: 'Placeholder — describe the deck, its audience and the story it tells.',
             overview: 'Placeholder overview.',
-            challenge: 'Placeholder challenge.',
-            approach: [
-                { title: 'Storyboard', text: 'Placeholder step.' },
-                { title: 'Edit & Grade', text: 'Placeholder step.' }
-            ],
-            outcomes: [{ value: '00K', label: 'Placeholder views' }],
+            challenge: '',
+            approach: [],
+            outcomes: [],
             highlights: ['Placeholder highlight'],
-            tools: ['Video Editing', 'Storyboard'],
+            tools: ['PowerPoint', 'Slide Design'],
             links: { live: '', repo: '', caseStudy: '' },
             cover: '',
             gallery: []

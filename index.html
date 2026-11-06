@@ -2347,6 +2347,8 @@
 
                 <!-- Right: Project Index Grid -->
                 <div class="showcase-grid-wrap">
+                    <!-- Design sub-categories (shown when the Designs collection is selected) -->
+                    <div class="showcase-subfilter" id="showcaseSubfilter" role="tablist" aria-label="Design categories" hidden></div>
                     <div class="showcase-grid" id="showcaseGrid"></div>
                     <p class="certs-empty" id="showcaseEmpty" hidden>No projects match your search.</p>
                 </div>
@@ -2431,6 +2433,7 @@
     </section>
 
     <script src="projects-data.js"></script>
+    <script src="volunteers-data.js"></script>
     <script>
         (() => {
             const pageCover = document.getElementById('page-cover');
@@ -3247,9 +3250,12 @@
             const groupByKey = Object.fromEntries(PROJECT_GROUPS.map((g) => [g.key, g]));
             const projectsIn = (key) => ALL_PROJECTS.filter((p) => key === 'all' || p.group === key);
             const projectUrl = (p) => `project.html?id=${encodeURIComponent(p.id)}`;
+            const DESIGN_CATEGORIES = (PROJECT_GROUPS.find((g) => g.key === 'design') || {}).categories || [];
+            const categoryOf = (p) => DESIGN_CATEGORIES.find((c) => c.key === p.category);
+            const projectKicker = (p) => (categoryOf(p) || groupByKey[p.group] || {}).label || '';
             const projectCoverInner = (p) =>
                 p.cover
-                    ? `<img src="${escapeHtml(p.cover)}" alt="" loading="lazy" />`
+                    ? `<img src="${escapeHtml(p.cover)}" alt="" loading="lazy"${p.coverPosition ? ` style="object-position:${escapeHtml(p.coverPosition)}"` : ''} />`
                     : `<span class="proj-cover-num">${pad2(projectsIn(p.group).indexOf(p) + 1)}</span><svg class="proj-cover-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">${groupByKey[p.group]?.icon || ''}</svg>`;
 
             // Expanding "portal" from the clicked card, then go to the project's own page
@@ -3264,6 +3270,25 @@
                 portal.className = `project-portal proj-card--${project.group}`;
                 portal.style.clipPath = `inset(${r.top}px ${innerWidth - r.right}px ${innerHeight - r.bottom}px ${r.left}px round 16px)`;
                 portal.innerHTML = `<span class="project-portal-title">${escapeHtml(project.title)}</span>`;
+                document.body.appendChild(portal);
+                void portal.offsetWidth;
+                portal.classList.add('is-expanding');
+                portal.style.clipPath = 'inset(0px 0px 0px 0px round 0px)';
+                setTimeout(() => (window.location.href = url), 650);
+            };
+
+            // Same portal for any page (cover = CSS background for the expanding panel)
+            const openWithPortal = (url, title, fromEl, cover) => {
+                if (!fromEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    window.location.href = url;
+                    return;
+                }
+                const r = fromEl.getBoundingClientRect();
+                const portal = document.createElement('div');
+                portal.className = 'project-portal';
+                if (cover) portal.style.setProperty('--cover', cover);
+                portal.style.clipPath = `inset(${r.top}px ${innerWidth - r.right}px ${innerHeight - r.bottom}px ${r.left}px round 16px)`;
+                portal.innerHTML = `<span class="project-portal-title">${escapeHtml(title)}</span>`;
                 document.body.appendChild(portal);
                 void portal.offsetWidth;
                 portal.classList.add('is-expanding');
@@ -3302,6 +3327,7 @@
                             <span class="proj-collection-kicker">${escapeHtml(g.kicker)}</span>
                             <strong class="proj-collection-title">${escapeHtml(g.label)}</strong>
                             <span class="proj-collection-desc">${escapeHtml(g.desc)}</span>
+                            ${(g.categories || []).length ? `<span class="proj-collection-cats">${g.categories.map((c) => `<em>${escapeHtml(c.short || c.label)} <b>${items.filter((p) => p.category === c.key).length}</b></em>`).join('')}</span>` : ''}
                             <span class="proj-collection-foot">
                                 <span class="proj-collection-count"><b>${items.length}</b> ${items.length === 1 ? 'project' : 'projects'}</span>
                                 <span class="proj-card-cta">Explore ${arrowIcon}</span>
@@ -3323,7 +3349,9 @@
                 const search = document.getElementById('showcaseSearch');
                 const spotlight = document.getElementById('showcaseSpotlight');
                 const backBtn = document.getElementById('btnBackToProjectsFolder');
+                const subEl = document.getElementById('showcaseSubfilter');
                 let filter = 'all';
+                let sub = 'all';
                 let spotId = null;
 
                 if (!grid || !filterEl) return { setFilter() { }, refresh() { } };
@@ -3369,7 +3397,7 @@
                     spotlight.innerHTML = `
                         <div class="spot-cover">${projectCoverInner(p)}<span class="proj-card-glare"></span></div>
                         <div class="spot-body">
-                            <span class="spot-kicker">${escapeHtml(g ? g.label : '')} • ${escapeHtml(p.year)} ${sampleChip(p)}</span>
+                            <span class="spot-kicker">${escapeHtml(g ? g.label : '')}${categoryOf(p) ? ` • ${escapeHtml(categoryOf(p).label)}` : ''} • ${escapeHtml(p.year)} ${sampleChip(p)}</span>
                             <h3 class="spot-title">${escapeHtml(p.title)}</h3>
                             <p class="spot-tagline">${escapeHtml(p.tagline || p.summary)}</p>
                             <dl class="spot-meta">
@@ -3392,24 +3420,57 @@
                 const markActive = (card) =>
                     grid.querySelectorAll('.showcase-card').forEach((c) => c.classList.toggle('is-spot', c === card));
 
+                // Design sub-categories: chips with counts, only while "Designs" is selected
+                const renderSubfilter = () => {
+                    const show = filter === 'design' && DESIGN_CATEGORIES.length > 0;
+                    subEl.hidden = !show;
+                    if (!show) return;
+                    const designs = projectsIn('design');
+                    const chips = [{ key: 'all', label: 'All Designs' }, ...DESIGN_CATEGORIES];
+                    subEl.innerHTML = chips
+                        .map((c) => {
+                            const n = c.key === 'all' ? designs.length : designs.filter((p) => p.category === c.key).length;
+                            const on = c.key === sub;
+                            return `<button type="button" class="showcase-subchip${on ? ' is-active' : ''}" role="tab" aria-selected="${on}" data-sub="${c.key}">${escapeHtml(c.label)} <b>${n}</b></button>`;
+                        })
+                        .join('');
+                    subEl.querySelectorAll('.showcase-subchip').forEach((b) =>
+                        b.addEventListener('click', () => {
+                            sub = b.dataset.sub;
+                            renderSubfilter();
+                            render();
+                        })
+                    );
+                };
+
                 const render = () => {
                     const q = (search.value || '').trim().toLowerCase();
-                    const visible = projectsIn(filter).filter(
+                    let visible = projectsIn(filter).filter(
                         (p) =>
-                            !q ||
-                            [p.title, p.role, p.summary, p.tagline, (p.tools || []).join(' '), groupByKey[p.group]?.label]
-                                .join(' ')
-                                .toLowerCase()
-                                .includes(q)
+                            (filter !== 'design' || sub === 'all' || p.category === sub) &&
+                            (!q ||
+                                [p.title, p.role, p.summary, p.tagline, (p.tools || []).join(' '), groupByKey[p.group]?.label, categoryOf(p)?.label]
+                                    .join(' ')
+                                    .toLowerCase()
+                                    .includes(q))
                     );
+
+                    // "All Designs": sort by category and drop a heading before each group
+                    const grouped = filter === 'design' && sub === 'all' && DESIGN_CATEGORIES.length > 0;
+                    if (grouped) {
+                        const order = DESIGN_CATEGORIES.map((c) => c.key);
+                        visible = visible.slice().sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
+                    }
 
                     grid.innerHTML = visible
                         .map(
-                            (p, i) => `
+                            (p, i) => `${grouped && (i === 0 || visible[i - 1].category !== p.category)
+                                ? `<h4 class="showcase-subhead" style="--i:${i}">${escapeHtml(categoryOf(p)?.label || 'Other designs')}<span>${visible.filter((x) => x.category === p.category).length}</span></h4>`
+                                : ''}
                             <a class="showcase-card proj-card--${p.group}" href="${projectUrl(p)}" data-id="${escapeHtml(p.id)}" style="--i:${i}">
                                 <span class="showcase-card-cover">${projectCoverInner(p)}<span class="proj-card-glare"></span></span>
                                 <span class="showcase-card-body">
-                                    <span class="proj-card-meta">${escapeHtml(groupByKey[p.group]?.label || '')} • ${escapeHtml(p.year)} ${sampleChip(p)}</span>
+                                    <span class="proj-card-meta">${escapeHtml(projectKicker(p))} • ${escapeHtml(p.year)} ${sampleChip(p)}</span>
                                     <strong class="proj-card-title">${escapeHtml(p.title)}</strong>
                                     <span class="showcase-card-role">${escapeHtml(p.role)}</span>
                                 </span>
@@ -3441,8 +3502,11 @@
                     markActive(grid.querySelector('.showcase-card'));
                 };
 
-                const setFilter = (next = 'all') => {
-                    filter = next === 'all' || groupByKey[next] ? next : 'all';
+                const setFilter = (next = 'all', nextSub = 'all') => {
+                    const resolved = next === 'all' || groupByKey[next] ? next : 'all';
+                    if (resolved !== filter || nextSub !== 'all') sub = nextSub;
+                    filter = resolved;
+                    renderSubfilter();
                     filterBtns.forEach((b) => {
                         const on = b.dataset.filter === filter;
                         b.classList.toggle('is-active', on);
@@ -3551,52 +3615,8 @@
             ];
 
             // ---------- VOLUNTEERINGS FOLDER (Volunteer Passport) ----------
-            // ✏️ Replace the `sample: true` entries with your real volunteer work.
-            //    month: 3-letter month shown on the ticket stub, place / hours are optional.
-            const VOLUNTEER_SECTIONS = [
-                {
-                    key: 'campus',
-                    label: 'Campus-Based Volunteering',
-                    short: 'Campus',
-                    stamp: 'Campus',
-                    desc: 'University events, student organizations and on-campus service.',
-                    accent: '#1D71B9',
-                    icon: '<path d="M3 9.5L12 5L21 9.5L12 14L3 9.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 11.6V16C7 16 9 18.5 12 18.5C15 18.5 17 16 17 16V11.6M21 9.5V14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
-                    items: [
-                        { sample: true, role: 'Volunteer Role', org: 'Campus Organization / Event', month: 'MON', year: '2026', place: 'BPSU Main Campus', hours: '— hrs', summary: 'Placeholder — what the activity was and how you helped.' },
-                        { sample: true, role: 'Volunteer Role', org: 'Campus Organization / Event', month: 'MON', year: '2025', place: 'BPSU Main Campus', hours: '— hrs', summary: 'Placeholder — describe your contribution.' },
-                        { sample: true, role: 'Volunteer Role', org: 'Campus Organization / Event', month: 'MON', year: '2024', place: 'BPSU Main Campus', hours: '— hrs', summary: 'Placeholder — describe your contribution.' }
-                    ]
-                },
-                {
-                    key: 'dost',
-                    label: 'DOST-Based Events Attended',
-                    short: 'DOST',
-                    stamp: 'DOST',
-                    desc: 'Summits, trainings and programs attended as a DOST scholar.',
-                    accent: '#0E7C8C',
-                    icon: '<circle cx="12" cy="12" r="2" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.6" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.8"/>',
-                    items: [
-                        { sample: true, role: 'Participant', org: 'DOST Event / Program', month: 'MON', year: '2026', place: 'Venue', hours: '— hrs', summary: 'Placeholder — the event, what you learned and took part in.' },
-                        { sample: true, role: 'Participant', org: 'DOST Event / Program', month: 'MON', year: '2025', place: 'Venue', hours: '— hrs', summary: 'Placeholder — describe the event.' },
-                        { sample: true, role: 'Delegate', org: 'DOST Event / Program', month: 'MON', year: '2025', place: 'Venue', hours: '— hrs', summary: 'Placeholder — describe the event.' }
-                    ]
-                },
-                {
-                    key: 'community',
-                    label: 'Community Involvement',
-                    short: 'Community',
-                    stamp: 'Community',
-                    desc: 'Outreach, civic and community-driven initiatives.',
-                    accent: '#C8691E',
-                    icon: '<circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9.5" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M3.5 19C3.5 15.9 6 13.5 9 13.5C12 13.5 14.5 15.9 14.5 19M15 13.8C17.6 13.6 20.5 15.4 20.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
-                    items: [
-                        { sample: true, role: 'Volunteer', org: 'Community Initiative', month: 'MON', year: '2026', place: 'Barangay / City', hours: '— hrs', summary: 'Placeholder — the cause, the people served and your part in it.' },
-                        { sample: true, role: 'Volunteer', org: 'Community Initiative', month: 'MON', year: '2025', place: 'Barangay / City', hours: '— hrs', summary: 'Placeholder — describe the initiative.' },
-                        { sample: true, role: 'Volunteer', org: 'Community Initiative', month: 'MON', year: '2024', place: 'Barangay / City', hours: '— hrs', summary: 'Placeholder — describe the initiative.' }
-                    ]
-                }
-            ];
+            // Volunteer data is shared with volunteer.html — edit volunteers-data.js
+            const VOLUNTEER_SECTIONS = (window.AIRCHIVE_VOLUNTEERING || { sections: [] }).sections;
 
             const volunteerPreview = (() => {
                 const root = document.getElementById('volPassport');
@@ -3630,7 +3650,8 @@
                 let current = 0;
 
                 const ticketHtml = (it, j, sec) => `
-                    <article class="vol-ticket" style="--j:${j}">
+                    <a class="vol-ticket" style="--j:${j}" href="volunteer.html?id=${encodeURIComponent(it.id)}" data-vol-id="${escapeHtml(it.id)}"
+                        aria-label="${escapeHtml(it.role)} — ${escapeHtml(it.org)}: view role, certificate and photos">
                         <div class="vol-ticket-stub">
                             <span class="vol-ticket-month">${escapeHtml(it.month || '')}</span>
                             <span class="vol-ticket-year">${escapeHtml(it.year || '')}</span>
@@ -3644,9 +3665,10 @@
                             <span class="vol-ticket-foot">
                                 ${it.place ? `<em>${escapeHtml(it.place)}</em>` : ''}
                                 ${it.hours ? `<em>${escapeHtml(it.hours)}</em>` : ''}
+                                <span class="vol-ticket-go">View proofs ${arrowIcon}</span>
                             </span>
                         </div>
-                    </article>`;
+                    </a>`;
 
                 const render = (i) => {
                     current = i;
@@ -3675,7 +3697,15 @@
                                 ? sec.items.map((it, j) => ticketHtml(it, j, sec)).join('')
                                 : '<p class="vol-empty">No entries yet — this page is waiting for its first stamp.</p>'}
                         </div>`;
-                    page.querySelectorAll('.vol-ticket').forEach((t) => attachTilt(t, 6));
+                    page.querySelectorAll('.vol-ticket').forEach((t) => {
+                        attachTilt(t, 6);
+                        t.addEventListener('click', (e) => {
+                            if (isModifiedClick(e)) return;
+                            e.preventDefault();
+                            const item = sec.items.find((x) => x.id === t.dataset.volId);
+                            openWithPortal(t.getAttribute('href'), item ? item.role : sec.label, t, sec.cover);
+                        });
+                    });
                     replayClass(page, 'is-entering');
                     replayClass(page.querySelector('.vol-tickets'), 'is-entering');
                 };
@@ -3697,9 +3727,25 @@
                     replay: () => {
                         replayClass(stampsWrap, 'is-entering');
                         render(current);
+                    },
+                    show: (key) => {
+                        const i = VOLUNTEER_SECTIONS.findIndex((x) => x.key === key);
+                        if (i >= 0) render(i);
                     }
                 };
             })();
+
+            // Returning from volunteer.html lands back on the right passport page
+            const openVolunteeringsFromHash = () => {
+                const m = location.hash.match(/^#volunteerings(?:-([a-z0-9-]+))?$/i);
+                if (!m || !pageIntro) return;
+                pageIntro.scrollIntoView({ behavior: 'instant' });
+                switchFolderTab('volunteerings');
+                if (m[1]) volunteerPreview.show(m[1]);
+                history.replaceState(null, '', location.pathname + location.search);
+            };
+            window.addEventListener('load', () => setTimeout(openVolunteeringsFromHash, 60));
+            window.addEventListener('hashchange', openVolunteeringsFromHash);
 
             // ✏️ Ongoing / upcoming highlight shown at the top of the Experiences folder.
             //    The status flips to "Completed" automatically after the end date.

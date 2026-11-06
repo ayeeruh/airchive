@@ -6774,3 +6774,158 @@ html.is-theme-switching *::after {
     animation: none;
   }
 }
+
+/* Volunteer tickets are links to their proof page */
+a.vol-ticket {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vol-ticket-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3cqw;
+  margin-left: auto;
+  font-size: 0.66cqw;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.vol-ticket-go svg {
+  width: 0.9cqw;
+  height: 0.9cqw;
+  transition: translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+a.vol-ticket:hover .vol-ticket-go {
+  opacity: 1;
+}
+
+a.vol-ticket:hover .vol-ticket-go svg {
+  translate: 0.25cqw 0;
+}
+
+/* ---------- Project Showcase: Design sub-categories ---------- */
+.showcase-subfilter {
+  position: sticky;
+  top: -0.6cqw;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5cqw;
+  padding: 0.6cqw 0 0.9cqw;
+  margin-bottom: 0.3cqw;
+  background: linear-gradient(var(--canvas-bg) 75%, transparent);
+}
+
+.showcase-subfilter[hidden] {
+  display: none;
+}
+
+.showcase-subchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45cqw;
+  padding: 0.45cqw 0.95cqw;
+  border-radius: 999px;
+  border: 0.1cqw solid var(--cp-border);
+  background: var(--cp-surface);
+  color: var(--cp-text);
+  font-family: var(--font-poppins);
+  font-size: 0.82cqw;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.showcase-subchip b {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.3cqw;
+  height: 1.3cqw;
+  padding: 0 0.3cqw;
+  border-radius: 999px;
+  font-size: 0.68cqw;
+  background: var(--cp-soft);
+}
+
+.showcase-subchip:hover {
+  translate: 0 -0.15cqw;
+}
+
+.showcase-subchip.is-active {
+  color: #FEFFF1;
+  border-color: transparent;
+  background: linear-gradient(135deg, #1D64A4, #3AA7E2);
+}
+
+.showcase-subchip.is-active b {
+  background: rgba(254, 255, 241, 0.22);
+}
+
+.showcase-subchip:focus-visible {
+  outline: 0.15cqw solid #3AA7E2;
+  outline-offset: 0.15cqw;
+}
+
+/* Category headings inside the grid ("All Designs" view) */
+.showcase-subhead {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.7cqw;
+  margin: 0.4cqw 0 -0.3cqw;
+  font-family: var(--font-nexa);
+  font-weight: 900;
+  font-size: 1.05cqw;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cp-text);
+}
+
+.showcase-subhead::after {
+  content: "";
+  flex: 1;
+  height: 0.1cqw;
+  background: var(--cp-border);
+}
+
+.showcase-subhead span {
+  order: 1;
+  font-family: var(--font-poppins);
+  font-size: 0.72cqw;
+  font-weight: 700;
+  color: var(--cp-muted);
+}
+
+.showcase-grid.is-entering .showcase-subhead {
+  animation: riseIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 0.06s);
+}
+
+/* Category chips on the Designs collection card */
+.proj-collection-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35cqw;
+}
+
+.proj-collection-cats em {
+  font-style: normal;
+  font-size: 0.68cqw;
+  font-weight: 600;
+  padding: 0.15cqw 0.6cqw;
+  border-radius: 999px;
+  border: 0.08cqw solid rgba(29, 113, 185, 0.28);
+  background: rgba(29, 113, 185, 0.07);
+  color: #1D64A4;
+}
+
+.proj-collection-cats b {
+  opacity: 0.7;
+}

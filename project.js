@@ -100,6 +100,7 @@
     }
 
     const group = groupByKey[project.group] || { label: 'Project', icon: '' };
+    const category = (group.categories || []).find((c) => c.key === project.category);
     const siblings = data.projects.filter((p) => p.group === project.group);
     const indexInGroup = siblings.indexOf(project);
     const globalIdx = data.projects.indexOf(project);
@@ -113,7 +114,7 @@
 
     const coverHtml = (p, big = false) =>
         p.cover
-            ? `<img src="${esc(p.cover)}" alt="${esc(p.title)} cover" />`
+            ? `<img src="${esc(p.cover)}" alt="${esc(p.title)} cover"${p.coverPosition ? ` style="object-position:${esc(p.coverPosition)}"` : ''} />`
             : `<span class="pp-cover-num">${pad2(data.projects.filter((x) => x.group === p.group).indexOf(p) + 1)}</span>
                <svg class="pp-cover-icon${big ? ' pp-cover-icon--big' : ''}" viewBox="0 0 24 24" fill="none" aria-hidden="true">${(groupByKey[p.group] || {}).icon || ''}</svg>`;
 
@@ -197,11 +198,13 @@
                         <span aria-hidden="true">/</span>
                         <span>${esc(group.label)}</span>
                         <span aria-hidden="true">/</span>
+                        ${category ? `<span>${esc(category.label)}</span>
+                        <span aria-hidden="true">/</span>` : ''}
                         <span aria-current="page">${pad2(indexInGroup + 1)}</span>
                     </nav>
                     <span class="pp-group-chip">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${group.icon}</svg>
-                        ${esc(group.label)} ${sampleChip(project)}
+                        ${esc(group.label)}${category ? ` • ${esc(category.label)}` : ''} ${sampleChip(project)}
                     </span>
                     <h1 class="pp-title">${esc(project.title)}</h1>
                     <p class="pp-lead">${esc(project.tagline || project.summary)}</p>
