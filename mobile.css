@@ -1,0 +1,753 @@
+/* ==========================================================================
+   AIRCHIVE — Mobile layout (phones, ≤ 760px wide)
+   The desktop portfolio is a deck of 16:9 slides sized in cqw units.
+   On phones each slide is re-composed as a tall, scrollable page:
+   - poster slides (cover, table of contents) get a portrait canvas, and their
+     element groups are re-placed with `zoom` so their cqw sizes scale with them;
+   - content slides are stacked into one column.
+   Desktop and tablet layouts are not affected.
+   ========================================================================== */
+@media (max-width: 760px) {
+
+  /* ---------- Page flow ---------- */
+  html {
+    scroll-snap-type: none;
+  }
+
+  .portfolio-viewport {
+    height: auto;
+    min-height: 0;
+    padding: 112px 0 40px;
+    display: block;
+    overflow: clip;
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  .portfolio-canvas {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  /* ---------- Header: brand + theme switch, nav becomes a swipeable strip ---------- */
+  .site-header {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 8px 12px 9px;
+    row-gap: 7px;
+    column-gap: 8px;
+  }
+
+  .header-brand {
+    gap: 0.55rem;
+  }
+
+  .header-logo-box {
+    width: 38px;
+    height: 38px;
+  }
+
+  .header-brand-name {
+    font-size: 0.98rem;
+  }
+
+  .header-brand-sub {
+    font-size: 0.58rem;
+  }
+
+  .header-datetime-wrap {
+    display: none;
+  }
+
+  .header-nav-capsule {
+    order: 3;
+    flex: 1 0 100%;
+    max-width: 100%;
+    padding: 0.24rem 0.3rem;
+    scroll-snap-type: x proximity;
+  }
+
+  .header-nav-link {
+    padding: 0.42rem 0.78rem;
+    font-size: 0.76rem;
+    scroll-snap-align: center;
+  }
+
+  /* ---------- Cover (AIRCHIVE poster, portrait) ---------- */
+  #page-cover .portfolio-canvas {
+    aspect-ratio: 100 / 196;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .hero-title {
+    top: 3cqw;
+    left: 6cqw;
+    font-size: 18.4cqw;
+  }
+
+  .hero-subtitle {
+    top: 23cqw;
+    left: 6.6cqw;
+    font-size: 3cqw;
+    gap: 1.6cqw;
+  }
+
+  .hero-subtitle::before {
+    width: 6cqw;
+    height: 0.45cqw;
+  }
+
+  .author-info {
+    top: 40cqw;
+    left: 6cqw;
+  }
+
+  .author-name {
+    font-size: 6.6cqw;
+    margin-bottom: 1.4cqw;
+  }
+
+  .author-role {
+    font-size: 3.5cqw;
+  }
+
+  .portrait-container {
+    top: 28cqw;
+    left: 40cqw;
+    width: 62cqw;
+    height: 87.8cqw;
+  }
+
+  /* Folder group: desktop geometry, zoomed ×1.77 and moved below the portrait */
+  .folder-wrapper,
+  .folder-tagline,
+  .skills-card,
+  .skill-detail-toast,
+  .edition-badge,
+  .ai-reply-bubble {
+    zoom: 1.77;
+  }
+
+  .folder-wrapper {
+    top: 56.5cqw;
+    left: 2.26cqw;
+  }
+
+  .folder-tagline {
+    top: 69.17cqw;
+    left: 2.46cqw;
+  }
+
+  .skills-card {
+    top: 73.67cqw;
+    left: 14.56cqw;
+  }
+
+  .skill-detail-toast {
+    top: 89.4cqw;
+    left: 15.26cqw;
+  }
+
+  .edition-badge {
+    top: 96.6cqw;
+    left: 5.2cqw;
+  }
+
+  .ai-reply-bubble {
+    top: 90.6cqw;
+    left: 3.6cqw;
+  }
+
+  /* ---------- Table of contents (portrait poster) ---------- */
+  #page-toc .portfolio-canvas {
+    aspect-ratio: 100 / 184;
+  }
+
+  .toc-left-panel {
+    width: 100%;
+    height: 94cqw;
+  }
+
+  .toc-portrait-container {
+    top: 4cqw;
+    left: 16cqw;
+    width: 64cqw;
+    height: 90cqw;
+  }
+
+  .toc-top-banner,
+  .toc-heading-group,
+  .toc-pills-grid,
+  .toc-preview-bar {
+    zoom: 1.85;
+  }
+
+  .toc-top-banner {
+    top: 2.2cqw;
+    width: 44cqw;
+    padding-left: 4cqw;
+  }
+
+  .toc-heading-group {
+    top: 53.5cqw;
+    left: 3.24cqw;
+  }
+
+  .toc-divider {
+    top: 129cqw;
+    left: 0;
+    height: 0.45cqw;
+  }
+
+  .toc-pills-grid {
+    top: 72.8cqw;
+    left: 3.24cqw;
+  }
+
+  .toc-preview-bar {
+    top: 90.2cqw;
+    left: 3.24cqw;
+  }
+}
+
+@media (max-width: 760px) {
+  #page-toc .portfolio-canvas {
+    aspect-ratio: 100 / 172;
+  }
+
+  .toc-pill {
+    font-size: 1.45cqw;
+  }
+}
+
+/* ==========================================================================
+   Content slides: one tall column.
+   The canvas is made 4× the screen width so its cqw text keeps a readable
+   size (1cqw ≈ 3.5vw); every block inside is then held to the screen width.
+   ========================================================================== */
+@media (max-width: 760px) {
+  .edu-canvas,
+  .skillset-canvas {
+    --mw: calc(100vw - 28px);
+    width: 350vw;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.1cqw;
+  }
+
+  .edu-canvas > *,
+  .skillset-canvas > * {
+    width: var(--mw);
+    max-width: var(--mw);
+    margin-left: 14px;
+  }
+
+  /* Section heading row (title + banner) */
+  .edu-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7cqw;
+  }
+
+  .edu-top-banner {
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    min-height: 2.6cqw;
+    padding: 0.5cqw 1cqw;
+    gap: 0.8cqw;
+  }
+
+  /* ---------- Education ---------- */
+  .edu-main-card {
+    padding: 1.3cqw 1.2cqw;
+    gap: 1.3cqw;
+  }
+
+  .edu-card-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1cqw;
+  }
+
+  .edu-scholar-row,
+  .edu-timeline {
+    grid-template-columns: 1fr;
+    gap: 0.8cqw;
+  }
+}
+
+@media (max-width: 760px) {
+  .edu-banner-headline {
+    font-size: 0.95cqw;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .edu-timeline::before {
+    display: none;
+  }
+}
+
+/* ---------- Skills ---------- */
+@media (max-width: 760px) {
+  .skillset-interactive-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1cqw;
+  }
+
+  /* The four skill sets become a swipeable tab strip */
+  .skillset-selector-deck {
+    flex-direction: row;
+    gap: 0.6cqw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 0.2cqw;
+  }
+
+  .skillset-selector-deck::-webkit-scrollbar {
+    display: none;
+  }
+
+  .skillset-nav-card {
+    flex: 0 0 72%;
+    padding: 0.8cqw 1cqw;
+    scroll-snap-align: start;
+  }
+
+  .skillset-selector-deck .skillset-back-folder-link {
+    display: none;
+  }
+
+  .skillset-stage-viewport {
+    padding: 1.2cqw 1cqw 1cqw;
+    border-radius: 1.4cqw;
+  }
+
+  .skillset-stage-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skillset-stage-carousel .skillset-specialty-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1.2cqw 1.2cqw;
+  }
+
+  .skillset-spotlight-bar {
+    border-radius: 1cqw;
+    font-size: 0.9cqw;
+    align-items: flex-start;
+  }
+}
+
+/* ---------- Project showcase ---------- */
+@media (max-width: 760px) {
+  .showcase-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7cqw;
+  }
+
+  .showcase-filter {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .showcase-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.2cqw;
+  }
+
+  .showcase-spotlight {
+    min-height: 0;
+  }
+
+  .spot-cover {
+    flex: none;
+    aspect-ratio: 16 / 10;
+  }
+
+  .showcase-grid-wrap {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8cqw;
+  }
+
+  .showcase-search {
+    width: 100%;
+  }
+}
+
+/* ---------- Certifications ---------- */
+@media (max-width: 760px) {
+  .certs-page-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.2cqw;
+  }
+
+  .certs-stat-card {
+    flex: none;
+    min-height: 0;
+  }
+
+  .certs-sidebar .skillset-back-folder-link {
+    display: none;
+  }
+
+  .certs-grid-wrap {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .certs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8cqw;
+  }
+}
+
+/* ---------- Profile folder (intro + Skills / Experiences / Volunteerings /
+   Certificates / Projects tabs): tab chips on top, the open folder below ---------- */
+@media (max-width: 760px) {
+  .intro-canvas {
+    --mw: calc(100vw - 28px);
+    --col: calc((100vw - 28px - 12px) / 3);
+    width: 350vw;
+    height: auto;
+    aspect-ratio: auto;
+    overflow: visible;
+    background: transparent;
+    display: grid;
+    grid-template-columns: repeat(3, var(--col));
+    grid-auto-rows: auto;
+    column-gap: 6px;
+    row-gap: 6px;
+    padding-left: 14px;
+    align-content: start;
+  }
+
+  .intro-folders-svg,
+  .folder-prev-tab-pill,
+  .intro-tab-arrow {
+    display: none;
+  }
+
+  .intro-tab-btn,
+  .intro-tab-btn[class*="slot-"] {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    min-height: 38px;
+    opacity: 1;
+    transform: none;
+    justify-content: center;
+    text-align: center;
+    padding: 0 4px;
+    border-radius: 10px 10px 4px 4px;
+    background: #5AA4DE;
+    font-size: 0.74cqw;
+    letter-spacing: 0.04em;
+  }
+
+  .intro-tab-btn.slot-0 {
+    background: #1967A7;
+    box-shadow: 0 6px 14px rgba(11, 56, 97, 0.28);
+  }
+
+  .intro-tab-btn--intro { order: 1; }
+  .intro-tab-btn--skills { order: 2; }
+  .intro-tab-btn--experiences { order: 3; }
+  .intro-tab-btn--volunteerings { order: 4; }
+  .intro-tab-btn--certs { order: 5; }
+  .intro-tab-btn--projects { order: 6; }
+
+  /* Folder bodies: only the open one is shown, in normal flow */
+  .intro-content-fade,
+  .skills-folder-content,
+  .folder-tab-content {
+    order: 10;
+    grid-column: 1 / -1;
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+    display: none;
+    margin-top: 4px;
+    padding: 1.3cqw 1.1cqw 1.5cqw;
+    border-radius: 0.6cqw 0.6cqw 1.4cqw 1.4cqw;
+    background: #1967A7;
+    transform: none;
+    animation: none;
+  }
+
+  .intro-canvas:not(.is-alt-tab) .intro-content-fade,
+  .intro-canvas.is-skills-tab .skills-folder-content,
+  .folder-tab-content.is-active {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* About me */
+  .intro-content-fade {
+    display: none;
+  }
+
+  .intro-canvas:not(.is-alt-tab) .intro-content-fade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1cqw;
+  }
+
+  .intro-polaroid,
+  .intro-speech-bubble,
+  .intro-connect-row,
+  .intro-know-more-wrap,
+  .skills-overview-stage,
+  .folder-stage {
+    position: relative;
+    inset: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+  }
+
+  .intro-polaroid {
+    width: 15cqw;
+    height: auto;
+    transform: rotate(-2deg);
+  }
+
+  .intro-speech-bubble {
+    width: 100%;
+    height: auto;
+  }
+
+  .intro-connect-row,
+  .intro-know-more-wrap {
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0.8cqw;
+  }
+
+  /* Tab folders */
+  .skills-overview-stage,
+  .folder-stage {
+    gap: 1cqw;
+  }
+
+  .skills-stage-topbar {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 0.6cqw;
+  }
+
+  .skills-three-cards-deck,
+  .proj-collections,
+  .cert-drawers,
+  .vol-passport {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9cqw;
+  }
+
+  .exp-panels {
+    flex-direction: column;
+    gap: 0.9cqw;
+  }
+
+  /* "Know more about me" dossier opens as a full-screen sheet */
+  .intro-expanded-folder {
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    display: none;
+    border-radius: 0;
+  }
+
+  .intro-canvas.is-expanded .intro-expanded-folder {
+    display: flex;
+  }
+}
+
+@media (max-width: 760px) {
+  .intro-about-heading,
+  .intro-bio-text {
+    position: relative;
+    inset: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+  }
+
+  .intro-about-heading { order: -2; font-size: 2.4cqw; text-align: center; }
+  .intro-polaroid { order: -1; width: 11cqw; }
+  .intro-speech-bubble { order: 0; }
+  .intro-bio-text { order: 1; font-size: 1.05cqw; }
+  .intro-connect-row { order: 2; }
+  .intro-know-more-wrap { order: 3; }
+
+  .intro-polaroid-caption {
+    font-size: 0.95cqw;
+  }
+
+  .intro-connect-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.8cqw 1cqw;
+    border-radius: 1.2cqw;
+  }
+
+  .intro-connect-actions {
+    flex-wrap: wrap;
+    gap: 0.7cqw;
+  }
+}
+
+/* ---------- Profile folder: inner layouts ---------- */
+@media (max-width: 760px) {
+  .skills-what-heading {
+    font-size: 2.6cqw;
+  }
+
+  /* Experiences: each track is a header; the open one expands below it */
+  .exp-panel,
+  .exp-panel.is-open {
+    flex: none;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .exp-panel-summary,
+  .exp-panel-content {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  .exp-panel-content {
+    display: none;
+  }
+
+  .exp-panel.is-open .exp-panel-content {
+    display: flex;
+  }
+
+  .exp-panel.is-open .exp-panel-summary {
+    display: none;
+  }
+
+  .exp-entry {
+    flex-wrap: wrap;
+  }
+
+  /* Certificate drawers: leave room for the fanned papers */
+  .cert-drawer {
+    height: auto;
+    min-height: 0;
+  }
+
+  .cert-fan {
+    height: 8cqw;
+    min-height: 8cqw;
+  }
+
+  /* Project collections: let the card grow to its text */
+  .proj-collection {
+    height: auto;
+    min-height: 0;
+  }
+
+  .proj-collection-cover {
+    flex: none;
+    min-height: 6.5cqw;
+  }
+
+  /* Volunteer passport tickets: one per row */
+  .vol-tickets {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8cqw;
+  }
+
+  .vol-ticket {
+    height: auto;
+    min-height: 0;
+  }
+
+  .vol-page-head {
+    flex-wrap: wrap;
+  }
+
+  /* "Know more about me" sheet */
+  .expanded-folder-scroll > * {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .dossier-passions-grid,
+  .dossier-pillars-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dossier-pillar-card {
+    height: auto;
+  }
+
+  .dossier-identity {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  .skills-what-title-group {
+    flex-wrap: wrap;
+    gap: 0.5cqw;
+  }
+}
+
+/* Project Showcase cards on phones: smaller titles, readable meta */
+@media (max-width: 760px) {
+  .showcase-card-body {
+    padding: 0.75cqw 0.85cqw 0.95cqw;
+    gap: 0.3cqw;
+  }
+
+  .showcase-card .proj-card-meta {
+    font-size: 0.74cqw;
+    letter-spacing: 0.03em;
+  }
+
+  .showcase-card .proj-card-title {
+    font-size: 1.04cqw;
+    line-height: 1.25;
+  }
+
+  .showcase-card-role {
+    font-size: 0.82cqw;
+  }
+}

@@ -2050,3 +2050,65 @@ body.is-leaving .pp-main {
 .pp-btn--film:hover svg {
   transform: scale(1.15);
 }
+
+/* Desktop mock-up: looping video walkthrough screen */
+.dv-shot video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0B1520;
+}
+
+.dv-live-tag {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(11, 21, 32, 0.78);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.dv-live-tag i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FF4D4F;
+  box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.6);
+  animation: dvLivePulse 1.6s ease-out infinite;
+}
+
+@keyframes dvLivePulse {
+  70% { box-shadow: 0 0 0 7px rgba(255, 77, 79, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dv-live-tag i { animation: none; }
+}
+
+/* Phones: two-column meta cards, wrapping screen switcher */
+@media (max-width: 560px) {
+  .pp-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pp-meta dd {
+    overflow-wrap: anywhere;
+  }
+
+  .dv-switch {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
+}

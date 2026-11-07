@@ -6221,9 +6221,41 @@ html.is-theme-switching *::after {
   color: #07192B;
 }
 
-/* ---------- AWARDS: third credential collection ---------- */
+/* ---------- AWARDS & CREDENTIALS: 4 collections ---------- */
 .cert-drawers {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1cqw;
+}
+
+.cert-drawer {
+  padding: 1.1cqw 1.2cqw;
+  gap: 0.6cqw;
+}
+
+.cert-drawer-title {
+  font-size: 1.15cqw;
+}
+
+.cert-drawer-desc {
+  font-size: 0.74cqw;
+}
+
+.cert-drawer-index {
+  font-size: 2cqw;
+}
+
+.cert-drawer-count {
+  padding: 0.3cqw 0.6cqw;
+  font-size: 0.6cqw;
+}
+
+.cert-drawer-count b {
+  font-size: 1.2cqw;
+}
+
+.cert-drawer-cta {
+  font-size: 0.72cqw;
+  padding: 0.4cqw 0.8cqw;
 }
 
 .cert-tile-type--award {
@@ -6236,6 +6268,16 @@ html.is-theme-switching *::after {
   background: linear-gradient(135deg, #FFE39A, #F5BE55);
 }
 
+.cert-tile-type--speaking {
+  color: #4A154B;
+  background: linear-gradient(135deg, #F5D6FF, #DDA0DD);
+}
+
+[data-theme="dark"] .cert-tile-type--speaking {
+  color: #2D083B;
+  background: linear-gradient(135deg, #F8E4FF, #E6B5EA);
+}
+
 .cert-paper--award {
   box-shadow:
     inset 0 0 0 0.45em #FEFFF1,
@@ -6245,6 +6287,38 @@ html.is-theme-switching *::after {
 
 .cert-paper--award .cert-paper-seal {
   color: #C98A1C;
+}
+
+.cert-paper--speaking {
+  box-shadow:
+    inset 0 0 0 0.45em #FEFFF1,
+    inset 0 0 0 0.58em #8E44AD,
+    0 0.4em 1.2em rgba(7, 28, 52, 0.22);
+}
+
+.cert-paper--speaking .cert-paper-seal {
+  color: #8E44AD;
+}
+
+.cert-drawer--speaking {
+  border-color: rgba(187, 104, 237, 0.35);
+}
+
+.cert-drawer--speaking:hover,
+.cert-drawer--speaking:focus-visible {
+  border-color: #B768E5;
+}
+
+@media (max-width: 992px) {
+  .cert-drawers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .cert-drawers {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Real certificate scans: show the whole page in the lightbox */
@@ -6371,15 +6445,15 @@ html.is-theme-switching *::after {
 .vol-stamps {
   display: flex;
   flex-direction: column;
-  gap: 1cqw;
-  padding-top: 0.2cqw;
+  gap: 0.65cqw;
+  padding-top: 0.1cqw;
 }
 
 /* Postage stamp: scalloped cream edge from a tiled radial "hole" pattern */
 .vol-stamp {
   position: relative;
-  height: 8cqw;
-  padding: 0.55cqw;
+  height: 6.2cqw;
+  padding: 0.45cqw;
   border: none;
   cursor: pointer;
   text-align: left;
@@ -6430,8 +6504,8 @@ html.is-theme-switching *::after {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 1cqw;
-  padding: 0 1.1cqw;
+  gap: 0.85cqw;
+  padding: 0 0.95cqw;
   overflow: hidden;
   color: #FEFFF1;
   background:
@@ -6449,16 +6523,16 @@ html.is-theme-switching *::after {
 .vol-stamp-icon {
   display: grid;
   place-items: center;
-  width: 3.6cqw;
-  height: 3.6cqw;
+  width: 3.1cqw;
+  height: 3.1cqw;
   border-radius: 50%;
   border: 0.14cqw dashed rgba(254, 255, 241, 0.6);
   background: rgba(254, 255, 241, 0.14);
 }
 
 .vol-stamp-icon svg {
-  width: 1.9cqw;
-  height: 1.9cqw;
+  width: 1.6cqw;
+  height: 1.6cqw;
 }
 
 .vol-stamp-text {
@@ -6469,7 +6543,7 @@ html.is-theme-switching *::after {
 }
 
 .vol-stamp-no {
-  font-size: 0.62cqw;
+  font-size: 0.58cqw;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -6479,11 +6553,11 @@ html.is-theme-switching *::after {
 .vol-stamp-label {
   font-family: var(--font-nexa);
   font-weight: 900;
-  font-size: 1.45cqw;
+  font-size: 1.25cqw;
 }
 
 .vol-stamp-count {
-  font-size: 0.72cqw;
+  font-size: 0.68cqw;
   opacity: 0.85;
 }
 
@@ -6579,13 +6653,13 @@ html.is-theme-switching *::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.4cqw 1.1cqw;
-  border: 0.22cqw double var(--accent);
+  padding: 0.35cqw 0.85cqw;
+  border: 0.2cqw double var(--accent);
   border-radius: 0.6cqw;
   color: var(--accent);
   font-family: var(--font-nexa);
   font-weight: 900;
-  font-size: 1.3cqw;
+  font-size: 1.15cqw;
   letter-spacing: 0.08em;
   line-height: 1.1;
   text-transform: uppercase;
@@ -6593,6 +6667,7 @@ html.is-theme-switching *::after {
   rotate: -9deg;
   opacity: 0.85;
   mix-blend-mode: multiply;
+  white-space: nowrap;
 }
 
 .vol-rubber small {
@@ -6737,6 +6812,34 @@ html.is-theme-switching *::after {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.vol-ticket-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3cqw;
+  margin-top: 0.25cqw;
+}
+
+.vol-ticket-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22cqw;
+  padding: 0.12cqw 0.45cqw;
+  border-radius: 999px;
+  font-size: 0.58cqw;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 0.08cqw solid color-mix(in srgb, var(--accent) 25%, transparent);
+  transition: all 0.25s ease;
+}
+
+.vol-ticket:hover .vol-ticket-badge {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: var(--accent);
 }
 
 .vol-ticket-foot {
@@ -7264,4 +7367,20 @@ a.vol-ticket:hover .vol-ticket-go svg {
 /* FlyRank's square icon gets rounded corners like the other app icons */
 .skillset-logo-badge img[src*="flyrank"] {
   border-radius: 0.55cqw;
+}
+
+/* Project Showcase cards: balanced, readable text */
+.showcase-card .proj-card-meta {
+  font-size: 0.72cqw;
+  line-height: 1.35;
+}
+
+.showcase-card .proj-card-title {
+  font-size: 1.04cqw;
+  line-height: 1.28;
+}
+
+.showcase-card-role {
+  font-size: 0.8cqw;
+  line-height: 1.4;
 }

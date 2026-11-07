@@ -4,3 +4,6 @@ assets/videos/*.mp4
 assets/videos/*.mov
 assets/*.mp4
 assets/*.mov
+
+# Raw screen recording (68 MB); the page plays the cropped 1280px copy assets/skilltreyd-system/walkthrough.mp4
+assets/skilltreyd-system/skilltreyd-video-flow.mp4

@@ -10,6 +10,8 @@
     <link rel="apple-touch-icon" href="assets/logo-light.png" />
     <!-- External shared stylesheet (adoptable across all portfolio pages) -->
     <link rel="stylesheet" href="style.css" />
+    <!-- Phone layout (≤ 760px): re-composes the 16:9 slides as tall pages -->
+    <link rel="stylesheet" href="mobile.css" />
 </head>
 
 <body>
@@ -42,8 +44,6 @@
             <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
                 data-folder-mode="experiences">Experiences</a>
             <a href="#page-skills" class="header-nav-link" data-nav-target="page-skills">Skills</a>
-            <a href="#page-toc" class="header-nav-link" data-nav-target="page-toc" data-toc-idx="5">
-                Achievements</a>
             <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
                 data-folder-mode="certificates">Certifications</a>
             <a href="#page-intro" class="header-nav-link" data-nav-target="page-intro"
@@ -878,7 +878,7 @@
                                     <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
                                         fill="currentColor" />
                                 </svg>
-                                <span id="certsVaultKicker">2 COLLECTIONS</span>
+                                <span id="certsVaultKicker">4 COLLECTIONS</span>
                             </span>
                         </div>
                         <button type="button" class="skills-view-set-btn" data-open-certs="all">
@@ -891,7 +891,7 @@
                         </button>
                     </div>
 
-                    <!-- Three Interactive Drawers: Completion, Licenses & Awards (filled from CERTIFICATES data) -->
+                    <!-- Four Interactive Drawers: Awards, Certifications & Licenses, Public Speaking Appreciation, Completion (filled from CERTIFICATES data) -->
                     <div class="cert-drawers" id="certDrawers"></div>
                 </div>
             </div>
@@ -927,7 +927,7 @@
             </div>
 
             <!-- ==============================================================
-                 VOLUNTEERINGS FOLDER FOREGROUND (Volunteer Passport: 3 stamps + ticket page)
+                 VOLUNTEERINGS FOLDER FOREGROUND (Volunteer Passport: Dynamic Stamps + Ticket Page)
                  ============================================================== -->
             <div class="folder-tab-content volunteerings-folder-content" id="volunteeringsFolderContent"
                 data-folder-panel="volunteerings" aria-hidden="true">
@@ -941,13 +941,13 @@
                                     <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
                                         fill="currentColor" />
                                 </svg>
-                                <span id="volKicker">3 STAMPS</span>
+                                <span id="volKicker">+ 4 STAMPS • 12 ENTRIES</span>
                             </span>
                         </div>
                         <p class="exp-hint">Pick a stamp to turn the page</p>
                     </div>
 
-                    <!-- Stamps + passport page (filled from VOLUNTEER_SECTIONS data) -->
+                    <!-- Stamps + passport page (filled dynamically from volunteerData) -->
                     <div class="vol-passport" id="volPassport"></div>
                 </div>
             </div>
@@ -2716,7 +2716,7 @@
         <div class="portfolio-canvas skillset-canvas certs-page-canvas" id="certsPageCanvas">
 
             <div class="edu-header-row">
-                <h2 class="edu-main-title">Certifications <span>&amp; Licenses</span></h2>
+                <h2 class="edu-main-title">Certifications <span>&amp; Awards</span></h2>
                 <div class="edu-top-banner">
                     <div class="edu-banner-brand">
                         <svg class="edu-banner-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -2726,7 +2726,7 @@
                         </svg>
                         <span>ORDANIEL</span>
                     </div>
-                    <span class="edu-banner-headline">COMPLETION • LICENSES • AWARDS</span>
+                    <span class="edu-banner-headline">AWARDS • CERTIFICATIONS &amp; LICENSES • SPEAKING • COMPLETION</span>
                 </div>
             </div>
 
@@ -2737,12 +2737,14 @@
                         <span class="certs-filter-indicator" id="certsFilterIndicator" aria-hidden="true"></span>
                         <button type="button" class="certs-filter-btn is-active" data-cert-filter="all" role="tab"
                             aria-selected="true">All <b data-count="all">0</b></button>
-                        <button type="button" class="certs-filter-btn" data-cert-filter="completion" role="tab"
-                            aria-selected="false">Completion <b data-count="completion">0</b></button>
-                        <button type="button" class="certs-filter-btn" data-cert-filter="license" role="tab"
-                            aria-selected="false">Licenses <b data-count="license">0</b></button>
                         <button type="button" class="certs-filter-btn" data-cert-filter="award" role="tab"
                             aria-selected="false">Awards <b data-count="award">0</b></button>
+                        <button type="button" class="certs-filter-btn" data-cert-filter="license" role="tab"
+                            aria-selected="false">Certifications &amp; Licenses <b data-count="license">0</b></button>
+                        <button type="button" class="certs-filter-btn" data-cert-filter="speaking" role="tab"
+                            aria-selected="false">Speaking <b data-count="speaking">0</b></button>
+                        <button type="button" class="certs-filter-btn" data-cert-filter="completion" role="tab"
+                            aria-selected="false">Completion <b data-count="completion">0</b></button>
                     </div>
 
                     <label class="certs-search">
@@ -3379,30 +3381,94 @@
             //    and delete the `sample` flag. `image` is optional (e.g.
             //    'assets/projects/my-app.png'); without one, a styled cover is drawn.
             // ==================================================================
+            // ✏️ CERTIFICATES DATA
+            //    Add certificates with type: 'award' | 'license' | 'speaking' | 'completion'.
+            //    Images are loaded from assets/ (e.g.
+            //    'assets/projects/my-app.png'); without one, a styled cover is drawn.
+            // ==================================================================
             const CERT_TYPES = {
-                completion: {
-                    label: 'Completion Certificates',
-                    short: 'Completion',
-                    heading: 'Certificate of Completion',
-                    desc: 'Courses, trainings, bootcamps and programs completed.'
-                },
-                license: {
-                    label: 'Licenses & Certifications',
-                    short: 'Licenses',
-                    heading: 'Professional Certification',
-                    desc: 'Professional licenses and verified, exam-based certifications.'
-                },
                 award: {
-                    label: 'Awards & Recognition',
+                    label: 'Awards',
                     short: 'Awards',
                     heading: 'Certificate of Recognition',
-                    desc: 'Honors and awards received for research, projects and leadership.'
+                    desc: 'Academic distinctions, thesis awards, and scholar recognitions.'
+                },
+                license: {
+                    label: 'Certifications & Licenses',
+                    short: 'Licenses',
+                    heading: 'Professional Certification',
+                    desc: 'Verified industry certifications, DataCamp AI credentials, and technical exams.'
+                },
+                speaking: {
+                    label: 'Public Speaking Appreciation',
+                    short: 'Speaking',
+                    heading: 'Certificate of Appreciation',
+                    desc: 'Certificates of appreciation for keynote talks, guest speaking, and panel discussions.'
+                },
+                completion: {
+                    label: 'Completion',
+                    short: 'Completion',
+                    heading: 'Certificate of Completion',
+                    desc: 'Courses, bootcamps, and specialized training programs completed.'
                 }
             };
 
             const CERTIFICATES = [
+                // ----- AWARDS (Best in Thesis, Dean's Lister, Top 30 Scholar) -----
                 {
-                    type: 'completion',
+                    type: 'award',
+                    title: 'Best in Thesis Paper – IT Category',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'October 2026',
+                    note: 'Recognized at the 16th CCST Student In-House Review and Research Exhibit for GEN-ZYNC: A Smart Web-Based Collaboration and Program Development System for BYDO with AI and SMS Notification.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Genzync-Certificate.jpg'
+                },
+                {
+                    type: 'award',
+                    title: 'Top 30 Scholar – Mariveles, Iskolar ng Bataan',
+                    issuer: 'Provincial Government of Bataan – Iskolar ng Bataan',
+                    date: 'December 2025',
+                    note: 'Certificate of Appreciation for ranking Top 30 in the Municipality of Mariveles for the 1st Semester, S.Y. 2024–2025, in the Iskolar ng Bataan program. Given December 15, 2025 at the Provincial Capitol of Bataan.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Top-30-Mariveles-Scholar.JPG'
+                },
+                {
+                    type: 'award',
+                    title: 'Dean’s Lister – Second Semester, A.Y. 2024–2025',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'December 2025',
+                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.283 for the Second Semester, A.Y. 2024–2025. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Dean-Lister-02.jpg'
+                },
+                {
+                    type: 'award',
+                    title: 'Dean’s Lister – First Semester, A.Y. 2024–2025',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'December 2025',
+                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.135 for the First Semester, A.Y. 2024–2025. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Dean-Lister-03.JPG'
+                },
+                {
+                    type: 'award',
+                    title: 'Dean’s Lister – Second Semester, A.Y. 2023–2024',
+                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
+                    date: 'December 2025',
+                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.308 for the Second Semester, A.Y. 2023–2024. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Dean-Lister-01.jpg'
+                },
+
+                // ----- CERTIFICATIONS & LICENSES (DataCamp, AI Career Readiness, etc.) -----
+                {
+                    type: 'license',
                     title: 'AI Fundamentals Certification',
                     issuer: 'DataCamp',
                     date: 'November 2026',
@@ -3410,26 +3476,6 @@
                     credentialId: 'AIF0027129561407',
                     url: '',
                     image: 'assets/ai%20fundamentals%20completion.jpeg'
-                },
-                {
-                    type: 'completion',
-                    title: 'Fundamentals of Graphic Design (Color, Typography, Layout)',
-                    issuer: 'DTI – National Capital Regional Office',
-                    date: 'May 2026',
-                    note: 'Certificate of Attendance for a 4-hour online training (via Zoom, May 12, 2026), part of the Capacity Building Intervention Program for the Shared Service Facilities.',
-                    credentialId: '',
-                    url: '',
-                    image: 'assets/graphics-workshop-completion.jpeg'
-                },
-                {
-                    type: 'completion',
-                    title: 'Scholars Technopreneurship Training Program (STTP) – Region 3',
-                    issuer: 'DOST – Science Education Institute × PhilDev Foundation',
-                    date: 'November 2025',
-                    note: 'Completed the 6-month DOST Scholars Technopreneurship Training Program bootcamp (June – November 2025), awarded at the Quest Plus Conference Center, Clark, Pampanga.',
-                    credentialId: '',
-                    url: '',
-                    image: 'assets/DOST-STTP.jpg'
                 },
                 {
                     type: 'license',
@@ -3491,55 +3537,69 @@
                     url: '',
                     image: 'assets/IC3-cert-exam.png'
                 },
+
+                // ----- PUBLIC SPEAKING APPRECIATION -----
                 {
-                    type: 'award',
-                    title: 'Best in Thesis Paper – IT Category',
-                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
-                    date: 'October 2026',
-                    note: 'Recognized at the 16th CCST Student In-House Review and Research Exhibit for GEN-ZYNC: A Smart Web-Based Collaboration and Program Development System for BYDO with AI and SMS Notification.',
+                    type: 'speaking',
+                    title: 'Certificate of Appreciation – Speaker, TSU-ADS General Assembly 2026',
+                    issuer: 'Tarlac State University – Association of DOST Scholars',
+                    date: 'October 31, 2026',
+                    note: 'Awarded to Ms. Aira Bianca Ordaniel for her valuable contribution as Speaker delivering an inspirational message during the Tarlac State University – Association of DOST Scholars General Assembly held on October 31, 2026 at TSU AVR, Lucinda Campus.',
                     credentialId: '',
                     url: '',
-                    image: 'assets/Genzync-Certificate.jpg'
+                    image: 'assets/TSU-ADS-Speaker-2026/TSU-ADS-Speaker-Certificate.jpg'
                 },
                 {
-                    type: 'award',
-                    title: 'Top 30 Scholar – Mariveles, Iskolar ng Bataan',
-                    issuer: 'Provincial Government of Bataan – Iskolar ng Bataan',
-                    date: 'December 2025',
-                    note: 'Certificate of Appreciation for ranking Top 30 in the Municipality of Mariveles for the 1st Semester, S.Y. 2024–2025, in the Iskolar ng Bataan program. Given December 15, 2025 at the Provincial Capitol of Bataan.',
+                    type: 'speaking',
+                    title: 'Certificate of Appreciation – Guest Speaker',
+                    issuer: 'Tarlac State University – Association of DOST Scholars',
+                    date: '2025',
+                    note: 'Awarded in grateful appreciation for serving as Guest Speaker at the TSU-ADS Annual General Assembly 2025, sharing journeys on academic excellence and scholarship commitments.',
                     credentialId: '',
                     url: '',
-                    image: 'assets/Top-30-Mariveles-Scholar.JPG'
+                    image: ''
                 },
                 {
-                    type: 'award',
-                    title: 'Dean’s Lister – Second Semester, A.Y. 2024–2025',
-                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
-                    date: 'December 2025',
-                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.283 for the Second Semester, A.Y. 2024–2025. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    type: 'speaking',
+                    title: 'Certificate of Appreciation – Resource Person & Panelist',
+                    issuer: 'Partner Scholar Chapters & Youth Summits',
+                    date: '2026',
+                    note: 'Awarded in recognition of valuable contribution as Resource Person and Panelist on youth-led initiatives, community project building, and digital media advocacy.',
                     credentialId: '',
                     url: '',
-                    image: 'assets/Dean-Lister-02.jpg'
+                    image: ''
+                },
+
+                // ----- COMPLETION -----
+                {
+                    type: 'completion',
+                    title: 'AI Career Readiness Training',
+                    issuer: 'ASEAN Foundation × LinkedIn (ASEAN AHEAD)',
+                    date: 'November 7, 2026',
+                    note: 'Certificate of Completion presented to Aira Bianca Ordaniel for successfully completing the AI Career Readiness Training on ada.aseanfoundation.org, organized by the ASEAN Foundation and supported by LinkedIn under the ASEAN AHEAD program.',
+                    credentialId: '',
+                    url: 'https://ada.aseanfoundation.org',
+                    image: 'assets/certificate-asean-ahead.png'
                 },
                 {
-                    type: 'award',
-                    title: 'Dean’s Lister – First Semester, A.Y. 2024–2025',
-                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
-                    date: 'December 2025',
-                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.135 for the First Semester, A.Y. 2024–2025. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    type: 'completion',
+                    title: 'Fundamentals of Graphic Design (Color, Typography, Layout)',
+                    issuer: 'DTI – National Capital Regional Office',
+                    date: 'May 2026',
+                    note: 'Certificate of Attendance for a 4-hour online training (via Zoom, May 12, 2026), part of the Capacity Building Intervention Program for the Shared Service Facilities.',
                     credentialId: '',
                     url: '',
-                    image: 'assets/Dean-Lister-03.JPG'
+                    image: 'assets/graphics-workshop-completion.jpeg'
                 },
                 {
-                    type: 'award',
-                    title: 'Dean’s Lister – Second Semester, A.Y. 2023–2024',
-                    issuer: 'Bataan Peninsula State University – College of Computer Studies',
-                    date: 'December 2025',
-                    note: 'Certificate of Recognition for earning the distinction of Dean’s Lister under BS Information Technology, with a General Weighted Average of 1.308 for the Second Semester, A.Y. 2023–2024. Awarded at the 2025 Pagkilala, December 11, 2025, BPSU Main Campus.',
+                    type: 'completion',
+                    title: 'Scholars Technopreneurship Training Program (STTP) – Region 3',
+                    issuer: 'DOST – Science Education Institute × PhilDev Foundation',
+                    date: 'November 2025',
+                    note: 'Completed the 6-month DOST Scholars Technopreneurship Training Program bootcamp (June – November 2025), awarded at the Quest Plus Conference Center, Clark, Pampanga.',
                     credentialId: '',
                     url: '',
-                    image: 'assets/Dean-Lister-01.jpg'
+                    image: 'assets/DOST-STTP.jpg'
                 }
             ];
 
@@ -3685,7 +3745,7 @@
                             <span class="proj-collection-kicker">${escapeHtml(g.kicker)}</span>
                             <strong class="proj-collection-title">${escapeHtml(g.label)}</strong>
                             <span class="proj-collection-desc">${escapeHtml(g.desc)}</span>
-                            ${(g.categories || []).length ? `<span class="proj-collection-cats">${g.categories.map((c) => `<em>${escapeHtml(c.short || c.label)} <b>${items.filter((p) => p.category === c.key).length}</b></em>`).join('')}</span>` : ''}
+                            ${(g.categories || []).length ? `<span class="proj-collection-cats">${g.categories.filter((c) => items.some((p) => p.category === c.key)).map((c) => `<em>${escapeHtml(c.short || c.label)} <b>${items.filter((p) => p.category === c.key).length}</b></em>`).join('')}</span>` : ''}
                             <span class="proj-collection-foot">
                                 <span class="proj-collection-count"><b>${items.length}</b> ${items.length === 1 ? 'project' : 'projects'}</span>
                                 <span class="proj-card-cta">Explore ${arrowIcon}</span>
@@ -3784,7 +3844,8 @@
                     subEl.hidden = !show;
                     if (!show) return;
                     const designs = projectsIn('design');
-                    const chips = [{ key: 'all', label: 'All Designs' }, ...DESIGN_CATEGORIES];
+                    // categories with no projects yet stay hidden until one is added
+                    const chips = [{ key: 'all', label: 'All Designs' }, ...DESIGN_CATEGORIES.filter((c) => designs.some((p) => p.category === c.key))];
                     subEl.innerHTML = chips
                         .map((c) => {
                             const n = c.key === 'all' ? designs.length : designs.filter((p) => p.category === c.key).length;
@@ -3974,31 +4035,41 @@
 
             // ---------- VOLUNTEERINGS FOLDER (Volunteer Passport) ----------
             // Volunteer data is shared with volunteer.html — edit volunteers-data.js
-            const VOLUNTEER_SECTIONS = (window.AIRCHIVE_VOLUNTEERING || { sections: [] }).sections;
+            const volunteerData = window.volunteerData || (window.AIRCHIVE_VOLUNTEERING ? Object.fromEntries((window.AIRCHIVE_VOLUNTEERING.sections || []).map(s => [s.id || s.key, s])) : {});
+            const VOLUNTEER_SECTIONS = Object.values(volunteerData);
 
             const volunteerPreview = (() => {
                 const root = document.getElementById('volPassport');
                 const kicker = document.getElementById('volKicker');
                 if (!root) return { replay() { } };
 
-                const total = VOLUNTEER_SECTIONS.reduce((n, sec) => n + sec.items.length, 0);
-                if (kicker) kicker.textContent = `${VOLUNTEER_SECTIONS.length} STAMPS • ${total} ENTRIES`;
+                // 1. Dynamic Counter & Header Pill
+                const totalStamps = Object.keys(volunteerData).length;
+                const totalEntries = Object.values(volunteerData).reduce((n, sec) => n + ((sec.items && sec.items.length) || 0), 0);
+                if (kicker) kicker.textContent = `+ ${totalStamps} STAMPS • ${totalEntries} ENTRIES`;
 
+                // 2. Dynamic Left Stamp Navigation
                 root.innerHTML = `
                     <div class="vol-stamps" role="tablist" aria-label="Volunteering sections" aria-orientation="vertical">
-                        ${VOLUNTEER_SECTIONS.map((sec, i) => `
-                        <button type="button" class="vol-stamp vol-stamp--${sec.key}" role="tab" data-vol-idx="${i}"
-                            style="--accent:${sec.accent}; --d:${i}" aria-controls="volPage">
-                            <span class="vol-stamp-face">
-                                <span class="vol-stamp-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${sec.icon}</svg></span>
-                                <span class="vol-stamp-text">
-                                    <span class="vol-stamp-no">No. ${pad2(i + 1)}</span>
-                                    <strong class="vol-stamp-label">${escapeHtml(sec.short)}</strong>
-                                    <span class="vol-stamp-count">${sec.items.length} ${sec.items.length === 1 ? 'entry' : 'entries'}</span>
+                        ${VOLUNTEER_SECTIONS.map((sec, i) => {
+                            const stampEntries = sec.items || [];
+                            const stampNo = sec.stampNo || `NO. ${pad2(i + 1)}`;
+                            const stampTitle = sec.title || sec.short || sec.label;
+                            const stampCountText = `${stampEntries.length} ${stampEntries.length === 1 ? 'entry' : 'entries'}`;
+                            return `
+                            <button type="button" class="vol-stamp vol-stamp--${sec.id || sec.key}" role="tab" data-vol-idx="${i}"
+                                style="--accent:${sec.accent}; --d:${i}" aria-controls="volPage">
+                                <span class="vol-stamp-face">
+                                    <span class="vol-stamp-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${sec.icon}</svg></span>
+                                    <span class="vol-stamp-text">
+                                        <span class="vol-stamp-no">${escapeHtml(stampNo)}</span>
+                                        <strong class="vol-stamp-label">${escapeHtml(stampTitle)}</strong>
+                                        <span class="vol-stamp-count">${escapeHtml(stampCountText)}</span>
+                                    </span>
+                                    <span class="vol-stamp-postmark" aria-hidden="true"></span>
                                 </span>
-                                <span class="vol-stamp-postmark" aria-hidden="true"></span>
-                            </span>
-                        </button>`).join('')}
+                            </button>`;
+                        }).join('')}
                     </div>
                     <div class="vol-page" id="volPage" role="tabpanel"></div>`;
 
@@ -4007,26 +4078,53 @@
                 const page = root.querySelector('.vol-page');
                 let current = 0;
 
-                const ticketHtml = (it, j, sec) => `
+                const ticketHtml = (it, j, sec) => {
+                    let monthDisplay = it.month || '';
+                    let yearDisplay = it.year || '';
+                    if (typeof yearDisplay === 'string' && yearDisplay.includes(' ')) {
+                        const parts = yearDisplay.trim().split(/\s+/);
+                        if (parts.length >= 2) {
+                            monthDisplay = parts[0];
+                            yearDisplay = parts.slice(1).join(' ');
+                        }
+                    }
+                    const role = it.role || it.tag || '';
+                    const eventOrg = it.org || it.event || '';
+                    const institution = it.institution || '';
+                    const summary = it.summary || it.desc || it.description || '';
+                    const location = it.place || it.location || '';
+                    const photoCount = (it.photos && it.photos.length) || 0;
+                    const proofCount = (it.proofs && it.proofs.length) || 0;
+                    const hasCert = Boolean(it.certificate);
+
+                    return `
                     <a class="vol-ticket" style="--j:${j}" href="volunteer.html?id=${encodeURIComponent(it.id)}" data-vol-id="${escapeHtml(it.id)}"
-                        aria-label="${escapeHtml(it.role)} — ${escapeHtml(it.org)}: view role, certificate and photos">
+                        aria-label="${escapeHtml(role)} — ${escapeHtml(eventOrg)}: view role, certificate and photos">
                         <div class="vol-ticket-stub">
-                            <span class="vol-ticket-month">${escapeHtml(it.month || '')}</span>
-                            <span class="vol-ticket-year">${escapeHtml(it.year || '')}</span>
+                            <span class="vol-ticket-month">${escapeHtml(monthDisplay)}</span>
+                            <span class="vol-ticket-year">${escapeHtml(yearDisplay)}</span>
                             <span class="vol-ticket-barcode" aria-hidden="true"></span>
                         </div>
                         <div class="vol-ticket-main">
-                            <span class="vol-ticket-no">${escapeHtml(sec.short)} • Entry ${pad2(j + 1)} ${sampleChip(it)}</span>
-                            <strong class="vol-ticket-role">${escapeHtml(it.role)}</strong>
-                            <span class="vol-ticket-org">${escapeHtml(it.org)}</span>
-                            ${it.summary ? `<p class="vol-ticket-summary">${escapeHtml(it.summary)}</p>` : ''}
+                            <span class="vol-ticket-no">${escapeHtml(sec.title || sec.short || sec.label)} • Entry ${pad2(j + 1)} ${sampleChip(it)}</span>
+                            <strong class="vol-ticket-role">${escapeHtml(role)}</strong>
+                            <span class="vol-ticket-org">${escapeHtml(eventOrg)}</span>
+                            ${institution ? `<span class="vol-ticket-inst" style="font-size:0.73cqw;color:var(--cp-muted,#4a6b82);font-weight:500;">${escapeHtml(institution)}</span>` : ''}
+                            ${summary ? `<p class="vol-ticket-summary">${escapeHtml(summary)}</p>` : ''}
+                            ${(hasCert || photoCount || proofCount) ? `
+                            <span class="vol-ticket-badges">
+                                ${hasCert ? `<span class="vol-ticket-badge"><svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="9" r="6"/><path d="M9 14.5L7 21L12 18.5L17 21L15 14.5"/></svg> Certificate</span>` : ''}
+                                ${photoCount ? `<span class="vol-ticket-badge"><svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15L16 10L5 21"/></svg> ${photoCount} Photos</span>` : ''}
+                                ${proofCount ? `<span class="vol-ticket-badge"><svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7L12 13L21 7"/></svg> Letter &amp; Proofs</span>` : ''}
+                            </span>` : ''}
                             <span class="vol-ticket-foot">
-                                ${it.place ? `<em>${escapeHtml(it.place)}</em>` : ''}
+                                ${location ? `<em>${escapeHtml(location)}</em>` : ''}
                                 ${it.hours ? `<em>${escapeHtml(it.hours)}</em>` : ''}
                                 <span class="vol-ticket-go">View proofs ${arrowIcon}</span>
                             </span>
                         </div>
                     </a>`;
+                };
 
                 const render = (i) => {
                     current = i;
@@ -4039,6 +4137,7 @@
                     });
                     page.style.setProperty('--accent', sec.accent);
                     page.setAttribute('aria-label', sec.label);
+                    const categoryWatermark = (sec.stamp || sec.short || sec.title || sec.id || '').toUpperCase();
                     page.innerHTML = `
                         <header class="vol-page-head">
                             <span class="vol-page-index">${pad2(i + 1)}</span>
@@ -4047,11 +4146,11 @@
                                 <p class="vol-page-desc">${escapeHtml(sec.desc)}</p>
                             </div>
                             <span class="vol-rubber" aria-hidden="true">
-                                <small>Volunteer</small>${escapeHtml(sec.stamp)}<small>${sec.items.length} logged</small>
+                                ${escapeHtml(categoryWatermark)} / LOGGED
                             </span>
                         </header>
                         <div class="vol-tickets">
-                            ${sec.items.length
+                            ${(sec.items && sec.items.length)
                                 ? sec.items.map((it, j) => ticketHtml(it, j, sec)).join('')
                                 : '<p class="vol-empty">No entries yet — this page is waiting for its first stamp.</p>'}
                         </div>`;
@@ -4061,7 +4160,7 @@
                             if (isModifiedClick(e)) return;
                             e.preventDefault();
                             const item = sec.items.find((x) => x.id === t.dataset.volId);
-                            openWithPortal(t.getAttribute('href'), item ? item.role : sec.label, t, sec.cover);
+                            openWithPortal(t.getAttribute('href'), item ? (item.role || item.tag) : sec.label, t, sec.cover);
                         });
                     });
                     replayClass(page, 'is-entering');
@@ -4087,7 +4186,7 @@
                         render(current);
                     },
                     show: (key) => {
-                        const i = VOLUNTEER_SECTIONS.findIndex((x) => x.key === key);
+                        const i = VOLUNTEER_SECTIONS.findIndex((x) => x.key === key || x.id === key);
                         if (i >= 0) render(i);
                     }
                 };

@@ -17,6 +17,8 @@
      — sorts them into the Design sub-filters on the Project Showcase.
    - `devices` / `features` (optional): interactive desktop + phone mock-ups and a
      screen-by-screen feature tour on the project page (see the GEN-ZYNC entry).
+   - `domain` (optional): name shown in the Feature tour's browser bar (default 'genzync.org').
+     Desktop `devices` screens can also be a looping video: { kind: 'video', src, poster }.
    - `coverPosition` (optional): which part of the cover to show, e.g. 'center top'
      for tall posters.
    - `film` (optional): makes the project a video. It opens in the reel archive
@@ -155,83 +157,111 @@ window.AIRCHIVE_PROJECTS = {
             gallery: []
         },
         {
-            id: 'tech-system-02',
+            id: 'skilltreyd',
             group: 'tech',
-            sample: true,
-            title: 'Tech System Project 02',
-            tagline: 'Placeholder tagline — one line on what this prototype does.',
-            role: 'UI/UX Designer',
-            year: '2025',
-            duration: '6 weeks',
-            team: 'Solo',
-            status: 'Prototype',
-            summary: 'Placeholder — describe the prototype and the user flows you designed.',
-            overview: 'Placeholder overview of the product and its users.',
-            challenge: 'Placeholder challenge the design had to solve.',
+            title: 'SKILLTREYD',
+            tagline: 'A web-based freelancing platform that connects college student freelancers in Bataan with local businesses, entrepreneurs and organizations.',
+            role: 'UI/UX Designer, Marketing Lead & Front-End Programmer',
+            year: '2026',
+            duration: '',
+            team: 'Startup team',
+            status: 'Technopreneurship Final Case Study',
+            summary: 'A centralized, student-focused freelancing platform for Bataan, with AI-powered matchmaking, verified profiles and digital portfolios, real-time messaging and secure escrow payments that make hiring simpler and build trust between student freelancers and local clients.',
+            overview: 'SKILLTREYD connects college student freelancers in Bataan with local businesses, entrepreneurs and organizations. Students build verified profiles with digital portfolios, and an AI matchmaking engine pairs them with suitable local projects based on their skills. Clients and freelancers talk through real-time messaging, and payments are held in a secure escrow and released per approved milestone. The startup proposes three revenue streams: commission fees from completed projects, premium subscriptions that give freelancers extra features and visibility, and licensing fees for schools and universities.',
+            challenge: 'College students in Bataan struggle to find freelance work and get noticed. Hiring channels are fragmented, students have limited professional experience, and most gigs come through social media or referrals. Local clients, on the other hand, have no central place to discover and hire student freelancers.',
             approach: [
-                { title: 'User Flows', text: 'Placeholder — mapping the key journeys.' },
-                { title: 'Wireframes', text: 'Placeholder — low-fidelity layouts and testing.' },
-                { title: 'High-Fidelity Prototype', text: 'Placeholder — final UI and interactions.' }
+                { title: 'Frame the problem', text: 'Mapped both sides of the market: student freelancers who lack visibility, and local clients who lack a trusted place to find campus talent.' },
+                { title: 'Shape the brand & pitch', text: 'As Marketing Lead, built the SKILLTREYD story, landing page messaging and revenue model around a student-first, Bataan-local identity.' },
+                { title: 'Design the experience', text: 'Designed the landing page and the freelancer side of the platform: dashboard, AI matches, chat, escrow and portfolio.' },
+                { title: 'Build the front end', text: 'Developed the interactive front end, linking each screen with a flow navigator so the full journey can be demoed from match to payout.' },
+                { title: 'Design for trust', text: 'Verified-student badges, milestone escrow with an audit trail, and transparent platform fees keep both sides protected.' }
             ],
             outcomes: [
-                { value: '00', label: 'Placeholder screens' },
-                { value: '00%', label: 'Placeholder task success' }
+                { value: '4', label: 'Core platform pillars' },
+                { value: '5', label: 'Linked freelancer flows' },
+                { value: '3', label: 'Proposed revenue streams' }
             ],
-            highlights: ['Placeholder highlight one', 'Placeholder highlight two'],
-            tools: ['Figma', 'Lucidchart'],
-            links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
-        },
-        {
-            id: 'tech-system-03',
-            group: 'tech',
-            sample: true,
-            title: 'Tech System Project 03',
-            tagline: 'Placeholder tagline.',
-            role: 'Systems Analyst',
-            year: '2024',
-            duration: '2 months',
-            team: 'Team of 3',
-            status: 'Completed',
-            summary: 'Placeholder — describe the database design and how it shaped the build.',
-            overview: 'Placeholder overview.',
-            challenge: 'Placeholder challenge.',
-            approach: [
-                { title: 'Analysis', text: 'Placeholder step.' },
-                { title: 'ERD & Schema', text: 'Placeholder step.' },
-                { title: 'Handoff', text: 'Placeholder step.' }
+            highlights: [
+                'AI-powered matchmaking that explains why a student fits each project',
+                'Verified student profiles with digital portfolios and a skills matrix',
+                'Real-time messaging with deliverable submission inside the chat',
+                'Admin-mediated escrow: funds locked per milestone, released on approval',
+                'Escrow audit trail and a live payout calculator with the 5% platform fee',
+                'Flow navigator that walks the demo from AI matches to chat to escrow'
             ],
-            outcomes: [{ value: '00', label: 'Placeholder tables' }],
-            highlights: ['Placeholder highlight'],
-            tools: ['ERD', 'MySQL'],
+            tools: ['Figma', 'UI/UX Design', 'Front-End Development', 'HTML', 'CSS', 'JavaScript', 'Branding & Marketing'],
             links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
-        },
-        {
-            id: 'tech-system-04',
-            group: 'tech',
-            sample: true,
-            title: 'Tech System Project 04',
-            tagline: 'Placeholder tagline.',
-            role: 'AI Workflow Builder',
-            year: '2024',
-            duration: '1 month',
-            team: 'Solo',
-            status: 'Live',
-            summary: 'Placeholder — describe the automation and the time it saved.',
-            overview: 'Placeholder overview.',
-            challenge: 'Placeholder challenge.',
-            approach: [
-                { title: 'Map the Manual Process', text: 'Placeholder step.' },
-                { title: 'Automate', text: 'Placeholder step.' }
+            cover: 'assets/skilltreyd-system/web/landing-hero.jpg',
+            domain: 'skilltreyd',
+            coverPosition: 'center top',
+
+            /* Interactive device mock-ups (project.html "In action" section) */
+            devices: {
+                desktop: [
+                    {
+                        label: 'Live walkthrough',
+                        kind: 'video',
+                        src: 'assets/skilltreyd-system/walkthrough.mp4',
+                        poster: 'assets/skilltreyd-system/web/landing-hero.jpg',
+                        alt: 'Screen recording of the SKILLTREYD flow, from the landing page to AI matches, chat, escrow and portfolio'
+                    },
+                    {
+                        label: 'Landing page',
+                        src: 'assets/skilltreyd-system/web/landing-hero.jpg',
+                        alt: 'SKILLTREYD landing page',
+                        hotspots: [
+                            { x: 50, y: 21.7, title: 'Connecting Campus & Commerce', text: 'The tagline sums up the two-sided promise: campus talent meets local business.' },
+                            { x: 50, y: 44, title: 'Empower Student Talent', text: 'A bold, student-first headline sets the brand voice for the whole platform.' },
+                            { x: 50, y: 85.7, title: 'Two clear paths', text: 'Explore Platform for clients, Join as Freelancer for students.' },
+                            { x: 45.7, y: 5.2, title: 'Story-led navigation', text: 'Our Story, What We Do, Platform, Target Users and Revenue Model, structured like a pitch.' },
+                            { x: 84.4, y: 5.2, title: 'Get Started', text: 'One persistent call to action that leads into the demo portal.' }
+                        ]
+                    },
+                    {
+                        label: 'Freelancer dashboard',
+                        src: 'assets/skilltreyd-system/web/dashboard.jpg',
+                        alt: 'SKILLTREYD student freelancer dashboard',
+                        hotspots: [
+                            { x: 29.3, y: 17.5, title: 'Verified talent badge', text: 'The student’s campus verification and active escrow are shown up front.' },
+                            { x: 77.8, y: 23.4, title: 'Explore AI Matches', text: 'Jump straight to the projects the AI engine picked for this skill set.' },
+                            { x: 29.3, y: 46.9, title: 'Escrow protected', text: 'Locked client funds held in admin custody, so students are never left unpaid.' },
+                            { x: 88.6, y: 45.8, title: 'Student trust score', text: 'Ratings from verified completions build credibility with local clients.' },
+                            { x: 39.4, y: 69.1, title: 'Why you were matched', text: 'The featured match explains which verified skills fit the client’s brief.' },
+                            { x: 8.6, y: 88, title: 'Flow navigator', text: 'Guides the demo step by step: AI matches → real-time chat → escrow status.' }
+                        ]
+                    },
+                    {
+                        label: 'Escrow payments',
+                        src: 'assets/skilltreyd-system/web/escrow.jpg',
+                        alt: 'SKILLTREYD admin-mediated escrow payment management',
+                        hotspots: [
+                            { x: 34.6, y: 20.6, title: 'Contract escrow', text: 'Each contract names the client, the freelancer and SKILLTREYD as mediator.' },
+                            { x: 88.6, y: 20.2, title: 'Request release', text: 'Students request payout once a milestone is delivered.' },
+                            { x: 49.2, y: 38.7, title: 'Held in admin escrow', text: 'Funds are guaranteed before work starts.' },
+                            { x: 88.6, y: 38.7, title: 'Transparent fee', text: 'The 5% platform commission, one of the three revenue streams, is shown upfront.' },
+                            { x: 47, y: 69.9, title: 'Milestone breakdown', text: 'Payments are released one milestone at a time as the client approves deliverables.' },
+                            { x: 85.2, y: 63.4, title: 'How escrow protects you', text: 'Plain-language reassurance: verified funds, no ghosting, automatic payout after review.' }
+                        ]
+                    }
+                ]
+            },
+
+            /* Feature tour (project.html "Feature tour" section) */
+            features: [
+                { title: 'Landing page', path: '/landing-page', src: 'assets/skilltreyd-system/web/landing-hero.jpg', text: 'A student-first hero, “Empower Student Talent Where It’s Needed Most”, with separate paths for clients and freelancers.' },
+                { title: 'Talent showcase', path: '/landing-page#platform', src: 'assets/skilltreyd-system/web/landing-showcase.jpg', text: 'Student creators, the AI-powered hub and local clients, backed by the colleges of BPSU across Bataan.' },
+                { title: 'Four core pillars', path: '/landing-page#what-we-do', src: 'assets/skilltreyd-system/web/landing-features.jpg', text: 'AI-powered matchmaking, verified profiles & portfolios, real-time messaging and secure escrow payments.' },
+                { title: 'Two-sided marketplace', path: '/landing-page#target-users', src: 'assets/skilltreyd-system/web/landing-users.jpg', text: 'What college students in Bataan and local clients and organizations each get from the platform.' },
+                { title: 'Revenue model', path: '/landing-page#revenue', src: 'assets/skilltreyd-system/web/landing-revenue.jpg', text: 'Project commission fees, premium freelancer subscriptions, and university & college licensing.' },
+                { title: 'Freelancer dashboard', path: '/freelancer-dashboard', src: 'assets/skilltreyd-system/web/dashboard.jpg', text: 'Escrow balance, AI compatibility, active orders and trust score, with the featured AI match up front.' },
+                { title: 'Contracts & milestones', path: '/freelancer-dashboard#contracts', src: 'assets/skilltreyd-system/web/dashboard-contracts.jpg', text: 'Active contracts with their milestone status and escrow amounts, plus the latest client message.' },
+                { title: 'AI-matched projects', path: '/matched-projects', src: 'assets/skilltreyd-system/web/matched-projects.jpg', text: 'Local projects ranked by match score, each with a match explanation, required skills and escrow-backed budget.' },
+                { title: 'Real-time chat', path: '/chat', src: 'assets/skilltreyd-system/web/chat.jpg', text: 'Client conversations next to project and escrow details, with escrow certificates posted right in the thread.' },
+                { title: 'Submit a deliverable', path: '/chat#submit', src: 'assets/skilltreyd-system/web/chat-deliverable.jpg', text: 'Students submit milestone work (Figma, GitHub or Drive links) to the client and escrow in one step.' },
+                { title: 'Escrow payments', path: '/escrow-status', src: 'assets/skilltreyd-system/web/escrow.jpg', text: 'Total contract value, funds held in admin escrow, released payouts and the platform fee at a glance.' },
+                { title: 'Audit trail & payout calculator', path: '/escrow-status#audit', src: 'assets/skilltreyd-system/web/escrow-audit.jpg', text: 'A verified escrow ledger and a live calculator that shows the student’s net payout.' },
+                { title: 'Verified digital portfolio', path: '/portfolio', src: 'assets/skilltreyd-system/web/portfolio.jpg', text: 'Campus-verified credentials, case studies delivered through escrow, and a skills matrix with endorsements.' }
             ],
-            outcomes: [{ value: '00 hrs', label: 'Placeholder time saved' }],
-            highlights: ['Placeholder highlight'],
-            tools: ['AI Tools', 'Automation'],
-            links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
             gallery: []
         },
 
@@ -290,52 +320,6 @@ window.AIRCHIVE_PROJECTS = {
             cover: 'assets/R3_Poster_WorldCafe.png',
             coverPosition: 'center top',
             gallery: [{ src: 'assets/R3_Poster_WorldCafe.png', caption: 'Full poster — SENTRO for Brilliance' }]
-        },
-        {
-            id: 'design-publication-01',
-            group: 'design',
-            category: 'publication',
-            sample: true,
-            title: 'Publication Materials Project',
-            tagline: 'Placeholder tagline.',
-            role: 'Pubmat Designer',
-            year: '2025',
-            duration: '',
-            team: 'Creatives Team',
-            status: 'Published',
-            summary: 'Placeholder — describe the campaign and its publication materials.',
-            overview: 'Placeholder overview.',
-            challenge: '',
-            approach: [],
-            outcomes: [],
-            highlights: ['Placeholder highlight'],
-            tools: ['Publication Design', 'Layout'],
-            links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
-        },
-        {
-            id: 'design-presentation-01',
-            group: 'design',
-            category: 'presentation',
-            sample: true,
-            title: 'PowerPoint Presentation Project',
-            tagline: 'Placeholder tagline.',
-            role: 'Presentation Designer',
-            year: '2025',
-            duration: '',
-            team: 'Solo',
-            status: 'Presented',
-            summary: 'Placeholder — describe the deck, its audience and the story it tells.',
-            overview: 'Placeholder overview.',
-            challenge: '',
-            approach: [],
-            outcomes: [],
-            highlights: ['Placeholder highlight'],
-            tools: ['PowerPoint', 'Slide Design'],
-            links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
         },
 
         /* ---------------- VIDEO PRODUCTIONS (open in film.html) ---------------- */

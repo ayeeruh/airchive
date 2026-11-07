@@ -199,8 +199,11 @@
                             ${desktops
             .map(
                 (d, i) => `
-                            <figure class="dv-shot${i === 0 ? ' is-active' : ''}" data-dv-shot="${i}" aria-hidden="${i === 0 ? 'false' : 'true'}">
-                                <img src="${src(d.src)}" alt="${esc(d.alt || d.label)}" ${i ? 'loading="lazy"' : ''} />
+                            <figure class="dv-shot${i === 0 ? ' is-active' : ''}${d.kind === 'video' ? ' dv-shot--video' : ''}" data-dv-shot="${i}" aria-hidden="${i === 0 ? 'false' : 'true'}">
+                                ${d.kind === 'video'
+                    ? `<video src="${src(d.src)}" ${d.poster ? `poster="${src(d.poster)}"` : ''} muted loop playsinline preload="${i === 0 ? 'metadata' : 'none'}" aria-label="${esc(d.alt || d.label)}"></video>
+                                <span class="dv-live-tag" aria-hidden="true"><i></i>${esc(d.tag || 'Live walkthrough')}</span>`
+                    : `<img src="${src(d.src)}" alt="${esc(d.alt || d.label)}" ${i ? 'loading="lazy"' : ''} />`}
                                 ${(d.hotspots || [])
                         .map(
                             (h, k) => `
@@ -308,7 +311,7 @@
                     <div class="ft-browser">
                         <div class="ft-browser-bar">
                             <span class="ft-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                            <span class="ft-url"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V8A3.5 3.5 0 0 1 15.5 8V10.5" stroke="currentColor" stroke-width="2"/></svg><b>genzync.org</b><span id="ftPath">${esc(features[0].path || '')}</span></span>
+                            <span class="ft-url"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V8A3.5 3.5 0 0 1 15.5 8V10.5" stroke="currentColor" stroke-width="2"/></svg><b>${esc(project.domain || 'genzync.org')}</b><span id="ftPath">${esc(features[0].path || '')}</span></span>
                         </div>
                         <div class="ft-stage" id="ftStage">
                             ${features
@@ -666,12 +669,29 @@
         let tourStep = -1;
 
         const clearHotspots = () => dvDesktop.querySelectorAll('.dv-hotspot.is-open').forEach((h) => h.classList.remove('is-open'));
+        // Screens can be a looping video walkthrough: only the visible, on-screen one plays.
+        let inView = false;
+        const syncVideos = () =>
+            shots.forEach((s, k) => {
+                const v = s.querySelector('video');
+                if (!v) return;
+                if (k === screen && inView && !reduceMotion) v.play().catch(() => {});
+                else v.pause();
+            });
+        if (reduceMotion) dvDesktop.querySelectorAll('.dv-shot video').forEach((v) => v.setAttribute('controls', ''));
+        if (shots.some((s) => s.querySelector('video'))) {
+            new IntersectionObserver((entries) => {
+                inView = entries[0].isIntersecting;
+                syncVideos();
+            }, { threshold: 0.35 }).observe(dvDesktop);
+        }
         const showScreen = (i) => {
             screen = i;
             shots.forEach((s, k) => {
                 s.classList.toggle('is-active', k === i);
                 s.setAttribute('aria-hidden', k === i ? 'false' : 'true');
             });
+            syncVideos();
             switches.forEach((b, k) => {
                 b.classList.toggle('is-active', k === i);
                 b.setAttribute('aria-selected', k === i ? 'true' : 'false');

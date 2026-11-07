@@ -179,17 +179,19 @@
 
     const proofsHtml = proofs.length
         ? proofs
-            .map(
-                (p, i) => `
-                <a class="vp-proof" data-reveal style="--i:${i}" href="${esc(p.url || '#')}" ${p.url ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+            .map((p, i) => {
+                const isImg = /\.(jpe?g|png|webp|gif|svg)$/i.test(p.url || '');
+                return `
+                <a class="vp-proof${isImg ? ' vp-proof--previewable' : ''}" data-reveal style="--i:${i}" href="${esc(p.url || '#')}"
+                    ${isImg ? `data-src="${esc(p.url)}" data-caption="${esc(p.label)}" role="button"` : (p.url ? 'target="_blank" rel="noopener noreferrer"' : '')}>
                     <span class="vp-proof-icon">${svg(p.type in icons ? p.type : 'link')}</span>
                     <span class="vp-proof-text">
                         <small>${esc(p.type || 'link')}</small>
                         <strong>${esc(p.label)}</strong>
                     </span>
-                    <span class="vp-proof-go">${arrow}</span>
-                </a>`
-            )
+                    <span class="vp-proof-go">${isImg ? '<span class="vp-proof-tag">View scan</span>' : ''}${arrow}</span>
+                </a>`;
+            })
             .join('')
         : [
             ['post', 'Event post', 'Facebook / LinkedIn post'],
@@ -409,7 +411,8 @@
         lightbox.setAttribute('aria-hidden', 'true');
     };
     document.querySelectorAll('[data-src]').forEach((el) =>
-        el.addEventListener('click', () => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
             lbImg.src = el.dataset.src;
             lbImg.alt = el.dataset.caption || entry.role;
             lbCap.textContent = el.dataset.caption || '';
