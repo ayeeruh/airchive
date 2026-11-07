@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reel Archive — AIRCHIVE | Aira Bianca Ordaniel</title>
+    <link rel="icon" type="image/png" href="assets/logo-light.png" id="siteFavicon" />
+    <link rel="apple-touch-icon" href="assets/logo-light.png" />
+    <!-- Apply the saved theme before first paint so the page never flashes the wrong colors -->
+    <script>
+        try {
+            if (localStorage.getItem('airchive-theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        } catch (_) { }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="film.css" />
+</head>
+
+<body class="project-page film-page">
+
+    <!-- Entrance curtain: continues the "portal" from the Project Showcase, then lifts away -->
+    <div class="pp-curtain fa-entry" id="ppCurtain" aria-hidden="true">
+        <span class="fa-entry-kicker" id="ppCurtainKicker">AIRCHIVE • Reel archive</span>
+        <span class="pp-curtain-title" id="ppCurtainTitle"></span>
+    </div>
+
+    <header class="site-header pp-header" aria-label="Reel Archive Header">
+        <a href="index.html#page-cover" class="header-brand">
+            <div class="header-logo-box" title="AIRCHIVE — Aira Bianca Logo">
+                <img src="assets/logo-light.png" alt="Aira Bianca Logo"
+                    class="header-logo-img header-logo-img--light" />
+                <img src="assets/logo-dark.png" alt="Aira Bianca Logo" class="header-logo-img header-logo-img--dark" />
+            </div>
+            <div class="header-brand-text">
+                <span class="header-brand-name">Aira Bianca</span>
+                <span class="header-brand-sub">Information Technology</span>
+            </div>
+        </a>
+
+        <!-- Folder-tab shortcuts (filled by film.js) -->
+        <nav class="header-nav-capsule pp-section-nav" id="ppSectionNav" aria-label="Reel sections"></nav>
+
+        <div class="header-controls">
+            <a href="index.html#page-projects" class="pp-back-btn" id="ppBackBtn">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>All Projects</span>
+            </a>
+            <button type="button" class="theme-toggle-btn theme-switch" id="themeToggleBtn" role="switch"
+                aria-checked="false" aria-label="Dark mode" title="Switch between Light and Dark Mode">
+                <span class="theme-switch-track" aria-hidden="true">
+                    <svg class="theme-switch-mark theme-switch-mark--sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2.2"/><path d="M12 2.5V4.5M12 19.5V21.5M4.6 4.6L6 6M18 18L19.4 19.4M2.5 12H4.5M19.5 12H21.5M4.6 19.4L6 18M18 6L19.4 4.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                    <svg class="theme-switch-mark theme-switch-mark--moon" viewBox="0 0 24 24" fill="none"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5 6.6 6.6 0 0 0 20.5 13.2Z" fill="currentColor"/></svg>
+                    <span class="theme-switch-stars"></span>
+                    <span class="theme-switch-knob">
+                        <svg class="theme-switch-ic theme-switch-ic--sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2.2"/><path d="M12 2.5V4.5M12 19.5V21.5M4.6 4.6L6 6M18 18L19.4 19.4M2.5 12H4.5M19.5 12H21.5M4.6 19.4L6 18M18 6L19.4 4.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                        <svg class="theme-switch-ic theme-switch-ic--moon" viewBox="0 0 24 24" fill="none"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5 6.6 6.6 0 0 0 20.5 13.2Z" fill="currentColor"/></svg>
+                    </span>
+                </span>
+                <svg class="theme-toggle-icon" id="themeToggleIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true" hidden></svg>
+                <span class="theme-switch-label" id="themeToggleLabel">Dark</span>
+            </button>
+        </div>
+
+        <div class="header-scroll-track" aria-hidden="true">
+            <div class="header-scroll-bar" id="headerScrollBar"></div>
+        </div>
+    </header>
+
+    <!-- Filled by film.js from projects-data.js -->
+    <main class="pp-main fa-main" id="ppMain"></main>
+
+    <!-- Small notice (e.g. full-video link not added yet) -->
+    <div class="fa-toast" id="faToast" role="status" aria-live="polite"></div>
+
+    <script src="projects-data.js"></script>
+    <script src="film.js"></script>
+</body>
+
+</html>

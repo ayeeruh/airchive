@@ -1,0 +1,6 @@
+# Full-length videos are too big for GitHub (100 MB limit) — they live on Google Drive.
+# The page plays the short clips in assets/videos/previews/ instead.
+assets/videos/*.mp4
+assets/videos/*.mov
+assets/*.mp4
+assets/*.mov

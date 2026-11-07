@@ -6929,3 +6929,339 @@ a.vol-ticket:hover .vol-ticket-go svg {
 .proj-collection-cats b {
   opacity: 0.7;
 }
+
+/* ==========================================================================
+   Light / Dark mode — toggle switch (replaces the old pill button)
+   ========================================================================== */
+.theme-toggle-btn.theme-switch {
+  gap: 0;
+  height: 42px;
+  padding: 3px;
+  border: 1.5px solid var(--header-capsule-border);
+  background: var(--header-capsule-bg);
+}
+
+.theme-toggle-btn.theme-switch:hover {
+  background: var(--header-capsule-bg);
+  border-color: var(--blue-folder-back);
+  color: inherit;
+  transform: scale(1.04);
+}
+
+.theme-toggle-btn.theme-switch:focus-visible {
+  outline: 2px solid #3AA7E2;
+  outline-offset: 3px;
+}
+
+.theme-switch-track {
+  position: relative;
+  display: block;
+  width: 64px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #BFE6FF 0%, #82D1FF 55%, #5BB6EC 100%);
+  box-shadow: inset 0 2px 5px rgba(11, 56, 97, 0.25);
+  transition: background 0.5s ease;
+}
+
+[data-theme="dark"] .theme-switch-track {
+  background: linear-gradient(135deg, #0B2A48 0%, #07192B 70%);
+}
+
+/* Faint sun / moon marks on the track (the knob covers the active one) */
+.theme-switch-mark {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  translate: 0 -50%;
+  transition: opacity 0.4s ease;
+}
+
+.theme-switch-mark--sun {
+  left: 9px;
+  color: #FFF3C4;
+  opacity: 0;
+}
+
+.theme-switch-mark--moon {
+  right: 9px;
+  color: #0B3861;
+  opacity: 0.45;
+}
+
+[data-theme="dark"] .theme-switch-mark--sun {
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .theme-switch-mark--moon {
+  opacity: 0;
+}
+
+/* Little stars that fade in for night mode */
+.theme-switch-stars,
+.theme-switch-stars::before,
+.theme-switch-stars::after {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #FEFFF1;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.15s;
+}
+
+.theme-switch-stars {
+  top: 8px;
+  left: 30px;
+}
+
+.theme-switch-stars::before {
+  content: "";
+  top: 12px;
+  left: -10px;
+}
+
+.theme-switch-stars::after {
+  content: "";
+  top: 4px;
+  left: -18px;
+  width: 1.5px;
+  height: 1.5px;
+}
+
+[data-theme="dark"] .theme-switch-stars,
+[data-theme="dark"] .theme-switch-stars::before,
+[data-theme="dark"] .theme-switch-stars::after {
+  opacity: 0.9;
+}
+
+.theme-switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #B87500;
+  background: radial-gradient(circle at 35% 30%, #FFF3C4, #FFD25A 70%);
+  box-shadow: 0 3px 8px rgba(11, 56, 97, 0.35);
+  transition:
+    translate 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+[data-theme="dark"] .theme-switch-knob {
+  translate: 32px 0;
+  color: #0B3861;
+  background: radial-gradient(circle at 35% 30%, #FFFFFF, #CFE3F2 70%);
+}
+
+.theme-switch-ic {
+  grid-area: 1 / 1;
+  width: 15px;
+  height: 15px;
+  transition: opacity 0.3s ease, rotate 0.5s ease;
+}
+
+.theme-switch-ic--moon {
+  opacity: 0;
+  rotate: -60deg;
+}
+
+[data-theme="dark"] .theme-switch-ic--sun {
+  opacity: 0;
+  rotate: 90deg;
+}
+
+[data-theme="dark"] .theme-switch-ic--moon {
+  opacity: 1;
+  rotate: 0deg;
+}
+
+.theme-switch:active .theme-switch-knob {
+  width: 30px;
+}
+
+/* State is announced through role="switch" + aria-checked */
+.theme-switch-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .theme-switch-knob,
+  .theme-switch-ic,
+  .theme-switch-track {
+    transition: none;
+  }
+}
+
+/* The old icon slot stays in the markup for the scripts, but is never shown */
+.theme-switch .theme-toggle-icon {
+  display: none;
+}
+
+/* ==========================================================================
+   SKILL SETS — Design & Operations card carousels (5–6 cards each)
+   ========================================================================== */
+.skillset-card-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3cqw;
+}
+
+.skillset-card-count {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 0.66cqw;
+  letter-spacing: 0.14em;
+  color: rgba(130, 209, 255, 0.85);
+}
+
+.skillset-card-context {
+  align-self: flex-start;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 0.7cqw;
+  padding: 0.18cqw 0.62cqw;
+  border-radius: 999px;
+  color: #0B3861;
+  background-color: #7CE8FF;
+}
+
+.skillset-tools-row {
+  gap: 0.5cqw;
+}
+
+.skillset-tool-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42cqw;
+  padding: 0.2cqw 0.75cqw 0.2cqw 0.22cqw;
+  border-radius: 999px;
+  background-color: rgba(5, 22, 42, 0.42);
+  border: 0.1cqw solid rgba(130, 209, 255, 0.4);
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 0.74cqw;
+  color: var(--bg-cream);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+
+.skillset-tool-chip:hover,
+.skillset-tool-chip:focus-visible {
+  transform: translateY(-0.16cqw);
+  border-color: #7CE8FF;
+  background-color: rgba(5, 22, 42, 0.7);
+  box-shadow: 0 0.3cqw 0.8cqw rgba(5, 22, 42, 0.32), 0 0 0.7cqw rgba(124, 232, 255, 0.3);
+}
+
+.skillset-tool-mark {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.45cqw;
+  height: 1.45cqw;
+  padding: 0 0.2cqw;
+  border-radius: 0.42cqw;
+  background: var(--tc-bg, #0B3861);
+  color: var(--tc-fg, #fff);
+  font-weight: 800;
+  font-size: 0.66cqw;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  box-shadow: inset 0 0 0 0.06cqw rgba(255, 255, 255, 0.18);
+}
+
+[data-skill-carousel] .skillset-specialty-card:nth-child(4) { animation-delay: 0.7s; }
+[data-skill-carousel] .skillset-specialty-card:nth-child(5) { animation-delay: 2.1s; }
+[data-skill-carousel] .skillset-specialty-card:nth-child(6) { animation-delay: 3.5s; }
+
+/* Tool chips with real logos: white tile keeps dark marks (Notion, CapCut) visible */
+.skillset-tool-mark.has-logo {
+  background: #FFFFFF;
+  padding: 0.16cqw;
+  min-width: 1.45cqw;
+  width: 1.45cqw;
+}
+
+.skillset-tool-mark.has-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* Video projects: play badge on covers (opens film.html) */
+.proj-film-badge {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px 3px 6px;
+  border-radius: 999px;
+  background: rgba(5, 14, 25, 0.82);
+  color: #FEFFF1;
+  font-family: var(--font-poppins);
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.proj-film-badge svg {
+  width: 12px;
+  height: 12px;
+  color: #7CE8FF;
+}
+
+/* Design / Operations / AI Fluency tool rows: logo-only badges like the Technical cards */
+.skillset-logo-badge:focus-visible {
+  outline: 0.14cqw solid #7CE8FF;
+  outline-offset: 0.25cqw;
+  border-radius: 0.6cqw;
+}
+
+/* Dark marks on transparent backgrounds need a light tile on the blue cards */
+.skillset-logo-badge img[src*="notion"],
+.skillset-logo-badge img[src*="capcut"] {
+  padding: 0.3cqw;
+  border-radius: 0.6cqw;
+  background: #FFFFFF;
+}
+
+/* Wide wordmark logos (Coursera, DataCamp, ASEAN AHEAD) on a white plate */
+.skillset-logo-badge--wide {
+  width: auto;
+  height: 2.55cqw;
+  padding: 0.32cqw 0.7cqw;
+  border-radius: 0.6cqw;
+  background: #FFFFFF;
+}
+
+.tech-badge-icon.skillset-logo-badge--wide img {
+  width: auto;
+  height: 100%;
+  max-width: 7cqw;
+}
+
+/* FlyRank's square icon gets rounded corners like the other app icons */
+.skillset-logo-badge img[src*="flyrank"] {
+  border-radius: 0.55cqw;
+}

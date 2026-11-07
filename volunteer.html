@@ -51,11 +51,19 @@
                 </svg>
                 <span>Volunteer Passport</span>
             </a>
-            <button type="button" class="theme-toggle-btn" id="themeToggleBtn"
-                title="Switch between Light and Dark Mode" aria-label="Toggle Light or Dark Mode">
-                <svg class="theme-toggle-icon" id="themeToggleIcon" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
-                <span id="themeToggleLabel">Dark</span>
+            <button type="button" class="theme-toggle-btn theme-switch" id="themeToggleBtn" role="switch"
+                aria-checked="false" aria-label="Dark mode" title="Switch between Light and Dark Mode">
+                <span class="theme-switch-track" aria-hidden="true">
+                    <svg class="theme-switch-mark theme-switch-mark--sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2.2"/><path d="M12 2.5V4.5M12 19.5V21.5M4.6 4.6L6 6M18 18L19.4 19.4M2.5 12H4.5M19.5 12H21.5M4.6 19.4L6 18M18 6L19.4 4.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                    <svg class="theme-switch-mark theme-switch-mark--moon" viewBox="0 0 24 24" fill="none"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5 6.6 6.6 0 0 0 20.5 13.2Z" fill="currentColor"/></svg>
+                    <span class="theme-switch-stars"></span>
+                    <span class="theme-switch-knob">
+                        <svg class="theme-switch-ic theme-switch-ic--sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2.2"/><path d="M12 2.5V4.5M12 19.5V21.5M4.6 4.6L6 6M18 18L19.4 19.4M2.5 12H4.5M19.5 12H21.5M4.6 19.4L6 18M18 6L19.4 4.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                        <svg class="theme-switch-ic theme-switch-ic--moon" viewBox="0 0 24 24" fill="none"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5 6.6 6.6 0 0 0 20.5 13.2Z" fill="currentColor"/></svg>
+                    </span>
+                </span>
+                <svg class="theme-toggle-icon" id="themeToggleIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true" hidden></svg>
+                <span class="theme-switch-label" id="themeToggleLabel">Dark</span>
             </button>
         </div>
 

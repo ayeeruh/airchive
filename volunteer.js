@@ -48,6 +48,7 @@
         else document.documentElement.removeAttribute('data-theme');
         themeIcon.innerHTML = dark ? SUN : MOON;
         themeLabel.textContent = dark ? 'Light' : 'Dark';
+        themeBtn.setAttribute('aria-checked', dark ? 'true' : 'false');
         if (favicon) favicon.href = dark ? 'assets/logo-dark.png' : 'assets/logo-light.png';
         try {
             localStorage.setItem('airchive-theme', theme);
