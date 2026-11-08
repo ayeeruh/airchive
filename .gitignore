@@ -7,3 +7,6 @@ assets/*.mov
 
 # Raw screen recording (68 MB); the page plays the cropped 1280px copy assets/skilltreyd-system/walkthrough.mp4
 assets/skilltreyd-system/skilltreyd-video-flow.mp4
+
+# Raw Brewed Snapshot screen recording (52 MB); the page plays the silent cropped copy walkthrough.mp4
+assets/brewed-snapshot/Bean*.mp4

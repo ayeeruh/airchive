@@ -267,10 +267,7 @@
                             <svg class="dv-ic-play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5.5V18.5L18.5 12L8 5.5Z" fill="currentColor"/></svg>
                         </button>
                         <span class="dv-player-track"><span id="dvPlayerFill"></span></span>
-                        <button type="button" class="dv-player-btn" id="dvMuteBtn" aria-label="Unmute">
-                            <svg class="dv-ic-muted" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9.5H7.5L12 5.5V18.5L7.5 14.5H4V9.5Z" fill="currentColor"/><path d="M16 9.5L20.5 14M20.5 9.5L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                            <svg class="dv-ic-sound" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9.5H7.5L12 5.5V18.5L7.5 14.5H4V9.5Z" fill="currentColor"/><path d="M15.5 9C16.4 9.8 16.9 10.9 16.9 12C16.9 13.1 16.4 14.2 15.5 15M18 6.8C19.6 8.2 20.5 10 20.5 12C20.5 14 19.6 15.8 18 17.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                        </button>
+                        <!-- System demo clips are always silent: no unmute control -->
                     </div>
                 </div>
                 <div class="dv-phones" id="dvPhones" style="--n:${phones.length}" data-reveal>
@@ -778,12 +775,11 @@
         const caption = document.getElementById('dvPhoneCaption');
         const player = document.getElementById('dvPlayer');
         const playBtn = document.getElementById('dvPlayBtn');
-        const muteBtn = document.getElementById('dvMuteBtn');
         const fill = document.getElementById('dvPlayerFill');
         let active = 0;
         let inView = false;
         let userPaused = false;
-        let muted = true;
+        const muted = true; // system demo clips always play without sound
 
         const mediaOf = (i) => cards[i].querySelector('video');
         const showFallback = (v) => {
@@ -810,7 +806,6 @@
             const playing = usable && !v.paused;
             player.classList.toggle('is-playing', Boolean(playing));
             playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
-            muteBtn.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
             player.classList.toggle('is-muted', muted);
         };
 
@@ -872,12 +867,6 @@
                 v.pause();
                 syncPlayer();
             }
-        });
-        muteBtn.addEventListener('click', () => {
-            muted = !muted;
-            const v = mediaOf(active);
-            if (v) v.muted = muted;
-            syncPlayer();
         });
         cards.forEach((c, i) => {
             const v = c.querySelector('video');

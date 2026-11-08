@@ -265,6 +265,97 @@ window.AIRCHIVE_PROJECTS = {
             gallery: []
         },
 
+        {
+            id: 'brewed-snapshot',
+            group: 'tech',
+            title: 'Brewed Snapshot',
+            tagline: 'Brewed Snapshot: A Sip of Local Charm, a café blog website featuring five local favourites around Angeles, Pampanga.',
+            role: 'Web Designer (Commission)',
+            year: '2024',
+            duration: '',
+            team: 'Client: Holy Angel University (HAU) student',
+            status: 'Commission — Completed',
+            summary: 'A café-blog website for a Holy Angel University (HAU) student commission, built with Google Sites and Canva. Under the “Bean Voyagers” banner, it reviews the top five local cafés around Angeles, Pampanga, one chapter per café.',
+            overview: 'Brewed Snapshot: A Sip of Local Charm welcomes readers with a warm “Mayap a Aldo!” and walks them through five chapters: MYOC Coffee Day, Nomi のみ – Angeles, Mug and Magic, Kapeterium and Here Cafe – Clark City. Each chapter pairs an honest review of the ambiance, food and drinks with the café’s address and hours, a photo gallery of signature items, the full menu, and buttons to the café’s Instagram and Facebook pages.',
+            challenge: 'The client needed a polished, easy-to-read blog that showcases local cafés, with lots of photos and menus, but without coding or paying for hosting.',
+            approach: [
+                { title: 'Plan the story', text: 'Organised the five cafés as chapters, each with its own theme, like “A Vintage-Like Approach” and “When Modern Cafe Meets Productivity”.' },
+                { title: 'Design the visuals in Canva', text: 'Created the hero banner, café graphics and menu layouts in a warm coffee-brown palette.' },
+                { title: 'Build the site in Google Sites', text: 'Assembled the pages and sections, with consistent chapter banners, galleries and call-to-action buttons.' },
+                { title: 'Connect readers to the cafés', text: 'Added each café’s address, opening hours, menu and social links so the blog doubles as a practical guide.' }
+            ],
+            outcomes: [
+                { value: '5', label: 'Local cafés featured' },
+                { value: '5', label: 'Themed chapters' },
+                { value: '1', label: 'Published Google Site' }
+            ],
+            highlights: [
+                'Full-width “Brewed Snapshots” hero with a warm coffee-brown theme',
+                'One themed chapter per café, each with a review, address and hours',
+                'Photo galleries of signature drinks and dishes',
+                'Full menus for every café, laid out for easy reading',
+                'Instagram and Facebook buttons that send readers to each café'
+            ],
+            tools: ['Google Sites', 'Canva', 'Web Design', 'Content Layout', 'Copywriting'],
+            links: { live: 'https://sites.google.com/view/bean-voyagers-brewed-snapshots/home', repo: '', caseStudy: '' },
+            cover: 'assets/brewed-snapshot/web/home.jpg',
+            domain: 'sites.google.com',
+            coverPosition: 'center top',
+
+            /* Interactive device mock-ups (project.html "In action" section) */
+            devices: {
+                desktop: [
+                    {
+                        label: 'Live walkthrough',
+                        kind: 'video',
+                        src: 'assets/brewed-snapshot/walkthrough.mp4',
+                        poster: 'assets/brewed-snapshot/web/home.jpg',
+                        alt: 'Screen recording scrolling through the Brewed Snapshot café blog'
+                    },
+                    {
+                        label: 'Home',
+                        src: 'assets/brewed-snapshot/web/home.jpg',
+                        alt: 'Brewed Snapshot home page',
+                        hotspots: [
+                            { x: 9.9, y: 3.6, title: 'Bean Voyagers', text: 'The blog’s brand name and logo stay on every page.' },
+                            { x: 50, y: 16.8, title: 'Brewed Snapshots hero', text: 'A full-width café photo with bold type sets the cosy, coffee-shop mood.' },
+                            { x: 50.2, y: 31.8, title: 'A Sip of Local Charm', text: 'The subtitle tells readers the focus: local cafés, not big chains.' },
+                            { x: 19.5, y: 56.8, title: 'Mayap a Aldo!', text: 'A Kapampangan greeting welcomes readers and grounds the blog in Pampanga.' },
+                            { x: 18, y: 95.5, title: 'Chapter banners', text: 'Each café opens with its own chapter title, guiding readers through the list.' }
+                        ]
+                    },
+                    {
+                        label: 'Café chapter',
+                        src: 'assets/brewed-snapshot/web/myoc.jpg',
+                        alt: 'MYOC Coffee Day chapter of Brewed Snapshot',
+                        hotspots: [
+                            { x: 18, y: 13.4, title: 'Chapter One', text: '“A Vintage-Like Approach” frames MYOC Coffee Day’s 90s coffee-shop vibe.' },
+                            { x: 20.8, y: 53.5, title: 'Hero photo', text: 'A signature drink photo leads each chapter.' },
+                            { x: 52.9, y: 27.2, title: 'Café name', text: 'Large, warm-brown headings make each café easy to spot while scrolling.' },
+                            { x: 53.1, y: 37.6, title: 'Address & hours', text: 'Practical details so readers can plan a visit.' },
+                            { x: 66.1, y: 64.5, title: 'Honest review', text: 'Ambiance, service and menu, written as a first-hand experience.' }
+                        ]
+                    }
+                ]
+            },
+
+            /* Feature tour (project.html "Feature tour" section) */
+            features: [
+                { title: 'Home', path: '/view/bean-voyagers-brewed-snapshots/home', src: 'assets/brewed-snapshot/web/home.jpg', text: 'The “Brewed Snapshots: A Sip of Local Charm” hero and a warm “Mayap a Aldo!” welcome.' },
+                { title: 'MYOC Coffee Day', path: '/home#chapter-one', src: 'assets/brewed-snapshot/web/myoc.jpg', text: 'Chapter One, “A Vintage-Like Approach”: a 90s coffee-shop vibe under a long-standing building in Angeles.' },
+                { title: 'MYOC gallery', path: '/home#chapter-one', src: 'assets/brewed-snapshot/web/myoc-gallery.jpg', text: 'Signature lattes and the cosy interior, captioned like a photo diary.' },
+                { title: 'MYOC menu & socials', path: '/home#chapter-one', src: 'assets/brewed-snapshot/web/myoc-menu.jpg', text: 'The full menu plus buttons to the café’s Instagram and Facebook.' },
+                { title: 'Nomi のみ – Angeles', path: '/home#chapter-two', src: 'assets/brewed-snapshot/web/nomi.jpg', text: 'Chapter Two, “Traditional Charm with a Taste of a Modern Twist”: a hidden gem near Holy Angel University.' },
+                { title: 'Nomi menu', path: '/home#chapter-two', src: 'assets/brewed-snapshot/web/nomi-menu.jpg', text: 'Foods, fruit teas, signature drinks and coffee, shown as four menu boards.' },
+                { title: 'Mug and Magic', path: '/home#chapter-three', src: 'assets/brewed-snapshot/web/mug-and-magic.jpg', text: 'Chapter Three, “The Coziest Place for Coffee and Games”: a café and board-game haven.' },
+                { title: 'Mug and Magic gallery', path: '/home#chapter-three', src: 'assets/brewed-snapshot/web/mug-and-magic-gallery.jpg', text: 'Dark Ritual, Navigation and Magical Mug, each with a short write-up.' },
+                { title: 'Kapeterium', path: '/home#chapter-four', src: 'assets/brewed-snapshot/web/kapeterium.jpg', text: 'Chapter Four, “Locals’ All-time Favorite”: a cosy neighbourhood coffee stop.' },
+                { title: 'Here Cafe – Clark City', path: '/home#chapter-five', src: 'assets/brewed-snapshot/web/here-cafe.jpg', text: 'Chapter Five, “When Modern Cafe Meets Productivity”: a work-friendly café in Clark.' },
+                { title: 'Here Cafe menu', path: '/home#chapter-five', src: 'assets/brewed-snapshot/web/here-cafe-menu.jpg', text: 'Coffee, pizza, tea, non-coffee drinks, pasta and more, in a dark menu style.' }
+            ],
+            gallery: []
+        },
+
         /* ---------------- DESIGNS ---------------- */
         {
             id: 'design-dos-membership-card-2026',
@@ -294,6 +385,60 @@ window.AIRCHIVE_PROJECTS = {
             gallery: [{ src: 'assets/DOS-Membership-Card-2026.png', caption: 'Membership card — front design' }]
         },
         {
+            id: 'design-ssite-tote-bag-2025',
+            group: 'design',
+            category: 'merch',
+            title: 'BPSU-SSITE Tote Bag',
+            tagline: 'A clean tote bag for the Student Society on Information Technology Education, with a glossy “ssite.” wordmark and a loading-bar accent.',
+            role: 'Graphic Designer',
+            year: '2025',
+            duration: '',
+            team: 'Student Society on Information Technology Education (BPSU-SSITE)',
+            status: '',
+            summary: 'Tote bag merchandise for the BPSU Student Society on Information Technology Education (BPSU-SSITE), built around a glassy, aqua “ssite.” wordmark.',
+            overview: 'The design keeps the bag white and minimal so the logo stands out. A beveled, glass-like “ssite.” wordmark sits over a soft swoosh mark, with the full organization name underneath and a progress-bar graphic that nods to IT.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Glossy, beveled “ssite.” wordmark in aqua and teal',
+                'Loading-bar accent as a playful tech reference',
+                'Faint swoosh mark behind the logo for depth',
+                'Minimal white canvas that suits everyday use'
+            ],
+            tools: ['Merchandise Design', 'Branding', 'Typography'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/SSITE Bag.png',
+            gallery: [{ src: 'assets/SSITE Bag.png', caption: 'BPSU-SSITE tote bag — front design' }]
+        },
+        {
+            id: 'design-dos-tote-bag-2025',
+            group: 'design',
+            category: 'merch',
+            title: 'BPSU-DOS Tote Bag',
+            tagline: 'A space-themed tote for the BPSU DOST Organization of Scholars: chrome “BPSU DOS” lettering over a blue planet.',
+            role: 'Graphic Designer',
+            year: '2025',
+            duration: '',
+            team: 'BPSU DOST Organization of Scholars (BPSU-DOS)',
+            status: '',
+            summary: 'Tote bag merchandise for the BPSU DOST Organization of Scholars (BPSU-DOS), with bold metallic “BPSU DOS” lettering set against a textured blue planet.',
+            overview: 'The design treats the organization as a world of its own: a grainy blue planet with flying comets, bold chrome-blue “BPSU DOS” lettering, and the lines “Iskolar ng Bayan” and “Lagi’t Lagi Para sa Bayan” framing the emblem.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Metallic, angled “BPSU DOS” lettering as the centerpiece',
+                'Textured blue planet with comet accents',
+                '“Iskolar ng Bayan” and “Lagi’t Lagi Para sa Bayan” taglines',
+                'Matches the blue identity of the BPSU-DOS membership card'
+            ],
+            tools: ['Merchandise Design', 'Illustration', '3D Typography'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/DOS TOTE BAG - 3.png',
+            gallery: [{ src: 'assets/DOS TOTE BAG - 3.png', caption: 'BPSU-DOS tote bag — front design' }]
+        },
+        {
             id: 'design-sentro-r3-world-cafe-poster',
             group: 'design',
             category: 'poster',
@@ -320,6 +465,63 @@ window.AIRCHIVE_PROJECTS = {
             cover: 'assets/R3_Poster_WorldCafe.png',
             coverPosition: 'center top',
             gallery: [{ src: 'assets/R3_Poster_WorldCafe.png', caption: 'Full poster — SENTRO for Brilliance' }]
+        },
+
+        {
+            id: 'design-npsc-poster-2026',
+            group: 'design',
+            category: 'poster',
+            title: 'NPSC Poster 2026',
+            tagline: 'The Region III scholars’ organization poster, presented by the DOST Region 3 delegates at the National Patriot Scholars Congress in South Cotabato, Mindanao.',
+            role: 'Graphic Designer',
+            year: '2026',
+            duration: '',
+            team: 'DOST Region 3 Delegates (SENTRO)',
+            status: 'Presented at NPSC 2026',
+            summary: 'An infographic poster for SENTRO (Scholars’ Empowered Nationalistic and Tactical Regional Organization), the regional organization of DOST-SEI scholars in Central Luzon. The DOST Region 3 delegates presented it at the National Patriot Scholars Congress (NPSC) 2026 in South Cotabato, Mindanao.',
+            overview: 'A sculpted “SENTRO” emblem filled with photos from the year sits at the center, surrounded by the organization’s flagship programs: Project Trisko, Sentronized, Bangon Central Luzon, Iskomerch, Iskommunity and Step2DOST. Below, a Problems & Solutions band leads into six focus areas, from Scholars Development to Organizational Excellence, tied to the UN Sustainable Development Goals.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Sculpted “SENTRO” emblem filled with photos from the year',
+                'Six flagship programs placed around the emblem with member-chapter logos',
+                'Problems & Solutions band leading into six focus-area cards',
+                'SDG 4, 11, 13 and 17 badges and contact details along the footer'
+            ],
+            tools: ['Poster Design', 'Infographics', 'Photo Collage'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/designs/npsc-poster-2026.jpg',
+            coverPosition: 'center top',
+            gallery: [{ src: 'assets/designs/npsc-poster-2026.jpg', caption: 'Full poster — presented at NPSC 2026, South Cotabato' }]
+        },
+        {
+            id: 'design-ust-sts-narra-poster-2025',
+            group: 'design',
+            category: 'poster',
+            title: 'Pterocarpus Indicus — STS Biodiversity Poster',
+            tagline: 'An informative poster on the Narra, the national tree of the Philippines, for a University of Santo Tomas STS class.',
+            role: 'Graphic Designer (Commission)',
+            year: '2025',
+            duration: '',
+            team: 'Client: University of Santo Tomas (UST) student',
+            status: 'Commission — Completed',
+            summary: 'A science, technology and society (STS) informative poster on biodiversity services in the Philippines, commissioned by a University of Santo Tomas (UST) student. It profiles Pterocarpus indicus, the Narra, from its uses to its conservation.',
+            overview: 'The poster opens with a bold “Pterocarpus Indicus” title and the Narra’s common names and native range, then covers its uses across the timber, agroforestry and traditional-medicine industries, its IUCN conservation status, protection strategies, threats, and ways to cultivate and regulate it for community benefit. A QR code links to the references.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Bold green-and-gold title treatment over a Narra tree photo',
+                'Industry uses: timber, agroforestry, and medical / traditional uses',
+                'IUCN conservation status and five protection strategies',
+                'Challenges, cultivation and regulation panels, plus a QR code to the references'
+            ],
+            tools: ['Poster Design', 'Infographics', 'Research Layout'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/designs/ust-sts-narra-poster-2025.jpg',
+            coverPosition: 'center top',
+            gallery: [{ src: 'assets/designs/ust-sts-narra-poster-2025.jpg', caption: 'Full poster — Pterocarpus indicus (Narra)' }]
         },
 
         /* ---------------- VIDEO PRODUCTIONS (open in film.html) ---------------- */
