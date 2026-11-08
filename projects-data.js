@@ -17,6 +17,8 @@
      — sorts them into the Design sub-filters on the Project Showcase.
    - `devices` / `features` (optional): interactive desktop + phone mock-ups and a
      screen-by-screen feature tour on the project page (see the GEN-ZYNC entry).
+   - `event` (optional, Events Lead): adds an event pass, run of show (sessions → slots),
+     paper trail (roles + papers) and a photo stage to project.html. See Start to Link.
    - `domain` (optional): name shown in the Feature tour's browser bar (default 'genzync.org').
      Desktop `devices` screens can also be a looping video: { kind: 'video', src, poster }.
    - `coverPosition` (optional): which part of the cover to show, e.g. 'center top'
@@ -718,84 +720,225 @@ window.AIRCHIVE_PROJECTS = {
 
         /* ---------------- EVENTS LEAD ---------------- */
         {
-            id: 'event-01',
+            id: 'event-start-to-link',
             group: 'events',
-            sample: true,
-            title: 'Event Project 01',
-            tagline: 'Placeholder tagline — what the event set out to do.',
-            role: 'Event Lead',
-            year: '2025',
-            duration: '2 months of planning',
-            team: 'Committee of 00',
-            status: 'Held',
-            summary: 'Placeholder — describe the event, its scale, and what you were responsible for.',
-            overview: 'Placeholder overview of the event and its audience.',
-            challenge: 'Placeholder challenge — budget, timeline, people, or logistics.',
+            title: 'Start to Link',
+            tagline: 'Equipping Aspiring Professionals with Career Essentials: an SSITE webinar on building your professional portfolio, from LinkedIn to GitHub.',
+            role: 'Event Lead • VP for External Affairs',
+            year: '2026',
+            duration: '',
+            team: 'BPSU-SSITE',
+            status: 'Held online',
+            summary: 'A one-day online workshop by the Student Society on Information Technology Education (SSITE) of BPSU – Main Campus, open to all CCST students. I spearheaded the operations and publication materials, reached out to partners through invitations, and wrote the event’s papers: the proposal, masterfile, program flow, and invitation letters to guests, speakers and partner organizations.',
+            overview: 'Start to Link prepares students for the jump from campus to career. Over two sessions on Google Meet, invited speakers walked CCST students through building a professional presence: a LinkedIn session on getting noticed by recruiters, and a GitHub session on setting up a starter portfolio, each with an informative talk, a hands-on application and an open forum.',
+            challenge: 'An online workshop has three common risks: unstable internet for participants or speakers, low engagement in a virtual room, and students who don’t have LinkedIn or GitHub accounts yet. The plan addressed each one: participants were asked to secure a stable connection with materials on hand, the sessions mixed live demos, ice breakers and Q&A, and time was set aside to help students set up their accounts.',
             approach: [
-                { title: 'Planning', text: 'Placeholder step.' },
-                { title: 'Team & Logistics', text: 'Placeholder step.' },
-                { title: 'Event Day', text: 'Placeholder step.' }
+                { title: 'Propose', text: 'Wrote the project proposal: rationale, objectives, expected outcomes, risks and countermeasures, methodology and a PHP 2,500 budget.' },
+                { title: 'Reach out', text: 'Drafted invitation letters and invited the speakers, guests and partner organizations to collaborate.' },
+                { title: 'Plan the day', text: 'Built the program flow and the masterfile so every segment had a time slot and a person in charge.' },
+                { title: 'Promote', text: 'Led the publication materials that announced the webinar to CCST students.' },
+                { title: 'Run it live', text: 'Ran operations on Google Meet and delivered the closing remarks.' }
             ],
             outcomes: [
-                { value: '000', label: 'Placeholder attendees' },
-                { value: '00', label: 'Placeholder volunteers' }
+                { value: '2', label: 'Sessions: LinkedIn & GitHub' },
+                { value: '2', label: 'Invited industry speakers' },
+                { value: '4', label: 'Event papers I prepared' },
+                { value: '8', label: 'Hours of program' }
             ],
-            highlights: ['Placeholder highlight'],
-            tools: ['Planning', 'Leadership'],
+            highlights: [
+                'Two-part webinar: LinkedIn profile building and a GitHub starter pack',
+                'Informative talk + hands-on application + Q&A in every session',
+                'Ice breakers and a digital awarding ceremony to keep the virtual room engaged',
+                'Proposal, masterfile, program flow and invitation letters prepared by me',
+                'Closed the day with my closing remarks as VP for External Affairs'
+            ],
+            tools: ['Event Operations', 'Publication Materials', 'Partnerships', 'Proposal Writing', 'Google Meet'],
             links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
+            cover: 'assets/events/start-to-link/Start-to-Link-1.jpg',
+            gallery: [],
+
+            /* Event page extras (event-page.js) */
+            event: {
+                code: 'SSITE • STL-2026',
+                format: 'Online webinar',
+                host: 'BPSU-SSITE',
+                date: 'April 11, 2026',
+                day: 'Saturday',
+                venue: 'Google Meet',
+                audience: 'All CCST students',
+                admit: 'CCST',
+                sessions: [
+                    {
+                        key: 'linkedin',
+                        label: 'LinkedIn',
+                        part: 'Afternoon session',
+                        time: '1:00 – 4:00 PM',
+                        talk: 'Swipe Right on Your Career: Stop Being Lowkey and Get Noticed on LinkedIn!',
+                        speaker: 'Ms. Jedia Nicole Sagun',
+                        focus: 'How to stand out to recruiters: headline, summary, skills and networking, followed by a hands-on LinkedIn profile build.',
+                        slots: [
+                            { time: '1:00 PM', title: 'Afternoon attendance via Google Form', who: 'Project Head & Co-Head' },
+                            { time: '1:10 PM', title: 'Ice breaker', who: 'Program Head & Game Masters' },
+                            { time: '1:40 PM', title: 'Swipe Right on Your Career: informative talk', who: 'Ms. Jedia Nicole Sagun', type: 'talk' },
+                            { time: '2:30 PM', title: 'Hands-on application: build your LinkedIn profile', who: 'Ms. Jedia Nicole Sagun', type: 'talk' },
+                            { time: '3:10 PM', title: 'Q&A portion', who: 'Speaker & participants' },
+                            { time: '3:25 PM', title: 'Closing remarks', who: 'VPE Aira Bianca Ordaniel & Secretary Janissa Bianca Deza', type: 'me' },
+                            { time: '3:40 PM', title: 'Photo opportunity & digital awarding', who: 'SSITE Project Heads & President' },
+                            { time: '3:50 PM', title: 'Feedback form', who: 'SSITE Officers' }
+                        ]
+                    },
+                    {
+                        key: 'github',
+                        label: 'GitHub',
+                        part: 'Morning session',
+                        time: '8:00 – 11:25 AM',
+                        talk: 'Code, Commit, Conquer: A Beginner’s Guide to Your GitHub Starter Pack',
+                        speaker: 'Mr. Benjamin III F. Delgado',
+                        focus: 'Creating and organizing a GitHub account, uploading projects and presenting repositories professionally, with a guided hands-on setup.',
+                        slots: [
+                            { time: '8:00 AM', title: 'Morning attendance via Google Form', who: 'Registration Head & Officers' },
+                            { time: '8:10 AM', title: 'Prayer, National Anthem & BPSU Hymn', who: 'Host & SSITE Technicals' },
+                            { time: '8:25 AM', title: 'Message of inspiration & event kick-off', who: 'SSITE President, SSITE Adviser & College Dean' },
+                            { time: '8:50 AM', title: 'Ice breaker', who: 'Program Head & Game Masters' },
+                            { time: '9:30 AM', title: 'Code, Commit, Conquer: informative talk', who: 'Mr. Benjamin III F. Delgado', type: 'talk' },
+                            { time: '10:20 AM', title: 'Hands-on application: your GitHub starter pack', who: 'Mr. Benjamin III F. Delgado', type: 'talk' },
+                            { time: '11:00 AM', title: 'Q&A portion', who: 'Speaker & participants' },
+                            { time: '11:15 AM', title: 'Photo opportunity & digital awarding', who: 'SSITE Project Heads & President' }
+                        ]
+                    }
+                ],
+                roles: [
+                    { title: 'Operations', text: 'Led the run of the webinar, from attendance and segments to the people in charge of each part.' },
+                    { title: 'Publication materials', text: 'Spearheaded the pubmats that announced and promoted Start to Link.' },
+                    { title: 'Partnerships', text: 'Reached out to speakers, guests and organizations through formal invitations.' },
+                    { title: 'Event papers', text: 'Wrote the proposal, masterfile, program flow and invitation letters.' }
+                ],
+                papers: [
+                    {
+                        short: 'Proposal',
+                        title: 'Project Proposal',
+                        text: 'The approved plan for “Start to Link: Equipping Aspiring Professionals with Career Essentials”.',
+                        items: [
+                            'Rationale: bridging classroom learning and industry expectations',
+                            'Objectives & expected outcomes for resumes, LinkedIn and GitHub',
+                            'Possible risks and countermeasures for an online workshop',
+                            'Methodology and a PHP 2,500 budget'
+                        ],
+                        sign: 'Prepared by Aira Bianca Ordaniel, VP for External Affairs'
+                    },
+                    {
+                        short: 'Masterfile',
+                        title: 'Masterfile',
+                        text: 'The working file that kept the event organized in one place.',
+                        items: ['Tasks and people in charge', 'Participant and attendance records', 'Links, materials and deadlines for the team']
+                    },
+                    {
+                        short: 'Program flow',
+                        title: 'Program Flow',
+                        text: 'The minute-by-minute run of show for the morning and afternoon sessions.',
+                        items: ['Time slots from 8:00 AM to 4:00 PM', 'Talks, hands-on parts, Q&A and ice breakers', 'A person in charge for every segment']
+                    },
+                    {
+                        short: 'Invitations',
+                        title: 'Invitation Letters',
+                        text: 'Formal letters sent on behalf of SSITE.',
+                        items: ['Invitations to the speakers', 'Invitations to guests', 'Letters to organizations invited to collaborate']
+                    }
+                ],
+                photos: [
+                    { src: 'assets/events/start-to-link/Start-to-Link-1.jpg', caption: 'Code, Commit, Conquer: the GitHub talk begins' },
+                    { src: 'assets/events/start-to-link/Start-to-Link-4.jpg', caption: 'Ice breaker: answers pour into the chat' },
+                    { src: 'assets/events/start-to-link/Start-to-Link-2.jpg', caption: 'LinkedIn session: “Recruiters started reaching out”' },
+                    { src: 'assets/events/start-to-link/Start-to-Link-5.jpg', caption: 'Let’s connect: speaker Jedia Nicole Sagun' },
+                    { src: 'assets/events/start-to-link/Start-to-Link-3.jpg', caption: 'Participants on camera with the Start to Link frame' },
+                    { src: 'assets/events/start-to-link/Start-to-Link-6.jpg', caption: 'Closing remarks by VPE Aira Bianca Ordaniel' }
+                ]
+            }
         },
         {
-            id: 'event-02',
+            id: 'event-ascend-2026',
             group: 'events',
-            sample: true,
-            title: 'Event Project 02',
-            tagline: 'Placeholder tagline.',
-            role: 'Program Head',
-            year: '2024',
-            duration: '1 month',
-            team: 'Team of 00',
-            status: 'Held',
-            summary: 'Placeholder — describe the program and its outcome.',
-            overview: 'Placeholder overview.',
-            challenge: 'Placeholder challenge.',
+            title: 'ASCEND 2026: JLSS Review Session Initiative',
+            tagline: 'Advancing Scholars through Commitment, Empowerment, and Navigated Direction: weekly online review sessions by BPSU-DOS for aspiring DOST Junior Level Science Scholars.',
+            role: 'Social Media & Design Lead',
+            year: '2026',
+            duration: 'June – August 2026',
+            team: 'BPSU-DOS',
+            status: 'Weekly via Zoom',
+            summary: 'A summer-long review initiative of the BPSU – DOST Organization of Scholars (BPSU-DOS) that helps applicants prepare for the DOST Junior Level Science Scholarship (JLSS). From June to August 2026, I spearheaded the event’s social media management and all of its design deliverables.',
+            overview: 'ASCEND prepares aspiring scientists for the DOST Junior Level Science Scholarship, building the knowledge, skills and mindset that scholars need, along with perseverance, leadership and academic excellence in the sciences. The 2026 run became a weekly review series on Zoom, with sessions on subjects like Biology and Probability and Statistics. Every week needed a fresh, on-brand post to announce it, plus a page that kept applicants informed and engaged.',
+            challenge: 'A three-month weekly series lives or dies on its online presence: applicants have to know what is being reviewed, when, and where, every single week, and the look has to stay consistent from the first announcement to the last session.',
             approach: [
-                { title: 'Program Design', text: 'Placeholder step.' },
-                { title: 'Execution', text: 'Placeholder step.' }
+                { title: 'Build the ASCEND look', text: 'Designed a dreamy teal-and-silver identity: an ornate frame, flying birds and a chrome “ASCEND” wordmark with orbiting stars.' },
+                { title: 'Launch the series', text: 'Created the main Review Session announcement: weekly, via Zoom, under BPSU-DOS.' },
+                { title: 'Feature each subject', text: 'Designed subject cards for the weekly topics, such as Biology and Probability and Statistics.' },
+                { title: 'Run the page', text: 'Managed social media from June to August 2026: posting, scheduling and keeping applicants updated.' }
             ],
-            outcomes: [{ value: '000', label: 'Placeholder participants' }],
-            highlights: ['Placeholder highlight'],
-            tools: ['Operations', 'Logistics'],
-            links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
-        },
-        {
-            id: 'event-03',
-            group: 'events',
-            sample: true,
-            title: 'Event Project 03',
-            tagline: 'Placeholder tagline.',
-            role: 'Creative Director',
-            year: '2024',
-            duration: '6 weeks',
-            team: 'Cast & Crew of 00',
-            status: 'Staged',
-            summary: 'Placeholder — describe the production you directed.',
-            overview: 'Placeholder overview.',
-            challenge: 'Placeholder challenge.',
-            approach: [
-                { title: 'Script & Casting', text: 'Placeholder step.' },
-                { title: 'Rehearsals', text: 'Placeholder step.' },
-                { title: 'Show', text: 'Placeholder step.' }
+            outcomes: [],
+            highlights: [
+                'Spearheaded social media management for the whole June – August 2026 run',
+                'Owned every design deliverable of the initiative',
+                'One consistent ASCEND identity across all posts',
+                'Weekly subject cards, from Biology to Probability and Statistics',
+                'Sessions held weekly via Zoom for JLSS applicants'
             ],
-            outcomes: [{ value: '000', label: 'Placeholder audience' }],
-            highlights: ['Placeholder highlight'],
-            tools: ['Directing', 'Production'],
+            tools: ['Social Media Management', 'Publication Design', 'Brand Identity', 'Content Scheduling'],
             links: { live: '', repo: '', caseStudy: '' },
-            cover: '',
-            gallery: []
+            cover: 'assets/events/ascend-2026/ascend-review-session.jpg',
+            coverPosition: 'center 45%',
+            gallery: [],
+
+            /* Event page extras (event-page.js) */
+            event: {
+                code: 'BPSU-DOS • ASCEND-2026',
+                format: 'Weekly review series',
+                host: 'BPSU-DOS',
+                date: 'June – August 2026',
+                day: 'Weekly',
+                venue: 'Zoom',
+                audience: 'DOST JLSS applicants',
+                admit: 'JLSS',
+                roles: [
+                    { title: 'Social media management', text: 'Ran the initiative’s online presence from June to August 2026: announcements, weekly posts and updates for applicants.' },
+                    { title: 'Design deliverables', text: 'Designed every visual of the initiative, from the main announcement to the weekly subject cards.' },
+                    { title: 'Visual identity', text: 'Set the ASCEND look so every post felt like part of one series.' }
+                ],
+                papers: [
+                    {
+                        short: 'About ASCEND',
+                        title: 'Advancing Scholars through Commitment, Empowerment, and Navigated Direction',
+                        text: 'A purpose-driven program for applicants of the DOST Junior Level Science Scholarship.',
+                        items: [
+                            'Equip applicants with the knowledge, skills and mindset for academic success',
+                            'Cultivate leadership and collaboration in the sciences',
+                            'Instill a sense of purpose in the role of a scientist in national development',
+                            'Introduce research methods, critical thinking and academic resources'
+                        ],
+                        sign: 'From the ASCEND project proposal, BPSU-DOS'
+                    },
+                    {
+                        short: 'Social media',
+                        title: 'Social Media Management',
+                        text: 'The page that carried the initiative for three months.',
+                        items: ['Announced the review series and each weekly session', 'Kept the posting schedule from June to August 2026', 'Kept applicants updated on topics, schedules and Zoom details']
+                    },
+                    {
+                        short: 'Design kit',
+                        title: 'Design Deliverables',
+                        text: 'A full set of on-brand visuals for the series.',
+                        items: ['ASCEND wordmark treatment and visual identity', 'Main “Review Session” announcement', 'Weekly subject cards (e.g., Biology, Probability and Statistics)']
+                    }
+                ],
+                photosKicker: 'Design deliverables',
+                photosHeading: 'The ASCEND look',
+                photosNav: 'Designs',
+                stageBadge: 'POSTED',
+                stageShape: 'square',
+                photos: [
+                    { src: 'assets/events/ascend-2026/ascend-review-session.jpg', caption: 'Main announcement: ASCEND Review Session, weekly via Zoom' },
+                    { src: 'assets/events/ascend-2026/ascend-subject-card.jpg', caption: 'Subject card: Biology and Probability and Statistics' }
+                ]
+            }
         }
     ]
 };

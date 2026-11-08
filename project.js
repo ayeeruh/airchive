@@ -145,9 +145,12 @@
         ['Status', project.status]
     ].filter(([, v]) => v);
 
-    const showGallery = (project.gallery || []).length > 0 || !(project.features || []).length;
+    // Events with an `event` block get their own sections (event-page.js)
+    const ev = project.event && window.AIRCHIVE_EVENT ? window.AIRCHIVE_EVENT.build(project) : null;
+    const showGallery = (project.gallery || []).length > 0 || (!(project.features || []).length && !ev);
     const sections = [
         { id: 'overview', label: 'Overview' },
+        ...(ev ? ev.nav : []),
         (project.devices && ((project.devices.desktop || []).length || (project.devices.phones || []).length)) && { id: 'in-action', label: 'In action' },
         project.challenge && { id: 'challenge', label: 'Challenge' },
         (project.approach || []).length && { id: 'process', label: 'Process' },
@@ -378,10 +381,10 @@
                 </div>
 
                 <div class="pp-hero-visual">
-                    <div class="pp-cover proj-card--${project.group}" id="ppCover">
+                    ${ev ? ev.pass : `<div class="pp-cover proj-card--${project.group}" id="ppCover">
                         ${coverHtml(project, true)}
                         <span class="pp-cover-glare"></span>
-                    </div>
+                    </div>`}
                     <div class="pp-tools-float">
                         ${(project.tools || []).map((t, i) => `<span style="--i:${i}">${esc(t)}</span>`).join('')}
                     </div>
@@ -415,6 +418,8 @@
                 </aside>
             </div>
         </section>
+
+        ${ev ? ev.sections : ''}
 
         ${hasDevices ? `
         <!-- IN ACTION: device mock-ups -->
@@ -552,6 +557,8 @@
     );
     document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
 
+    if (ev) window.AIRCHIVE_EVENT.init(project, reduceMotion);
+
     /* ---------- Process line draws as you scroll through the steps ---------- */
     const processEl = document.getElementById('ppProcess');
     const processFill = document.getElementById('ppProcessFill');
@@ -624,7 +631,7 @@
         lightbox.classList.remove('is-open');
         lightbox.setAttribute('aria-hidden', 'true');
     };
-    document.querySelectorAll('.pp-shot[data-src], .ft-shot[data-src]').forEach((shot) =>
+    document.querySelectorAll('.pp-shot[data-src], .ft-shot[data-src], [data-lightbox][data-src]').forEach((shot) =>
         shot.addEventListener('click', () => {
             lbImg.src = shot.dataset.src;
             lbImg.alt = shot.dataset.caption || project.title;
@@ -971,7 +978,7 @@
 
     /* ---------- Image covers keep their real shape (no cropped screenshots) ---------- */
     const coverBox = document.getElementById('ppCover');
-    const coverImg = coverBox && coverBox.querySelector('img');
+    const coverImg = coverBox && !coverBox.classList.contains('ev-pass') && coverBox.querySelector('img');
     if (coverImg) {
         coverBox.classList.add('has-image');
         coverBox.closest('.pp-hero-visual').classList.add('has-image-cover');
