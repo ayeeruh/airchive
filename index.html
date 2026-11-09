@@ -917,12 +917,15 @@
                         <div class="exp-topbar-side">
                             <!-- Ongoing highlight (filled from ONGOING_EXPERIENCE data) -->
                             <div class="exp-ongoing" id="expOngoing" hidden></div>
-                            <p class="exp-hint">Hover or click a track to expand it</p>
+                            <p class="exp-hint">Click any experience to open full dossier ↗</p>
                         </div>
                     </div>
 
-                    <!-- Three Expanding Panels (filled from EXPERIENCES data) -->
-                    <div class="exp-panels" id="expPanels"></div>
+                    <!-- Interactive Track Filters -->
+                    <div class="exp-filter-bar" id="expFilterBar" role="tablist" aria-label="Experience tracks"></div>
+
+                    <!-- Interactive Cards Grid (filled dynamically from EXPERIENCES_DATA) -->
+                    <div class="exp-panels exp-deck" id="expPanels" role="region" aria-label="Experience cards"></div>
                 </div>
             </div>
 
@@ -2787,6 +2790,7 @@
         </div>
     </section>
 
+    <script src="experiences-data.js"></script>
     <script src="projects-data.js"></script>
     <script src="volunteers-data.js"></script>
     <script>
@@ -4192,17 +4196,27 @@
                 };
             })();
 
-            // Returning from volunteer.html lands back on the right passport page
-            const openVolunteeringsFromHash = () => {
-                const m = location.hash.match(/^#volunteerings(?:-([a-z0-9-]+))?$/i);
-                if (!m || !pageIntro) return;
-                pageIntro.scrollIntoView({ behavior: 'instant' });
-                switchFolderTab('volunteerings');
-                if (m[1]) volunteerPreview.show(m[1]);
-                history.replaceState(null, '', location.pathname + location.search);
+            // Returning from volunteer.html / experience.html lands back on the right folder
+            const handleHashFolderNavigation = () => {
+                if (!pageIntro) return;
+                const volMatch = location.hash.match(/^#volunteerings(?:-([a-z0-9-]+))?$/i);
+                if (volMatch) {
+                    pageIntro.scrollIntoView({ behavior: 'instant' });
+                    switchFolderTab('volunteerings');
+                    if (volMatch[1] && typeof volunteerPreview.show === 'function') volunteerPreview.show(volMatch[1]);
+                    history.replaceState(null, '', location.pathname + location.search);
+                    return;
+                }
+                const expMatch = location.hash.match(/^#experiences(?:-([a-z0-9-]+))?$/i);
+                if (expMatch) {
+                    pageIntro.scrollIntoView({ behavior: 'instant' });
+                    switchFolderTab('experiences');
+                    history.replaceState(null, '', location.pathname + location.search);
+                    return;
+                }
             };
-            window.addEventListener('load', () => setTimeout(openVolunteeringsFromHash, 60));
-            window.addEventListener('hashchange', openVolunteeringsFromHash);
+            window.addEventListener('load', () => setTimeout(handleHashFolderNavigation, 60));
+            window.addEventListener('hashchange', handleHashFolderNavigation);
 
             // ✏️ Ongoing / upcoming highlight shown at the top of the Experiences folder.
             //    The status flips to "Completed" automatically after the end date.
@@ -4228,86 +4242,116 @@
                 box.hidden = false;
             })();
 
+            // ---------- EXPERIENCES FOLDER (Interactive Deck + Dossier Bridge) ----------
             const experiencesPreview = (() => {
                 const wrap = document.getElementById('expPanels');
+                const filterBar = document.getElementById('expFilterBar');
                 const kicker = document.getElementById('experiencesKicker');
                 if (!wrap) return { replay() { } };
 
-                const total = EXPERIENCE_TRACKS.reduce((n, t) => n + t.items.length, 0);
-                if (kicker) kicker.textContent = `${EXPERIENCE_TRACKS.length} TRACKS • ${total} ENTRIES`;
+                const experiences = window.EXPERIENCES_DATA || [];
+                let currentTrack = 'all';
 
-                wrap.innerHTML = EXPERIENCE_TRACKS.map((t, i) => {
-                    const n = t.items.length;
-                    return `
-                    <article class="exp-panel exp-panel--${t.key}${i === 0 ? ' is-open' : ''}" data-track="${t.key}" style="--d:${i}"
-                        tabindex="0" role="button" aria-expanded="${i === 0}">
-                        <div class="exp-panel-summary" aria-hidden="true">
-                            <span class="exp-panel-index">${pad2(i + 1)}</span>
-                            <span class="exp-panel-icon"><svg viewBox="0 0 24 24" fill="none">${t.icon}</svg></span>
-                            <strong class="exp-panel-title">${escapeHtml(t.label)}</strong>
-                            <span class="exp-panel-desc">${escapeHtml(t.desc)}</span>
-                            <span class="exp-panel-foot"><b>${n}</b> ${n === 1 ? 'entry' : 'entries'} <span class="exp-panel-expand">${arrowIcon}</span></span>
-                        </div>
-                        <div class="exp-panel-content">
-                            <header class="exp-panel-head">
-                                <span class="exp-panel-icon exp-panel-icon--solid"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${t.icon}</svg></span>
-                                <div class="exp-panel-head-text">
-                                    <h3 class="exp-panel-heading">${escapeHtml(t.label)}</h3>
-                                    <p class="exp-panel-desc">${escapeHtml(t.desc)}</p>
-                                </div>
-                                <span class="cert-drawer-count"><b>${n}</b>${n === 1 ? 'entry' : 'entries'}</span>
-                            </header>
-                            <ol class="exp-timeline">
-                                ${t.items.map((it, j) => `
-                                <li class="exp-entry" style="--j:${j}">
-                                    <span class="exp-entry-dot" aria-hidden="true"></span>
-                                    <div class="exp-entry-main">
-                                        <span class="exp-entry-period">${escapeHtml(it.period)} ${sampleChip(it)}</span>
-                                        <strong class="exp-entry-role">${escapeHtml(it.role)}</strong>
-                                        <span class="exp-entry-org">${escapeHtml(it.org)}</span>
-                                        ${it.summary ? `<p class="exp-entry-summary">${escapeHtml(it.summary)}</p>` : ''}
-                                        <span class="exp-entry-tags">${(it.tags || []).map((tag) => `<em>${escapeHtml(tag)}</em>`).join('')}</span>
-                                    </div>
-                                </li>`).join('')}
-                            </ol>
-                        </div>
-                    </article>`;
-                }).join('');
+                const total = experiences.length;
+                const workingCount = experiences.filter(e => e.track === 'working').length;
+                const volCount = experiences.filter(e => e.track === 'volunteering').length;
+                const freeCount = experiences.filter(e => e.track === 'freelancing').length;
 
-                const panels = [...wrap.querySelectorAll('.exp-panel')];
-                let hoverTimer;
-                const open = (panel) => {
-                    if (panel.classList.contains('is-open')) return;
-                    panels.forEach((p) => {
-                        const on = p === panel;
-                        p.classList.toggle('is-open', on);
-                        p.setAttribute('aria-expanded', on ? 'true' : 'false');
+                if (kicker) kicker.textContent = `${total} ENTRIES • 3 TRACKS`;
+
+                // Render Filter Bar
+                const filterOptions = [
+                    { key: 'all', label: 'All Experiences', count: total },
+                    { key: 'working', label: 'Working', count: workingCount },
+                    { key: 'volunteering', label: 'Leadership & Vol', count: volCount },
+                    { key: 'freelancing', label: 'Freelancing', count: freeCount }
+                ];
+
+                if (filterBar) {
+                    filterBar.innerHTML = filterOptions.map((f) => `
+                        <button type="button" class="exp-filter-btn${f.key === currentTrack ? ' is-active' : ''}"
+                            role="tab" data-track="${f.key}" aria-selected="${f.key === currentTrack ? 'true' : 'false'}">
+                            <span>${escapeHtml(f.label)}</span>
+                            <span class="exp-filter-count">${f.count}</span>
+                        </button>
+                    `).join('');
+
+                    filterBar.querySelectorAll('.exp-filter-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const track = btn.dataset.track;
+                            if (currentTrack === track) return;
+                            currentTrack = track;
+                            filterBar.querySelectorAll('.exp-filter-btn').forEach(b => {
+                                const on = b === btn;
+                                b.classList.toggle('is-active', on);
+                                b.setAttribute('aria-selected', on ? 'true' : 'false');
+                            });
+                            renderCards();
+                        });
                     });
-                    replayClass(panel.querySelector('.exp-timeline'), 'is-entering');
+                }
+
+                const renderCards = () => {
+                    const filtered = currentTrack === 'all'
+                        ? experiences
+                        : experiences.filter(e => e.track === currentTrack);
+
+                    wrap.innerHTML = filtered.map((e, i) => {
+                        const tags = (e.tags || []).slice(0, 3);
+                        return `
+                        <a class="exp-card exp-card--${escapeHtml(e.track)}"
+                            href="experience.html?id=${encodeURIComponent(e.id)}"
+                            data-exp-id="${escapeHtml(e.id)}"
+                            style="--d:${i}"
+                            aria-label="${escapeHtml(e.role)} at ${escapeHtml(e.org)}: Open Dossier">
+                            <div class="exp-card-head">
+                                <div class="exp-card-logo-frame">
+                                    <img src="${escapeHtml(e.logo)}" alt="${escapeHtml(e.org)}" class="exp-card-logo"
+                                        onerror="this.onerror=null; this.src='assets/logo-light.png';" />
+                                </div>
+                                <div class="exp-card-badges">
+                                    <span class="exp-card-track">${escapeHtml(e.trackLabel.split(' ')[0])}</span>
+                                    <span class="exp-card-status ${e.isCurrent ? 'is-active' : 'is-completed'}">
+                                        <span class="exp-card-dot" aria-hidden="true"></span>
+                                        ${e.isCurrent ? 'Active' : 'Completed'}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="exp-card-body">
+                                <strong class="exp-card-role" title="${escapeHtml(e.role)}">${escapeHtml(e.role)}</strong>
+                                <span class="exp-card-org" title="${escapeHtml(e.org)}">${escapeHtml(e.org)}</span>
+                                <span class="exp-card-period">
+                                    <svg viewBox="0 0 24 24" fill="none" width="12" height="12" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                                    ${escapeHtml(e.period)}
+                                </span>
+                                ${e.summary ? `<p class="exp-card-snippet">${escapeHtml(e.summary)}</p>` : ''}
+                            </div>
+
+                            ${tags.length ? `
+                            <div class="exp-card-tags">
+                                ${tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}
+                            </div>` : ''}
+
+                            <div class="exp-card-foot">
+                                <span class="exp-card-loc">${escapeHtml(e.location)}</span>
+                                <span class="exp-card-cta">View Dossier ${arrowIcon}</span>
+                            </div>
+                        </a>`;
+                    }).join('');
+
+                    wrap.querySelectorAll('.exp-card').forEach(card => {
+                        if (typeof attachTilt === 'function') attachTilt(card, 5);
+                    });
+
+                    replayClass(wrap, 'is-entering');
                 };
 
-                panels.forEach((p) => {
-                    // Small hover-intent delay so sweeping the mouse across doesn't flicker panels open
-                    p.addEventListener('mouseenter', () => {
-                        clearTimeout(hoverTimer);
-                        hoverTimer = setTimeout(() => open(p), 140);
-                    });
-                    p.addEventListener('mouseleave', () => clearTimeout(hoverTimer));
-                    p.addEventListener('click', () => open(p));
-                    p.addEventListener('focus', () => open(p));
-                    p.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            open(p);
-                        }
-                    });
-                });
+                renderCards();
 
                 return {
                     replay() {
                         replayClass(wrap, 'is-entering');
-                        const openPanel = wrap.querySelector('.exp-panel.is-open .exp-timeline');
-                        replayClass(openPanel, 'is-entering');
                     }
                 };
             })();

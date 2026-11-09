@@ -569,8 +569,9 @@
     gap: 0.9cqw;
   }
 
+  .exp-deck,
   .exp-panels {
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.9cqw;
   }
 
@@ -629,40 +630,32 @@
     font-size: 2.6cqw;
   }
 
-  /* Experiences: each track is a header; the open one expands below it */
-  .exp-panel,
-  .exp-panel.is-open {
-    flex: none;
-    width: 100%;
-    height: auto;
-    min-height: 0;
+  /* Experiences interactive card deck on mobile */
+  .exp-deck {
+    grid-template-columns: 1fr;
+    gap: 1.2cqw;
   }
 
-  .exp-panel-summary,
-  .exp-panel-content {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    opacity: 1;
-    transform: none;
-    visibility: visible;
+  .exp-card {
+    padding: 1.4cqw 1.5cqw;
   }
 
-  .exp-panel-content {
-    display: none;
+  .exp-card-logo-frame {
+    width: 4.5cqw;
+    height: 4.5cqw;
   }
 
-  .exp-panel.is-open .exp-panel-content {
-    display: flex;
+  .exp-card-role {
+    font-size: 1.6cqw;
   }
 
-  .exp-panel.is-open .exp-panel-summary {
-    display: none;
+  .exp-card-org {
+    font-size: 1.2cqw;
   }
 
-  .exp-entry {
-    flex-wrap: wrap;
+  .exp-filter-btn {
+    font-size: 1.1cqw;
+    padding: 0.5cqw 1.2cqw;
   }
 
   /* Certificate drawers: leave room for the fanned papers */

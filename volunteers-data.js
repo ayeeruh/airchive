@@ -103,25 +103,73 @@ window.volunteerData = {
         icon: '<circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9.5" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M3.5 19C3.5 15.9 6 13.5 9 13.5C12 13.5 14.5 15.9 14.5 19M15 13.8C17.6 13.6 20.5 15.4 20.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
         items: [
             {
-                id: 'community-01', sample: true,
-                role: 'Volunteer', org: 'Community Initiative',
-                month: 'MON', year: '2026', date: 'Month DD, 2026', place: 'Barangay / City', hours: '— hrs',
-                summary: 'Placeholder — the cause, the people served and your part in it.',
-                story: '', responsibilities: [], certificate: '', photos: [], proofs: []
-            },
-            {
-                id: 'community-02', sample: true,
-                role: 'Volunteer', org: 'Community Initiative',
-                month: 'MON', year: '2025', date: 'Month DD, 2025', place: 'Barangay / City', hours: '— hrs',
-                summary: 'Placeholder — describe the initiative.',
-                story: '', responsibilities: [], certificate: '', photos: [], proofs: []
-            },
-            {
-                id: 'community-03', sample: true,
-                role: 'Volunteer', org: 'Community Initiative',
-                month: 'MON', year: '2024', date: 'Month DD, 2024', place: 'Barangay / City', hours: '— hrs',
-                summary: 'Placeholder — describe the initiative.',
-                story: '', responsibilities: [], certificate: '', photos: [], proofs: []
+                id: 'maya-multimedia',
+                role: 'Multimedia Committee Member',
+                tag: 'Committee Member',
+                org: 'Mariveles Youth Alliance (MaYA)',
+                event: 'Youth Empowerment & Civic Campaigns',
+                institution: 'Mariveles Youth Alliance (MaYA)',
+                month: '2021',
+                year: '2024',
+                date: '2021 – 2024',
+                place: 'Mariveles, Bataan · Baguio City',
+                location: 'Mariveles, Bataan · Baguio City',
+                hours: '3 Years Active Service',
+                summary: 'Served as a multimedia committee member from 2021 to 2024, tapped in to create publication materials and participate on 3-day team building planning in Baguio (maya-teambldg).',
+                desc: 'Served as a multimedia committee member from 2021 to 2024, tapped in to create publication materials and participate on 3-day team building planning in Baguio (maya-teambldg).',
+                description: 'Served as a multimedia committee member from 2021 to 2024, tapped in to create publication materials and participate on 3-day team building planning in Baguio (maya-teambldg).',
+                story: 'Served as an active Multimedia Committee Member of the Mariveles Youth Alliance (MaYA) from 2021 to 2024. Tapped in to spearhead visual branding, create publication materials, and design promotional assets for youth advocacy campaigns and community development projects. Participated actively in the intensive 3-day team building and action planning workshop in Baguio City (maya-teambldg), formulating strategic annual youth roadmaps and community outreach programs.',
+                responsibilities: [
+                    'Created impactful publication materials, announcements, and digital media for MaYA youth advocacy and civic campaigns',
+                    'Participated in the intensive 3-day team building and strategic action planning retreat in Baguio City (maya-teambldg)',
+                    'Collaborated with committee heads and youth leaders on youth empowerment programs in Mariveles',
+                    'Maintained consistent visual identity and public engagement across community communication channels'
+                ],
+                certificate: 'assets/events/MAYA/maya-certs (1).jpeg',
+                photos: [
+                    {
+                        src: 'assets/events/MAYA/maya-teambldg.JPG',
+                        caption: '3-Day Team Building & Strategic Planning session in Baguio City (maya-teambldg)'
+                    },
+                    {
+                        src: 'assets/events/MAYA/maya-teambldg (1).JPG',
+                        caption: 'Youth leaders and committee members during team building exercises in Baguio'
+                    },
+                    {
+                        src: 'assets/events/MAYA/maya-teambldg (2).JPG',
+                        caption: 'Collaborative planning and fellowship with the Mariveles Youth Alliance team'
+                    },
+                    {
+                        src: 'assets/events/MAYA/maya-teambldg (3).JPG',
+                        caption: 'Strategic roadmap formulation for youth initiatives and civic outreaches'
+                    },
+                    {
+                        src: 'assets/events/MAYA/maya-teambldg (4).JPG',
+                        caption: 'MaYA delegates commemorative group picture in Baguio City'
+                    }
+                ],
+                proofs: [
+                    {
+                        type: 'document',
+                        label: 'Certificate of Recognition — Multimedia Committee Member (MaYA)',
+                        url: 'assets/events/MAYA/maya-certs (1).jpeg'
+                    },
+                    {
+                        type: 'document',
+                        label: 'Certificate of Commendation — MaYA Leadership & Service',
+                        url: 'assets/events/MAYA/maya-certs (2).jpeg'
+                    },
+                    {
+                        type: 'document',
+                        label: 'Certificate of Appreciation — Youth Service & Development',
+                        url: 'assets/events/MAYA/maya-certs (3).jpeg'
+                    },
+                    {
+                        type: 'post',
+                        label: 'Official MaYA Badge — Virtual Action Planning Credential',
+                        url: 'assets/events/MAYA/MAYA BADGE - VIRTUAL ACTION PLANNING (1).png'
+                    }
+                ]
             }
         ]
     },
@@ -194,54 +242,59 @@ window.volunteerData = {
                 ]
             },
             {
-                id: 'speaking-02',
-                year: 'MON 2025',
-                month: 'MON',
-                role: 'Guest Speaker',
-                tag: 'Guest Speaker',
-                org: 'TSU-ADS Annual General Assembly 2025',
-                event: 'TSU-ADS Annual General Assembly 2025',
-                institution: 'Tarlac State University – Association of DOST Scholars',
-                summary: 'Shared actionable insights and personal journeys on balancing academic excellence, creative leadership, and DOST undergraduate scholarship commitments.',
-                desc: 'Shared actionable insights and personal journeys on balancing academic excellence, creative leadership, and DOST undergraduate scholarship commitments.',
-                description: 'Shared actionable insights and personal journeys on balancing academic excellence, creative leadership, and DOST undergraduate scholarship commitments.',
-                story: 'Shared actionable insights and personal journeys on balancing academic excellence, creative leadership, and DOST undergraduate scholarship commitments.',
-                place: 'Tarlac City',
-                location: 'Tarlac City',
-                date: '2025',
-                hours: 'Speaker',
+                id: 'speaking-robotics-club',
+                year: '2026',
+                month: 'FEB',
+                date: 'February 2026',
+                role: 'Resource Speaker',
+                tag: 'Resource Speaker',
+                org: 'Antikythera Club · RoboWeek 2026',
+                event: 'RoboWeek 2026',
+                institution: 'Bataan National High School – Senior High School (BNHS-SHS)',
+                summary: 'Invited by the Antikythera Club as Resource Speaker of RoboWeek 2026 at BNHS-SHS, discussing "Anyone Can Be Ada Lovelace" and how women in tech do things.',
+                desc: 'Invited by the Antikythera Club as Resource Speaker of RoboWeek 2026 at BNHS-SHS, discussing "Anyone Can Be Ada Lovelace" and how women in tech do things.',
+                description: 'Invited by the Antikythera Club as Resource Speaker of RoboWeek 2026 at BNHS-SHS, discussing "Anyone Can Be Ada Lovelace" and how women in tech do things.',
+                story: 'Invited by the Antikythera Club of Bataan National High School – Senior High School (BNHS-SHS) to serve as a distinguished Resource Speaker for RoboWeek 2026 in February 2026. Delivered an engaging and empowering keynote and tech talk titled "Anyone Can Be Ada Lovelace: How Women in Tech Do Things." Discussed breaking gender barriers in computer science, robotics, and engineering, celebrating historical trailblazers like Ada Lovelace while showcasing practical approaches to modern development, digital innovation, and community impact.',
+                place: 'BNHS-SHS, City of Balanga, Bataan',
+                location: 'Bataan National High School – Senior High School (BNHS-SHS)',
+                hours: 'Resource Speaker & Panelist',
                 responsibilities: [
-                    'Shared personal journeys on balancing academic excellence with creative leadership',
-                    'Provided strategic guidance for managing DOST undergraduate scholarship commitments'
+                    'Delivered the featured tech talk "Anyone Can Be Ada Lovelace: How Women in Tech Do Things" to senior high school students',
+                    'Showcased workflows and opportunities for women pursuing robotics, engineering, and digital innovation',
+                    'Facilitated open Q&A and interactive discussions with Antikythera Club members on student robotics projects',
+                    'Mentored students on bridging creative design thinking with STEM problem solving'
                 ],
                 certificate: '',
-                photos: [],
-                proofs: []
-            },
-            {
-                id: 'speaking-03',
-                year: 'MON 2026',
-                month: 'MON',
-                role: 'Resource Person',
-                tag: 'Resource Person',
-                org: 'Scholar Assembly & Youth Leadership Panels',
-                event: 'Scholar Assembly & Youth Leadership Panels',
-                institution: 'Partner Scholar Chapters & Youth Summits',
-                summary: 'Invited speaker and panelist facilitating discussions on youth-led initiatives, community project building, and digital media advocacy.',
-                desc: 'Invited speaker and panelist facilitating discussions on youth-led initiatives, community project building, and digital media advocacy.',
-                description: 'Invited speaker and panelist facilitating discussions on youth-led initiatives, community project building, and digital media advocacy.',
-                story: 'Invited speaker and panelist facilitating discussions on youth-led initiatives, community project building, and digital media advocacy.',
-                place: 'Regional',
-                location: 'Regional',
-                date: '2026',
-                hours: 'Panelist',
-                responsibilities: [
-                    'Facilitated panel discussion on sustainable youth-led community projects',
-                    'Guided participants on digital media advocacy and tech-driven public service'
+                photos: [
+                    {
+                        src: 'assets/events/robotics club/Robotics-Club-01.JPG',
+                        caption: 'Delivering the "Anyone Can Be Ada Lovelace" presentation at RoboWeek 2026'
+                    },
+                    {
+                        src: 'assets/events/robotics club/Robotics-Club-02.JPG',
+                        caption: 'Interactive discussion with high school students on women in STEM and robotics'
+                    },
+                    {
+                        src: 'assets/events/robotics club/Robotics-Club-03 (1).JPG',
+                        caption: 'Engaging participants on breaking barriers and innovating in technology'
+                    },
+                    {
+                        src: 'assets/events/robotics club/Robotics-Club-03 (2).JPG',
+                        caption: 'Commemorative group photo with Antikythera Club organizers and student delegates'
+                    }
                 ],
-                certificate: '',
-                photos: [],
-                proofs: []
+                proofs: [
+                    {
+                        type: 'post',
+                        label: 'RoboWeek 2026 Speaker Session — Antikythera Club (BNHS-SHS)',
+                        url: 'assets/events/robotics club/Robotics-Club-01.JPG'
+                    },
+                    {
+                        type: 'document',
+                        label: 'Event Highlights & Speaker Showcase',
+                        url: 'assets/events/robotics club/Robotics-Club-02.JPG'
+                    }
+                ]
             }
         ]
     }
