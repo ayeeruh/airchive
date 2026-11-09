@@ -127,9 +127,11 @@
 
     const links = project.links || {};
     const linkBtns = [
-        links.live && `<a class="pp-btn pp-btn--solid" href="${esc(links.live)}" target="_blank" rel="noopener noreferrer">View live ${arrow}</a>`,
+        links.live && `<a class="pp-btn pp-btn--solid" href="${esc(links.live)}" ${links.live.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>View live ${arrow}</a>`,
         links.repo && `<a class="pp-btn" href="${esc(links.repo)}" target="_blank" rel="noopener noreferrer">Source code ${arrow}</a>`,
-        links.caseStudy && `<a class="pp-btn" href="${esc(links.caseStudy)}" target="_blank" rel="noopener noreferrer">Full case study ${arrow}</a>`,
+        links.caseStudy && `<a class="pp-btn" href="${esc(links.caseStudy)}" ${links.caseStudy.startsWith('http') || links.caseStudy.endsWith('.jpg') || links.caseStudy.endsWith('.png') ? 'target="_blank" rel="noopener noreferrer"' : ''}>Full case study ${arrow}</a>`,
+        links.poster && `<a class="pp-btn pp-btn--solid" href="${esc(links.poster)}" style="background:#1D71B9;border-color:#1D71B9;color:#FEFFF1;">Research Poster ${arrow}</a>`,
+        links.certificate && `<a class="pp-btn" href="${esc(links.certificate)}" target="_blank" rel="noopener noreferrer">Best Paper Award ↗</a>`,
         ...data.projects
             .filter((p) => p.film && p.film.related === project.id)
             .map((p) => `<a class="pp-btn pp-btn--film" href="film.html?id=${encodeURIComponent(p.id)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5V18.5L18.5 12L8 5.5Z" fill="currentColor"/></svg> Watch the video presentation</a>`)
@@ -372,7 +374,10 @@
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${group.icon}</svg>
                         ${esc(group.label)}${category ? ` • ${esc(category.label)}` : ''} ${sampleChip(project)}
                     </span>
-                    <h1 class="pp-title">${esc(project.title)}</h1>
+                    <div class="pp-title-row">
+                        ${project.logo ? `<div class="pp-brand-logo-frame" title="${esc(project.title)} Logo"><img src="${src(project.logo)}" alt="${esc(project.title)} Logo" class="pp-brand-logo-img" /></div>` : ''}
+                        <h1 class="pp-title">${esc(project.title)}</h1>
+                    </div>
                     <p class="pp-lead">${esc(project.tagline || project.summary)}</p>
                     <dl class="pp-meta">
                         ${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}
@@ -679,6 +684,15 @@
             shots.forEach((s, k) => {
                 const v = s.querySelector('video');
                 if (!v) return;
+                if (!v.dataset.hasClick) {
+                    v.dataset.hasClick = 'true';
+                    v.style.cursor = 'pointer';
+                    v.title = 'Click to play / pause video';
+                    v.addEventListener('click', () => {
+                        if (v.paused) v.play().catch(() => {});
+                        else v.pause();
+                    });
+                }
                 if (k === screen && inView && !reduceMotion) v.play().catch(() => {});
                 else v.pause();
             });
@@ -776,7 +790,7 @@
 
     /* ---------- Phone mock-ups: fanned carousel + video player ---------- */
     const dvPhones = document.getElementById('dvPhones');
-    if (dvPhones) {
+    if (dvPhones && phones.length) {
         const cards = [...dvPhones.querySelectorAll('[data-phone-card]')];
         const tabs = [...document.querySelectorAll('[data-phone]')];
         const caption = document.getElementById('dvPhoneCaption');
@@ -958,14 +972,16 @@
             }
         });
         const view = ftTour.querySelector('.ft-view');
-        view.addEventListener('pointerenter', () => {
-            hovering = true;
-            restart();
-        });
-        view.addEventListener('pointerleave', () => {
-            hovering = false;
-            restart();
-        });
+        if (view) {
+            view.addEventListener('pointerenter', () => {
+                hovering = true;
+                restart();
+            });
+            view.addEventListener('pointerleave', () => {
+                hovering = false;
+                restart();
+            });
+        }
         new IntersectionObserver(
             (entries) =>
                 entries.forEach((en) => {

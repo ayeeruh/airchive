@@ -164,7 +164,7 @@ window.AIRCHIVE_EVENT = (() => {
                             <h4>${esc(d.title)}</h4>
                             <p>${esc(d.text)}</p>
                             ${(d.items || []).length ? `<ul>${d.items.map((it) => `<li>${esc(it)}</li>`).join('')}</ul>` : ''}
-                            ${d.sign ? `<footer class="ev-sheet-sign"><span>${esc(d.sign)}</span></footer>` : ''}
+                            ${d.sign || d.fileUrl ? `<footer class="ev-sheet-sign"><span>${esc(d.sign || '')}</span>${d.fileUrl ? `<a href="${esc(d.fileUrl)}" target="_blank" rel="noopener noreferrer" class="ev-sheet-file-btn" style="margin-left:auto; display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:8px; background:rgba(29, 113, 185, 0.12); color:#1D71B9; font-weight:700; font-size:0.82em; text-decoration:none; transition:background 0.2s ease;"><span>Open Document</span> ↗</a>` : ''}</footer>` : ''}
                         </article>`
                 )
                 .join('')}

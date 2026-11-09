@@ -141,7 +141,29 @@
         { id: 'more', label: 'More' }
     ];
 
-    const ticketHtml = (e, big = false) => `
+    const ticketHtml = (e, big = false) => {
+        let loc = e.location || e.place || '';
+        if (loc.includes('Balanga')) loc = 'Balanga City';
+        else if (loc.includes('Cebu')) loc = 'Lapu-Lapu City, Cebu';
+        else if (loc.includes('Tarlac')) loc = 'Tarlac City';
+        else if (loc.includes(',')) loc = loc.split(',').slice(-2).join(', ').trim();
+
+        let timeStr = '';
+        if (e.month && e.year) {
+            const mFull = e.month === 'AUG' ? 'August' : e.month === 'SEP' ? 'September' : e.month === 'OCT' ? 'October' : e.month === 'NOV' ? 'November' : e.month === 'DEC' ? 'December' : e.month === 'JAN' ? 'January' : e.month === 'FEB' ? 'February' : e.month === 'MAR' ? 'March' : e.month === 'APR' ? 'April' : e.month === 'MAY' ? 'May' : e.month === 'JUN' ? 'June' : e.month === 'JUL' ? 'July' : e.month;
+            timeStr = `${mFull} ${e.year}`;
+        } else if (e.date) {
+            timeStr = e.date;
+        } else if (e.year) {
+            timeStr = e.year;
+        }
+        const locTime = [loc, timeStr].filter(Boolean).join(', ');
+        const projectTitle = e.event || e.title || e.role || '';
+        const photoCount = (e.photos && e.photos.length) || 0;
+        const proofCount = (e.proofs && e.proofs.length) || 0;
+        const hasCert = Boolean(e.certificate);
+
+        return `
         <div class="vp-ticket${big ? ' vp-ticket--big' : ''}" style="--cover:${e.sec.cover}">
             <span class="vp-ticket-stub">
                 <span class="vp-ticket-month">${esc(e.month)}</span>
@@ -150,11 +172,19 @@
             </span>
             <span class="vp-ticket-main">
                 <span class="vp-ticket-no">${esc(e.sec.short)} • Entry ${pad2(e.no)}</span>
-                <strong class="vp-ticket-role">${esc(e.role)}</strong>
+                <strong class="vp-ticket-role">${esc(projectTitle)}</strong>
                 <span class="vp-ticket-org">${esc(e.org)}</span>
+                ${locTime ? `<span class="vp-ticket-loctime" style="font-size:0.75rem;opacity:0.85;display:block;margin-top:2px;">${esc(locTime)}</span>` : ''}
+                ${(hasCert || photoCount || proofCount) ? `
+                <span class="vp-ticket-badges" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">
+                    ${hasCert ? `<span class="vp-ticket-badge" style="font-size:0.65rem;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);font-weight:700;">Certificate</span>` : ''}
+                    ${photoCount ? `<span class="vp-ticket-badge" style="font-size:0.65rem;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);font-weight:700;">${photoCount} Photos</span>` : ''}
+                    ${proofCount ? `<span class="vp-ticket-badge" style="font-size:0.65rem;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);font-weight:700;">Letters</span>` : ''}
+                </span>` : ''}
                 ${big ? `<span class="vp-ticket-stamp">${esc(e.sec.stamp)}<small>Volunteer</small></span>` : ''}
             </span>
         </div>`;
+    };
 
     const emptyCard = (icon, title, hint, i = 0) => `
         <div class="pp-shot pp-shot--empty vp-empty" data-reveal style="--i:${i}">
@@ -382,7 +412,7 @@
     const heroBg = document.getElementById('ppHeroBg');
     const heroBlobs = document.getElementById('ppHeroBlobs');
     const visual = document.getElementById('vpHeroVisual');
-    if (!reduceMotion) {
+    if (!reduceMotion && hero) {
         hero.addEventListener('pointermove', (e) => {
             const r = hero.getBoundingClientRect();
             const px = (e.clientX - r.left) / r.width;

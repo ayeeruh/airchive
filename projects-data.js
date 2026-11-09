@@ -103,7 +103,13 @@ window.AIRCHIVE_PROJECTS = {
                 'Won Best Paper – IT Category at the 16th CCST Student In-House Review and Research Exhibit'
             ],
             tools: ['Figma', 'UI/UX Design', 'Front-End Development', 'SMS Gateway', 'AI Chatbot', 'Agile', 'ISO 25010'],
-            links: { live: '', repo: '', caseStudy: '' },
+            links: {
+                live: '',
+                repo: '',
+                caseStudy: '',
+                poster: 'project.html?id=design-genzync-inhouse-poster',
+                certificate: 'assets/Genzync-Certificate.jpg'
+            },
             cover: 'assets/genzync-system/landing-page.png',
             coverPosition: 'left top',
 
@@ -156,7 +162,10 @@ window.AIRCHIVE_PROJECTS = {
                 { title: 'Custom SMS broadcast', path: '/head/sms/broadcast', src: 'assets/genzync-system/Screenshot 2026-10-09 172500.png', text: 'Quick templates and dynamic tags like {first_name} and {activity_name} for urgent advisories to youth segments.' },
                 { title: 'Youth accounts', path: '/head/accounts?tab=youth', src: 'assets/genzync-system/redacted/youth-accounts.png', text: 'Youth registrations by municipality with document checks and verified, pending or rejected status.' }
             ],
-            gallery: []
+            gallery: [
+                { src: 'assets/In-House GenZync Poster (31).png', caption: 'Official In-House Research Exhibition Poster — GEN-ZYNC System' },
+                { src: 'assets/Genzync-Certificate.jpg', caption: 'Best in Thesis Paper Award (IT Category) — 16th CCST Student In-House Review & Research Exhibit' }
+            ]
         },
         {
             id: 'skilltreyd',
@@ -265,6 +274,194 @@ window.AIRCHIVE_PROJECTS = {
                 { title: 'Verified digital portfolio', path: '/portfolio', src: 'assets/skilltreyd-system/web/portfolio.jpg', text: 'Campus-verified credentials, case studies delivered through escrow, and a skills matrix with endorsements.' }
             ],
             gallery: []
+        },
+
+        {
+            id: 'archiv-system',
+            group: 'tech',
+            title: 'archIV System',
+            tagline: 'An E-Business Technology Platform and Digital Archiving System built as a fully interactive working prototype for first-year IT studies.',
+            role: 'Working Prototype Developer, UI/UX Designer & Technical Content Lead',
+            year: 'First Year IT · AY 2023–2024',
+            duration: '1st Year Course Milestone',
+            team: 'Course Project Team (E-Business Technology)',
+            status: 'Working Prototype & Course Project',
+            summary: 'An interactive e-business technology and digital archiving platform prototype designed and engineered from the ground up for our first-year E-Business Technology course. Built entirely without AI tools, featuring an original custom brand identity, complete UI/UX architecture in Figma, functional interactive prototype flows, and thorough technical content curation.',
+            overview: 'archIV System was conceptualized and developed as the culminating interactive project for our first-year E-Business Technology course at BPSU. Designed to bridge digital archival curation with modern e-commerce and electronic business infrastructure, the platform provides a unified digital storefront, structured inventory cataloging, multi-step transaction pipelines, and user account portals. As the working prototype developer and designer, I designed the complete user experience and interface architecture from scratch without relying on generative AI, engineered the interactive clickable prototype to demonstrate realistic end-to-end user journeys, designed the custom brand logo and visual identity, and co-led the drafting and finalization of the system’s technical contents, functional specifications, and data models.',
+            challenge: 'At the first-year collegiate level, building a comprehensive e-business system required translating theoretical business paradigms and technical specifications into a cohesive, fully functioning prototype without relying on modern AI assistants. The key challenge lay in architecting complex data hierarchies, multi-tier catalog filtering, item inspection pipelines, and checkout states into an intuitive, polished interface while ensuring all technical documentation and content remained rigorous, accurate, and academically sound.',
+            approach: [
+                {
+                    title: 'Original Brand & Logo Design',
+                    text: 'Created the original archIV logo and brand mark from scratch, establishing a modern tech-forward visual identity, color scheme, and typography system.'
+                },
+                {
+                    title: 'Zero-AI UI/UX Architecture',
+                    text: 'Hand-designed the complete user journey and interface screens in Figma—from initial wireframes and design system components to high-fidelity responsive mockups—without generative AI integration.'
+                },
+                {
+                    title: 'Interactive Prototype Engineering',
+                    text: 'Engineered the comprehensive working prototype connecting landing pages, catalog search, item inspections, cart handling, and user authentication into a fluid simulation.'
+                },
+                {
+                    title: 'Technical Content & Specifications',
+                    text: 'Took active leadership in formulating, structuring, and finalizing all system content, technical specifications, information architecture, and functional requirements.'
+                },
+                {
+                    title: 'End-to-End Walkthrough Production',
+                    text: 'Authored and recorded an end-to-end video walkthrough illustrating user flow, system logic, navigation hierarchy, and administrative management.'
+                }
+            ],
+            outcomes: [
+                { value: '100%', label: 'Human-Designed (Zero AI Integration)' },
+                { value: '8+', label: 'Core Interface Modules' },
+                { value: 'Full', label: 'Interactive Working Prototype' }
+            ],
+            highlights: [
+                'Original custom archIV logo and brand identity designed from scratch',
+                'High-fidelity interactive prototype demonstrating complete e-business and archival flows',
+                'Full system walkthrough video showcasing working interactions and user journeys',
+                'Hand-crafted independently without AI tools during first year of IT studies',
+                'Comprehensive technical contents and data hierarchy finalized for academic evaluation'
+            ],
+            tools: ['Figma', 'UI/UX Design', 'Interactive Prototyping', 'E-Business Technology', 'Logo Design', 'Information Architecture', 'System Documentation'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/archiv-system/archiv-landing-page.png',
+            coverPosition: 'center top',
+            logo: 'assets/archiv-system/archIV-logo.png',
+            domain: 'archiv-system.edu',
+
+            /* Interactive device mock-ups (project.html "In action" section) */
+            devices: {
+                desktop: [
+                    {
+                        label: 'Prototype Walkthrough Video',
+                        kind: 'video',
+                        src: 'assets/archiv-system/archiv video.mp4',
+                        poster: 'assets/archiv-system/archiv-landing-page.png',
+                        tag: 'Interactive Prototype Walkthrough',
+                        alt: 'archIV System Interactive Prototype Walkthrough Video'
+                    },
+                    {
+                        label: 'Landing Page',
+                        src: 'assets/archiv-system/archiv-landing-page.png',
+                        alt: 'archIV System Landing Page',
+                        hotspots: [
+                            { x: 12, y: 7, title: 'archIV Custom Logo', text: 'Original brand logo designed from scratch by Aira Bianca for the e-business platform.' },
+                            { x: 50, y: 35, title: 'Platform Value Proposition', text: 'Clear hero messaging introducing digital archival curation and modern e-commerce capabilities.' },
+                            { x: 50, y: 55, title: 'Direct Call to Action', text: 'Seamless entry point directing visitors into the interactive digital archive catalog.' },
+                            { x: 78, y: 7, title: 'Navigation Architecture', text: 'Structured navigation linking catalog categories, user portal, and about sections.' }
+                        ]
+                    },
+                    {
+                        label: 'Storefront Showcase',
+                        src: 'assets/archiv-system/archiv-system (1).png',
+                        alt: 'archIV Storefront Showcase & Discovery'
+                    },
+                    {
+                        label: 'Archive Catalog Grid',
+                        src: 'assets/archiv-system/archiv-system (3).png',
+                        alt: 'archIV Archive Catalog & Filtering'
+                    },
+                    {
+                        label: 'Item Detail & Order',
+                        src: 'assets/archiv-system/archiv-system (4).png',
+                        alt: 'archIV Product Specification & Purchase Action'
+                    }
+                ],
+                phones: []
+            },
+
+            /* Feature tour (project.html "Feature tour" section) */
+            features: [
+                {
+                    title: 'archIV Landing Page',
+                    path: '/',
+                    src: 'assets/archiv-system/archiv-landing-page.png',
+                    text: 'The public gateway introducing archIV with custom branding, clear navigation, and featured collections.'
+                },
+                {
+                    title: 'Storefront & Discovery',
+                    path: '/store',
+                    src: 'assets/archiv-system/archiv-system (1).png',
+                    text: 'Curated digital showcase allowing visitors to discover offerings, browse collections, and inspect featured releases.'
+                },
+                {
+                    title: 'Archive Catalog & Filtering',
+                    path: '/catalog',
+                    src: 'assets/archiv-system/archiv-system (3).png',
+                    text: 'Comprehensive catalog grid with organized classification, search filtering, and inventory indicators.'
+                },
+                {
+                    title: 'Product Specification & Checkout',
+                    path: '/catalog/item',
+                    src: 'assets/archiv-system/archiv-system (4).png',
+                    text: 'Detailed product page featuring high-res imagery, technical specifications, pricing breakdown, and order actions.'
+                },
+                {
+                    title: 'Cart & Transaction Management',
+                    path: '/checkout',
+                    src: 'assets/archiv-system/archiv-system (5).png',
+                    text: 'Multi-step checkout workflow managing item summaries, shipping details, and transaction verification.'
+                },
+                {
+                    title: 'User Account & Portal',
+                    path: '/account',
+                    src: 'assets/archiv-system/archiv-system (6).png',
+                    text: 'Member dashboard tracking order history, saved favorites, personal archives, and profile preferences.'
+                },
+                {
+                    title: 'Administrative Control Center',
+                    path: '/admin',
+                    src: 'assets/archiv-system/archiv-system (7).png',
+                    text: 'Management console overseeing catalog updates, stock inventory, user accounts, and e-business analytics.'
+                },
+                {
+                    title: 'System Records & Reports',
+                    path: '/admin/reports',
+                    src: 'assets/archiv-system/archiv-system (8).png',
+                    text: 'Operational reports, order manifests, and administrative logs finalized to fulfill course technical requirements.'
+                }
+            ],
+
+            /* Gallery */
+            gallery: [
+                {
+                    src: 'assets/archiv-system/archIV-logo.png',
+                    caption: 'Official archIV brand identity and logo designed from scratch by Aira Bianca'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-landing-page.png',
+                    caption: 'archIV landing page — brand hero and primary navigation'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-system (1).png',
+                    caption: 'Storefront showcase & digital catalog overview'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-system (3).png',
+                    caption: 'Item listings and classification hierarchy'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-system (4).png',
+                    caption: 'Detailed product specifications and purchase flow'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-system (5).png',
+                    caption: 'Checkout pipeline and order processing'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-system (6).png',
+                    caption: 'User account portal and dashboard'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-system (7).png',
+                    caption: 'Administrative management console'
+                },
+                {
+                    src: 'assets/archiv-system/archiv-system (8).png',
+                    caption: 'Operations audit and system reporting'
+                }
+            ]
         },
 
         {
@@ -382,9 +579,41 @@ window.AIRCHIVE_PROJECTS = {
                 'Clean typographic header and MEMBER tag for instant recognition'
             ],
             tools: ['Merchandise Design', 'Branding', '3D Typography'],
+            logo: 'assets/BPSU DOS - Logo.png',
             links: { live: '', repo: '', caseStudy: '' },
             cover: 'assets/DOS-Membership-Card-2026.png',
             gallery: [{ src: 'assets/DOS-Membership-Card-2026.png', caption: 'Membership card — front design' }]
+        },
+        {
+            id: 'design-dos-card-2025',
+            group: 'design',
+            category: 'merch',
+            title: 'BPSU-DOS Membership Card 2025 (Front & Back)',
+            tagline: 'Official dual-sided membership card for the BPSU-DOST Organization of Scholars, featuring full front branding and back verification architecture.',
+            role: 'Graphic & Merchandise Designer',
+            year: '2025',
+            duration: '',
+            team: 'BPSU-DOST Organization of Scholars (BPSU-DOS)',
+            status: 'Distributed to 153+ Scholars',
+            summary: 'Official dual-sided membership card designed for 150+ DOST scholar-members of BPSU-DOS for A.Y. 2024–2025, featuring identity verification, scholar oath credentials, and signature authentication.',
+            overview: 'Designed both the front and back of the official BPSU-DOS 2025 membership card. The front centers the dynamic DOST scholar emblem, national scholarship colors, and member identity credentials. The reverse side features the Scholar Oath, barcode verification, terms of membership, and official signature authentication lines.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Complete dual-sided print-ready prepress layout (Front & Back)',
+                'Front: Premium BPSU-DOS identity graphics, scholar photo frame & credentials',
+                'Back: Barcode authentication, official scholar seal, and membership terms',
+                'Distributed to 153+ active DOST scholars during the general assembly'
+            ],
+            tools: ['Merchandise Design', 'Prepress Layout', 'Branding', 'Typography'],
+            logo: 'assets/BPSU DOS - Logo.png',
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/DOS-Card-2025.png',
+            gallery: [
+                { src: 'assets/DOS-Card-2025.png', caption: 'BPSU-DOS Membership Card 2025 — Front Design' },
+                { src: 'assets/DOS-Card-2025-Back.png', caption: 'BPSU-DOS Membership Card 2025 — Back Design (Terms, Oath & Barcode)' }
+            ]
         },
         {
             id: 'design-ssite-tote-bag-2025',
@@ -409,6 +638,7 @@ window.AIRCHIVE_PROJECTS = {
                 'Minimal white canvas that suits everyday use'
             ],
             tools: ['Merchandise Design', 'Branding', 'Typography'],
+            logo: 'assets/bpsu-ssite-logo.png',
             links: { live: '', repo: '', caseStudy: '' },
             cover: 'assets/SSITE Bag.png',
             gallery: [{ src: 'assets/SSITE Bag.png', caption: 'BPSU-SSITE tote bag — front design' }]
@@ -436,6 +666,7 @@ window.AIRCHIVE_PROJECTS = {
                 'Matches the blue identity of the BPSU-DOS membership card'
             ],
             tools: ['Merchandise Design', 'Illustration', '3D Typography'],
+            logo: 'assets/BPSU DOS - Logo.png',
             links: { live: '', repo: '', caseStudy: '' },
             cover: 'assets/DOS TOTE BAG - 3.png',
             gallery: [{ src: 'assets/DOS TOTE BAG - 3.png', caption: 'BPSU-DOS tote bag — front design' }]
@@ -524,6 +755,96 @@ window.AIRCHIVE_PROJECTS = {
             cover: 'assets/designs/ust-sts-narra-poster-2025.jpg',
             coverPosition: 'center top',
             gallery: [{ src: 'assets/designs/ust-sts-narra-poster-2025.jpg', caption: 'Full poster — Pterocarpus indicus (Narra)' }]
+        },
+        {
+            id: 'design-nursing-poster-exhibit',
+            group: 'design',
+            category: 'poster',
+            title: 'Nursing Research Congress Scientific Poster Exhibit',
+            tagline: 'A freelance scientific research poster designed for clinical nursing scholars, synthesizing medical methodology and patient care outcomes.',
+            role: 'Freelance Graphic & Scientific Designer',
+            year: '2025',
+            duration: '',
+            team: 'Freelance Client Collaboration',
+            status: 'Commission — Completed',
+            summary: 'Commissioned freelance scientific research exhibit poster for nursing scholars, translating complex clinical evidence, qualitative findings, and patient care workflows into an engaging, conference-ready layout.',
+            overview: 'Developed as a freelance design commission for client nursing researchers. Structured dense healthcare research data, statistical charts, and nursing methodologies into an intuitive visual hierarchy with high contrast, academic typography, and rigorous prepress formatting.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Freelance client commission for academic nursing research symposium',
+                'Clear visual hierarchy organizing clinical abstracts, methodology, results & recommendations',
+                'Custom data visualization, medical icons, and statistical tables',
+                'Prepress prep for large-format scientific conference display'
+            ],
+            tools: ['Freelance Design', 'Scientific Posters', 'Information Design', 'Typography'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/Nursing-Poster-Exhibit-Freelancing.png',
+            coverPosition: 'center top',
+            gallery: [{ src: 'assets/Nursing-Poster-Exhibit-Freelancing.png', caption: 'Official Scientific Poster Exhibit — Freelance Nursing Research' }]
+        },
+        {
+            id: 'design-sts-biodiversity-slide',
+            group: 'design',
+            category: 'presentation',
+            title: 'STS Informative Slide: Biodiversity Services in the Philippines',
+            tagline: 'An informative slide synthesis exploring Philippine biodiversity, ecosystem dynamics, and environmental conservation frameworks.',
+            role: 'Freelance Information & Presentation Designer',
+            year: '2025',
+            duration: '',
+            team: 'Freelance Client Collaboration',
+            status: 'Commission — Completed',
+            summary: 'Authored and designed an academic infographic slide and presentation asset synthesizing Philippine biodiversity services, ecological indicators, and conservation policies for Science, Technology, and Society (STS).',
+            overview: 'Commissioned freelance academic visual deck synthesizing complex ecological concepts into a compelling, informative slide. Balances rich environmental imagery, thematic color zoning, and structured data callouts highlighting the importance of conserving native flora and fauna.',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Freelance academic slide design for Science, Technology, and Society (STS)',
+                'Synthesizes Philippine biodiversity hotspots, ecosystem services, and ecological impacts',
+                'Bespoke typography, photographic blending, and structured information callouts',
+                'Created as a modular presentation slide for academic lectures and symposiums'
+            ],
+            tools: ['Presentation Design', 'Infographic Design', 'Environmental Science', 'Typography'],
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/STS_Informative Slide_Biodiversity Services in the Philippines_Final.png',
+            coverPosition: 'center top',
+            gallery: [{ src: 'assets/STS_Informative Slide_Biodiversity Services in the Philippines_Final.png', caption: 'STS Informative Slide — Biodiversity Services in the Philippines' }]
+        },
+        {
+            id: 'design-genzync-inhouse-poster',
+            group: 'design',
+            category: 'poster',
+            title: 'GEN-ZYNC In-House Research Exhibition Poster',
+            tagline: 'Official academic and technical exhibition poster for GEN-ZYNC, presented at the 16th CCST Student In-House Review.',
+            role: 'Lead Designer & Researcher',
+            year: '2026',
+            duration: '',
+            team: 'GEN-ZYNC Project Team',
+            status: 'Winner: Best in Thesis Paper',
+            summary: 'Official exhibition poster for GEN-ZYNC: A Smart Web-Based Collaboration and Program Development System for BYDO with AI and SMS Notification. Showcases system architecture, SMS gateway integration, and BYDO workflow optimization.',
+            overview: 'Designed for the 16th College of Computer Studies In-House Review and Research Exhibit. Synthesizes the full technical scope of GEN-ZYNC, from problem background and municipal youth coordination to AI chatbot assistance, SMS notification pipelines, and ISO 25010 software quality compliance. Won Best in Thesis Paper (IT Category).',
+            challenge: '',
+            approach: [],
+            outcomes: [],
+            highlights: [
+                'Official research exhibit poster for the 16th CCST Student In-House Review',
+                'Winner: Best in Thesis Paper (IT Category) Recognition',
+                'Details system architecture, BYDO user roles, AI chatbot, and SMS gateway',
+                'Connected directly to the GEN-ZYNC live software and video presentation'
+            ],
+            tools: ['Exhibition Poster', 'Technical Architecture', 'Academic Research', 'Infographics'],
+            links: {
+                live: 'project.html?id=genzync',
+                caseStudy: 'assets/Genzync-Certificate.jpg'
+            },
+            cover: 'assets/In-House GenZync Poster (31).png',
+            coverPosition: 'center top',
+            gallery: [
+                { src: 'assets/In-House GenZync Poster (31).png', caption: 'GEN-ZYNC In-House Research Exhibition Poster' },
+                { src: 'assets/Genzync-Certificate.jpg', caption: 'Best in Thesis Paper Award (IT Category) — 16th CCST In-House Review' }
+            ]
         },
 
         /* ---------------- VIDEO PRODUCTIONS (open in film.html) ---------------- */
@@ -753,6 +1074,7 @@ window.AIRCHIVE_PROJECTS = {
                 'Closed the day with my closing remarks as VP for External Affairs'
             ],
             tools: ['Event Operations', 'Publication Materials', 'Partnerships', 'Proposal Writing', 'Google Meet'],
+            logo: 'assets/bpsu-ssite-logo.png',
             links: { live: '', repo: '', caseStudy: '' },
             cover: 'assets/events/start-to-link/Start-to-Link-1.jpg',
             gallery: [],
@@ -856,6 +1178,148 @@ window.AIRCHIVE_PROJECTS = {
             }
         },
         {
+            id: 'event-focus-dos-ga-2025',
+            group: 'events',
+            title: 'FOCUS: BPSU-DOS General Assembly 2025',
+            tagline: 'Forging Opportunities through Creativity, Upliftment, and Solidarity: 4th General Assembly for 153 DOST scholars at BPSU Main Campus.',
+            role: 'Project Co-Head • VP for Internal Affairs',
+            year: '2025',
+            duration: 'July – August 2025',
+            team: 'BPSU-DOST Organization of Scholars (BPSU-DOS)',
+            status: 'Concluded (153 attendees)',
+            summary: 'The fourth annual General Assembly of the BPSU-DOST Organization of Scholars (BPSU-DOS), held on August 16, 2025 at the 2nd Floor BPSU Library. As Project Co-Head and Vice President for Internal Affairs, I co-authored the official project proposal, managed budgeting and operations, delivered the official opening remarks recapping annual achievements and the core values of Filipino Patriot Scholars, organized the "Palette Party" collaborative merchandise design session, presented awards to guest speakers, and authored the comprehensive narrative report.',
+            overview: 'FOCUS 2025 united 153 DOST scholars under the banner "Forging Opportunities through Creativity, Upliftment, and Solidarity." Moving beyond a standard orientation, the assembly immersed peninsulares-scholars into regional leadership avenues with DOST-SENTRO and START-DOST, provided deep reflections on servant leadership, and engaged every attendee in hands-on merchandise co-creation that directly fed into the organization’s creative releases.',
+            challenge: 'Welcoming 153 attendees while managing sudden schedule adjustments from regional office delegates required rapid on-the-ground agility. The organizing committee smoothly adapted by stepping up internal leadership: delivering the keynote opening remarks, executing lively icebreakers, and ensuring seamless transitions across multi-speaker segments, sponsor recognitions, and interactive group workshops within a tight 4-hour morning window.',
+            approach: [
+                { title: 'Comprehensive Proposal & Budgeting', text: 'Co-authored the official project proposal paper detailing rationale, event objectives, timeline, risk management, and the financial allocation plan alongside co-lead Jhanlem Caraig.' },
+                { title: 'Patriot Scholar Keynote Remarks', text: 'Delivered the opening remarks and inspirational address on behalf of regional representatives, rallying scholars around the three core tenets: Social Responsibility, Servant Leadership, and Professional Excellence.' },
+                { title: 'Palette Party Merchandise Workshop', text: 'Conceived and facilitated the "Palette Party" collaborative challenge, grouping scholars to design concept T-shirts and lanyards that guided the Creatives Committee in upcoming official merchandise.' },
+                { title: 'Speaker & Partner Coordination', text: 'Hosted and awarded keynote speakers Mr. Robert Louis M. Guese (SENTRO Regional Director) and Mr. Carl Cyrus Lapuz (Former DOS President), alongside coordinating local business sponsors (Madmaxx, BlueCad, Margarita Cafe, Eleventh Hour, Pulido Cuts).' },
+                { title: 'Narrative Reporting & Documentation', text: 'Authored and submitted the formal post-activity narrative report documenting attendance metrics (153 scholars), workshop outputs, evaluation summaries, and budget reconciliation.' }
+            ],
+            outcomes: [
+                { value: '153', label: 'DOST Scholar Attendees' },
+                { value: '2', label: 'Keynote Speaker Sessions' },
+                { value: '5', label: 'Partner Business Sponsors' },
+                { value: '2', label: 'Official Papers (Proposal & Narrative)' }
+            ],
+            highlights: [
+                'Project Co-Head & VP Internals spearheading planning, financial budgeting, and execution',
+                'Delivered the official Opening Remarks rallying 153 scholars on the Filipino Patriot Scholar core values',
+                'Keynote sessions with SENTRO Regional Director Robert Louis Guese and former DOS President Carl Cyrus Lapuz',
+                'Interactive "Palette Party" design ideation where student-scholars created official concept apparel',
+                'Comprehensive project proposal paper and post-activity narrative report authored by me',
+                'Sponsor collaboration with Madmaxx, BlueCad, Margarita Cafe, Eleventh Hour, and Pulido Cuts'
+            ],
+            tools: ['Event Leadership', 'Project Proposal Drafting', 'Financial Budgeting', 'Public Speaking', 'Workshop Facilitation', 'Narrative Reporting'],
+            logo: 'assets/BPSU DOS - Logo.png',
+            links: { live: '', repo: '', caseStudy: '' },
+            cover: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (1).jpg',
+            coverPosition: 'center 35%',
+            gallery: [
+                { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (1).jpg', caption: 'Vice President Aira Bianca delivering the Official Opening Remarks and keynote orientation' },
+                { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (2).jpg', caption: 'Awarding Certificates of Appreciation to guest speakers Robert Louis M. Guese and Carl Cyrus Lapuz with President Marcus Dwayne and Scholarship Unit Representative' },
+                { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (3).jpg', caption: 'Facilitating the collaborative "Palette Party" merchandise design brainstorming session with DOST scholars' },
+                { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (4).jpg', caption: 'BPSU-DOS Executive Committee officers, guest speakers, and project heads holding the No. 1 unity pose' },
+                { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (5).jpg', caption: 'Presentation of tokens and appreciation awards to keynote speakers and guests' },
+                { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (6).jpg', caption: 'Palette Party group winners presenting their collaborative T-Shirt and Lanyard merchandise concept designs' }
+            ],
+
+            /* Event page extras (event-page.js) */
+            event: {
+                code: 'BPSU-DOS • FOCUS-2025',
+                format: 'In-person General Assembly & Leadership Orientation',
+                host: 'BPSU-DOS',
+                date: 'August 16, 2025',
+                day: 'Saturday',
+                venue: '2nd Floor, BPSU Library, Main Campus',
+                audience: '153 BPSU DOST Student-Scholars',
+                admit: 'DOS',
+                sessions: [
+                    {
+                        key: 'orientation',
+                        label: 'Morning Keynote',
+                        part: 'First session',
+                        time: '8:00 – 10:00 AM',
+                        talk: 'What Awaits You as a DOST Scholar? • Introduction to SENTRO & SEI',
+                        speaker: 'Mr. Robert Louis M. Guese (SENTRO Regional Director)',
+                        focus: 'Unpacking DOST scholar privileges, regional associations (SENTRO & START), and national leadership avenues including SLC, NPSC, and STTP bootcamp programs.',
+                        slots: [
+                            { time: '7:30 AM', title: 'Arrival & On-site Registration', who: 'Registration Head & A.R.T. Committee' },
+                            { time: '8:40 AM', title: 'Opening Preliminaries (Prayer, National Anthem, BPSU Hymn)', who: 'Publication Committee & Hosts' },
+                            { time: '8:45 AM', title: 'Ice Breaker: Find Your Twin', who: 'A.R.T. Committee & Emcees' },
+                            { time: '8:50 AM', title: 'Official Opening Remarks & Scholar-Leader Address', who: 'Ms. Aira Bianca F. Ordaniel (VP Internals / Project Co-Head)', type: 'talk' },
+                            { time: '9:20 AM', title: 'What Awaits You as a DOST Scholar?', who: 'Mr. Robert Louis M. Guese (SENTRO Regional Director)', type: 'talk' }
+                        ]
+                    },
+                    {
+                        key: 'workshop',
+                        label: 'Creative & Values',
+                        part: 'Second session',
+                        time: '10:00 AM – 12:00 PM',
+                        talk: 'How Being an Iskolar-Leader Shaped Me • Palette Party Merchandise Design',
+                        speaker: 'Mr. Carl Cyrus Lapuz (Former DOS President)',
+                        focus: 'Deep dive into the 3 core values of a Filipino Patriot Scholar (Social Responsibility, Servant Leadership, Professional Excellence) and live collaborative merchandise design.',
+                        slots: [
+                            { time: '10:00 AM', title: 'Palette Party: Collaborative T-Shirt & Lanyard Merchandise Challenge', who: 'Facilitated by Aira Bianca Ordaniel & Creatives Committee', type: 'talk' },
+                            { time: '10:35 AM', title: 'How Being a Scholar-Leader Shaped Me', who: 'Mr. Carl Cyrus Lapuz (Former DOS President)', type: 'talk' },
+                            { time: '11:10 AM', title: 'Open Forum & Evaluation Answering', who: 'President Marcus Dwayne & VP Internals Aira Bianca' },
+                            { time: '11:30 AM', title: 'Awarding of Certificates, Tokens & Sponsor Appreciation', who: 'Pres. Marcus Dwayne & VP Internals Aira Bianca' },
+                            { time: '11:50 AM', title: 'Announcements, Requirements Submission & Closing Message', who: 'Executive Committee & Officers' }
+                        ]
+                    }
+                ],
+                roles: [
+                    { title: 'Project Co-Leadership', text: 'Co-directed end-to-end event conceptualization, scheduling, logistical management, and committee coordination with co-head Jhanlem Caraig.' },
+                    { title: 'Official Opening Remarks', text: 'Delivered the keynote address recapping annual organizational growth and inspiring attendees on the Filipino Patriot Scholar core values.' },
+                    { title: 'Workshop Direction', text: 'Spearheaded the interactive "Palette Party" design workshop, collating student merchandise preferences to guide future official releases.' },
+                    { title: 'Speaker & Partner Coordination', text: 'Welcomed regional directors, former leaders, and managed promotional integrations with local sponsor businesses.' },
+                    { title: 'Official Documentation', text: 'Authored the formal Project Proposal paper and the post-activity Narrative Report submitted to university and DOST administration.' }
+                ],
+                papers: [
+                    {
+                        short: 'Project Proposal',
+                        title: 'Official Project Proposal: FOCUS 2025',
+                        text: 'The comprehensive activity proposal approved by BPSU OSAS and DOST Administration.',
+                        items: [
+                            'Rationale: Fostering unity, camaraderie, and servant leadership among science scholars',
+                            'Comprehensive program timeline from 14-day pre-event prep to post-event documentation',
+                            'Itemized financial budget of PHP 1,930 funded through organizational allocations',
+                            'Risk assessment, safety protocols, and officer accountability provisions'
+                        ],
+                        sign: 'Prepared by Jhanlem I. Caraig (A.R.T. Head) & Aira Bianca F. Ordaniel (VP Internals)',
+                        fileUrl: 'assets/events/dos-general-assembly-2025/FOCUS_Project Proposal.pdf'
+                    },
+                    {
+                        short: 'Narrative Report',
+                        title: 'Official Post-Activity Narrative Report: FOCUS 2025',
+                        text: 'The formal report chronicling the execution, speaker sessions, and results of the assembly.',
+                        items: [
+                            'Attendance verified: 153 active DOST scholar-attendees present',
+                            'Opening address summary recapping organizational impact and Patriot Scholar ideals',
+                            'Keynote transcripts from SENTRO Regional Director Robert Guese and former Pres. Carl Cyrus Lapuz',
+                            'Merchandise ideation outputs from the "Palette Party" and sponsor partnerships acknowledgment'
+                        ],
+                        sign: 'Prepared by Aira Bianca F. Ordaniel, Vice President for Internal Affairs (A.Y. 2024–2025)',
+                        fileUrl: 'assets/events/dos-general-assembly-2025/NARRATIVE-REPORT_DOS-GA-A.Y.-25-26.docx'
+                    }
+                ],
+                photosKicker: 'From the Assembly',
+                photosHeading: 'Moments from FOCUS 2025',
+                photosNav: 'Assembly Gallery',
+                stageBadge: 'REC • LIVE',
+                stageShape: 'wide',
+                photos: [
+                    { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (1).jpg', caption: 'Vice President Aira Bianca delivering the Official Opening Remarks and keynote orientation' },
+                    { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (2).jpg', caption: 'Awarding Certificates of Appreciation to guest speakers Robert Louis M. Guese and Carl Cyrus Lapuz with President Marcus Dwayne and Scholarship Unit Representative' },
+                    { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (3).jpg', caption: 'Facilitating the collaborative "Palette Party" merchandise design brainstorming session with DOST scholars' },
+                    { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (4).jpg', caption: 'BPSU-DOS Executive Committee officers, guest speakers, and project heads holding the No. 1 unity pose' },
+                    { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (5).jpg', caption: 'Presentation of tokens and appreciation awards to keynote speakers and guests' },
+                    { src: 'assets/events/dos-general-assembly-2025/dos-general-assembly-2025 (6).jpg', caption: 'Palette Party group winners presenting their collaborative T-Shirt and Lanyard merchandise concept designs' }
+                ]
+            }
+        },
+        {
             id: 'event-ascend-2026',
             group: 'events',
             title: 'ASCEND 2026: JLSS Review Session Initiative',
@@ -883,6 +1347,7 @@ window.AIRCHIVE_PROJECTS = {
                 'Sessions held weekly via Zoom for JLSS applicants'
             ],
             tools: ['Social Media Management', 'Publication Design', 'Brand Identity', 'Content Scheduling'],
+            logo: 'assets/BPSU DOS - Logo.png',
             links: { live: '', repo: '', caseStudy: '' },
             cover: 'assets/events/ascend-2026/ascend-review-session.jpg',
             coverPosition: 'center 45%',

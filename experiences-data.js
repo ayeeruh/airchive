@@ -1,10 +1,86 @@
 /* ==========================================================================
-   AIRCHIVE — Experiences Data
-   Used by the Experiences folder preview (index.html) AND the dedicated
-   experience detail page (experience.html?id=<entry-id>).
+   AIRCHIVE — Experiences & Organizational Roadmaps Data
+   Shared between the 3-card folder preview (index.html) and the dedicated
+   experience roadmap explorer page (experience.html).
    ========================================================================== */
 
+window.EXPERIENCE_TRACKS = [
+    {
+        key: 'working',
+        id: 'working',
+        label: 'Working Experience',
+        tagline: 'AI Product Design & Technical Docs',
+        desc: 'Professional engagements in generative AI workflows, executive upskilling, and government software documentation.',
+        countLabel: '3 Positions & Certifications',
+        badge: 'Industry & Upskilling',
+        accent: '#1D71B9',
+        gradient: 'linear-gradient(135deg, #07223D 0%, #1D71B9 60%, #3AA7E2 100%)',
+        icon: '<rect x="3" y="7" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4H14A1.5 1.5 0 0 1 15.5 5.5V7M3 12.5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+        logos: [
+            { src: 'assets/logos/flyrank_logo.jpeg', alt: 'FlyRank AI Logo' },
+            { src: 'assets/dost-central-office-logo.png', alt: 'DOST Central Office Logo' }
+        ],
+        previewItems: [
+            { title: 'FlyRank AI', sub: 'AI Design Intern' },
+            { title: 'DOST Central Office', sub: 'Technical Writer' },
+            { title: '7Trained Inc. (7TI)', sub: 'AI Executive Assistant' }
+        ],
+        tags: ['AI UI/UX Design', 'Project LODI', '7TI AI Assistant'],
+        ctaLabel: 'Explore Working Roles'
+    },
+    {
+        key: 'organization',
+        id: 'organization',
+        label: 'Organization Experience',
+        tagline: 'Executive Governance & Roadmaps',
+        desc: 'Executive governance, marketing officer roles, and creative leadership across scholar and student organizations.',
+        countLabel: '4 Organizations · Roadmaps',
+        badge: 'Leadership & Roadmaps',
+        accent: '#C8691E',
+        gradient: 'linear-gradient(135deg, #3A1054 0%, #8E44AD 60%, #B768E5 100%)',
+        icon: '<path d="M12 20.5S3.5 15.6 3.5 9.6A4.6 4.6 0 0 1 12 7.2A4.6 4.6 0 0 1 20.5 9.6C20.5 15.6 12 20.5 12 20.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+        logos: [
+            { src: 'assets/start-dost-logo.png', alt: 'START - DOST Logo' },
+            { src: 'assets/bpsu-ssite-logo.png', alt: 'BPSU-SSITE Logo' },
+            { src: 'assets/BPSU DOS - Logo.png', alt: 'BPSU DOS Logo' },
+            { src: 'assets/logo-sentro.png', alt: 'DOST - SENTRO Logo' }
+        ],
+        previewItems: [
+            { title: 'START - DOST', sub: 'Marketing Officer' },
+            { title: 'BPSU-SSITE', sub: 'President' },
+            { title: 'BPSU DOS', sub: 'VP Internal Affairs' }
+        ],
+        tags: ['Executive Leadership', 'Marketing', 'Roadmaps'],
+        ctaLabel: 'Explore Roadmaps'
+    },
+    {
+        key: 'freelancing',
+        id: 'freelancing',
+        label: 'Freelancing Experience',
+        tagline: 'Client UI/UX & Creative Solutions',
+        desc: 'Independent client collaborations delivering interactive web prototypes, design systems, and digital publication suites.',
+        countLabel: 'Independent Practice',
+        badge: 'Client Collaborations',
+        accent: '#0E7C8C',
+        gradient: 'linear-gradient(135deg, #09374B 0%, #0E7C8C 60%, #3CC3C9 100%)',
+        icon: '<rect x="3" y="4.5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 20H16M12 16.5V20M9.5 9L7.5 10.75L9.5 12.5M14.5 9L16.5 10.75L14.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+        logos: [
+            { src: 'assets/logo-light.png', alt: 'Aira Bianca Monogram' }
+        ],
+        previewItems: [
+            { title: 'Freelance UI/UX', sub: 'Web Design Systems' },
+            { title: 'Nursing Exhibit', sub: 'Scientific Poster' },
+            { title: 'STS Biodiversity', sub: 'Informatics Deck' }
+        ],
+        tags: ['UI/UX Design', 'Scientific Posters', 'Slide Decks'],
+        ctaLabel: 'Explore Client Works'
+    }
+];
+
 window.EXPERIENCES_DATA = [
+    /* ========================================================================
+       TRACK 1: WORKING EXPERIENCE
+       ======================================================================== */
     {
         id: 'flyrank-ai',
         track: 'working',
@@ -41,212 +117,318 @@ window.EXPERIENCES_DATA = [
         id: 'dost-tech-writer',
         track: 'working',
         trackLabel: 'Working Experience',
-        role: 'Technical Writer',
+        role: 'Technical Writer (Project LODI)',
         org: 'DOST – Central Office',
-        affiliation: 'Department of Science and Technology – Central Office · Internship · Taguig (Remote)',
+        affiliation: 'Department of Science and Technology – Central Office · Project LODI · Taguig (Hybrid / Remote)',
         period: 'Jun 2026 – Aug 2026',
         status: 'Completed',
         isCurrent: false,
-        logo: 'assets/DOST-STTP.jpg',
+        logo: 'assets/dost-central-office-logo.png',
         logoAlt: 'DOST Central Office Logo',
         location: 'Taguig, Metro Manila (Hybrid / Remote)',
-        workType: 'Internship',
-        headline: 'Transforming software architectures and complex backend contracts into structured engineering backlogs',
-        summary: 'Authored detailed Product Backlog Items (PBIs) and backend user stories for software engineering teams, translating complex API contracts and database requirements into structured, actionable specifications.',
-        description: 'Completed a specialized technical writing internship at the Department of Science and Technology (DOST) Central Office. Collaborated closely with system architects, engineers, and project leads to author structured Product Backlog Items (PBIs), acceptance criteria, and API documentation for enterprise government software systems.',
-        tags: ['Agile Methodologies', 'User Story Mapping', 'Technical Documentation', 'API Contracts', 'Software Backlog'],
+        workType: 'Internship (Project LODI)',
+        headline: 'Authoring Product Backlog Items and backend specifications under Project LODI',
+        summary: 'Authored detailed Product Backlog Items (PBIs) and backend user stories for software engineering teams under Project LODI at DOST Central Office, translating complex API contracts and database requirements into structured specifications.',
+        description: 'Completed a specialized technical writing internship at the Department of Science and Technology (DOST) Central Office for Project LODI. Collaborated closely with system architects, engineers, and project leads to author structured Product Backlog Items (PBIs), acceptance criteria, API documentation, and database contracts for enterprise government software systems.',
+        tags: ['Project LODI', 'Agile Methodologies', 'User Story Mapping', 'Technical Documentation', 'API Contracts'],
         responsibilities: [
-            'Authored detailed Product Backlog Items (PBIs), acceptance criteria, and user stories for software engineering teams',
-            'Translated complex API contracts, schema structures, and database requirements into structured, actionable specifications',
-            'Participated in agile ceremonies, backlog grooming sessions, and developer handoffs to ensure requirement fidelity',
+            'Authored detailed Product Backlog Items (PBIs), acceptance criteria, and user stories under DOST Central Office Project LODI',
+            'Translated complex API contracts, schema structures, and backend database requirements into structured, actionable specifications',
+            'Participated in agile ceremonies, backlog grooming sessions, and developer handoffs to ensure high requirement fidelity',
             'Established clean, standardized documentation guidelines for technical and non-technical stakeholders'
         ],
         keyMetrics: [
+            { label: 'Project', value: 'Project LODI' },
             { label: 'Department', value: 'DOST Central' },
-            { label: 'Deliverables', value: 'PBIs & API Specs' },
-            { label: 'Methodology', value: 'Agile / Scrum' }
+            { label: 'Deliverables', value: 'PBIs & API Specs' }
         ],
-        technologies: ['Agile / Scrum', 'User Story Mapping', 'API Contracts', 'Database Specifications', 'Product Backlog'],
+        technologies: ['Project LODI', 'Agile / Scrum', 'User Story Mapping', 'API Contracts', 'Database Specifications'],
         relatedLinks: []
     },
     {
-        id: 'start-dost-marketing',
-        track: 'volunteering',
-        trackLabel: 'Volunteering & Leadership',
-        role: 'Marketing Assistant',
-        org: 'START DOST',
+        id: 'upskilling-7ti-ea',
+        track: 'working',
+        trackLabel: 'Professional Upskilling',
+        role: 'AI-Trained Executive Assistant (In Training)',
+        org: '7Trained Inc. (7TI)',
+        affiliation: '7Trained Inc. (7TI) · Professional Upskilling Certification · Remote',
+        period: '2026 – Present',
+        status: 'In Progress',
+        isCurrent: true,
+        logo: 'assets/logo-light.png',
+        logoAlt: '7TI AI-Trained Executive Assistant Certification',
+        location: 'Remote / Global Certification',
+        workType: 'Professional Upskilling & Certification',
+        headline: 'Mastering AI-driven executive assistance, autonomous workflows, and smart operational systems',
+        summary: 'Actively upskilling and taking 7TI\'s AI-Trained Executive Assistant Certification, mastering generative AI tools, prompt engineering, calendar & executive comms management, and autonomous productivity workflows.',
+        description: 'Undertaking advanced professional upskilling through 7Trained Inc. (7TI) under the AI-Trained Executive Assistant Certification program. Developing mastery in deploying state-of-the-art AI workflows, executive-level communication pipelines, AI task orchestration, strategic calendar/inbox optimization, and modern administrative intelligence for fast-paced tech executives and leaders.',
+        tags: ['AI Executive Assistance', 'Prompt Engineering', 'Workflow Automation', 'Executive Communications', 'Productivity Systems'],
+        responsibilities: [
+            'Mastering generative AI frameworks and autonomous agent workflows for executive delegation and task automation',
+            'Designing structured prompt pipelines for executive briefing documents, board reports, and stakeholder communications',
+            'Implementing AI-augmented calendar scheduling, triage management, and high-priority inbox workflows',
+            'Applying digital workspace tools (Notion, Google Workspace, Slack, AI copilots) to optimize executive productivity'
+        ],
+        keyMetrics: [
+            { label: 'Program', value: '7TI Certified' },
+            { label: 'Status', value: 'Actively In Progress' },
+            { label: 'Focus', value: 'AI + Operations' }
+        ],
+        technologies: ['Generative AI', 'Executive Assistance', 'Workflow Automation', 'Prompt Engineering', 'Notion', 'Google Workspace'],
+        relatedLinks: []
+    },
+
+    /* ========================================================================
+       TRACK 2: ORGANIZATION EXPERIENCE (UNIFIED WITH ROADMAPS)
+       ======================================================================== */
+    {
+        id: 'start-dost',
+        track: 'organization',
+        trackLabel: 'Organization Experience',
+        role: 'Marketing Officer',
+        org: 'START - DOST',
         affiliation: 'START DOST – Scholars Transforming Advancement and Research for Technology · Remote',
-        period: 'Jun 2026 – Present',
+        period: 'Nov 2025 – Present',
         status: 'Active',
         isCurrent: true,
-        logo: 'assets/DOST-STTP.jpg',
+        logo: 'assets/start-dost-logo.png',
         logoAlt: 'START DOST Logo',
         location: 'Nationwide (Remote)',
-        workType: 'Leadership / Volunteer',
-        headline: 'Spearheading viral social publication campaigns and community branding for nationwide DOST scholars',
-        summary: 'Leading and designing branding and publication materials, averaging a 50%+ share-to-reaction virality rate and driving cross-platform community amplification for key nationwide initiatives.',
-        description: 'Serving as Marketing Assistant for START DOST, leading creative marketing campaigns and digital publication assets. Formulating strategic communication drives that connect science and technology scholars across the Philippines, achieving outstanding engagement and virality benchmarks across major digital channels.',
-        tags: ['Project Management', 'Digital Marketing', 'Branding Strategy', 'Canva', 'Social Media Analytics'],
-        responsibilities: [
-            'Leading the conception and visual execution of branding, campaign identities, and promotional materials for nationwide scholar programs',
-            'Averaged a 50%+ share-to-reaction viral engagement rate across social campaigns through optimized copy and thumb-stopping visual hierarchy',
-            'Coordinated cross-platform content schedules and media amplification across regional scholar chapters',
-            'Analyzed engagement metrics and audience feedback to continuously refine communication strategies'
-        ],
+        workType: 'Leadership & Marketing',
+        headline: 'Unified marketing leadership: from START A TON! hackathon branding to national viral campaigns',
+        summary: 'Serving as Marketing Officer at START-DOST, unifying creative marketing campaigns, hackathon visual identity, and social media amplification with a sustained 50%+ viral share rate.',
+        description: 'Unified leadership tenure at START DOST spanning flagship event co-leadership and nationwide digital marketing. Spearheaded complete brand identity and operations for the "START A TON!" hackathon as Project Co-Lead, transitioning into Marketing Officer directing viral publication materials, content strategy, and community engagement for DOST scholars nationwide.',
+        tags: ['Marketing Officer', 'Brand Strategy', 'Canva', 'Event Co-Lead', 'Viral Engagement'],
         keyMetrics: [
-            { label: 'Virality Benchmark', value: '50%+ Share/React' },
-            { label: 'Audience Reach', value: 'Nationwide DOST' },
-            { label: 'Focus Area', value: 'Brand & Growth' }
-        ],
-        technologies: ['Canva', 'Digital Strategy', 'Graphic Design', 'Social Analytics', 'Campaign Management'],
-        relatedLinks: [
-            { type: 'event', label: 'View Start-to-Link Event', url: 'project.html?id=event-start-to-link' }
-        ]
-    },
-    {
-        id: 'start-dost-graphic-designer',
-        track: 'volunteering',
-        trackLabel: 'Volunteering & Leadership',
-        role: 'Graphic Designer & Project Co-Lead',
-        org: 'START DOST',
-        affiliation: 'START DOST – Scholars Transforming Advancement and Research for Technology · Remote',
-        period: 'Nov 2025 – Jun 2026',
-        status: 'Completed',
-        isCurrent: false,
-        logo: 'assets/DOST-STTP.jpg',
-        logoAlt: 'START DOST Logo',
-        location: 'Remote',
-        workType: 'Leadership / Volunteer',
-        headline: 'Directing the end-to-end visual branding and marketing operations for the "START A TON!" hackathon',
-        summary: 'Spearheaded the complete visual branding and marketing operations as Project Co-Lead for the "START A TON!" hackathon, managing department deliverables including event collateral, certificates and social media materials.',
-        description: 'Served as Graphic Designer and Project Co-Lead for START DOST’s premiere innovation hackathon, "START A TON!". Guided the creative identity from initial concept sketches to full event deployment, supervising design schedules, participant collateral, sponsor presentations, and certificates of recognition.',
-        tags: ['Creative Concept Design', 'Graphic Design', 'Hackathon Operations', 'Visual Identity', 'Event Collateral'],
-        responsibilities: [
-            'Spearheaded the complete visual branding system for the "START A TON!" hackathon across digital and print collateral',
-            'Served as Project Co-Lead overseeing design timelines, participant communications, and sponsor alignment',
-            'Created key event assets including badges, certificates of recognition, banners, and digital marketing slides',
-            'Coordinated live event updates and media recaps celebrating participant achievements and project showcases'
-        ],
-        keyMetrics: [
+            { label: 'Virality Rate', value: '50%+ Share/React' },
             { label: 'Flagship Event', value: 'START A TON!' },
-            { label: 'Role Scope', value: 'Co-Lead & Designer' },
-            { label: 'Asset Suite', value: 'Complete Brand Pack' }
+            { label: 'Audience Reach', value: 'Nationwide DOST' }
         ],
-        technologies: ['Canva', 'Photoshop', 'Event Branding', 'Collateral Production', 'Project Co-Leadership'],
+        technologies: ['Canva', 'Brand Strategy', 'Photoshop', 'Event Operations', 'Social Media Analytics'],
+        roadmap: [
+            {
+                step: '01',
+                role: 'Graphic Designer & Project Co-Lead',
+                period: 'Nov 2025 – Jun 2026',
+                status: 'Completed',
+                initiative: 'START A TON! Hackathon Visual Identity & Operations',
+                summary: 'Spearheaded the complete visual branding system and marketing operations as Project Co-Lead for the premiere "START A TON!" hackathon. Directed asset turnaround from initial moodboards to full stage graphics, participant kits, certificates, and sponsor presentations.',
+                deliverables: ['Event Brand Identity', 'Certificate Suite', 'Sponsor Pitch Collateral', 'Social Media Announcements'],
+                relatedLink: { type: 'event', label: 'View Start-to-Link Event', url: 'project.html?id=event-start-to-link' }
+            },
+            {
+                step: '02',
+                role: 'Marketing Officer & Assistant',
+                period: 'Jun 2026 – Present',
+                status: 'Active',
+                initiative: 'National Social Media Publication & Viral Campaigns',
+                summary: 'Directing creative branding, digital publication materials, and campaign messaging for nationwide scholar programs. Averaging a 50%+ share-to-reaction viral engagement rate across social communication channels and coordinating with regional chapters.',
+                deliverables: ['National Publication Kits', 'Viral Engagement Strategy', 'Content Calendars', 'Chapter Amplification'],
+                relatedLink: { type: 'event', label: 'View Start-to-Link Proposal', url: 'project.html?id=event-start-to-link' }
+            }
+        ],
         relatedLinks: [
-            { type: 'event', label: 'View Start-to-Link Proposal & Event', url: 'project.html?id=event-start-to-link' }
+            { type: 'event', label: 'View Start-to-Link Event & Proposal', url: 'project.html?id=event-start-to-link' }
         ]
     },
     {
-        id: 'bpsu-dos-vp',
-        track: 'volunteering',
-        trackLabel: 'Volunteering & Leadership',
-        role: 'Vice President for Internal Affairs',
-        org: 'BPSU-DOST Organization of Scholars',
-        affiliation: 'BPSU-DOST Organization of Scholars (DOS) · Balanga City (Hybrid)',
-        period: 'Jul 2025 – Present',
+        id: 'bpsu-ssite',
+        track: 'organization',
+        trackLabel: 'Organization Experience',
+        role: 'President & Project Lead',
+        org: 'BPSU-SSITE',
+        affiliation: 'Student Society on Information Technology Education (BPSU-SSITE) · BPSU Main Campus',
+        period: '2024 – Present',
         status: 'Active',
         isCurrent: true,
-        logo: 'assets/bpsu-logo.png',
-        logoAlt: 'BPSU-DOST Organization of Scholars Logo',
-        location: 'BPSU Main Campus, Balanga City (Hybrid)',
-        workType: 'Executive Leadership',
-        headline: 'Steering organizational governance, committee coordination, and scholar welfare across BPSU chapters',
-        summary: 'Directing internal chapter governance, inter-committee alignment, membership development, and academic support for collegiate DOST scholars across BPSU.',
-        description: 'Serving as the Vice President for Internal Affairs of the BPSU-DOST Organization of Scholars (DOS). Directing organizational compliance, committee performance tracking, general assemblies, and student-scholar welfare initiatives to foster community resilience and academic excellence.',
-        tags: ['Project Management', 'Operations Management', 'Organizational Governance', 'Scholar Welfare'],
-        responsibilities: [
-            'Overseeing internal organizational governance, policy implementations, and inter-committee operations',
-            'Leading coordination for scholar general assemblies, leadership retreats, and academic assistance programs',
-            'Managing scholar membership verification, chapter databases, and service hour validation records',
-            'Representing the chapter in university-wide student council dialogues and administrative consultations'
+        logo: 'assets/bpsu-ssite-logo.png',
+        logoAlt: 'BPSU-SSITE Logo',
+        location: 'City of Balanga, Bataan',
+        workType: 'Executive Student Governance',
+        headline: 'Guiding IT student governance, initiating Start-to-Link, and designing official merchandise',
+        summary: 'Directing student governance for Information Technology majors as President, conceptualizing and leading the Start-to-Link career initiative, and designing official SSITE merchandise.',
+        description: 'Comprehensive leadership journey with the Student Society on Information Technology Education (BPSU-SSITE). Serving as President overseeing academic support, student activities, and department representation, authoring the flagship "Start-to-Link" career readiness workshop proposal, and crafting the chapter’s official brand merchandise.',
+        tags: ['President', 'Start-to-Link', 'Merchandise Design', 'IT Governance', 'Academic Mentorship'],
+        keyMetrics: [
+            { label: 'Role', value: 'President' },
+            { label: 'Constituency', value: 'IT Major Students' },
+            { label: 'Flagship Event', value: 'Start-to-Link' }
         ],
+        technologies: ['Executive Governance', 'Project Proposal Drafting', 'Merchandise Design', 'Event Directing'],
+        roadmap: [
+            {
+                step: '01',
+                role: 'President / Executive Leadership',
+                period: '2024 – 2025',
+                status: 'Completed',
+                initiative: 'SSITE Chapter Governance, Executive Operations & Member Development',
+                summary: 'Served as President of BPSU-SSITE for Academic Year 2024–2025, directing executive committee operations, student activities, and collegiate IT representation, culminating in being invited as Guest Speaker for the 2026 General Assembly.',
+                deliverables: ['Executive Governance', 'Academic Support Framework', 'Department Representation', 'Guest Speaker Address'],
+                relatedLink: { type: 'volunteer', label: 'View General Assembly Speaker Showcase', url: 'volunteer.html?id=ssite-general-assembly' }
+            },
+            {
+                step: '02',
+                role: 'Brand & Merchandise Designer',
+                period: '2025',
+                status: 'Completed',
+                initiative: 'Official BPSU-SSITE Minimalist Tote Bag Merchandise',
+                summary: 'Designed the official departmental tote bag merchandise featuring a minimalist white canvas with a glossy, beveled "ssite." wordmark in signature aqua and teal gradients for students and faculty.',
+                deliverables: ['SSITE Minimalist Tote Bag', 'Vector Proofs', 'Promotional Social Teasers'],
+                relatedLink: { type: 'project', label: 'View SSITE Tote Bag Design', url: 'project.html?id=design-ssite-tote-bag-2025' }
+            },
+            {
+                step: '03',
+                role: 'Project Lead & Event Initiator',
+                period: '2025 – 2026',
+                status: 'Completed',
+                initiative: 'Start-to-Link: Equipping Aspiring Professionals with Career Essentials',
+                summary: 'Authored the official project proposal paper and led operations as Lead Organizer for "Start-to-Link", connecting graduating senior students with seasoned IT industry practitioners and career mentors.',
+                deliverables: ['Project Proposal Paper', 'Event Production Schedule', 'Speaker Coordination', 'Participant Certs'],
+                relatedLink: { type: 'event', label: 'View Start-to-Link Event Showcase', url: 'project.html?id=event-start-to-link' }
+            }
+        ],
+        relatedLinks: [
+            { type: 'event', label: 'View Start-to-Link Event & Proposal', url: 'project.html?id=event-start-to-link' },
+            { type: 'project', label: 'View SSITE Tote Bag Design', url: 'project.html?id=design-ssite-tote-bag-2025' },
+            { type: 'volunteer', label: 'View SSITE General Assembly Speaker Showcase', url: 'volunteer.html?id=ssite-general-assembly' }
+        ]
+    },
+    {
+        id: 'bpsu-dos',
+        track: 'organization',
+        trackLabel: 'Organization Experience',
+        role: 'Vice President for Internal Affairs',
+        org: 'BPSU DOS',
+        affiliation: 'BPSU-DOST Organization of Scholars (DOS) · Balanga City (Hybrid)',
+        period: 'Sep 2023 – Present',
+        status: 'Active',
+        isCurrent: true,
+        logo: 'assets/BPSU DOS - Logo.png',
+        logoAlt: 'BPSU DOS Logo',
+        location: 'Balanga City, Bataan',
+        workType: 'Executive Scholar Leadership',
+        headline: 'From Creatives Committee Head to Vice President for Internal Affairs',
+        summary: 'Directing internal chapter governance and scholar operations after a 2-year leadership tenure heading creative identity, merchandise production, and membership card systems.',
+        description: 'Multi-year leadership journey with the BPSU-DOST Organization of Scholars (DOS). Advanced from Creatives Committee Head—directing official branding, membership card systems, and merchandise—to Vice President for Internal Affairs, steering chapter governance, compliance, assemblies, and member welfare.',
+        tags: ['VP Internal Affairs', 'Creatives Head', 'Membership Cards', 'Operations Management', 'DOST Scholars'],
         keyMetrics: [
             { label: 'Executive Role', value: 'VP Internal' },
-            { label: 'Institution', value: 'BPSU Main Campus' },
-            { label: 'Tenure', value: '2025 – 2026' }
+            { label: 'Past Leadership', value: 'Creatives Head (2 Yrs)' },
+            { label: 'Key Deliverables', value: 'Membership Cards & Merch' }
         ],
-        technologies: ['Operations Management', 'Notion', 'Policy Drafting', 'Committee Leadership', 'Event Facilitation'],
+        technologies: ['Canva', 'Photoshop', 'Operations Governance', 'Membership Systems', 'Video Production'],
+        roadmap: [
+            {
+                step: '01',
+                role: 'Creatives Committee Head',
+                period: 'Sep 2023 – Jun 2025',
+                status: 'Completed',
+                initiative: 'Visual Branding, Official Merchandise & Membership Systems',
+                summary: 'Headed the Creatives Committee for 2 academic years, conceptualizing official merchandise, branding kits, and the official DOS Membership Cards and custom tote bags for university scholars.',
+                deliverables: ['DOS Membership Card System', 'DOS Tote Bag Collection', 'General Assembly Branding', 'Publicity Kits'],
+                relatedLink: { type: 'project', label: 'View DOS Membership Card System', url: 'project.html?id=design-dos-membership-card-2026' }
+            },
+            {
+                step: '02',
+                role: 'Executive Videographer & Storyteller',
+                period: '2024 – 2025',
+                status: 'Completed',
+                initiative: 'Cinematic Year-End DOS Term Highlights Video',
+                summary: 'Produced and edited the official cinematic year-end video retrospective chronicling organizational milestones, community service projects, and scholar achievements across BPSU.',
+                deliverables: ['DOS Term 2024-2025 Video', 'Video Highlights Montage'],
+                relatedLink: { type: 'video', label: 'View DOS Term Video', url: 'film.html?id=video-dos-term-2024-2025' }
+            },
+            {
+                step: '03',
+                role: 'Vice President for Internal Affairs',
+                period: 'Jul 2025 – Present',
+                status: 'Active',
+                initiative: 'FOCUS 2025 General Assembly & Internal Governance',
+                summary: 'Co-spearheaded the flagship FOCUS 2025 General Assembly hosting 153 scholars, delivered the keynote opening remarks on Patriot Scholar core values, co-authored the official project proposal and narrative report, and directed internal chapter governance.',
+                deliverables: ['FOCUS 2025 General Assembly', 'Project Proposal & Narrative Report', 'Palette Party Merchandise Workshop'],
+                relatedLink: { type: 'event', label: 'View FOCUS 2025 General Assembly', url: 'project.html?id=event-focus-dos-ga-2025' }
+            }
+        ],
         relatedLinks: [
+            { type: 'event', label: 'View FOCUS 2025 General Assembly', url: 'project.html?id=event-focus-dos-ga-2025' },
+            { type: 'volunteer', label: 'View FOCUS DOST Volunteer Showcase', url: 'volunteer.html?id=focus-dos-general-assembly-2025' },
             { type: 'project', label: 'View DOS Membership Card System', url: 'project.html?id=design-dos-membership-card-2026' },
+            { type: 'project', label: 'View DOS Tote Bag Design', url: 'project.html?id=design-dos-tote-bag-2025' },
             { type: 'video', label: 'View DOS Term Video', url: 'film.html?id=video-dos-term-2024-2025' }
         ]
     },
     {
-        id: 'bpsu-dos-creatives-head',
-        track: 'volunteering',
-        trackLabel: 'Volunteering & Leadership',
-        role: 'Creatives Committee Head',
-        org: 'BPSU-DOST Organization of Scholars',
-        affiliation: 'BPSU-DOST Organization of Scholars (DOS) · Balanga City (Hybrid)',
-        period: 'Sep 2023 – Jun 2025',
-        status: 'Completed',
-        isCurrent: false,
-        logo: 'assets/bpsu-logo.png',
-        logoAlt: 'BPSU DOS Logo',
-        location: 'Balanga City, Bataan',
-        workType: 'Committee Leadership',
-        headline: 'Directing 2 years of visual communication, official merchandise, and university-wide publicity campaigns',
-        summary: 'Directed creative direction, publicity campaigns, and visual asset production for scholar assemblies, merchandise, and university-wide scholar events.',
-        description: 'Led the Creatives Committee of BPSU-DOST Organization of Scholars for two academic years. Headed creative direction, multimedia storytelling, merchandise production (including official DOS membership cards and bags), and digital publications for the scholar community.',
-        tags: ['Canva', 'Typography', 'Merchandise Design', 'Visual Identity', 'Team Leadership'],
-        responsibilities: [
-            'Led the Creatives Committee in developing official branding, social media assets, and event publicity kits',
-            'Spearheaded the design and production of official chapter merchandise including DOS Membership Cards and tote bags',
-            'Mentored student committee members on typography, layout composition, and visual storytelling techniques',
-            'Coordinated with event directors to produce multimedia recap videos and live event presentations'
-        ],
+        id: 'dost-sentro',
+        track: 'organization',
+        trackLabel: 'Organization Experience',
+        role: 'Regional Creative Contributor & Media Producer',
+        org: 'DOST - SENTRO',
+        affiliation: 'DOST - SENTRO (Region III) · Central Luzon DOST Scholars',
+        period: '2024 – Present',
+        status: 'Active',
+        isCurrent: true,
+        logo: 'assets/logo-sentro.png',
+        logoAlt: 'DOST - SENTRO Logo',
+        location: 'Region III, Central Luzon',
+        workType: 'Regional Scholar Media',
+        headline: 'Authoring large-format regional infographics, consortium posters, and video highlights',
+        summary: 'Producing high-impact visual communications for DOST-SENTRO Region III, including the flagship World Café history poster, national science consortium poster, and JLSS video highlights.',
+        description: 'Serving as Regional Creative Contributor for DOST-SENTRO (Scholars Empowered Nationalistic and Tactical Regional Organization). Producing multimedia storytelling assets that celebrate science scholars across Region III, from large-format infographics recounting SENTRO’s founding history to nationwide consortium poster presentations.',
+        tags: ['Regional Contributor', 'World Café Poster', 'JLSS Highlights Video', 'NPSC Poster', 'Video Production'],
         keyMetrics: [
-            { label: 'Tenure', value: '2 Academic Years' },
-            { label: 'Team Size', value: 'Committee Head' },
-            { label: 'Key Assets', value: 'Membership Cards & Merch' }
+            { label: 'Scope', value: 'Region III (Central Luzon)' },
+            { label: 'Key Output', value: 'Infographics & Videos' },
+            { label: 'Consortium', value: 'NPSC National Delegate' }
         ],
-        technologies: ['Canva', 'Photoshop', 'Typography', 'Merchandise Production', 'Video Production'],
+        technologies: ['Canva', 'Filmora / Premiere', 'Infographic Design', 'Video Editing', 'Poster Production'],
+        roadmap: [
+            {
+                step: '01',
+                role: 'Video Editor & Media Producer',
+                period: '2024 – 2025',
+                status: 'Completed',
+                initiative: 'SENTRO Region 3 & JLSS 2025 Highlights Video',
+                summary: 'Created official promotional videos and edited the comprehensive Junior Level Science Scholarship (JLSS) 2025 Highlights Video celebrating newly awarded scholars across Region III.',
+                deliverables: ['Region 3 Promo Video', 'JLSS 2025 Video Highlights', 'Social Reels'],
+                relatedLink: { type: 'video', label: 'View JLSS Highlights Video', url: 'film.html?id=video-jlss-highlights-2025' }
+            },
+            {
+                step: '02',
+                role: 'Lead Infographic Designer',
+                period: '2025',
+                status: 'Completed',
+                initiative: 'SENTRO for Brilliance — Region III World Café Poster',
+                summary: 'Designed a large-format infographic poster recounting DOST-SENTRO’s founding story from 2022 to present, highlighting scholar leadership, community initiatives, and regional impact.',
+                deliverables: ['Large-Format Exhibition Poster', 'Vector Timeline Assets', 'Print Production'],
+                relatedLink: { type: 'project', label: 'View SENTRO World Café Poster', url: 'project.html?id=design-sentro-r3-world-cafe-poster' }
+            },
+            {
+                step: '03',
+                role: 'NPSC Creative Lead',
+                period: '2026',
+                status: 'Completed',
+                initiative: 'National Philippine Science Consortium (NPSC) Poster',
+                summary: 'Created the official poster for SENTRO Region 3 delegates showcased at the National Philippine Science Consortium, encapsulating scholar innovations and public service.',
+                deliverables: ['NPSC Presentation Poster', 'Sculpted SENTRO Emblem Artwork'],
+                relatedLink: { type: 'project', label: 'View NPSC Poster Design', url: 'project.html?id=design-npsc-poster-2026' }
+            }
+        ],
         relatedLinks: [
-            { type: 'project', label: 'View DOS Membership Card Design', url: 'project.html?id=design-dos-membership-card-2026' },
-            { type: 'project', label: 'View DOS Tote Bag Design', url: 'project.html?id=design-dos-tote-bag-2025' }
+            { type: 'project', label: 'View SENTRO World Café Poster', url: 'project.html?id=design-sentro-r3-world-cafe-poster' },
+            { type: 'project', label: 'View NPSC Poster Design', url: 'project.html?id=design-npsc-poster-2026' },
+            { type: 'video', label: 'View JLSS Highlights Video', url: 'film.html?id=video-jlss-highlights-2025' }
         ]
     },
-    {
-        id: 'maya-committee',
-        track: 'volunteering',
-        trackLabel: 'Volunteering & Leadership',
-        role: 'Multimedia Committee Member',
-        org: 'Mariveles Youth Alliance (MaYA)',
-        affiliation: 'Mariveles Youth Alliance (MaYA) · Civic Involvement · Mariveles',
-        period: '2021 – 2024',
-        status: 'Completed',
-        isCurrent: false,
-        logo: 'assets/events/MAYA/MAYA BADGE - VIRTUAL ACTION PLANNING (1).png',
-        logoAlt: 'Mariveles Youth Alliance (MaYA) Badge',
-        location: 'Mariveles, Bataan · Baguio City',
-        workType: 'Civic Service',
-        headline: 'Creating publication materials and formulating youth action roadmaps through intensive Baguio planning',
-        summary: 'Served as a multimedia committee member from 2021 to 2024, tapped in to create publication materials and participate on 3-day team building planning in Baguio (maya-teambldg).',
-        description: 'Served for 3 years as a dedicated Multimedia Committee Member for the Mariveles Youth Alliance (MaYA). Crafted visual advocacy campaigns, infographics, and community event announcements. Represented the committee in Baguio City for the intensive 3-day team building and strategic action planning retreat (maya-teambldg).',
-        tags: ['Publication Materials', 'Graphic Design', 'Community Action', 'Youth Empowerment', 'Public Service'],
-        responsibilities: [
-            'Created engaging publication materials and digital posters for civic initiatives, donation drives, and youth summits',
-            'Participated actively in the 3-day strategic team building and action planning retreat in Baguio City (maya-teambldg)',
-            'Formulated multi-year youth action roadmaps alongside municipal committee leaders and local delegates',
-            'Promoted community awareness and civic involvement across Mariveles through visual social campaigns'
-        ],
-        keyMetrics: [
-            { label: 'Active Service', value: '2021 – 2024 (3 Yrs)' },
-            { label: 'Planning Retreat', value: 'Baguio City (3 Days)' },
-            { label: 'Scope', value: 'Municipal Youth Impact' }
-        ],
-        technologies: ['Graphic Design', 'Publication Production', 'Campaign Strategy', 'Team Building & Planning'],
-        relatedLinks: [
-            { type: 'volunteer', label: 'View Volunteer Passport Proofs & Certs', url: 'volunteer.html?id=maya-multimedia' }
-        ]
-    },
+
+    /* ========================================================================
+       TRACK 3: FREELANCING EXPERIENCE
+       ======================================================================== */
     {
         id: 'freelance-design',
         track: 'freelancing',
         trackLabel: 'Freelancing Experience',
         role: 'Freelance UI/UX & Digital Designer',
-        org: 'Independent / Client Work',
+        org: 'Independent / Diverse Client Engagements',
         affiliation: 'Independent / Diverse Client Engagements · Remote',
         period: '2024 – Present',
         status: 'Active',
@@ -271,7 +453,34 @@ window.EXPERIENCES_DATA = [
             { label: 'Availability', value: 'Select Collaborations' }
         ],
         technologies: ['Figma', 'Canva', 'Adobe Photoshop', 'Brand Guidelines', 'Wireframing'],
-        relatedLinks: []
+        roadmap: [
+            {
+                step: '01',
+                role: 'Client Graphic & Exhibit Designer',
+                period: '2025',
+                status: 'Completed',
+                initiative: 'Nursing Research Congress Scientific Poster Exhibit',
+                summary: 'Designed an impactful, high-resolution scientific and clinical research exhibit poster for client nursing scholars, translating medical methodology and clinical findings into clear visual data.',
+                deliverables: ['Scientific Research Poster', 'High-Res Print Prepress', 'Visual Infographics'],
+                relatedLink: { type: 'project', label: 'View Nursing Poster Exhibit', url: 'project.html?id=design-nursing-poster-exhibit' }
+            },
+            {
+                step: '02',
+                role: 'Science & Society Slide Designer',
+                period: '2025',
+                status: 'Completed',
+                initiative: 'STS Informative Slide: Biodiversity Services in the Philippines',
+                summary: 'Authored and designed an academic presentation deck and informative visual slide on Philippine biodiversity, ecosystem services, and national conservation policies.',
+                deliverables: ['Informative Slide Deck', 'Ecosystem Flowcharts', 'Academic Visual Synthesis'],
+                relatedLink: { type: 'project', label: 'View Biodiversity Informative Slide', url: 'project.html?id=design-sts-biodiversity-slide' }
+            }
+        ],
+        relatedLinks: [
+            { type: 'project', label: 'View Nursing Poster Exhibit', url: 'project.html?id=design-nursing-poster-exhibit' },
+            { type: 'project', label: 'View Biodiversity Informative Slide', url: 'project.html?id=design-sts-biodiversity-slide' },
+            { type: 'document', label: 'Nursing Poster Prepress Asset (PNG)', url: 'assets/Nursing-Poster-Exhibit-Freelancing.png' },
+            { type: 'document', label: 'STS Biodiversity Slide Deck Asset (PNG)', url: 'assets/STS_Informative Slide_Biodiversity Services in the Philippines_Final.png' }
+        ]
     }
 ];
 

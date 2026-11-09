@@ -897,7 +897,7 @@
             </div>
 
             <!-- ==============================================================
-                 EXPERIENCES FOLDER FOREGROUND (Working / Volunteering / Freelancing)
+                 EXPERIENCES FOLDER FOREGROUND (3 Interactive Tracks: Working / Organization / Freelancing)
                  ============================================================== -->
             <div class="folder-tab-content experiences-folder-content" id="experiencesFolderContent"
                 data-folder-panel="experiences" aria-hidden="true">
@@ -911,21 +911,30 @@
                                     <path d="M12 1L14.2 9.8L23 12L14.2 14.2L12 23L9.8 14.2L1 12L9.8 9.8L12 1Z"
                                         fill="currentColor" />
                                 </svg>
-                                <span id="experiencesKicker">3 TRACKS</span>
+                                <span id="experiencesKicker">3 TRACKS • 7 MILESTONES</span>
                             </span>
                         </div>
                         <div class="exp-topbar-side">
-                            <!-- Ongoing highlight (filled from ONGOING_EXPERIENCE data) -->
-                            <div class="exp-ongoing" id="expOngoing" hidden></div>
-                            <p class="exp-hint">Click any experience to open full dossier ↗</p>
+                            <div class="exp-topbar-capsules">
+                                <!-- Interactive Ongoing Hackathon Live Capsule -->
+                                <button type="button" class="exp-ongoing" id="expOngoing" aria-haspopup="dialog"
+                                    aria-expanded="false" title="Click to view live hackathon status, pitching details &amp; roadmap" hidden></button>
+                                <!-- Interactive Active Upskilling Capsule (Opens Modal) -->
+                                <button type="button" class="exp-upskill-capsule" id="expUpskill" aria-haspopup="dialog"
+                                    aria-expanded="false" title="Click to view active 7TI AI-Trained Executive Assistant upskilling details &amp; curriculum">
+                                    <span class="exp-upskill-status"><span class="exp-upskill-spark">⚡</span> Upskilling</span>
+                                    <span class="exp-upskill-text">
+                                        <strong>7TI AI Executive Assistant</strong>
+                                        <span>Certification · In Progress ↗</span>
+                                    </span>
+                                </button>
+                            </div>
+                            <p class="exp-hint">Click any card to open full roadmaps &amp; milestones ↗</p>
                         </div>
                     </div>
 
-                    <!-- Interactive Track Filters -->
-                    <div class="exp-filter-bar" id="expFilterBar" role="tablist" aria-label="Experience tracks"></div>
-
-                    <!-- Interactive Cards Grid (filled dynamically from EXPERIENCES_DATA) -->
-                    <div class="exp-panels exp-deck" id="expPanels" role="region" aria-label="Experience cards"></div>
+                    <!-- Exactly Three Interactive Track Cards: Working / Organization / Freelancing -->
+                    <div class="exp-tracks-container" id="expPanels" role="region" aria-label="3 Experience tracks"></div>
                 </div>
             </div>
 
@@ -1669,15 +1678,13 @@
                                             </div>
 
                                             <!-- 4. JavaScript -->
-                                            <div class="tech-badge-icon tech-badge-icon--shield"
+                                            <div class="tech-badge-icon tech-badge-icon--square"
                                                 data-tool-note="JavaScript — Interactive UI states, DOM logic & dynamic web apps"
                                                 title="JavaScript">
-                                                <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M6 4H58L53.2 58.5L32 65L10.8 58.5L6 4Z" fill="#E5A228" />
-                                                    <path d="M32 8.5H53.1L49.1 54.4L32 59.6V8.5Z" fill="#F1BF26" />
-                                                    <path
-                                                        d="M17.5 18H46.5L45.8 25.2H24.6L25.2 32.2H45.1L43.5 50.2L32 53.8L20.5 50.2L19.6 40.5H26.8L27.3 45.2L32 46.8L36.8 45.2L37.5 38.8H18.6L17.5 18Z"
-                                                        fill="#FFFFFF" />
+                                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="64" height="64" rx="10" fill="#F7DF1E" />
+                                                    <path d="M19 46.5C20.5 48.5 23 49.8 26.5 49.8C31 49.8 34 47 34 41V15H26.5V40.5C26.5 42.5 25.2 43.5 23.2 43.5C21.2 43.5 20.2 42.5 19.2 40.5L19 46.5Z" fill="#000000" />
+                                                    <path d="M40 45.8C41.8 48.5 45.2 49.8 50 49.8C55.5 49.8 59 46.8 59 41.5C59 36.5 55.5 34 50.5 32L48 31C44.5 29.5 43.2 28.2 43.2 25.8C43.2 23.2 45.5 21.5 49 21.5C52.2 21.5 54.5 23 56 25.5L61.5 21.5C59.2 17.5 54.8 15.5 49 15.5C43 15.5 39.5 18.8 39.5 23.8C39.5 29 43 31.5 47.8 33.5L50.2 34.5C54 36 55.8 37.5 55.8 40.2C55.8 43 53 44.8 49 44.8C44.8 44.8 42 42.2 40.5 38.5L40 45.8Z" fill="#000000" />
                                                 </svg>
                                             </div>
 
@@ -2729,7 +2736,7 @@
                         </svg>
                         <span>ORDANIEL</span>
                     </div>
-                    <span class="edu-banner-headline">AWARDS • CERTIFICATIONS &amp; LICENSES • SPEAKING • COMPLETION</span>
+                    <span class="edu-banner-headline">AWARDS • CERTIFICATIONS • SPEAKING • COMPLETION</span>
                 </div>
             </div>
 
@@ -2787,6 +2794,18 @@
         <div class="cert-lightbox" id="certLightbox" aria-hidden="true" role="dialog" aria-label="Certificate preview">
             <div class="cert-lightbox-backdrop" data-close-lightbox></div>
             <div class="cert-lightbox-panel" id="certLightboxPanel"></div>
+        </div>
+
+        <!-- Ongoing Experience Live Spotlight Modal -->
+        <div class="exp-modal" id="expOngoingModal" aria-hidden="true" role="dialog" aria-labelledby="expModalTitle">
+            <div class="exp-modal-backdrop" id="expModalBackdrop" aria-label="Close modal"></div>
+            <div class="exp-modal-panel" id="expModalPanel"></div>
+        </div>
+
+        <!-- 7TI Upskilling Live Spotlight Modal -->
+        <div class="exp-modal" id="expUpskillModal" aria-hidden="true" role="dialog" aria-labelledby="expUpskillModalTitle">
+            <div class="exp-modal-backdrop" id="expUpskillModalBackdrop" aria-label="Close modal"></div>
+            <div class="exp-modal-panel" id="expUpskillModalPanel"></div>
         </div>
     </section>
 
@@ -3473,6 +3492,26 @@
                 // ----- CERTIFICATIONS & LICENSES (DataCamp, AI Career Readiness, etc.) -----
                 {
                     type: 'license',
+                    title: 'Microsoft Office Specialist: Excel Associate (Microsoft 365 Apps)',
+                    issuer: 'Microsoft (Certiport)',
+                    date: 'September 19, 2026',
+                    note: 'Certified Microsoft Office Specialist in Excel (Microsoft 365 Apps). Formally verified in professional spreadsheet management, formulas, data analysis, charts, and table architectures.',
+                    credentialId: 'w9SpW-H9Jm',
+                    url: 'https://verify.certiport.com',
+                    image: 'assets/Ordaniel_Excel Associate (Microsoft 365 Apps) _Certificate-1.jpg'
+                },
+                {
+                    type: 'license',
+                    title: 'AI Fluency: Framework & Foundations',
+                    issuer: 'Anthropic',
+                    date: '2026',
+                    note: 'Certificate of Completion presented to Aira Bianca Ordaniel for successfully completing the AI Fluency: Framework & Foundations credential by Anthropic in collaboration with UCC, Ringling College of Art + Design, and the Higher Education Authority.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/ai-fluency-certificate.jpg'
+                },
+                {
+                    type: 'license',
                     title: 'AI Fundamentals Certification',
                     issuer: 'DataCamp',
                     date: 'November 2026',
@@ -3555,26 +3594,76 @@
                 },
                 {
                     type: 'speaking',
-                    title: 'Certificate of Appreciation – Guest Speaker',
-                    issuer: 'Tarlac State University – Association of DOST Scholars',
-                    date: '2025',
-                    note: 'Awarded in grateful appreciation for serving as Guest Speaker at the TSU-ADS Annual General Assembly 2025, sharing journeys on academic excellence and scholarship commitments.',
+                    title: 'Certificate of Appreciation – Guest Speaker, SSITE General Assembly 2026',
+                    issuer: 'Student Society on Information Technology Education (BPSU-SSITE)',
+                    date: 'February 12, 2026',
+                    note: 'Awarded to Ms. Aira Bianca Ordaniel in grateful appreciation of her invaluable contribution as guest speaker and for sharing knowledge, leadership insights, and career opportunities in Information Technology during "This is Four: General Assembly 2026" held at the 3/F Learning Commons, University Library, BPSU Main Campus.',
                     credentialId: '',
                     url: '',
-                    image: ''
+                    image: 'assets/events/SSITE General Assembly/General-Assembly-SSITE-Certificate.png'
                 },
                 {
                     type: 'speaking',
-                    title: 'Certificate of Appreciation – Resource Person & Panelist',
-                    issuer: 'Partner Scholar Chapters & Youth Summits',
-                    date: '2026',
-                    note: 'Awarded in recognition of valuable contribution as Resource Person and Panelist on youth-led initiatives, community project building, and digital media advocacy.',
+                    title: 'Certificate of Recognition – Guest Speaker, TSU-ADS General Assembly 2025',
+                    issuer: 'Tarlac State University – Association of DOST Scholars',
+                    date: 'October 18, 2025',
+                    note: 'Awarded to Aira Bianca F. Ordaniel for her attendance and service as Guest Speaker at the TSU-ADS General Assembly entitled "Like Ripples in Water, Every Act of Leadership Creates a Wave of Change" held at the College of Computer Studies AVR, TSU – San Isidro Campus, enhancing scholars’ leadership skills and community solutions.',
                     credentialId: '',
                     url: '',
-                    image: ''
+                    image: 'assets/TSU-General-Assembly-2025-cert.JPG'
+                },
+                {
+                    type: 'speaking',
+                    title: 'Certificate of Appreciation – Resource Speaker, FreshKO Orientation',
+                    issuer: 'Mergence of Innovative and Nurtured DOST Scholars (MINDS BulSU) – Bulacan State University',
+                    date: 'October 10, 2026',
+                    note: 'Awarded to Ms. Aira Bianca F. Ordaniel (Deputy Director for Internal Affairs, SENTRO) as esteemed guest and resource speaker during the FreshKO: Welcoming Freshmen DOST Scholar Orientation, held virtually via MS Teams on October 10, 2026.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/MINDS - CERTIFICATE.jpg'
+                },
+                {
+                    type: 'speaking',
+                    title: 'Certificate of Appreciation – Creative Mentor, CREATEACH Program',
+                    issuer: 'DOST-SENTRO (Region III) × DOST-III',
+                    date: 'February 15, 2025',
+                    note: 'Presented to Aira Bianca Ordaniel in recognition of dedication and outstanding mentorship in the CREATEACH program, guiding and empowering SENTRO’s future creatives in training with knowledge and design inspiration.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/Createch-Certificate.png'
+                },
+                {
+                    type: 'speaking',
+                    title: 'Certificate of Appreciation – Guest Speaker, Antikythera "Robo-Day" (RoboWeek 2026)',
+                    issuer: 'Antikythera: Technology and Astronomy Club (Robotics Club) – BNHS-SHS',
+                    date: 'February 27, 2026',
+                    note: 'Awarded to Aira Bianca Ordaniel in grateful recognition of invaluable contribution as Guest Speaker during Antikythera\'s "Robo-Day" organized by the Technology and Astronomy Club at Bataan National High School – Senior High School, delivering an inspiring presentation on robotics, innovation, and scientific exploration.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/events/robotics club/roboweek-cert.JPG'
+                },
+                {
+                    type: 'speaking',
+                    title: 'Certificate of Appreciation – Event Facilitator, DOSsemble General Assembly 2024',
+                    issuer: 'Bataan Peninsula State University – DOST Organization of Scholars (BPSU-DOS)',
+                    date: 'March 9, 2024',
+                    note: 'Presented to Aira Bianca F. Ordaniel for valuable contribution and participation as facilitator during DOSsemble: The General Assembly for DOST Scholars of Bataan Peninsula State University on March 9, 2024.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/DOSsemble_DOS-General-Assembly-2024.png'
                 },
 
                 // ----- COMPLETION -----
+                {
+                    type: 'completion',
+                    title: 'National Patriot Scholars Congress (NPSC) 2025',
+                    issuer: 'DOST – Science Education Institute (The Filipino Patriot Scholars Program)',
+                    date: 'September 5, 2025',
+                    note: 'Certificate of Participation awarded to Aira Bianca F. Ordaniel for active participation during the National Patriot Scholars Congress 2025 with the theme "Cultivating the Next Generation of Filipino Science Volunteers" at Dusit Thani Mactan, Lapu-Lapu City, Cebu.',
+                    credentialId: '',
+                    url: '',
+                    image: 'assets/NPSC-Certificate.jpg'
+                },
                 {
                     type: 'completion',
                     title: 'AI Career Readiness Training',
@@ -4092,37 +4181,55 @@
                             yearDisplay = parts.slice(1).join(' ');
                         }
                     }
+                    const projectTitle = it.event || it.title || it.role || '';
                     const role = it.role || it.tag || '';
-                    const eventOrg = it.org || it.event || '';
-                    const institution = it.institution || '';
-                    const summary = it.summary || it.desc || it.description || '';
-                    const location = it.place || it.location || '';
+                    const eventOrg = it.org || it.institution || '';
+
+                    // Clean Location, Time
+                    let loc = it.location || it.place || '';
+                    if (loc.includes('Balanga')) loc = 'Balanga City';
+                    else if (loc.includes('Cebu')) loc = 'Lapu-Lapu City, Cebu';
+                    else if (loc.includes('Tarlac')) loc = 'Tarlac City';
+                    else if (loc.includes(',')) loc = loc.split(',').slice(-2).join(', ').trim();
+
+                    let timeStr = '';
+                    if (it.month && it.year) {
+                        const mFull = it.month === 'AUG' ? 'August' : it.month === 'SEP' ? 'September' : it.month === 'OCT' ? 'October' : it.month === 'NOV' ? 'November' : it.month === 'DEC' ? 'December' : it.month === 'JAN' ? 'January' : it.month === 'FEB' ? 'February' : it.month === 'MAR' ? 'March' : it.month === 'APR' ? 'April' : it.month === 'MAY' ? 'May' : it.month === 'JUN' ? 'June' : it.month === 'JUL' ? 'July' : it.month;
+                        timeStr = `${mFull} ${it.year}`;
+                    } else if (it.date) {
+                        timeStr = it.date;
+                    } else if (it.year) {
+                        timeStr = it.year;
+                    }
+                    const locTime = [loc, timeStr].filter(Boolean).join(', ');
+
                     const photoCount = (it.photos && it.photos.length) || 0;
                     const proofCount = (it.proofs && it.proofs.length) || 0;
                     const hasCert = Boolean(it.certificate);
 
                     return `
                     <a class="vol-ticket" style="--j:${j}" href="volunteer.html?id=${encodeURIComponent(it.id)}" data-vol-id="${escapeHtml(it.id)}"
-                        aria-label="${escapeHtml(role)} — ${escapeHtml(eventOrg)}: view role, certificate and photos">
+                        aria-label="${escapeHtml(projectTitle)} — ${escapeHtml(eventOrg)}: view role, certificate and photos">
                         <div class="vol-ticket-stub">
                             <span class="vol-ticket-month">${escapeHtml(monthDisplay)}</span>
                             <span class="vol-ticket-year">${escapeHtml(yearDisplay)}</span>
                             <span class="vol-ticket-barcode" aria-hidden="true"></span>
                         </div>
                         <div class="vol-ticket-main">
-                            <span class="vol-ticket-no">${escapeHtml(sec.title || sec.short || sec.label)} • Entry ${pad2(j + 1)} ${sampleChip(it)}</span>
-                            <strong class="vol-ticket-role">${escapeHtml(role)}</strong>
+                            <div class="vol-ticket-topline">
+                                <span class="vol-ticket-no">${escapeHtml(sec.title || sec.short || sec.label)} • Entry ${pad2(j + 1)} ${sampleChip(it)}</span>
+                                ${role ? `<span class="vol-ticket-role-pill">${escapeHtml(role)}</span>` : ''}
+                            </div>
+                            <strong class="vol-ticket-role">${escapeHtml(projectTitle)}</strong>
                             <span class="vol-ticket-org">${escapeHtml(eventOrg)}</span>
-                            ${institution ? `<span class="vol-ticket-inst" style="font-size:0.73cqw;color:var(--cp-muted,#4a6b82);font-weight:500;">${escapeHtml(institution)}</span>` : ''}
-                            ${summary ? `<p class="vol-ticket-summary">${escapeHtml(summary)}</p>` : ''}
+                            ${locTime ? `<span class="vol-ticket-loctime"><svg viewBox="0 0 24 24" fill="none" width="11" height="11" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21C16 16.5 19 12.5 19 8.5C19 4.9 15.9 2 12 2C8.1 2 5 4.9 5 8.5C5 12.5 8 16.5 12 21Z"/><circle cx="12" cy="8.5" r="2.5"/></svg> ${escapeHtml(locTime)}</span>` : ''}
                             ${(hasCert || photoCount || proofCount) ? `
                             <span class="vol-ticket-badges">
                                 ${hasCert ? `<span class="vol-ticket-badge"><svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="9" r="6"/><path d="M9 14.5L7 21L12 18.5L17 21L15 14.5"/></svg> Certificate</span>` : ''}
                                 ${photoCount ? `<span class="vol-ticket-badge"><svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15L16 10L5 21"/></svg> ${photoCount} Photos</span>` : ''}
-                                ${proofCount ? `<span class="vol-ticket-badge"><svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7L12 13L21 7"/></svg> Letter &amp; Proofs</span>` : ''}
+                                ${proofCount ? `<span class="vol-ticket-badge"><svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7L12 13L21 7"/></svg> Letters</span>` : ''}
                             </span>` : ''}
                             <span class="vol-ticket-foot">
-                                ${location ? `<em>${escapeHtml(location)}</em>` : ''}
                                 ${it.hours ? `<em>${escapeHtml(it.hours)}</em>` : ''}
                                 <span class="vol-ticket-go">View proofs ${arrowIcon}</span>
                             </span>
@@ -4219,129 +4326,437 @@
             window.addEventListener('hashchange', handleHashFolderNavigation);
 
             // ✏️ Ongoing / upcoming highlight shown at the top of the Experiences folder.
-            //    The status flips to "Completed" automatically after the end date.
+            //    Interactive Live Hackathon Spotlight Card & Modal
             const ONGOING_EXPERIENCE = {
-                title: 'DOST GATES GeoHackathon',
-                role: 'Pitching',
+                title: 'DOST GATES GeoHackathon 2026',
+                shortTitle: 'DOST GATES GeoHackathon',
+                role: 'Pitching Finalist',
                 dateLabel: 'Nov 9–10, 2026',
-                end: '2026-11-10T23:59:59'
+                organizer: 'Department of Science and Technology (DOST) — GATES',
+                domain: 'Geospatial AI & Spatial Data Modeling',
+                theme: 'Geospatial Assessment and Technologies for Emerging Solutions',
+                end: '2026-11-10T23:59:59',
+                summary: 'Advancing through the national pitching stage, defending geospatial prototypes, spatial analytics models, and community resilience technologies before DOST technical specialists.',
+                pipeline: [
+                    { step: '01', title: 'Ideation & Spatial Problem Formulation', tag: 'Completed', status: 'done', desc: 'Formulated geospatial problem frameworks addressing regional resource access and disaster mitigation.' },
+                    { step: '02', title: 'Data Preprocessing & Prototype Build', tag: 'Completed', status: 'done', desc: 'Constructed spatial data pipelines, interactive map layers, and working functional prototypes.' },
+                    { step: '03', title: 'Live Pitching & Technical Defense', tag: 'Active Now', status: 'active', desc: 'Delivering the featured pitch presentation, live system demo, and architecture defense before the DOST technical panel.' },
+                    { step: '04', title: 'National Deliberation & Awarding', tag: 'Upcoming', status: 'upcoming', desc: 'Final scoring, judges deliberation, and recognition ceremony for top national geospatial innovations.' }
+                ],
+                highlights: [
+                    { label: 'Geospatial Analytics', text: 'Real-time spatial data layers visualizing community vulnerability & resource allocation' },
+                    { label: 'Functional Prototype', text: 'Deployable computing interface powered by modern web architecture & geospatial APIs' },
+                    { label: 'National Defense', text: 'Pitching system viability, scalability, and civic impact for Philippine communities' }
+                ]
             };
 
             (() => {
                 const box = document.getElementById('expOngoing');
+                const modal = document.getElementById('expOngoingModal');
+                const modalBackdrop = document.getElementById('expModalBackdrop');
+                const modalPanel = document.getElementById('expModalPanel');
                 const ev = ONGOING_EXPERIENCE;
                 if (!box || !ev) return;
+
                 const done = Date.now() > new Date(ev.end).getTime();
                 box.classList.toggle('is-done', done);
                 box.innerHTML = `
-                    <span class="exp-ongoing-status"><span class="exp-ongoing-dot" aria-hidden="true"></span>${done ? 'Completed' : 'Ongoing'}</span>
+                    <span class="exp-ongoing-status">
+                        <span class="exp-ongoing-dot" aria-hidden="true"></span>
+                        ${done ? 'Completed' : 'Ongoing'}
+                    </span>
                     <span class="exp-ongoing-text">
-                        <strong>${escapeHtml(ev.title)}</strong>
+                        <strong>${escapeHtml(ev.shortTitle)}</strong>
                         <span>${escapeHtml(ev.role)} · ${escapeHtml(ev.dateLabel)}</span>
+                    </span>
+                    <span class="exp-ongoing-cue" aria-hidden="true">
+                        Live Stage
+                        <svg viewBox="0 0 24 24" fill="none" width="10" height="10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
                     </span>`;
                 box.hidden = false;
+
+                if (!modal || !modalPanel) return;
+
+                const renderModal = () => {
+                    modalPanel.innerHTML = `
+                        <div class="exp-modal-head">
+                            <span class="exp-modal-live-badge">
+                                <span class="exp-ongoing-dot" aria-hidden="true"></span>
+                                ${done ? 'Completed Milestone' : 'Live National Hackathon'}
+                            </span>
+                            <button type="button" class="exp-modal-close-btn" id="expModalCloseBtn" aria-label="Close dialog">
+                                <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+                                    <path d="M18 6L6 18M6 6L18 18"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <h2 class="exp-modal-title" id="expModalTitle">${escapeHtml(ev.title)}</h2>
+                        <p class="exp-modal-sub">${escapeHtml(ev.organizer)} · ${escapeHtml(ev.theme)}</p>
+
+                        <div class="exp-modal-highlight-card">
+                            <div>
+                                <span class="exp-modal-stat-label">Milestone Status</span>
+                                <span class="exp-modal-stat-val" style="color:#22C55E; display:inline-flex; align-items:center; gap:6px;">
+                                    <span class="exp-ongoing-dot" style="width:7px;height:7px;"></span>
+                                    ${done ? 'Completed' : 'Pitching Stage (Live)'}
+                                </span>
+                            </div>
+                            <div>
+                                <span class="exp-modal-stat-label">Role &amp; Track</span>
+                                <span class="exp-modal-stat-val">${escapeHtml(ev.role)}</span>
+                            </div>
+                            <div>
+                                <span class="exp-modal-stat-label">Schedule</span>
+                                <span class="exp-modal-stat-val">${escapeHtml(ev.dateLabel)}</span>
+                            </div>
+                            <div>
+                                <span class="exp-modal-stat-label">Technical Domain</span>
+                                <span class="exp-modal-stat-val">${escapeHtml(ev.domain)}</span>
+                            </div>
+                        </div>
+
+                        <h3 class="exp-modal-section-h">
+                            <svg viewBox="0 0 24 24" fill="none" width="15" height="15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            Live Pitching Pipeline &amp; Progression
+                        </h3>
+
+                        <div class="exp-modal-pipeline">
+                            ${ev.pipeline.map(st => `
+                            <div class="exp-modal-step ${st.status === 'active' ? 'is-active' : ''} ${st.status === 'done' ? 'is-done' : ''}">
+                                <span class="exp-modal-step-badge">${st.status === 'done' ? '✓' : st.step}</span>
+                                <div class="exp-modal-step-info">
+                                    <div class="exp-modal-step-title">
+                                        <span>${escapeHtml(st.title)}</span>
+                                        <span class="exp-modal-step-tag">${escapeHtml(st.tag)}</span>
+                                    </div>
+                                    <p class="exp-modal-step-desc">${escapeHtml(st.desc)}</p>
+                                </div>
+                            </div>`).join('')}
+                        </div>
+
+                        <h3 class="exp-modal-section-h">
+                            <svg viewBox="0 0 24 24" fill="none" width="15" height="15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z"/><path d="M2 17L12 22L22 17"/><path d="M2 12L12 17L22 12"/>
+                            </svg>
+                            Key Innovations Under Evaluation
+                        </h3>
+
+                        <div class="exp-modal-pipeline" style="margin-bottom:20px;">
+                            ${ev.highlights.map(h => `
+                            <div class="exp-modal-step" style="background:rgba(29,113,185,0.03);">
+                                <span class="exp-modal-step-badge" style="background:rgba(29,113,185,0.1);color:#1D71B9;">★</span>
+                                <div class="exp-modal-step-info">
+                                    <div class="exp-modal-step-title">${escapeHtml(h.label)}</div>
+                                    <p class="exp-modal-step-desc">${escapeHtml(h.text)}</p>
+                                </div>
+                            </div>`).join('')}
+                        </div>
+
+                        <div class="exp-modal-footer">
+                            <button type="button" class="exp-modal-cancel-btn" id="expModalDismissBtn">Close</button>
+                            <a href="#volunteerings-dost" class="exp-modal-link-btn" id="expModalDostLink">
+                                <span>Explore DOST Involvements</span>
+                                <svg viewBox="0 0 24 24" fill="none" width="14" height="14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12H19M19 12L13 6M19 12L13 18"/>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+
+                    document.getElementById('expModalCloseBtn')?.addEventListener('click', closeModal);
+                    document.getElementById('expModalDismissBtn')?.addEventListener('click', closeModal);
+                    document.getElementById('expModalDostLink')?.addEventListener('click', () => {
+                        closeModal();
+                    });
+                };
+
+                const openModal = () => {
+                    renderModal();
+                    modal.classList.add('is-open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    box.setAttribute('aria-expanded', 'true');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                const closeModal = () => {
+                    modal.classList.remove('is-open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    box.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                };
+
+                box.addEventListener('click', openModal);
+                modalBackdrop.addEventListener('click', closeModal);
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+                        closeModal();
+                    }
+                });
             })();
 
-            // ---------- EXPERIENCES FOLDER (Interactive Deck + Dossier Bridge) ----------
+            // ---------- 7TI UPSKILLING SPOTLIGHT MODAL (Interactive Active Learning) ----------
+            (() => {
+                const triggerBtn = document.getElementById('expUpskill');
+                const modal = document.getElementById('expUpskillModal');
+                const modalBackdrop = document.getElementById('expUpskillModalBackdrop');
+                const modalPanel = document.getElementById('expUpskillModalPanel');
+                if (!triggerBtn || !modal || !modalPanel) return;
+
+                const upskillingData = {
+                    title: "AI-Trained Executive Assistant Certification",
+                    academy: "7Trained Inc. (7TI)",
+                    cohort: "Active Cohort (Nov 2026 – Present)",
+                    status: "In Progress · Actively Upskilling",
+                    domain: "Generative AI · Autonomous Executive Operations",
+                    focus: "Autonomous Workflows, C-Suite Prompt Engineering & Calendar/Inbox Orchestration",
+                    modules: [
+                        {
+                            step: "01",
+                            title: "Generative AI Foundations & C-Suite Briefings",
+                            tag: "Completed",
+                            status: "done",
+                            desc: "Deep research synthesis, executive summaries, and prompt engineering with ChatGPT, Claude, and modern LLMs to accelerate decision cycles."
+                        },
+                        {
+                            step: "02",
+                            title: "Autonomous Workflow Orchestration & Calendar Optimization",
+                            tag: "Active Module",
+                            status: "active",
+                            desc: "Smart inbox triage, proactive calendar deconfliction, async communication workflows, and executive travel/logistics coordination."
+                        },
+                        {
+                            step: "03",
+                            title: "Executive Document Automation & Toolchains",
+                            tag: "Upcoming",
+                            status: "next",
+                            desc: "Google Workspace automation, Notion AI systems, confidential memo templates, and end-to-end task delegation pipelines."
+                        },
+                        {
+                            step: "04",
+                            title: "Capstone Simulation & Official EA Credential",
+                            tag: "Final Milestone",
+                            status: "next",
+                            desc: "Comprehensive simulated high-stakes executive scenarios, tooling audit, and formal certification as an AI-Trained Executive Assistant."
+                        }
+                    ],
+                    highlights: [
+                        {
+                            label: "AI-Leveraged Executive Productivity",
+                            text: "Applying custom GPT prompts and autonomous agents to compress multi-hour administrative and research tasks into minutes."
+                        },
+                        {
+                            label: "Asynchronous Operational Cadence",
+                            text: "Engineering proactive status dashboards, clean briefing decks, and structured documentation for distributed and remote leadership teams."
+                        },
+                        {
+                            label: "C-Level Discretion & Confidentiality",
+                            text: "Strict adherence to data privacy, ethical AI guidelines, and corporate information security for sensitive business operations."
+                        }
+                    ]
+                };
+
+                const renderModal = () => {
+                    const u = upskillingData;
+                    modalPanel.innerHTML = `
+                        <div class="exp-modal-head">
+                            <span class="exp-modal-live-badge" style="background:rgba(217,119,6,0.12); color:#B45309; border-color:rgba(217,119,6,0.3);">
+                                <span class="exp-upskill-spark" style="font-size:12px;">⚡</span>
+                                Active Professional Upskilling
+                            </span>
+                            <button type="button" class="exp-modal-close-btn" id="expUpskillCloseBtn" aria-label="Close dialog">
+                                <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+                                    <path d="M18 6L6 18M6 6L18 18"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <h2 class="exp-modal-title" id="expUpskillModalTitle">${escapeHtml(u.title)}</h2>
+                        <p class="exp-modal-sub">${escapeHtml(u.academy)} · ${escapeHtml(u.focus)}</p>
+
+                        <div class="exp-modal-highlight-card" style="border-left: 3px solid #D97706; background: linear-gradient(135deg, rgba(217,119,6,0.05) 0%, rgba(245,158,11,0.02) 100%);">
+                            <div>
+                                <span class="exp-modal-stat-label">Certification Status</span>
+                                <span class="exp-modal-stat-val" style="color:#B45309; display:inline-flex; align-items:center; gap:6px;">
+                                    <span class="exp-upskill-spark" style="font-size:11px;">⚡</span>
+                                    ${escapeHtml(u.status)}
+                                </span>
+                            </div>
+                            <div>
+                                <span class="exp-modal-stat-label">Training Academy</span>
+                                <span class="exp-modal-stat-val">${escapeHtml(u.academy)}</span>
+                            </div>
+                            <div>
+                                <span class="exp-modal-stat-label">Cohort &amp; Timeline</span>
+                                <span class="exp-modal-stat-val">${escapeHtml(u.cohort)}</span>
+                            </div>
+                            <div>
+                                <span class="exp-modal-stat-label">Core Competency Domain</span>
+                                <span class="exp-modal-stat-val">${escapeHtml(u.domain)}</span>
+                            </div>
+                        </div>
+
+                        <h3 class="exp-modal-section-h">
+                            <svg viewBox="0 0 24 24" fill="none" width="15" height="15" stroke="#D97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Curriculum Pipeline &amp; Key Modules
+                        </h3>
+
+                        <div class="exp-modal-pipeline">
+                            ${u.modules.map(m => `
+                            <div class="exp-modal-step ${m.status === 'active' ? 'is-active' : ''} ${m.status === 'done' ? 'is-done' : ''}">
+                                <span class="exp-modal-step-badge" ${m.status === 'active' ? 'style="background:#D97706; color:#fff;"' : (m.status === 'done' ? 'style="background:rgba(34,197,94,0.15); color:#15803D;"' : '')}>${m.status === 'done' ? '✓' : m.step}</span>
+                                <div class="exp-modal-step-info">
+                                    <div class="exp-modal-step-title">
+                                        <span>${escapeHtml(m.title)}</span>
+                                        <span class="exp-modal-step-tag" ${m.status === 'active' ? 'style="background:rgba(217,119,6,0.15); color:#B45309; border-color:rgba(217,119,6,0.3);"' : ''}>${escapeHtml(m.tag)}</span>
+                                    </div>
+                                    <p class="exp-modal-step-desc">${escapeHtml(m.desc)}</p>
+                                </div>
+                            </div>`).join('')}
+                        </div>
+
+                        <h3 class="exp-modal-section-h">
+                            <svg viewBox="0 0 24 24" fill="none" width="15" height="15" stroke="#D97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            Executive Assistant Capabilities
+                        </h3>
+
+                        <div class="exp-modal-pipeline" style="margin-bottom:20px;">
+                            ${u.highlights.map(h => `
+                            <div class="exp-modal-step" style="background:rgba(217,119,6,0.03);">
+                                <span class="exp-modal-step-badge" style="background:rgba(217,119,6,0.12); color:#B45309;">⚡</span>
+                                <div class="exp-modal-step-info">
+                                    <div class="exp-modal-step-title">${escapeHtml(h.label)}</div>
+                                    <p class="exp-modal-step-desc">${escapeHtml(h.text)}</p>
+                                </div>
+                            </div>`).join('')}
+                        </div>
+
+                        <div class="exp-modal-footer">
+                            <button type="button" class="exp-modal-cancel-btn" id="expUpskillDismissBtn">Close</button>
+                            <a href="experience.html?track=working" class="exp-modal-link-btn" style="background:linear-gradient(135deg, #D97706 0%, #B45309 100%);">
+                                <span>Explore Working Experience Track</span>
+                                <svg viewBox="0 0 24 24" fill="none" width="14" height="14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12H19M19 12L13 6M19 12L13 18"/>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+
+                    document.getElementById('expUpskillCloseBtn')?.addEventListener('click', closeModal);
+                    document.getElementById('expUpskillDismissBtn')?.addEventListener('click', closeModal);
+                };
+
+                const openModal = () => {
+                    renderModal();
+                    modal.classList.add('is-open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    triggerBtn.setAttribute('aria-expanded', 'true');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                const closeModal = () => {
+                    modal.classList.remove('is-open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    triggerBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                };
+
+                triggerBtn.addEventListener('click', openModal);
+                modalBackdrop.addEventListener('click', closeModal);
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+                        closeModal();
+                    }
+                });
+            })();
+
+            // ---------- EXPERIENCES FOLDER (3 Creative Interactive Track Cards) ----------
             const experiencesPreview = (() => {
                 const wrap = document.getElementById('expPanels');
-                const filterBar = document.getElementById('expFilterBar');
                 const kicker = document.getElementById('experiencesKicker');
                 if (!wrap) return { replay() { } };
 
-                const experiences = window.EXPERIENCES_DATA || [];
-                let currentTrack = 'all';
+                const tracks = window.EXPERIENCE_TRACKS || [];
+                const allExperiences = window.EXPERIENCES_DATA || [];
 
-                const total = experiences.length;
-                const workingCount = experiences.filter(e => e.track === 'working').length;
-                const volCount = experiences.filter(e => e.track === 'volunteering').length;
-                const freeCount = experiences.filter(e => e.track === 'freelancing').length;
-
-                if (kicker) kicker.textContent = `${total} ENTRIES • 3 TRACKS`;
-
-                // Render Filter Bar
-                const filterOptions = [
-                    { key: 'all', label: 'All Experiences', count: total },
-                    { key: 'working', label: 'Working', count: workingCount },
-                    { key: 'volunteering', label: 'Leadership & Vol', count: volCount },
-                    { key: 'freelancing', label: 'Freelancing', count: freeCount }
-                ];
-
-                if (filterBar) {
-                    filterBar.innerHTML = filterOptions.map((f) => `
-                        <button type="button" class="exp-filter-btn${f.key === currentTrack ? ' is-active' : ''}"
-                            role="tab" data-track="${f.key}" aria-selected="${f.key === currentTrack ? 'true' : 'false'}">
-                            <span>${escapeHtml(f.label)}</span>
-                            <span class="exp-filter-count">${f.count}</span>
-                        </button>
-                    `).join('');
-
-                    filterBar.querySelectorAll('.exp-filter-btn').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            const track = btn.dataset.track;
-                            if (currentTrack === track) return;
-                            currentTrack = track;
-                            filterBar.querySelectorAll('.exp-filter-btn').forEach(b => {
-                                const on = b === btn;
-                                b.classList.toggle('is-active', on);
-                                b.setAttribute('aria-selected', on ? 'true' : 'false');
-                            });
-                            renderCards();
-                        });
-                    });
-                }
+                if (kicker) kicker.textContent = `${tracks.length} TRACKS • ${allExperiences.length} MILESTONES`;
 
                 const renderCards = () => {
-                    const filtered = currentTrack === 'all'
-                        ? experiences
-                        : experiences.filter(e => e.track === currentTrack);
-
-                    wrap.innerHTML = filtered.map((e, i) => {
-                        const tags = (e.tags || []).slice(0, 3);
+                    wrap.innerHTML = tracks.map((t, i) => {
+                        const tags = (t.tags || []).slice(0, 3);
+                        const previews = (t.previewItems || []).slice(0, 3);
                         return `
-                        <a class="exp-card exp-card--${escapeHtml(e.track)}"
-                            href="experience.html?id=${encodeURIComponent(e.id)}"
-                            data-exp-id="${escapeHtml(e.id)}"
+                        <a class="exp-track-card exp-track-card--${escapeHtml(t.key)}"
+                            href="experience.html?track=${encodeURIComponent(t.key)}"
+                            data-track="${escapeHtml(t.key)}"
                             style="--d:${i}"
-                            aria-label="${escapeHtml(e.role)} at ${escapeHtml(e.org)}: Open Dossier">
-                            <div class="exp-card-head">
-                                <div class="exp-card-logo-frame">
-                                    <img src="${escapeHtml(e.logo)}" alt="${escapeHtml(e.org)}" class="exp-card-logo"
-                                        onerror="this.onerror=null; this.src='assets/logo-light.png';" />
-                                </div>
-                                <div class="exp-card-badges">
-                                    <span class="exp-card-track">${escapeHtml(e.trackLabel.split(' ')[0])}</span>
-                                    <span class="exp-card-status ${e.isCurrent ? 'is-active' : 'is-completed'}">
-                                        <span class="exp-card-dot" aria-hidden="true"></span>
-                                        ${e.isCurrent ? 'Active' : 'Completed'}
-                                    </span>
-                                </div>
-                            </div>
+                            aria-label="${escapeHtml(t.label)}: ${escapeHtml(t.ctaLabel || 'Explore')}">
+                            
+                            <div class="exp-track-card-shine" aria-hidden="true"></div>
 
-                            <div class="exp-card-body">
-                                <strong class="exp-card-role" title="${escapeHtml(e.role)}">${escapeHtml(e.role)}</strong>
-                                <span class="exp-card-org" title="${escapeHtml(e.org)}">${escapeHtml(e.org)}</span>
-                                <span class="exp-card-period">
-                                    <svg viewBox="0 0 24 24" fill="none" width="12" height="12" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                                    ${escapeHtml(e.period)}
+                            <header class="exp-track-card-head">
+                                <span class="exp-track-index">TRACK 0${i + 1}</span>
+                                <span class="exp-track-badge">
+                                    <span class="exp-track-badge-dot" aria-hidden="true"></span>
+                                    ${escapeHtml(t.badge)}
                                 </span>
-                                ${e.summary ? `<p class="exp-card-snippet">${escapeHtml(e.summary)}</p>` : ''}
+                            </header>
+
+                            <!-- Clustered Logo Badges -->
+                            <div class="exp-track-logo-cluster">
+                                ${(t.logos || []).map(l => `
+                                <div class="exp-track-logo-chip" title="${escapeHtml(l.alt)}">
+                                    <img src="${escapeHtml(l.src)}" alt="${escapeHtml(l.alt)}" onerror="this.onerror=null; this.src='assets/logo-light.png';" />
+                                </div>`).join('')}
                             </div>
 
-                            ${tags.length ? `
-                            <div class="exp-card-tags">
-                                ${tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}
-                            </div>` : ''}
-
-                            <div class="exp-card-foot">
-                                <span class="exp-card-loc">${escapeHtml(e.location)}</span>
-                                <span class="exp-card-cta">View Dossier ${arrowIcon}</span>
+                            <div class="exp-track-body">
+                                <h3 class="exp-track-title">${escapeHtml(t.label)}</h3>
+                                <p class="exp-track-tagline">${escapeHtml(t.tagline)}</p>
                             </div>
+
+                            <ul class="exp-track-preview-list">
+                                ${previews.map(p => `
+                                <li>
+                                    <span class="exp-preview-bullet" aria-hidden="true">✦</span>
+                                    <div class="exp-preview-text">
+                                        <strong class="exp-preview-name">${escapeHtml(p.title)}</strong>
+                                        <span class="exp-preview-sep">·</span>
+                                        <span class="exp-preview-role">${escapeHtml(p.sub)}</span>
+                                    </div>
+                                </li>`).join('')}
+                            </ul>
+
+                            <div class="exp-track-tags">
+                                ${tags.map(tg => `<span>${escapeHtml(tg)}</span>`).join('')}
+                            </div>
+
+                            <footer class="exp-track-foot">
+                                <span class="exp-track-count-pill">${escapeHtml(t.countLabel)}</span>
+                                <span class="exp-track-cta">
+                                    <span>${escapeHtml(t.ctaLabel || 'Explore Section')}</span>
+                                    ${arrowIcon}
+                                </span>
+                            </footer>
                         </a>`;
                     }).join('');
 
-                    wrap.querySelectorAll('.exp-card').forEach(card => {
-                        if (typeof attachTilt === 'function') attachTilt(card, 5);
+                    wrap.querySelectorAll('.exp-track-card').forEach(card => {
+                        if (typeof attachTilt === 'function') attachTilt(card, 6);
                     });
 
                     replayClass(wrap, 'is-entering');
@@ -4351,6 +4766,7 @@
 
                 return {
                     replay() {
+                        renderCards();
                         replayClass(wrap, 'is-entering');
                     }
                 };
